@@ -12,17 +12,16 @@ npm install
 cp .env.example .env.local
 ```
 
-Llena `.env.local` con tres valores:
+`.env.local` ya está lleno salvo un valor:
 
-- `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY` del proyecto **nuestros-viajes**. Están en `D:\ANDRES\Claude_Projects\Consulta_Viajes\viajes-app\.env`.
-- `ACCESO_SECRETO`: genéralo con `node -e "console.log(crypto.randomUUID())"`.
-
-Después:
+- `SUPABASE_PROJECT_REF` y `SUPABASE_DB_PASSWORD` del proyecto **nuestros-viajes**: puestos.
+- `ACCESO_SECRETO`: puesto.
+- `SUPABASE_SERVICE_ROLE_KEY`: **falta**. Panel de Supabase, en Project Settings > API Keys > secret key. Solo hace falta para subir y ver los archivos del baúl; el resto de la app corre sin ella.
 
 ```bash
-# 1. Pega supabase/001_schema_eventos.sql en el editor SQL del proyecto y córrelo
-npm run setup    # verifica el schema y crea el bucket privado baul-eventos
-npm run seed     # carga la 22.ª Fiesta y sube las boletas que están en D:\Download
+npm run migrar   # aplica el schema por Postgres directo (ya corrido)
+npm run setup    # verifica schema y bucket
+npm run seed     # carga la 22.ª Fiesta y sube las boletas de D:\Download
 npm run dev
 ```
 
