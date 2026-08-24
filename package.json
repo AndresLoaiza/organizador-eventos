@@ -7,16 +7,18 @@
     "build": "next build",
     "start": "next start",
     "test": "node --test lib/*.test.mjs",
-    "setup": "node scripts/setup.mjs",
-    "seed": "node scripts/seed.mjs",
-    "boletas:pendientes": "node scripts/boletas-pendientes.mjs",
-    "boletas:aplicar": "node scripts/boletas-aplicar.mjs",
-    "baul:backup": "node scripts/baul-backup.mjs",
-    "obsidian:sync": "node agente/obsidian-sync.mjs"
+    "setup": "node --env-file=.env.local scripts/setup.mjs",
+    "seed": "node --env-file=.env.local scripts/seed.mjs",
+    "boletas:pendientes": "node --env-file=.env.local scripts/boletas-pendientes.mjs",
+    "boletas:aplicar": "node --env-file=.env.local scripts/boletas-aplicar.mjs",
+    "baul:backup": "node --env-file=.env.local scripts/baul-backup.mjs",
+    "obsidian:sync": "node --env-file=.env.local agente/obsidian-sync.mjs",
+    "migrar": "node --env-file=.env.local scripts/migrar.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
     "next": "^15.1.0",
+    "pg": "^8.23.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

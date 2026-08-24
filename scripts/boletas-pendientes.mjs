@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join, basename } from 'node:path';
-import { datos, almacen, BUCKET } from './_cliente.mjs';
+import { sql, almacen, poolPg, BUCKET, FALTA_LLAVE_STORAGE } from './_cliente.mjs';
 
 // Baja a trabajo/ los originales que todavía no se han extraído, para que una
 // sesión de Claude Code los lea y escriba trabajo/extraido.json.
@@ -8,19 +8,22 @@ import { datos, almacen, BUCKET } from './_cliente.mjs';
 const DIR = 'trabajo';
 await mkdir(DIR, { recursive: true });
 
-const { data: pendientes, error } = await datos.from('boletas')
-  .select('id, storage_key, mime, funcion_id, extraccion_json')
-  .eq('extraccion_estado', 'pendiente');
-if (error) { console.error(error.message); process.exit(1); }
+const storage = almacen();
+if (!storage) { console.error(FALTA_LLAVE_STORAGE); process.exit(1); }
+
+const pendientes = await sql(
+  `select id, storage_key, mime, funcion_id from eventos.boletas
+    where extraccion_estado = 'pendiente'`);
 
 if (!pendientes.length) {
   console.log('No hay boletas pendientes de extracción.');
+  await poolPg().end();
   process.exit(0);
 }
 
 const manifiesto = [];
 for (const b of pendientes) {
-  const { data, error: e } = await almacen.storage.from(BUCKET).download(b.storage_key);
+  const { data, error: e } = await storage.storage.from(BUCKET).download(b.storage_key);
   if (e) { console.warn(`  no se pudo bajar ${b.storage_key}: ${e.message}`); continue; }
   const nombre = `${b.id}__${basename(b.storage_key)}`;
   await writeFile(join(DIR, nombre), Buffer.from(await data.arrayBuffer()));
@@ -29,6 +32,7 @@ for (const b of pendientes) {
 }
 
 await writeFile(join(DIR, 'pendientes.json'), JSON.stringify(manifiesto, null, 2));
+await poolPg().end();
 
 console.log(`\n${manifiesto.length} archivos en trabajo/.
 

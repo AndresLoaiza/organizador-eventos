@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { db, BUCKET } from '../../../lib/db.mjs';
+import { sql, unaFila, almacen, BUCKET, FALTA_LLAVE_STORAGE } from '../../../lib/db.mjs';
 import { hashContenido, claveBoleta, claveHuerfana } from '../../../lib/nombres.mjs';
 import { hoyMedellin } from '../../../lib/datos.mjs';
 
@@ -9,6 +9,11 @@ export const runtime = 'nodejs';
 // columnas de la base, nunca en el archivo.
 
 export async function POST(req) {
+  const storage = almacen();
+  if (!storage) {
+    return NextResponse.json({ error: FALTA_LLAVE_STORAGE }, { status: 503 });
+  }
+
   let form;
   try {
     form = await req.formData();
@@ -26,64 +31,72 @@ export async function POST(req) {
     return NextResponse.json({ error: 'El archivo llegó vacío.' }, { status: 400 });
   }
   const hash = hashContenido(buffer);
-  const c = db();
 
-  // Subir dos veces la misma foto no crea un duplicado ni sobrescribe nada.
-  const { data: yaEsta } = await c.from('boletas')
-    .select('id, storage_key').eq('hash_contenido', hash).maybeSingle();
-  if (yaEsta) {
-    return NextResponse.json(
-      { ok: true, repetida: true, id: yaEsta.id, mensaje: 'Ese archivo ya estaba en el baúl.' });
+  try {
+    // Subir dos veces la misma foto no crea un duplicado ni sobrescribe nada.
+    const yaEsta = await unaFila(
+      'select id from eventos.boletas where hash_contenido = $1', [hash]);
+    if (yaEsta) {
+      return NextResponse.json({
+        ok: true, repetida: true, id: yaEsta.id,
+        mensaje: 'Ese archivo ya estaba en el baúl.',
+      });
+    }
+
+    const funcionId = form.get('funcion_id') || null;
+    const festivalId = form.get('festival_id') || null;
+    const mime = archivo.type || 'application/octet-stream';
+
+    let clave;
+    if (funcionId) {
+      const f = await unaFila(
+        `select f.fecha, f.hora_min, f.obra, f.festival_id,
+                s.slug as sala_slug, fe.slug as festival_slug
+           from eventos.funciones f
+           left join eventos.salas s on s.id = f.sala_id
+           left join eventos.festivales fe on fe.id = f.festival_id
+          where f.id = $1`, [funcionId]);
+      if (!f) return NextResponse.json({ error: 'Esa función no existe.' }, { status: 400 });
+      const fecha = typeof f.fecha === 'string' ? f.fecha.slice(0, 10)
+        : f.fecha.toISOString().slice(0, 10);
+      clave = claveBoleta(
+        f.festival_slug ?? 'festival',
+        { fecha, hora_min: f.hora_min, obra: f.obra, salaSlug: f.sala_slug ?? 'sin-sala' },
+        hash, mime, archivo.name,
+      );
+    } else {
+      clave = claveHuerfana(hash, mime, archivo.name, hoyMedellin());
+    }
+
+    const { error: errSubida } = await storage.storage.from(BUCKET)
+      .upload(clave, buffer, { contentType: mime, upsert: false });
+    if (errSubida && !/exists/i.test(errSubida.message)) {
+      return NextResponse.json({ error: `Storage: ${errSubida.message}` }, { status: 500 });
+    }
+
+    const valor = form.get('valor_ticket');
+    const obraTexto = form.get('obra_texto');
+    const fila = await unaFila(
+      `insert into eventos.boletas
+         (funcion_id, festival_id, storage_key, hash_contenido, mime, titular,
+          valor_ticket, origen, extraccion_estado, extraccion_json)
+       values ($1, $2, $3, $4, $5, $6, $7, $8, 'pendiente', $9)
+       returning id`,
+      [
+        funcionId, festivalId || null, clave, hash, mime,
+        form.get('titular') || null,
+        valor ? Number(valor) : null,
+        form.get('origen') || 'subida',
+        obraTexto ? JSON.stringify({ obra_texto: obraTexto }) : null,
+      ]);
+
+    return NextResponse.json({
+      ok: true, id: fila.id, storage_key: clave,
+      mensaje: funcionId
+        ? 'Guardada y vinculada. La extracción completa queda pendiente.'
+        : 'Guardada sin vincular. Dime a qué función pertenece.',
+    });
+  } catch (e) {
+    return NextResponse.json({ error: e.message }, { status: 500 });
   }
-
-  const funcionId = form.get('funcion_id') || null;
-  const festivalId = form.get('festival_id') || null;
-  const mime = archivo.type || 'application/octet-stream';
-
-  let clave;
-  if (funcionId) {
-    const { data: f } = await c.from('funciones')
-      .select('fecha, hora_min, obra, festival_id, sala_id').eq('id', funcionId).single();
-    const { data: sala } = f?.sala_id
-      ? await c.from('salas').select('slug').eq('id', f.sala_id).single()
-      : { data: null };
-    const { data: fest } = await c.from('festivales')
-      .select('slug').eq('id', f.festival_id).single();
-    clave = claveBoleta(
-      fest?.slug ?? 'festival',
-      { fecha: f.fecha, hora_min: f.hora_min, obra: f.obra, salaSlug: sala?.slug ?? 'sin-sala' },
-      hash, mime, archivo.name,
-    );
-  } else {
-    clave = claveHuerfana(hash, mime, archivo.name, hoyMedellin());
-  }
-
-  const { error: errSubida } = await c.storage.from(BUCKET)
-    .upload(clave, buffer, { contentType: mime, upsert: false });
-  if (errSubida && !/exists/i.test(errSubida.message)) {
-    return NextResponse.json({ error: `Storage: ${errSubida.message}` }, { status: 500 });
-  }
-
-  const valor = form.get('valor_ticket');
-  const { data: fila, error } = await c.from('boletas').insert({
-    funcion_id: funcionId,
-    festival_id: festivalId || null,
-    storage_key: clave,
-    hash_contenido: hash,
-    mime,
-    titular: form.get('titular') || null,
-    valor_ticket: valor ? Number(valor) : null,
-    origen: form.get('origen') || 'subida',
-    extraccion_estado: 'pendiente',
-    extraccion_json: form.get('obra_texto') ? { obra_texto: form.get('obra_texto') } : null,
-  }).select('id').single();
-
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-
-  return NextResponse.json({
-    ok: true, id: fila.id, storage_key: clave,
-    mensaje: funcionId
-      ? 'Guardada y vinculada. La extracción completa queda pendiente.'
-      : 'Guardada sin vincular. Dime a qué función pertenece.',
-  });
 }

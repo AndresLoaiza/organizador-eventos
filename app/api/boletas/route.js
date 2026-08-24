@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { db } from '../../../lib/db.mjs';
+import { sql } from '../../../lib/db.mjs';
 
 export const runtime = 'nodejs';
 
@@ -12,15 +12,24 @@ export async function PATCH(req) {
   const cuerpo = await req.json().catch(() => null);
   if (!cuerpo?.id) return NextResponse.json({ error: 'Falta el id.' }, { status: 400 });
 
-  const cambios = {};
-  for (const k of EDITABLES) if (k in cuerpo) cambios[k] = cuerpo[k];
-  if (!Object.keys(cambios).length) {
-    return NextResponse.json({ error: 'Nada que cambiar.' }, { status: 400 });
-  }
-  // Corregir a mano significa que un humano lo miró.
-  if (!('extraccion_estado' in cambios)) cambios.extraccion_estado = 'confirmada';
+  const columnas = EDITABLES.filter(k => k in cuerpo);
+  if (!columnas.length) return NextResponse.json({ error: 'Nada que cambiar.' }, { status: 400 });
 
-  const { error } = await db().from('boletas').update(cambios).eq('id', cuerpo.id);
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ ok: true });
+  // Corregir a mano significa que un humano lo miró.
+  if (!columnas.includes('extraccion_estado')) {
+    columnas.push('extraccion_estado');
+    cuerpo.extraccion_estado = 'confirmada';
+  }
+
+  // Los nombres de columna salen de una lista fija, nunca del cuerpo del
+  // request; los valores van todos parametrizados.
+  const asignaciones = columnas.map((c, i) => `${c} = $${i + 2}`).join(', ');
+  const valores = columnas.map(c => cuerpo[c]);
+
+  try {
+    await sql(`update eventos.boletas set ${asignaciones} where id = $1`, [cuerpo.id, ...valores]);
+    return NextResponse.json({ ok: true });
+  } catch (e) {
+    return NextResponse.json({ error: e.message }, { status: 500 });
+  }
 }

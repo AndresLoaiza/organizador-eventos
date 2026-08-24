@@ -24,7 +24,12 @@ export default async function Agenda() {
   }
 
   const fechas = [...new Set(p.funciones.filter(f => f.agendada).map(f => f.fecha))].sort();
-  const faltantes = p.funciones.filter(f => f.agendada && f.boletas.length < f.necesarias && f.fecha >= p.hoy);
+  // Falta COMPRAR, que no es lo mismo que faltar el archivo. Una función marcada
+  // como comprada cuyo PDF sigue en el correo no va aquí: para eso está el aviso
+  // de "sin archivo en el baúl". Mezclarlas infla el costo pendiente.
+  const faltantes = p.funciones.filter(f =>
+    f.agendada && f.fecha >= p.hoy && f.estado !== 'comprada' &&
+    f.boletas.length < f.necesarias);
   const porComprar = faltantes.reduce(
     (s, f) => s + (f.necesarias - f.boletas.length) * (f.precio_dcto ?? f.precio_pleno), 0);
 

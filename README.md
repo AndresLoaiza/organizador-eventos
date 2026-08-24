@@ -32,7 +32,11 @@ Entra una sola vez con `http://localhost:3000/entrar?k=TU_ACCESO_SECRETO`. Queda
 
 No hay login. Se abre el enlace secreto una vez y ya. En Vercel, la misma URL con `?k=`.
 
-Ninguna llave de Supabase llega al navegador: todo pasa por route handlers que usan la `service_role` guardada en el servidor. Por eso la URL secreta acá sí protege, y no solo esconde.
+Ninguna llave de Supabase llega al navegador: todo pasa por route handlers en el servidor. Por eso la URL secreta acá sí protege, y no solo esconde.
+
+Los datos van por **Postgres directo**, no por PostgREST. Dos razones: PostgREST no ejecuta DDL, y así la app no depende de la `service_role`, que en este proyecto es compartida con `polla-app` y `viajes-app`. Una llave menos circulando. Storage sí la necesita, porque los bytes viven en S3 y no en la base.
+
+La conexión va al pooler de la región del proyecto (`aws-1-us-east-1`, puerto 5432 en local y 6543 en Vercel). El host `db.<ref>.supabase.co` resuelve solo a IPv6 y no sirve desde redes sin ruta IPv6. El root CA de Supabase va versionado en `lib/supabase-ca.mjs` con verificación de huella: sin él, Node rechaza la cadena.
 
 ## Módulos
 
@@ -66,7 +70,8 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 28 pruebas del motor de choques y las alarmas, con datos reales de la Fiesta |
+| `npm test` | 30 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
 | `npm run seed` | Carga festival, salas, traslados, funciones y boletas |
 | `npm run boletas:pendientes` | Baja a `trabajo/` lo que falta extraer |
@@ -90,3 +95,5 @@ supabase/     schema SQL, se pega una vez en el editor del proyecto
 - **`agendada` distingue el volante de la agenda.** Sin esa columna, cualquier función de la programación aparece como decidida.
 - **`duracion_confirmada` marca lo que es estimación.** Las duraciones no salen del volante. Cuando un margen depende de un número inventado, la interfaz lo dice.
 - **El schema es `eventos`, no `public`.** El proyecto de Supabase es compartido con `polla-app` y `viajes-app`.
+- **Las alternativas de una noche se evalúan contra TODAS las agendadas del festival**, no contra las de esa fecha. Filtrar por fecha hace que el motor crea que las otras noches están libres y prometa rescates que no existen. Hay test de regresión.
+- **"Falta comprar" no es lo mismo que "falta el archivo".** Una función comprada cuyo PDF sigue en el correo no cuenta como pendiente de compra; para eso está el aviso de baúl.

@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import process from 'node:process';
-import { datos } from '../scripts/_cliente.mjs';
+import { sql, poolPg } from '../scripts/_cliente.mjs';
 
 // Puente Supabase -> vault de Obsidian. Corre en el PC porque el vault vive en
 // D:\ y no es repo git: ningún proceso remoto puede escribirlo.
@@ -14,18 +14,16 @@ const PERFIL = process.env.PERFIL_GUSTOS
 
 const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
 
-const { data: festivales, error: e1 } = await datos.from('festivales').select('*');
-if (e1) { console.error(e1.message); process.exit(1); }
-
-const { data: funciones, error: e2 } = await datos.from('funciones')
-  .select('id, festival_id, fecha, obra, compania, agendada');
-if (e2) { console.error(e2.message); process.exit(1); }
-
-const { data: bitacora, error: e3 } = await datos.from('bitacora').select('*');
-if (e3) { console.error(e3.message); process.exit(1); }
+const festivales = await sql(
+  `select *, to_char(fecha_inicio, 'YYYY-MM-DD') as fecha_inicio from eventos.festivales`);
+const funciones = await sql(
+  `select id, festival_id, to_char(fecha, 'YYYY-MM-DD') as fecha, obra, compania, agendada
+     from eventos.funciones`);
+const bitacora = await sql('select * from eventos.bitacora');
 
 if (!bitacora.length) {
   console.log('No hay juicios registrados todavía. Nada que llevar al perfil.');
+  await poolPg().end();
   process.exit(0);
 }
 
@@ -80,10 +78,12 @@ for (const fest of festivales) {
 await writeFile(PERFIL, texto, 'utf8');
 
 if (sincronizadas.length) {
-  await datos.from('bitacora')
-    .update({ sincronizado_obsidian: new Date().toISOString() })
-    .in('id', sincronizadas);
+  await sql(
+    `update eventos.bitacora set sincronizado_obsidian = now() where id = any($1::uuid[])`,
+    [sincronizadas]);
 }
+
+await poolPg().end();
 
 console.log(`Perfil actualizado: ${PERFIL}`);
 console.log(`${sincronizadas.length} juicios nuevos marcados como sincronizados.`);

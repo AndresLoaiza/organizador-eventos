@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { db } from '../../../lib/db.mjs';
+import { sql, unaFila } from '../../../lib/db.mjs';
 
 export const runtime = 'nodejs';
 
@@ -18,15 +18,24 @@ export async function POST(req) {
     return NextResponse.json({ error: 'Las estrellas van de 1 a 5.' }, { status: 400 });
   }
 
-  const c = db();
-  const { data: previa } = await c.from('bitacora')
-    .select('id').eq('funcion_id', cuerpo.funcion_id).maybeSingle();
+  try {
+    const previa = await unaFila(
+      'select id from eventos.bitacora where funcion_id = $1', [cuerpo.funcion_id]);
 
-  const fila = { funcion_id: cuerpo.funcion_id, texto, estrellas, sincronizado_obsidian: null };
-  const { error } = previa
-    ? await c.from('bitacora').update(fila).eq('id', previa.id)
-    : await c.from('bitacora').insert(fila);
-
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ ok: true, actualizada: Boolean(previa) });
+    if (previa) {
+      await sql(
+        `update eventos.bitacora
+            set texto = $2, estrellas = $3, sincronizado_obsidian = null
+          where id = $1`,
+        [previa.id, texto, estrellas]);
+    } else {
+      await sql(
+        `insert into eventos.bitacora (funcion_id, texto, estrellas)
+         values ($1, $2, $3)`,
+        [cuerpo.funcion_id, texto, estrellas]);
+    }
+    return NextResponse.json({ ok: true, actualizada: Boolean(previa) });
+  } catch (e) {
+    return NextResponse.json({ error: e.message }, { status: 500 });
+  }
 }

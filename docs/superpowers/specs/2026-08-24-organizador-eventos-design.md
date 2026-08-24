@@ -28,7 +28,7 @@ El orden está invertido a propósito. El Módulo 1 para esta Fiesta ya se hizo 
 | Decisión | Elegido | Por qué |
 |---|---|---|
 | Stack | Next.js 15 App Router en Vercel, repo git privado | Ya usado dos veces (`app-colegio-horarios`, `web-altacomedia`). Funciona en la calle sin depender del PC |
-| Datos | Supabase Postgres, proyecto `nuestros-viajes` reutilizado, schema propio `eventos` | Decisión del usuario. El schema aislado evita chocar con `polla-app` y `viajes-app` |
+| Datos | Supabase Postgres, proyecto `nuestros-viajes` reutilizado, schema propio `eventos`, acceso por Postgres directo al pooler | Decisión del usuario. El schema aislado evita chocar con `polla-app` y `viajes-app`. Ir por Postgres y no por PostgREST quita la dependencia de la `service_role`, compartida con las otras dos apps |
 | Archivos | Supabase Storage, bucket privado `baul-eventos`, sin espejo automático | Decisión del usuario. Se agrega `npm run baul:backup` como red de seguridad manual |
 | Extracción | En sesión de Claude Code, no por API | Decisión del usuario: no hay `ANTHROPIC_API_KEY` y no se quiere una |
 | Acceso | Sin login. Link secreto de un uso que canjea por cookie `httpOnly` | El usuario pidió no autenticarse caminando. La variante endurecida da esa UX sin exponer la base |
@@ -46,7 +46,7 @@ Como en la base hay códigos de boleta escaneables en la puerta de la sala, el e
 Next.js 15 (App Router) ─ Vercel
     │
     ├─ middleware        valida la cookie de sesión en cada request
-    ├─ route handlers    únicos que tocan Supabase (service_role, server-only)
+    ├─ route handlers    únicos que tocan la base (Postgres directo, server-only)
     │      ├─ /api/boletas      alta, edición, vínculo con función
     │      ├─ /api/funciones    estados de compra
     │      ├─ /api/bitacora     juicios

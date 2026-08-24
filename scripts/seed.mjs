@@ -1,8 +1,8 @@
-import { createClient } from '@supabase/supabase-js';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import process from 'node:process';
 import { hashContenido, claveBoleta } from '../lib/nombres.mjs';
+import { sql, unaFila, poolPg, almacen, BUCKET, FALTA_LLAVE_STORAGE } from './_cliente.mjs';
 
 // Siembra la 22.ª Fiesta con datos verificados: el volante, la fe de erratas que
 // Matacandelas mandó el 20 de agosto, y las cinco boletas que están en disco.
@@ -12,18 +12,7 @@ import { hashContenido, claveBoleta } from '../lib/nombres.mjs';
 // que quedan como estado "comprada" sin fila de boleta. La app lo señala en vez
 // de fabricar un archivo que no existe.
 
-const URL = process.env.SUPABASE_URL;
-const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const DESCARGAS = process.env.DIR_BOLETAS ?? 'D:\\Download';
-const BUCKET = 'baul-eventos';
-
-if (!URL || !KEY) {
-  console.error('Faltan SUPABASE_URL o SUPABASE_SERVICE_ROLE_KEY. Corre npm run setup.');
-  process.exit(1);
-}
-
-const c = createClient(URL, KEY, { db: { schema: 'eventos' }, auth: { persistSession: false } });
-const almacen = createClient(URL, KEY, { auth: { persistSession: false } });
+const DESCARGAS = process.env.DIR_BOLETAS ?? String.raw`D:\Download`;
 
 // --- Salas de Medellín ------------------------------------------------------
 // Tomadas de references/salas-medellin.md de la skill festival-agenda.
@@ -192,80 +181,102 @@ const OPERADOR = 'WS Ticketing SAS · eTicketaBlanca';
 
 // --- Ejecución --------------------------------------------------------------
 
-async function upsert(tabla, filas, conflicto) {
-  const { data, error } = await c.from(tabla).upsert(filas, { onConflict: conflicto }).select();
-  if (error) throw new Error(`${tabla}: ${error.message}`);
-  return data;
-}
-
 console.log('Salas…');
-await upsert('salas', SALAS.map(([slug, nombre, direccion, telefono, zona]) =>
-  ({ slug, nombre, direccion, telefono, zona, ciudad: 'Medellín' })), 'slug');
-const { data: salas } = await c.from('salas').select('id, slug');
+for (const [slug, nombre, direccion, telefono, zona] of SALAS) {
+  await sql(
+    `insert into eventos.salas (slug, nombre, direccion, telefono, zona, ciudad)
+     values ($1, $2, $3, $4, $5, 'Medellín')
+     on conflict (slug) do update
+       set nombre = excluded.nombre, direccion = excluded.direccion,
+           telefono = excluded.telefono, zona = excluded.zona`,
+    [slug, nombre, direccion, telefono, zona]);
+}
+const salas = await sql('select id, slug from eventos.salas');
 const salaId = Object.fromEntries(salas.map(s => [s.slug, s.id]));
 
 console.log('Traslados…');
-const traslados = [];
 for (const a of ZONAS) for (const b of ZONAS) {
-  traslados.push({ ciudad: 'Medellín', zona_a: a, zona_b: b, minutos: MINUTOS[a][b] });
+  await sql(
+    `insert into eventos.traslados (ciudad, zona_a, zona_b, minutos)
+     values ('Medellín', $1, $2, $3)
+     on conflict (ciudad, zona_a, zona_b) do update set minutos = excluded.minutos`,
+    [a, b, MINUTOS[a][b]]);
 }
-await upsert('traslados', traslados, 'ciudad,zona_a,zona_b');
 
 console.log('Festival…');
-const [festival] = await upsert('festivales', [FESTIVAL], 'slug');
+const festival = await unaFila(
+  `insert into eventos.festivales (slug, nombre, ciudad, fecha_inicio, fecha_fin)
+   values ($1, $2, $3, $4, $5)
+   on conflict (slug) do update
+     set nombre = excluded.nombre, fecha_inicio = excluded.fecha_inicio,
+         fecha_fin = excluded.fecha_fin
+   returning id`,
+  [FESTIVAL.slug, FESTIVAL.nombre, FESTIVAL.ciudad, FESTIVAL.fecha_inicio, FESTIVAL.fecha_fin]);
 
 console.log('Funciones…');
 const refAId = {};
 for (const f of FUNCIONES) {
-  const fila = {
-    festival_id: festival.id,
-    sala_id: salaId[f.sala],
-    fecha: f.fecha,
-    hora_min: f.hora_min,
-    duracion_min: f.duracion_min,
-    duracion_confirmada: false,
-    obra: f.obra,
-    compania: f.compania,
-    precio_pleno: f.precio_pleno,
-    precio_dcto: f.precio_dcto ?? null,
-    nota_boleteria: f.nota_boleteria ?? null,
-    acompanantes: f.acompanantes,
-    agendada: f.agendada,
-    fuente_horario: f.fuente_horario ?? 'volante',
-  };
-  const { data: previa } = await c.from('funciones').select('id')
-    .eq('festival_id', festival.id).eq('fecha', f.fecha)
-    .eq('hora_min', f.hora_min).eq('obra', f.obra).maybeSingle();
+  const valores = [
+    festival.id, salaId[f.sala], f.fecha, f.hora_min, f.duracion_min,
+    f.obra, f.compania ?? null, f.precio_pleno, f.precio_dcto ?? null,
+    f.nota_boleteria ?? null, f.acompanantes, f.agendada, f.fuente_horario ?? 'volante',
+  ];
+  const previa = await unaFila(
+    `select id from eventos.funciones
+      where festival_id = $1 and fecha = $2 and hora_min = $3 and obra = $4`,
+    [festival.id, f.fecha, f.hora_min, f.obra]);
+
   if (previa) {
-    await c.from('funciones').update(fila).eq('id', previa.id);
+    await sql(
+      `update eventos.funciones
+          set sala_id = $2, duracion_min = $3, compania = $4, precio_pleno = $5,
+              precio_dcto = $6, nota_boleteria = $7, acompanantes = $8,
+              agendada = $9, fuente_horario = $10
+        where id = $1`,
+      [previa.id, salaId[f.sala], f.duracion_min, f.compania ?? null, f.precio_pleno,
+       f.precio_dcto ?? null, f.nota_boleteria ?? null, f.acompanantes,
+       f.agendada, f.fuente_horario ?? 'volante']);
     refAId[f.ref] = previa.id;
   } else {
-    const { data, error } = await c.from('funciones').insert(fila).select('id').single();
-    if (error) throw new Error(`funciones ${f.ref}: ${error.message}`);
-    refAId[f.ref] = data.id;
+    const fila = await unaFila(
+      `insert into eventos.funciones
+         (festival_id, sala_id, fecha, hora_min, duracion_min, obra, compania,
+          precio_pleno, precio_dcto, nota_boleteria, acompanantes, agendada, fuente_horario)
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+       returning id`, valores);
+    refAId[f.ref] = fila.id;
   }
 }
 
 console.log('Estados de compra…');
-await upsert('estados_compra', Object.entries(ESTADOS).map(([ref, e]) =>
-  ({ funcion_id: refAId[ref], estado: e.estado, nota: e.nota })), 'funcion_id');
+for (const [ref, e] of Object.entries(ESTADOS)) {
+  await sql(
+    `insert into eventos.estados_compra (funcion_id, estado, nota)
+     values ($1, $2, $3)
+     on conflict (funcion_id) do update
+       set estado = excluded.estado, nota = excluded.nota, actualizado = now()`,
+    [refAId[ref], e.estado, e.nota]);
+}
 
 console.log('Boletas…');
-let subidas = 0, saltadas = 0;
+const storage = almacen();
+let subidas = 0, saltadas = 0, sinLlave = 0;
+
 for (const b of BOLETAS) {
   const ruta = join(DESCARGAS, b.archivo);
   let buffer;
   try {
     buffer = await readFile(ruta);
   } catch {
-    console.warn(`  no está: ${ruta} (se salta, la función queda sin archivo)`);
+    console.warn(`  no está en disco: ${b.archivo} (la función queda sin archivo)`);
     saltadas++;
     continue;
   }
   const hash = hashContenido(buffer);
-  const { data: ya } = await c.from('boletas')
-    .select('id').eq('hash_contenido', hash).maybeSingle();
+  const ya = await unaFila('select id from eventos.boletas where hash_contenido = $1', [hash]);
   if (ya) { saltadas++; continue; }
+
+  if (!storage) { sinLlave++; continue; }
 
   const f = FUNCIONES.find(x => x.ref === b.ref);
   const clave = claveBoleta(
@@ -273,30 +284,37 @@ for (const b of BOLETAS) {
     { fecha: f.fecha, hora_min: f.hora_min, obra: f.obra, salaSlug: f.sala },
     hash, 'application/pdf', b.archivo,
   );
-  const { error: e } = await almacen.storage.from(BUCKET)
+  const { error: e } = await storage.storage.from(BUCKET)
     .upload(clave, buffer, { contentType: 'application/pdf', upsert: false });
   if (e && !/exists/i.test(e.message)) throw new Error(`storage ${b.archivo}: ${e.message}`);
 
-  const { error: eIns } = await c.from('boletas').insert({
-    funcion_id: refAId[b.ref],
-    festival_id: festival.id,
-    titular: TITULAR,
-    categoria: b.categoria,
-    valor_ticket: b.valor_ticket,
-    valor_servicio: b.valor_servicio,
-    codigo: b.codigo,
-    pulep: b.pulep,
-    operador: OPERADOR,
-    storage_key: clave,
-    hash_contenido: hash,
-    mime: 'application/pdf',
-    origen: 'correo',
-    extraccion_estado: 'confirmada',
-    extraccion_json: { archivo_original: b.archivo, extraido_en: 'sesión de Claude Code, 24 ago 2026' },
-  });
-  if (eIns) throw new Error(`boletas ${b.archivo}: ${eIns.message}`);
+  await sql(
+    `insert into eventos.boletas
+       (funcion_id, festival_id, titular, categoria, valor_ticket, valor_servicio,
+        codigo, pulep, operador, storage_key, hash_contenido, mime, origen,
+        extraccion_estado, extraccion_json)
+     values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,'application/pdf','correo','confirmada',$12)`,
+    [refAId[b.ref], festival.id, TITULAR, b.categoria, b.valor_ticket, b.valor_servicio,
+     b.codigo, b.pulep, OPERADOR, clave, hash,
+     JSON.stringify({ archivo_original: b.archivo, extraido_en: 'sesión de Claude Code, 24 ago 2026' })]);
   subidas++;
 }
 
-console.log(`\nListo. ${subidas} boletas subidas, ${saltadas} saltadas.`);
-console.log('Abre la app: npm run dev');
+const cuenta = await unaFila(
+  `select (select count(*) from eventos.funciones) as funciones,
+          (select count(*) from eventos.funciones where agendada) as agendadas,
+          (select count(*) from eventos.salas) as salas,
+          (select count(*) from eventos.boletas) as boletas`);
+
+console.log(`
+Sembrado: ${cuenta.salas} salas, ${cuenta.funciones} funciones ` +
+  `(${cuenta.agendadas} en tu agenda), ${cuenta.boletas} boletas.`);
+if (subidas) console.log(`${subidas} boletas subidas al baúl.`);
+if (saltadas) console.log(`${saltadas} saltadas (ya estaban o no están en disco).`);
+if (sinLlave) {
+  console.log(`
+${sinLlave} boletas quedaron sin subir. ${FALTA_LLAVE_STORAGE}`);
+  console.log('Cuando la pongas en .env.local, vuelve a correr: npm run seed');
+}
+
+await poolPg().end();

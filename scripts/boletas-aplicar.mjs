@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises';
-import { datos } from './_cliente.mjs';
+import { sql, unaFila, poolPg } from './_cliente.mjs';
 import { vincular } from '../lib/alarmas.mjs';
 
 // Escribe a la base lo que la sesión de Claude Code extrajo. Nunca toca el
@@ -14,8 +14,8 @@ try {
   process.exit(1);
 }
 
-const { data: funciones } = await datos.from('funciones')
-  .select('id, fecha, hora_min, obra, festival_id');
+const funciones = (await sql(
+  'select id, to_char(fecha, 'YYYY-MM-DD') as fecha, hora_min, obra, festival_id from eventos.funciones'));
 
 let aplicadas = 0, sinVincular = 0, ambiguas = 0;
 
@@ -38,8 +38,7 @@ for (const b of extraido) {
     extraccion_estado: (b.campos_dudosos?.length ?? 0) > 0 ? 'extraida' : 'confirmada',
   };
 
-  const { data: actual } = await datos.from('boletas')
-    .select('funcion_id').eq('id', b.id).single();
+  const actual = await unaFila('select funcion_id from eventos.boletas where id = $1', [b.id]);
 
   if (!actual?.funcion_id && b.obra_texto) {
     const r = vincular(b, funciones);
@@ -59,11 +58,19 @@ for (const b of extraido) {
     }
   }
 
-  const { error } = await datos.from('boletas').update(cambios).eq('id', b.id);
-  if (error) { console.error(`  ${b.id}: ${error.message}`); continue; }
-  aplicadas++;
+  const columnas = Object.keys(cambios);
+  const asignaciones = columnas.map((c, i) => `${c} = $${i + 2}`).join(', ');
+  const valores = columnas.map(c =>
+    c === 'extraccion_json' ? JSON.stringify(cambios[c]) : cambios[c]);
+  try {
+    await sql(`update eventos.boletas set ${asignaciones} where id = $1`, [b.id, ...valores]);
+    aplicadas++;
+  } catch (e) {
+    console.error(`  ${b.id}: ${e.message}`);
+  }
 }
 
 console.log(`\n${aplicadas} boletas actualizadas.`);
 if (sinVincular) console.log(`${sinVincular} sin función: la app te va a preguntar a cuál pertenecen.`);
 if (ambiguas) console.log(`${ambiguas} ambiguas: hay doble función y la hora no alcanzó para desempatar.`);
+await poolPg().end();
