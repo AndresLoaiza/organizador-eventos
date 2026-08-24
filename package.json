@@ -1,0 +1,23 @@
+{
+  "name": "organizador-eventos",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --test lib/*.test.mjs",
+    "setup": "node scripts/setup.mjs",
+    "seed": "node scripts/seed.mjs",
+    "boletas:pendientes": "node scripts/boletas-pendientes.mjs",
+    "boletas:aplicar": "node scripts/boletas-aplicar.mjs",
+    "baul:backup": "node scripts/baul-backup.mjs",
+    "obsidian:sync": "node agente/obsidian-sync.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
