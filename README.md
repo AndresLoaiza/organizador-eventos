@@ -41,6 +41,8 @@ La conexión va al pooler de la región del proyecto (`aws-1-us-east-1`, puerto 
 
 **Boletas.** Se sube la foto o el PDF, el original se guarda tal cual y no se toca nunca. Las correcciones viven en la base.
 
+**Un archivo puede traer varias boletas.** Cuando se compran dos entradas de la misma función, el operador manda un solo PDF con las dos, una por página. Por eso hay dos tablas: `archivos` es lo que se sube y es único por hash; `boletas` es lo que sirve para entrar a una sala, una por persona. Contar archivos en vez de boletas producía la alarma falsa "necesitas 2 y solo hay 1" en funciones que estaban completas.
+
 Convención de claves en Storage:
 
 ```
@@ -73,7 +75,7 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
 | `npm run seed` | Carga festival, salas, traslados, funciones y boletas |
-| `npm run boletas:pendientes` | Baja a `trabajo/` lo que falta extraer |
+| `npm run boletas:pendientes` | Baja a `trabajo/` los archivos que faltan extraer |
 | `npm run boletas:aplicar` | Escribe lo extraído |
 | `npm run baul:backup` | Copia el bucket entero a disco |
 | `npm run obsidian:sync` | Lleva la bitácora al perfil de Obsidian |
@@ -95,4 +97,5 @@ supabase/     schema SQL, se pega una vez en el editor del proyecto
 - **`duracion_confirmada` marca lo que es estimación.** Las duraciones no salen del volante. Cuando un margen depende de un número inventado, la interfaz lo dice.
 - **El schema es `eventos`, no `public`.** El proyecto de Supabase es compartido con `polla-app` y `viajes-app`.
 - **Las alternativas de una noche se evalúan contra TODAS las agendadas del festival**, no contra las de esa fecha. Filtrar por fecha hace que el motor crea que las otras noches están libres y prometa rescates que no existen. Hay test de regresión.
+- **La unidad de extracción es el archivo, no la boleta.** Al leer un PDF hay que contar cuántas entradas trae antes de escribir filas. Hay test de regresión.
 - **"Falta comprar" no es lo mismo que "falta el archivo".** Una función comprada cuyo PDF sigue en el correo no cuenta como pendiente de compra; para eso está el aviso de baúl.

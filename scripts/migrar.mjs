@@ -1,17 +1,23 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { conectar } from './_pg.mjs';
 
-// Aplica supabase/001_schema_eventos.sql. Todo el archivo está escrito para
-// poder correrse dos veces sin romper nada (create if not exists, do $$ ... $$).
+// Aplica todas las migraciones de supabase/ en orden. Cada archivo está escrito
+// para poder correrse dos veces sin romper nada (create if not exists,
+// add column if not exists, do $$ ... $$).
 
-const sql = await readFile(new URL('../supabase/001_schema_eventos.sql', import.meta.url), 'utf8');
+const dir = new URL('../supabase/', import.meta.url);
+const archivos = (await readdir(dir)).filter(f => f.endsWith('.sql')).sort();
 const cliente = await conectar();
 
 try {
-  await cliente.query('begin');
-  await cliente.query(sql);
-  await cliente.query('commit');
-  console.log('Schema eventos aplicado.');
+  for (const nombre of archivos) {
+    const texto = await readFile(new URL(nombre, dir), 'utf8');
+    await cliente.query('begin');
+    await cliente.query(texto);
+    await cliente.query('commit');
+    console.log(`  ${nombre}`);
+  }
+  console.log('Migraciones aplicadas.');
 
   const { rows } = await cliente.query(`
     select table_name, (select count(*) from information_schema.columns c

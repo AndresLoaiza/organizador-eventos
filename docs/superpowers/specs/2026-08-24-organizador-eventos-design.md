@@ -77,7 +77,8 @@ Schema `eventos` dentro del proyecto `nuestros-viajes`. RLS activo en todas las 
 | `salas` | slug, nombre, direccion, telefono, zona |
 | `traslados` | ciudad, zona_a, zona_b, minutos |
 | `funciones` | festival, dia, hora_min, duracion_min, `duracion_confirmada`, obra, compania, sala, precio_pleno, precio_dcto, nota_boleteria, `acompanantes` |
-| `boletas` | funcion, titular, categoria, valor_ticket, valor_servicio, codigo, pulep, storage_key, `hash_contenido`, origen, `extraccion_estado`, extraccion_json |
+| `archivos` | festival, storage_key, `hash_contenido`, mime, origen, `extraccion_estado`, extraccion_json |
+| `boletas` | funcion, `archivo_id`, `pagina`, titular, categoria, valor_ticket, valor_servicio, localidad, codigo, pulep, operador |
 | `estados_compra` | funcion, estado, fecha_limite |
 | `bitacora` | funcion, texto, estrellas, fecha |
 | `avisos` | funcion, tipo, severidad, mensaje, resuelto |
@@ -85,6 +86,8 @@ Schema `eventos` dentro del proyecto `nuestros-viajes`. RLS activo en todas las 
 Tres campos merecen explicación:
 
 **`duracion_confirmada`** — Los volantes nunca dicen cuánto dura una obra, así que el motor trabaja con estimaciones (80 min teatro, 90 concierto, 180 molienda). Cuando dos funciones quedan a menos de 20 minutos de margen, el veredicto depende enteramente de ese número inventado. La app marca visualmente todo veredicto que dependa de una duración estimada, en vez de presentarlo como hecho. Confirmar una duración llamando a la sala cambia el campo y el aviso desaparece.
+
+**`archivo_id` y `pagina`** — Un archivo puede traer varias boletas: cuando se compran dos entradas de la misma función, el operador manda un solo PDF con las dos, una por página. El modelo original ataba una boleta a un archivo y producía la alarma falsa "necesitas 2 boletas y solo hay 1" en funciones que estaban completas desde el principio. Una alarma falsa es peor que no tener alarma, porque enseña a ignorarlas.
 
 **`hash_contenido`** — SHA-256 del archivo original. Si se sube dos veces la misma foto, la app lo detecta y no crea duplicado ni sobrescribe. El original queda intacto por construcción, no por disciplina.
 

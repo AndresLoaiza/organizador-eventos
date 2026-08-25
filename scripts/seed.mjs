@@ -5,12 +5,11 @@ import { hashContenido, claveBoleta } from '../lib/nombres.mjs';
 import { sql, unaFila, poolPg, almacen, BUCKET, FALTA_LLAVE_STORAGE } from './_cliente.mjs';
 
 // Siembra la 22.ª Fiesta con datos verificados: el volante, la fe de erratas que
-// Matacandelas mandó el 20 de agosto, y las cinco boletas que están en disco.
+// Matacandelas mandó el 20 de agosto, y los archivos de boleta que están en disco.
 //
-// Lo que NO hace: inventar. Petra y las segundas boletas de Molienda y Habitar
-// constan en los correos de pedido pero sus archivos no están descargados, así
-// que quedan como estado "comprada" sin fila de boleta. La app lo señala en vez
-// de fabricar un archivo que no existe.
+// Lo que NO hace: inventar. La boleta de Petra consta en el correo de pedido
+// pero su PDF no está descargado, así que la función queda como "comprada" sin
+// fila de boleta. La app lo señala en vez de fabricar un archivo que no existe.
 
 const DESCARGAS = process.env.DIR_BOLETAS ?? String.raw`D:\Download`;
 
@@ -147,32 +146,43 @@ const ESTADOS = {
   clown29:    { estado: 'agendada', nota: 'Sin comprar. Choca con IXAQUENE del sábado, que es su única fecha viable.' },
 };
 
-// Las cinco boletas que sí están en disco, ya extraídas.
-const BOLETAS = [
+// Los cinco archivos que están en disco, ya extraídos.
+//
+// Un archivo puede traer varias boletas: cuando se compran dos entradas de la
+// misma función, eTicketa Blanca manda un solo PDF con las dos, una por página.
+// Es el caso de Molienda de Danza y de Habitar.
+const ARCHIVOS = [
   {
     archivo: '6a8c8a902fbaa6b90b861cbc.pdf', ref: 'krapp',
-    categoria: 'COMFAMA TARIFA A', valor_ticket: 10300, valor_servicio: 2000,
-    codigo: 'lurzbjt8m8jbb8', pulep: 'URX194',
+    boletas: [
+      { pagina: 1, categoria: 'COMFAMA TARIFA A', valor_ticket: 10300, valor_servicio: 2000, codigo: 'lurzbjt8m8jbb8', pulep: 'URX194' },
+    ],
   },
   {
     archivo: '6a8c862ad122e51cfd49de05.pdf', ref: 'primeramor',
-    categoria: 'Comfama Tarifa A', valor_ticket: 11900, valor_servicio: 0,
-    codigo: 'rmgunllgli5hld', pulep: 'MOQ600',
+    boletas: [
+      { pagina: 1, categoria: 'Comfama Tarifa A', valor_ticket: 11900, valor_servicio: 0, codigo: 'rmgunllgli5hld', pulep: 'MOQ600' },
+    ],
   },
   {
     archivo: '6a8c885e84692c26bbf6f308.pdf', ref: 'primeramor',
-    categoria: 'General', valor_ticket: 45000, valor_servicio: 0,
-    codigo: 'qzasyrk51wnv9s', pulep: 'MOQ600',
+    boletas: [
+      { pagina: 1, categoria: 'General', valor_ticket: 45000, valor_servicio: 0, codigo: 'qzasyrk51wnv9s', pulep: 'MOQ600' },
+    ],
   },
   {
     archivo: '6a8c8c1e5df5fb958f949b22.pdf', ref: 'habitar',
-    categoria: 'COMFAMA TARIFA A', valor_ticket: 10900, valor_servicio: 2000,
-    codigo: 'r2l5vtik3j3crp', pulep: 'OEU921',
+    boletas: [
+      { pagina: 1, categoria: 'COMFAMA TARIFA A', valor_ticket: 10900, valor_servicio: 2000, codigo: 'r2l5vtik3j3crp', pulep: 'OEU921' },
+      { pagina: 2, categoria: 'COMFAMA TARIFA A', valor_ticket: 10900, valor_servicio: 2000, codigo: 'fkn65z53yby1xz', pulep: 'OEU921' },
+    ],
   },
   {
     archivo: '6a7bef8f9ec9ebdc88da5185.pdf', ref: 'molienda',
-    categoria: 'GENERAL', valor_ticket: 0, valor_servicio: 0,
-    codigo: 'bb38vr6762ge2d', pulep: 'DOV278',
+    boletas: [
+      { pagina: 1, categoria: 'GENERAL', valor_ticket: 0, valor_servicio: 0, codigo: 'bb38vr6762ge2d', pulep: 'DOV278' },
+      { pagina: 2, categoria: 'GENERAL', valor_ticket: 0, valor_servicio: 0, codigo: '2in1yo1xs3mwcs', pulep: 'DOV278' },
+    ],
   },
 ];
 
@@ -258,62 +268,77 @@ for (const [ref, e] of Object.entries(ESTADOS)) {
     [refAId[ref], e.estado, e.nota]);
 }
 
-console.log('Boletas…');
+console.log('Archivos y boletas…');
 const storage = almacen();
-let subidas = 0, saltadas = 0, sinLlave = 0;
+let subidos = 0, saltados = 0, sinLlave = 0, filas = 0;
 
-for (const b of BOLETAS) {
-  const ruta = join(DESCARGAS, b.archivo);
+for (const a of ARCHIVOS) {
+  const ruta = join(DESCARGAS, a.archivo);
   let buffer;
   try {
     buffer = await readFile(ruta);
   } catch {
-    console.warn(`  no está en disco: ${b.archivo} (la función queda sin archivo)`);
-    saltadas++;
+    console.warn(`  no está en disco: ${a.archivo} (la función queda sin archivo)`);
+    saltados++;
     continue;
   }
   const hash = hashContenido(buffer);
-  const ya = await unaFila('select id from eventos.boletas where hash_contenido = $1', [hash]);
-  if (ya) { saltadas++; continue; }
+  const f = FUNCIONES.find(x => x.ref === a.ref);
 
-  if (!storage) { sinLlave++; continue; }
+  let archivo = await unaFila('select id from eventos.archivos where hash_contenido = $1', [hash]);
 
-  const f = FUNCIONES.find(x => x.ref === b.ref);
-  const clave = claveBoleta(
-    FESTIVAL.slug,
-    { fecha: f.fecha, hora_min: f.hora_min, obra: f.obra, salaSlug: f.sala },
-    hash, 'application/pdf', b.archivo,
-  );
-  const { error: e } = await storage.storage.from(BUCKET)
-    .upload(clave, buffer, { contentType: 'application/pdf', upsert: false });
-  if (e && !/exists/i.test(e.message)) throw new Error(`storage ${b.archivo}: ${e.message}`);
+  if (!archivo) {
+    if (!storage) { sinLlave++; continue; }
+    const clave = claveBoleta(
+      FESTIVAL.slug,
+      { fecha: f.fecha, hora_min: f.hora_min, obra: f.obra, salaSlug: f.sala },
+      hash, 'application/pdf', a.archivo,
+    );
+    const { error: e } = await storage.storage.from(BUCKET)
+      .upload(clave, buffer, { contentType: 'application/pdf', upsert: false });
+    if (e && !/exists/i.test(e.message)) throw new Error(`storage ${a.archivo}: ${e.message}`);
 
-  await sql(
-    `insert into eventos.boletas
-       (funcion_id, festival_id, titular, categoria, valor_ticket, valor_servicio,
-        codigo, pulep, operador, storage_key, hash_contenido, mime, origen,
-        extraccion_estado, extraccion_json)
-     values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,'application/pdf','correo','confirmada',$12)`,
-    [refAId[b.ref], festival.id, TITULAR, b.categoria, b.valor_ticket, b.valor_servicio,
-     b.codigo, b.pulep, OPERADOR, clave, hash,
-     JSON.stringify({ archivo_original: b.archivo, extraido_en: 'sesión de Claude Code, 24 ago 2026' })]);
-  subidas++;
+    archivo = await unaFila(
+      `insert into eventos.archivos
+         (festival_id, storage_key, hash_contenido, mime, origen, extraccion_estado, extraccion_json)
+       values ($1, $2, $3, 'application/pdf', 'correo', 'confirmada', $4)
+       returning id`,
+      [festival.id, clave, hash,
+       JSON.stringify({ archivo_original: a.archivo, boletas: a.boletas.length,
+                        extraido_en: 'sesión de Claude Code, 24 ago 2026' })]);
+    subidos++;
+  }
+
+  for (const b of a.boletas) {
+    const ya = await unaFila(
+      'select id from eventos.boletas where archivo_id = $1 and pagina = $2', [archivo.id, b.pagina]);
+    if (ya) continue;
+    await sql(
+      `insert into eventos.boletas
+         (funcion_id, festival_id, archivo_id, pagina, titular, categoria,
+          valor_ticket, valor_servicio, codigo, pulep, operador)
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,
+      [refAId[a.ref], festival.id, archivo.id, b.pagina, TITULAR, b.categoria,
+       b.valor_ticket, b.valor_servicio, b.codigo, b.pulep, OPERADOR]);
+    filas++;
+  }
 }
 
 const cuenta = await unaFila(
   `select (select count(*) from eventos.funciones) as funciones,
           (select count(*) from eventos.funciones where agendada) as agendadas,
           (select count(*) from eventos.salas) as salas,
-          (select count(*) from eventos.boletas) as boletas`);
+          (select count(*) from eventos.boletas) as boletas,
+          (select count(*) from eventos.archivos) as archivos`);
 
 console.log(`
 Sembrado: ${cuenta.salas} salas, ${cuenta.funciones} funciones ` +
-  `(${cuenta.agendadas} en tu agenda), ${cuenta.boletas} boletas.`);
-if (subidas) console.log(`${subidas} boletas subidas al baúl.`);
-if (saltadas) console.log(`${saltadas} saltadas (ya estaban o no están en disco).`);
+  `(${cuenta.agendadas} en tu agenda), ${cuenta.archivos} archivos, ${cuenta.boletas} boletas.`);
+if (subidos) console.log(`${subidos} archivos subidos al baúl, ${filas} boletas nuevas.`);
+if (saltados) console.log(`${saltados} saltados (no están en disco).`);
 if (sinLlave) {
   console.log(`
-${sinLlave} boletas quedaron sin subir. ${FALTA_LLAVE_STORAGE}`);
+${sinLlave} archivos quedaron sin subir. ${FALTA_LLAVE_STORAGE}`);
   console.log('Cuando la pongas en .env.local, vuelve a correr: npm run seed');
 }
 

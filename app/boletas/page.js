@@ -22,7 +22,12 @@ export default async function Baul({ searchParams }) {
     etiqueta: `${nombreDia(f.fecha)} ${fmtHora(f.hora_min)} · ${f.obra} (${f.boletas.length}/${f.necesarias})`,
   }));
 
-  const pendientes = p.boletas.filter(b => b.extraccion_estado === 'pendiente');
+  // Lo pendiente se cuenta por archivo, no por boleta: un PDF con dos entradas
+  // es una sola extracción.
+  const archivosPendientes = new Set(
+    p.boletas.filter(b => b.extraccion_estado === 'pendiente').map(b => b.archivo_id));
+  const pendientes = [...archivosPendientes];
+  const archivos = new Set(p.boletas.map(b => b.archivo_id).filter(Boolean));
   const huerfanas = p.boletas.filter(b => !b.funcion_id);
   const porFuncion = new Map(p.funciones.map(f => [f.id, f]));
 
@@ -31,7 +36,7 @@ export default async function Baul({ searchParams }) {
       <section className="seccion" style={{ marginTop: 'var(--p5)' }}>
         <h1>Baúl</h1>
         <p className="entradilla">
-          {p.boletas.length} boletas guardadas · {pendientes.length} sin extraer
+          {p.boletas.length} boletas en {archivos.size} archivos · {pendientes.length} sin extraer
           {huerfanas.length > 0 && <> · {huerfanas.length} sin vincular</>}
         </p>
       </section>
@@ -71,7 +76,7 @@ export default async function Baul({ searchParams }) {
                 <tr>
                   <th>Función</th><th>Cuándo</th><th>Categoría</th>
                   <th className="num">Ticket</th><th className="num">Servicio</th>
-                  <th>Titular</th><th>Código</th><th>Extracción</th>
+                  <th>Titular</th><th>Código</th><th className="num">Pág.</th><th>Extracción</th>
                 </tr>
               </thead>
               <tbody>
@@ -92,7 +97,8 @@ export default async function Baul({ searchParams }) {
                       <td style={{ fontFamily: 'ui-monospace, monospace', fontSize: '0.8125rem' }}>
                         {b.codigo ?? '—'}
                       </td>
-                      <td>{b.extraccion_estado}</td>
+                      <td className="num">{b.pagina ?? '—'}</td>
+                      <td>{b.extraccion_estado ?? '—'}</td>
                     </tr>
                   );
                 })}
@@ -113,9 +119,10 @@ export default async function Baul({ searchParams }) {
             borderRadius: 'var(--r)', padding: 'var(--p3) var(--p4)', overflowX: 'auto',
             fontSize: '0.875rem',
           }}>
-{`npm run boletas:pendientes   # baja los ${pendientes.length} originales a trabajo/
-# Claude los lee y escribe trabajo/extraido.json
-npm run boletas:aplicar      # guarda los campos en la base`}
+{`npm run boletas:pendientes   # baja los ${pendientes.length} archivos a trabajo/
+# Claude los lee, cuenta cuántas boletas trae cada uno,
+# y escribe trabajo/extraido.json
+npm run boletas:aplicar      # guarda las boletas en la base`}
           </pre>
         </section>
       )}

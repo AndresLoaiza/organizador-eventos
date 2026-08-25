@@ -2,8 +2,11 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join, basename } from 'node:path';
 import { sql, almacen, poolPg, BUCKET, FALTA_LLAVE_STORAGE } from './_cliente.mjs';
 
-// Baja a trabajo/ los originales que todavía no se han extraído, para que una
+// Baja a trabajo/ los archivos que todavía no se han extraído, para que una
 // sesión de Claude Code los lea y escriba trabajo/extraido.json.
+//
+// La unidad es el ARCHIVO, no la boleta: un PDF puede traer dos entradas y solo
+// se sabe cuántas después de leerlo.
 
 const DIR = 'trabajo';
 await mkdir(DIR, { recursive: true });
@@ -12,22 +15,24 @@ const storage = almacen();
 if (!storage) { console.error(FALTA_LLAVE_STORAGE); process.exit(1); }
 
 const pendientes = await sql(
-  `select id, storage_key, mime, funcion_id from eventos.boletas
-    where extraccion_estado = 'pendiente'`);
+  `select a.id, a.storage_key, a.mime,
+          (select count(*) from eventos.boletas b where b.archivo_id = a.id) as boletas
+     from eventos.archivos a
+    where a.extraccion_estado = 'pendiente'`);
 
 if (!pendientes.length) {
-  console.log('No hay boletas pendientes de extracción.');
+  console.log('No hay archivos pendientes de extracción.');
   await poolPg().end();
   process.exit(0);
 }
 
 const manifiesto = [];
-for (const b of pendientes) {
-  const { data, error: e } = await storage.storage.from(BUCKET).download(b.storage_key);
-  if (e) { console.warn(`  no se pudo bajar ${b.storage_key}: ${e.message}`); continue; }
-  const nombre = `${b.id}__${basename(b.storage_key)}`;
+for (const a of pendientes) {
+  const { data, error } = await storage.storage.from(BUCKET).download(a.storage_key);
+  if (error) { console.warn(`  no se pudo bajar ${a.storage_key}: ${error.message}`); continue; }
+  const nombre = `${a.id}__${basename(a.storage_key)}`;
   await writeFile(join(DIR, nombre), Buffer.from(await data.arrayBuffer()));
-  manifiesto.push({ id: b.id, archivo: nombre, ya_vinculada: Boolean(b.funcion_id) });
+  manifiesto.push({ archivo_id: a.id, archivo: nombre, boletas_registradas: Number(a.boletas) });
   console.log(`  ${nombre}`);
 }
 
@@ -37,15 +42,21 @@ await poolPg().end();
 console.log(`\n${manifiesto.length} archivos en trabajo/.
 
 Ahora, en la sesión de Claude Code:
-  1. Lee cada archivo de trabajo/ (los PDF con: python -m markitdown archivo.pdf).
-  2. Escribe trabajo/extraido.json con un objeto por boleta:
+  1. Lee cada archivo (los PDF con: python -m markitdown archivo.pdf).
+  2. CUENTA cuántas boletas trae. Un mismo PDF puede tener varias, una por
+     página: busca cuántas veces aparece el valor o el código del ticket.
+  3. Escribe trabajo/extraido.json, un objeto por ARCHIVO con su lista de boletas:
 
-  [{ "id": "<id de pendientes.json>",
-     "categoria": "COMFAMA TARIFA A",
-     "valor_ticket": 10900, "valor_servicio": 2000,
-     "codigo": "abc123", "pulep": "XYZ999",
-     "titular": "...", "operador": "WS Ticketing SAS",
+  [{ "archivo_id": "<el de pendientes.json>",
      "obra_texto": "HABITAR", "fecha_texto": "2026-08-28", "hora_boleta": 1200,
-     "campos_dudosos": ["valor_servicio"] }]
+     "boletas": [
+       { "pagina": 1, "categoria": "COMFAMA TARIFA A", "valor_ticket": 10900,
+         "valor_servicio": 2000, "codigo": "r2l5vtik3j3crp", "pulep": "OEU921",
+         "titular": "David Andrés Loaiza Marín" },
+       { "pagina": 2, "categoria": "COMFAMA TARIFA A", "valor_ticket": 10900,
+         "valor_servicio": 2000, "codigo": "fkn65z53yby1xz", "pulep": "OEU921",
+         "titular": "David Andrés Loaiza Marín" }
+     ],
+     "campos_dudosos": [] }]
 
-  3. npm run boletas:aplicar`);
+  4. npm run boletas:aplicar`);
