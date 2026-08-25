@@ -12,16 +12,16 @@ npm install
 cp .env.example .env.local
 ```
 
-`.env.local` ya está lleno salvo un valor:
+`.env.local` lleva cuatro valores, todos del proyecto **nuestros-viajes**:
 
-- `SUPABASE_PROJECT_REF` y `SUPABASE_DB_PASSWORD` del proyecto **nuestros-viajes**: puestos.
-- `ACCESO_SECRETO`: puesto.
-- `SUPABASE_SERVICE_ROLE_KEY`: **falta**. Panel de Supabase, en Project Settings > API Keys > secret key. Solo hace falta para subir y ver los archivos del baúl; el resto de la app corre sin ella.
+- `SUPABASE_PROJECT_REF` y `SUPABASE_DB_PASSWORD` (Project Settings > Database): mueven datos y DDL.
+- `SUPABASE_SERVICE_ROLE_KEY` (Project Settings > API Keys > secret key): solo para Storage. Sin ella la app corre completa salvo subir y ver archivos, y lo dice.
+- `ACCESO_SECRETO`: cualquier UUID.
 
 ```bash
-npm run migrar   # aplica el schema por Postgres directo (ya corrido)
+npm run migrar   # aplica las migraciones de supabase/ en orden
 npm run setup    # verifica schema y bucket
-npm run seed     # carga la 22.ª Fiesta y sube las boletas de D:\Download
+npm run seed     # carga la 22.ª Fiesta y sube los archivos de D:\Download
 npm run dev
 ```
 
@@ -60,9 +60,10 @@ Fecha primero para que el orden alfabético sea el cronológico. Hora porque hay
 La app no llama a ningún modelo. La extracción ocurre en una sesión de Claude Code:
 
 ```bash
-npm run boletas:pendientes   # baja los originales sin extraer a trabajo/
-# Claude lee cada archivo y escribe trabajo/extraido.json
-npm run boletas:aplicar      # guarda los campos en la base
+npm run boletas:pendientes   # baja a trabajo/ los archivos sin extraer
+# Claude lee cada archivo, CUENTA cuántas boletas trae,
+# y escribe trabajo/extraido.json
+npm run boletas:aplicar      # reemplaza las filas de ese archivo por las reales
 ```
 
 Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie) mantiene el estado de compra al día.
@@ -71,7 +72,7 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 30 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm test` | 31 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
 | `npm run seed` | Carga festival, salas, traslados, funciones y boletas |
@@ -87,7 +88,7 @@ app/          Next.js 15 App Router. Los route handlers son lo único que toca S
 lib/          decisor (motor portado), alarmas, nombres, datos, db, sesion
 scripts/      setup, seed, extracción, backup
 agente/       puente al vault de Obsidian, corre en el PC
-supabase/     schema SQL, se pega una vez en el editor del proyecto
+supabase/     migraciones SQL, las aplica npm run migrar en orden
 ```
 
 ## Decisiones que conviene no deshacer sin leer primero
