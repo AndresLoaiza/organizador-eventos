@@ -2,6 +2,8 @@
 
 App para gestionar la asistencia a festivales de artes escénicas: programación, boletas y bitácora. Un solo usuario.
 
+**En línea:** https://andresloaiza.github.io/organizador-eventos/
+
 Diseño completo en [docs/superpowers/specs/2026-08-24-organizador-eventos-design.md](docs/superpowers/specs/2026-08-24-organizador-eventos-design.md).
 Identidad visual en [PRODUCT.md](PRODUCT.md) y [DESIGN.md](DESIGN.md).
 
@@ -27,15 +29,19 @@ npm run dev
 
 Entra una sola vez con `http://localhost:3000/entrar?k=TU_ACCESO_SECRETO`. Queda una cookie `httpOnly` por 120 días.
 
-## Cómo se entra desde el celular
+## Cómo se entra
 
-No hay login. Se abre el enlace secreto una vez y ya. En Vercel, la misma URL con `?k=`.
+Se escribe un código una vez por dispositivo y queda guardado ahí. No hay login ni contraseña que recordar caminando.
 
-Ninguna llave de Supabase llega al navegador: todo pasa por route handlers en el servidor. Por eso la URL secreta acá sí protege, y no solo esconde.
+En hosting estático no hay servidor donde esconder una llave: el navegador habla con Supabase usando la llave publishable, que viaja en el bundle y además ya está publicada en `polla-app` y `viajes-app`. Lo que protege los datos no es la llave, es el código:
 
-Los datos van por **Postgres directo**, no por PostgREST. Dos razones: PostgREST no ejecuta DDL, y así la app no depende de la `service_role`, que en este proyecto es compartida con `polla-app` y `viajes-app`. Una llave menos circulando. Storage sí la necesita, porque los bytes viven en S3 y no en la base.
+- El cliente lo manda en la cabecera `x-acceso` y **Postgres lo verifica en RLS**. Sin él las consultas devuelven cero filas, no un error.
+- El hash vive en `eventos.acceso`, tabla sin grants ni políticas: solo la lee `eventos.acceso_ok()`, que corre como `security definer`. Consultarla por la API devuelve 401 incluso con el código correcto.
+- El código no está en ningún archivo del repositorio ni en el bundle. Se rota con `npm run codigo`, que lo imprime una sola vez.
 
-La conexión va al pooler de la región del proyecto (`aws-1-us-east-1`, puerto 5432 en local y 6543 en Vercel). El host `db.<ref>.supabase.co` resuelve solo a IPv6 y no sirve desde redes sin ruta IPv6. El root CA de Supabase va versionado en `lib/supabase-ca.mjs` con verificación de huella: sin él, Node rechaza la cadena.
+**Dos mundos que leen lo mismo.** La app publicada lee por PostgREST desde el navegador (`lib/cliente.mjs`); los scripts locales leen por Postgres directo (`lib/db.mjs`), porque PostgREST no ejecuta DDL. Los dos pasan por `lib/panorama.mjs`, que es donde vive el cruce: si se duplicara, los veredictos empezarían a diferir.
+
+La conexión de los scripts va al pooler de la región del proyecto (`aws-1-us-east-1`). El host `db.<ref>.supabase.co` resuelve solo a IPv6 y no sirve desde redes sin ruta IPv6. El root CA de Supabase va versionado en `lib/supabase-ca.mjs` con verificación de huella: sin él, Node rechaza la cadena.
 
 ## Módulos
 
@@ -83,6 +89,7 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 | `npm run boletas:aplicar` | Escribe lo extraído |
 | `npm run baul:backup` | Copia el bucket entero a disco |
 | `npm run obsidian:sync` | Lleva la bitácora al perfil de Obsidian |
+| `npm run codigo` | Rota el código de acceso y lo imprime una vez |
 
 ## Estructura
 
