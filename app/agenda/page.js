@@ -1,15 +1,11 @@
 import Link from 'next/link';
 import { panorama, nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/datos.mjs';
 import Avisos from '../Avisos.js';
-import Tipo from '../Tipo.js';
+import Tipo, { tipoDeVeredicto } from '../Tipo.js';
 
 export const dynamic = 'force-dynamic';
 
-const VEREDICTO_A_TIPO = {
-  'v-lost': 'perdida', 'v-keep': 'recuperable', 'v-tight': 'justo', 'v-free': 'agendada',
-  'v-pick': 'comprada',
-};
-function veredictoATipo(cls) { return VEREDICTO_A_TIPO[cls] ?? 'agendada'; }
+
 
 export default async function Agenda() {
   let p = null;
@@ -117,7 +113,7 @@ export default async function Agenda() {
                         <span className="cia">{o.sala?.nombre ?? ''}</span>
                       </span>
                       <span className="estado">
-                        <Tipo t={veredictoATipo(o.veredicto.cls)} />
+                        <Tipo t={tipoDeVeredicto(o.veredicto)} />
                       </span>
                       <span className="pie">
                         {o.veredicto.txt}

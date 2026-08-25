@@ -13,7 +13,8 @@
     "boletas:aplicar": "node --env-file=.env.local scripts/boletas-aplicar.mjs",
     "baul:backup": "node --env-file=.env.local scripts/baul-backup.mjs",
     "obsidian:sync": "node --env-file=.env.local agente/obsidian-sync.mjs",
-    "migrar": "node --env-file=.env.local scripts/migrar.mjs"
+    "migrar": "node --env-file=.env.local scripts/migrar.mjs",
+    "programacion": "node --env-file=.env.local scripts/cargar-programacion.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",

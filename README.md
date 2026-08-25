@@ -53,7 +53,9 @@ Fecha primero para que el orden alfabético sea el cronológico. Hora porque hay
 
 **Bitácora.** Texto libre primero, estrellas después. `npm run obsidian:sync` lo lleva a `vida_personal/gustos-artes-escenicas.md`.
 
-**Programación y decisión.** Fase 2. El motor de choques ya está portado y probado en `lib/decisor.mjs`; falta el cargador multi-festival y la tabla exportable.
+**Programación y decisión.** La programación completa del festival vive en la base y cada noche muestra qué más había, con el veredicto del motor. Falta el cargador genérico multi-festival y la tabla exportable a Excel.
+
+La transcripción del volante se hizo **leyendo las páginas como imagen**, no del texto extraído. El PDF es de tres columnas: al pasarlo a texto plano los campos se intercalan (la hora de una obra queda pegada a la boletería de otra) y el volante reimprime el nombre de la compañía en la columna de al lado como eco de diseño. Reconstruirlo con heurísticas de coordenadas dejaba una de cada cinco filas contaminada, y ese error es invisible después. `scripts/datos-22-fiesta.mjs` es el resultado verificado; `npm run programacion` lo carga.
 
 ## Extracción de boletas
 
@@ -72,10 +74,11 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 31 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm test` | 39 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
-| `npm run seed` | Carga festival, salas, traslados, funciones y boletas |
+| `npm run seed` | Carga festival, salas, traslados, agenda y boletas |
+| `npm run programacion` | Carga la programación completa del festival |
 | `npm run boletas:pendientes` | Baja a `trabajo/` los archivos que faltan extraer |
 | `npm run boletas:aplicar` | Escribe lo extraído |
 | `npm run baul:backup` | Copia el bucket entero a disco |
@@ -98,5 +101,8 @@ supabase/     migraciones SQL, las aplica npm run migrar en orden
 - **`duracion_confirmada` marca lo que es estimación.** Las duraciones no salen del volante. Cuando un margen depende de un número inventado, la interfaz lo dice.
 - **El schema es `eventos`, no `public`.** El proyecto de Supabase es compartido con `polla-app` y `viajes-app`.
 - **Las alternativas de una noche se evalúan contra TODAS las agendadas del festival**, no contra las de esa fecha. Filtrar por fecha hace que el motor crea que las otras noches están libres y prometa rescates que no existen. Hay test de regresión.
+- **Los títulos se normalizan antes de insertar.** El motor agrupa repeticiones comparando el título exacto: "Ixaquene" y "IXAQUENE" quedaban como dos obras y la app decía que se perdía algo que sí se podía ver otro día. El cargador busca un título que solo difiera en mayúsculas o tildes y reutiliza el que ya está.
+- **El chip de veredicto se deriva de la marca, no de la clase.** La clase `v-lost` cubre dos casos distintos: la obra está perdida (✕) o elegirla te haría perder otra (⚠). Mapear por clase etiquetaba como "Perdida" obras que se podían ver perfectamente.
+- **"No se repite" y "se repite pero ese día está ocupado" se dicen distinto.** El segundo caso tiene salida y el usuario necesita saberlo.
 - **La unidad de extracción es el archivo, no la boleta.** Al leer un PDF hay que contar cuántas entradas trae antes de escribir filas. Hay test de regresión.
 - **"Falta comprar" no es lo mismo que "falta el archivo".** Una función comprada cuyo PDF sigue en el correo no cuenta como pendiente de compra; para eso está el aviso de baúl.
