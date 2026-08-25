@@ -1,0 +1,52 @@
+name: Publicar en GitHub Pages
+
+# Compila la app como sitio estático y la publica. No hay servidor: el navegador
+# habla con Supabase directamente. La llave publishable viaja en el bundle a
+# propósito; lo que protege los datos es el código de acceso, que Andrés escribe
+# una vez y Postgres verifica en RLS, y que nunca entra aquí.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    env:
+      # Públicas por diseño, las mismas que ya viajan en polla-app y viajes-app.
+      NEXT_PUBLIC_SUPABASE_URL: https://gbfxpzsblnrasfvxnquk.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: sb_publishable_mRvhm4a-U8F9NqBNe4fNiQ_q_0cYLiD
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: touch out/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

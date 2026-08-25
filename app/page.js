@@ -1,27 +1,19 @@
+'use client';
 import Link from 'next/link';
-import { panorama, nocheDe, hoyMedellin, nombreDia, fechaLarga } from '../lib/datos.mjs';
+import { nocheDe, hoyMedellin, nombreDia, fechaLarga } from '../lib/panorama.mjs';
 import Avisos from './Avisos.js';
-
-export const dynamic = 'force-dynamic';
+import Pantalla from './Pantalla.js';
 
 const SELLO = {
-  comprada: 'Comprada',
-  agendada: 'Agendada',
-  vencida: 'Vencida',
-  no_alcanzada: 'No alcanzada',
+  comprada: 'Comprada', agendada: 'Agendada',
+  vencida: 'Vencida', no_alcanzada: 'No alcanzada',
 };
 
-export default async function Canovaccio() {
-  let p = null, fallo = null;
-  try {
-    p = await panorama();
-  } catch (e) {
-    fallo = e.message;
-  }
+export default function Canovaccio() {
+  return <Pantalla>{({ p }) => <Hoja p={p} />}</Pantalla>;
+}
 
-  if (fallo) return <Arranque mensaje={fallo} />;
-  if (!p) return <Arranque mensaje="Todavía no hay ningún festival cargado." />;
-
+function Hoja({ p }) {
   const hoy = hoyMedellin();
   // Si hoy no hay nada, muestra la próxima noche con funciones. La pantalla
   // sirve para salir de casa, no para contemplar un día vacío.
@@ -40,12 +32,8 @@ export default async function Canovaccio() {
 
       <section className="canovaccio">
         <div className="encabezado">
-          <span className="rotulo">
-            {fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}
-          </span>
-          <span className="fecha num">
-            {fechaLarga(fecha)} · {p.festival.nombre}
-          </span>
+          <span className="rotulo">{fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}</span>
+          <span className="fecha num">{fechaLarga(fecha)} · {p.festival.nombre}</span>
         </div>
 
         {escenas.length === 0 ? (
@@ -65,9 +53,7 @@ export default async function Canovaccio() {
                     {e.sala?.direccion ? ` · ${e.sala.direccion}` : ''}
                   </div>
                   {e.margen && (
-                    <div className="margen" data-estimado={String(e.margen.estimado)}>
-                      {e.margen.texto}
-                    </div>
+                    <div className="margen" data-estimado={String(e.margen.estimado)}>{e.margen.texto}</div>
                   )}
                   <div>
                     <span className="sello" data-t={e.estado}>
@@ -78,7 +64,7 @@ export default async function Canovaccio() {
                   {e.estado !== 'comprada' && e.necesarias > e.boletas.length && (
                     <div className="margen">
                       {e.boletas.length} de {e.necesarias} boletas.{' '}
-                      <Link href={`/boletas?funcion=${e.id}`}>Cargar la que falta</Link>
+                      <Link href="/boletas">Cargar la que falta</Link>
                     </div>
                   )}
                 </div>
@@ -90,27 +76,10 @@ export default async function Canovaccio() {
 
       <p className="entradilla">
         {escenas.length > 0 && (
-          <>
-            Llevas <b className="num">${p.total.toLocaleString('es-CO')}</b> en este festival.{' '}
-          </>
+          <>Llevas <b className="num">${p.total.toLocaleString('es-CO')}</b> en este festival. </>
         )}
         <Link href="/agenda">Agenda completa</Link> · <Link href="/boletas">Baúl</Link>
       </p>
     </>
-  );
-}
-
-function Arranque({ mensaje }) {
-  return (
-    <section className="seccion">
-      <h1>Canovaccio</h1>
-      <p className="entradilla">{mensaje}</p>
-      <div className="vacio">
-        <b>Falta el arranque</b>
-        Copia <code>.env.example</code> a <code>.env.local</code>, pega las credenciales del
-        proyecto de Supabase y corre <code>npm run setup</code> y <code>npm run seed</code>.
-        El seed carga la 22.ª Fiesta con sus salas, funciones y las boletas ya compradas.
-      </div>
-    </section>
   );
 }

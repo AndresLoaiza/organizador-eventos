@@ -29,19 +29,28 @@ create table if not exists eventos.archivos (
 alter table eventos.boletas add column if not exists archivo_id uuid references eventos.archivos(id) on delete set null;
 alter table eventos.boletas add column if not exists pagina int;
 
--- Traslada lo que ya existe: cada boleta actual era un archivo de una sola página.
-insert into eventos.archivos (festival_id, storage_key, hash_contenido, mime, origen, extraccion_estado, extraccion_json, creado)
-select b.festival_id, b.storage_key, b.hash_contenido, b.mime, b.origen, b.extraccion_estado, b.extraccion_json, b.creado
-  from eventos.boletas b
- where b.storage_key is not null
-   and not exists (select 1 from eventos.archivos a where a.hash_contenido = b.hash_contenido);
+-- Traslada lo que ya existe: cada boleta actual era un archivo de una sola
+-- página. Solo aplica en una base que todavía tenga el modelo viejo; sin la
+-- guarda, volver a correr las migraciones sobre una base ya migrada falla.
+do $$ begin
+  if exists (select 1 from information_schema.columns
+              where table_schema = 'eventos' and table_name = 'boletas'
+                and column_name = 'storage_key') then
 
-update eventos.boletas b
-   set archivo_id = a.id,
-       pagina = coalesce(b.pagina, 1)
-  from eventos.archivos a
- where a.hash_contenido = b.hash_contenido
-   and b.archivo_id is null;
+    insert into eventos.archivos (festival_id, storage_key, hash_contenido, mime, origen, extraccion_estado, extraccion_json, creado)
+    select b.festival_id, b.storage_key, b.hash_contenido, b.mime, b.origen, b.extraccion_estado, b.extraccion_json, b.creado
+      from eventos.boletas b
+     where b.storage_key is not null
+       and not exists (select 1 from eventos.archivos a where a.hash_contenido = b.hash_contenido);
+
+    update eventos.boletas b
+       set archivo_id = a.id,
+           pagina = coalesce(b.pagina, 1)
+      from eventos.archivos a
+     where a.hash_contenido = b.hash_contenido
+       and b.archivo_id is null;
+  end if;
+end $$;
 
 -- Ya no son de la boleta: son del archivo.
 alter table eventos.boletas drop column if exists storage_key;

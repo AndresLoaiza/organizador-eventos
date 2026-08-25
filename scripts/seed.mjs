@@ -1,7 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import process from 'node:process';
-import { hashContenido, claveBoleta } from '../lib/nombres.mjs';
+import { claveBoleta } from '../lib/nombres.mjs';
+import { hashContenido } from '../lib/hash.mjs';
 import { sql, unaFila, poolPg, almacen, BUCKET, FALTA_LLAVE_STORAGE } from './_cliente.mjs';
 
 // Siembra la 22.ª Fiesta con datos verificados: el volante, la fe de erratas que

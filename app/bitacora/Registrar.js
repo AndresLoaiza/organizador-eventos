@@ -1,14 +1,13 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { guardarJuicio } from '../../lib/cliente.mjs';
 
 // El texto primero y las estrellas después, en ese orden, porque en ese orden
 // pesan. Un párrafo en sus palabras dice qué recomendarle el año que viene;
 // un 3 sobre 5 no dice nada.
 
-export default function Registrar({ funciones, funcionInicial }) {
-  const router = useRouter();
-  const [funcionId, setFuncionId] = useState(funcionInicial ?? funciones[0]?.id ?? '');
+export default function Registrar({ funciones, alGuardar }) {
+  const [funcionId, setFuncionId] = useState(funciones[0]?.id ?? '');
   const actual = funciones.find(f => f.id === funcionId);
   const [texto, setTexto] = useState(actual?.juicio?.texto ?? '');
   const [estrellas, setEstrellas] = useState(actual?.juicio?.estrellas ?? 0);
@@ -24,20 +23,20 @@ export default function Registrar({ funciones, funcionInicial }) {
 
   async function enviar(e) {
     e.preventDefault();
+    if (!texto.trim()) {
+      setEstado({ fase: 'error', msg: 'Escribe qué te pareció, aunque sea una línea.' });
+      return;
+    }
     setEstado({ fase: 'guardando' });
     try {
-      const r = await fetch('/api/bitacora', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ funcion_id: funcionId, texto, estrellas: estrellas || null }),
+      const r = await guardarJuicio({
+        funcion_id: funcionId, texto: texto.trim(), estrellas: estrellas || null,
       });
-      const j = await r.json();
-      if (!r.ok) throw new Error(j.error ?? 'No se pudo guardar.');
       setEstado({
         fase: 'ok',
-        msg: `${j.actualizada ? 'Actualizado' : 'Guardado'}. Corre npm run obsidian:sync para llevarlo al perfil.`,
+        msg: `${r.actualizada ? 'Actualizado' : 'Guardado'}. Corre npm run obsidian:sync desde el PC para llevarlo al perfil.`,
       });
-      router.refresh();
+      alGuardar?.();
     } catch (err) {
       setEstado({ fase: 'error', msg: err.message });
     }
@@ -99,7 +98,11 @@ export default function Registrar({ funciones, funcionInicial }) {
       </button>
 
       {estado.msg && (
-        <div className="aviso" data-sev={estado.fase === 'error' ? 'alto' : 'aviso'} style={{ marginTop: 'var(--p4)' }}>
+        <div
+          className="aviso"
+          data-sev={estado.fase === 'error' ? 'alto' : 'aviso'}
+          style={{ marginTop: 'var(--p4)' }}
+        >
           <span className="marca" aria-hidden="true">{estado.fase === 'error' ? '!' : '✓'}</span>
           <span>{estado.msg}</span>
         </div>

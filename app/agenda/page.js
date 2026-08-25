@@ -1,24 +1,17 @@
+'use client';
 import Link from 'next/link';
-import { panorama, nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/datos.mjs';
+import { nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
+import Pantalla from '../Pantalla.js';
 
-export const dynamic = 'force-dynamic';
+export default function Agenda() {
+  return <Pantalla>{({ p }) => <Cuerpo p={p} />}</Pantalla>;
+}
 
 
 
-export default async function Agenda() {
-  let p = null;
-  try { p = await panorama(); } catch { p = null; }
-  if (!p) {
-    return (
-      <section className="seccion">
-        <h1>Agenda</h1>
-        <div className="vacio"><b>Sin datos</b>Corre <code>npm run seed</code> primero.</div>
-      </section>
-    );
-  }
-
+function Cuerpo({ p }) {
   const fechas = [...new Set(p.funciones.filter(f => f.agendada).map(f => f.fecha))].sort();
   // Falta COMPRAR, que no es lo mismo que faltar el archivo. Una función marcada
   // como comprada cuyo PDF sigue en el correo no va aquí: para eso está el aviso
@@ -92,8 +85,8 @@ export default async function Agenda() {
                     {f.juicio
                       ? <Link href="/bitacora">Ya la registraste</Link>
                       : f.fecha <= p.hoy
-                        ? <Link href={`/bitacora?funcion=${f.id}`}>Registrar qué te pareció</Link>
-                        : <Link href={`/boletas?funcion=${f.id}`}>Boletas</Link>}
+                        ? <Link href="/bitacora">Registrar qué te pareció</Link>
+                        : <Link href="/boletas">Boletas</Link>}
                   </span>
                 </li>
               ))}

@@ -1,22 +1,21 @@
-import { panorama, nombreDia, fmtHora } from '../../lib/datos.mjs';
+'use client';
+import { nombreDia, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Cargar from './Cargar.js';
+import Pantalla from '../Pantalla.js';
 
-export const dynamic = 'force-dynamic';
+export default function Baul() {
+  return <Pantalla>{({ p, recargar }) => <Cuerpo p={p} recargar={recargar} />}</Pantalla>;
+}
 
-export default async function Baul({ searchParams }) {
-  const params = await searchParams;
-  let p = null;
-  try { p = await panorama(); } catch { p = null; }
-  if (!p) {
-    return (
-      <section className="seccion">
-        <h1>Baúl</h1>
-        <div className="vacio"><b>Sin datos</b>Corre <code>npm run seed</code> primero.</div>
-      </section>
-    );
-  }
+const INSTRUCCIONES = [
+  'npm run boletas:pendientes   # baja los archivos sin extraer a trabajo/',
+  '# Claude los lee, cuenta cuántas boletas trae cada uno,',
+  '# y escribe trabajo/extraido.json',
+  'npm run boletas:aplicar      # guarda las boletas en la base',
+].join('\n');
 
+function Cuerpo({ p, recargar }) {
   const funciones = p.funciones.filter(f => f.agendada).map(f => ({
     id: f.id,
     etiqueta: `${nombreDia(f.fecha)} ${fmtHora(f.hora_min)} · ${f.obra} (${f.boletas.length}/${f.necesarias})`,
@@ -24,9 +23,8 @@ export default async function Baul({ searchParams }) {
 
   // Lo pendiente se cuenta por archivo, no por boleta: un PDF con dos entradas
   // es una sola extracción.
-  const archivosPendientes = new Set(
-    p.boletas.filter(b => b.extraccion_estado === 'pendiente').map(b => b.archivo_id));
-  const pendientes = [...archivosPendientes];
+  const pendientes = [...new Set(
+    p.boletas.filter(b => b.extraccion_estado === 'pendiente').map(b => b.archivo_id))];
   const archivos = new Set(p.boletas.map(b => b.archivo_id).filter(Boolean));
   const huerfanas = p.boletas.filter(b => !b.funcion_id);
   const porFuncion = new Map(p.funciones.map(f => [f.id, f]));
@@ -46,19 +44,12 @@ export default async function Baul({ searchParams }) {
         <p className="entradilla">
           Sirve para la foto del papel de taquilla, la captura del correo o el PDF de la boletería.
         </p>
-        <Cargar
-          funciones={funciones}
-          funcionInicial={params?.funcion ?? ''}
-          festivalId={p.festival.id}
-        />
+        <Cargar funciones={funciones} panorama={p} alGuardar={recargar} />
       </section>
 
       {huerfanas.length > 0 && (
         <section className="seccion">
-          <Avisos
-            titulo="Sin vincular"
-            avisos={p.avisos.filter(a => a.tipo === 'boleta_huerfana')}
-          />
+          <Avisos titulo="Sin vincular" avisos={p.avisos.filter(a => a.tipo === 'boleta_huerfana')} />
         </section>
       )}
 
@@ -112,18 +103,14 @@ export default async function Baul({ searchParams }) {
         <section className="seccion">
           <h2>Cómo se completan las pendientes</h2>
           <p className="entradilla">
-            En una sesión de Claude Code, sobre este proyecto:
+            Quedan {pendientes.length} archivos sin extraer. En una sesión de Claude Code,
+            sobre este proyecto:
           </p>
           <pre style={{
             background: 'var(--papel-2)', border: '1px solid var(--regla)',
             borderRadius: 'var(--r)', padding: 'var(--p3) var(--p4)', overflowX: 'auto',
             fontSize: '0.875rem',
-          }}>
-{`npm run boletas:pendientes   # baja los ${pendientes.length} archivos a trabajo/
-# Claude los lee, cuenta cuántas boletas trae cada uno,
-# y escribe trabajo/extraido.json
-npm run boletas:aplicar      # guarda las boletas en la base`}
-          </pre>
+          }}>{INSTRUCCIONES}</pre>
         </section>
       )}
     </>

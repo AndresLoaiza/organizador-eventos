@@ -1,21 +1,13 @@
-import { panorama, nombreDia, fechaLarga, fmtHora } from '../../lib/datos.mjs';
+'use client';
+import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import Registrar from './Registrar.js';
+import Pantalla from '../Pantalla.js';
 
-export const dynamic = 'force-dynamic';
+export default function Bitacora() {
+  return <Pantalla>{({ p, recargar }) => <Cuerpo p={p} recargar={recargar} />}</Pantalla>;
+}
 
-export default async function Bitacora({ searchParams }) {
-  const params = await searchParams;
-  let p = null;
-  try { p = await panorama(); } catch { p = null; }
-  if (!p) {
-    return (
-      <section className="seccion">
-        <h1>Bitácora</h1>
-        <div className="vacio"><b>Sin datos</b>Corre <code>npm run seed</code> primero.</div>
-      </section>
-    );
-  }
-
+function Cuerpo({ p, recargar }) {
   // Solo se juzga lo que ya pasó. Ofrecer registrar una obra que aún no ve
   // invita a inventar, y el perfil del vault vive de no inventar.
   const pasadas = p.funciones
@@ -45,7 +37,7 @@ export default async function Bitacora({ searchParams }) {
 
       <section className="seccion">
         <h2>Registrar</h2>
-        <Registrar funciones={pasadas} funcionInicial={params?.funcion ?? ''} />
+        <Registrar funciones={pasadas} alGuardar={recargar} />
       </section>
 
       {sinRegistrar.length > 0 && (

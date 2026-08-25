@@ -89,7 +89,17 @@ create table if not exists eventos.boletas (
 
 -- Un mismo archivo no entra dos veces, pero dos boletas distintas de la misma
 -- función sí: es lo correcto cuando va acompañado.
-create unique index if not exists boletas_hash_unico on eventos.boletas (hash_contenido);
+--
+-- La migración 003 movió hash_contenido a la tabla archivos, así que este índice
+-- solo se crea en una base virgen. Sin la guarda, volver a correr las
+-- migraciones sobre una base ya actualizada falla.
+do $$ begin
+  if exists (select 1 from information_schema.columns
+              where table_schema = 'eventos' and table_name = 'boletas'
+                and column_name = 'hash_contenido') then
+    create unique index if not exists boletas_hash_unico on eventos.boletas (hash_contenido);
+  end if;
+end $$;
 create index if not exists boletas_funcion on eventos.boletas (funcion_id);
 
 -- ---------------------------------------------------------------------------
