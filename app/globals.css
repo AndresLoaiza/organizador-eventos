@@ -1,376 +1,386 @@
-/* Sistema quieto. El riesgo vive solo en .canovaccio, al final del archivo. */
+/* Canovaccio.
+   Escena que manda el diseño: 7:15 de la noche, Calle 47, luz de poste, el
+   teléfono a un brazo, decidiendo si hay que apurar el paso. Eso obliga a
+   oscuro por defecto y a una hora enorme legible de reojo. La versión clara
+   existe para la otra escena, cargar boletas a la una de la tarde. */
 
 :root {
-  --papel:        oklch(0.972 0.008 78);
-  --papel-2:      oklch(0.945 0.010 76);
-  --tarjeta:      oklch(0.995 0.004 80);
-  --tinta:        oklch(0.235 0.014 68);
-  --tinta-2:      oklch(0.470 0.014 68);
-  --tinta-3:      oklch(0.620 0.012 68);
-  --regla:        oklch(0.885 0.010 74);
-  --regla-fuerte: oklch(0.800 0.012 74);
+  color-scheme: dark light;
 
-  --acento:       oklch(0.415 0.075 285);
-  --acento-suave: oklch(0.945 0.020 285);
-  --acento-borde: oklch(0.800 0.040 285);
+  /* Oscuro es el diseñado; claro se deriva más abajo. */
+  --fondo:    oklch(0.155 0.012 40);
+  --fondo-2:  oklch(0.205 0.014 42);
+  --relieve:  oklch(0.245 0.014 44);
+  --tinta:    oklch(0.955 0.008 82);
+  --tinta-2:  oklch(0.735 0.014 72);
+  --tinta-3:  oklch(0.615 0.014 66);
+  --regla:    oklch(0.300 0.014 46);
+  --regla-2:  oklch(0.450 0.016 46);
 
-  --perdida:       oklch(0.505 0.145 32);
-  --perdida-suave: oklch(0.955 0.030 32);
-  --recuperable:       oklch(0.480 0.085 158);
-  --recuperable-suave: oklch(0.955 0.030 158);
-  --justo:       oklch(0.560 0.100 76);
-  --justo-suave: oklch(0.955 0.032 76);
+  /* Bermellón: el sello, la tinta del capocómico. Un solo color manda. */
+  --acento:      oklch(0.680 0.190 32);
+  --acento-2:    oklch(0.760 0.150 38);
+  --acento-piso: oklch(0.300 0.090 32);
+  --sobre-acento: oklch(0.160 0.014 40);
 
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  /* La pérdida no grita: se tacha y se apaga. Un rojo de alarma competiría con
+     el acento y volvería la pantalla un semáforo. */
+  --gana:  oklch(0.800 0.130 168);
+  --justo: oklch(0.840 0.135 82);
 
-  --p1: 0.25rem; --p2: 0.5rem; --p3: 0.75rem; --p4: 1rem;
-  --p5: 1.5rem; --p6: 2rem; --p7: 3rem; --p8: 4.5rem;
+  --sans: var(--fuente-archivo), -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
-  --r: 8px;
-  --sombra: 0 1px 2px oklch(0.235 0.014 68 / 0.06), 0 4px 12px oklch(0.235 0.014 68 / 0.04);
-  --salida: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Escala de cuarta justa: 1.333. Los saltos se notan. */
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-md: 1rem;
+  --t-lg: 1.333rem;
+  --t-xl: 1.777rem;
+  --t-2xl: 2.369rem;
+  --t-3xl: 3.157rem;
+
+  --e1: 0.25rem; --e2: 0.5rem;  --e3: 0.75rem; --e4: 1rem;
+  --e5: 1.5rem;  --e6: 2.25rem; --e7: 3.5rem;  --e8: 5.5rem;
+
+  --salida: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-tema="claro"]) {
-    --papel:        oklch(0.185 0.010 68);
-    --papel-2:      oklch(0.225 0.012 68);
-    --tarjeta:      oklch(0.235 0.012 68);
-    --tinta:        oklch(0.940 0.010 80);
-    --tinta-2:      oklch(0.740 0.012 78);
-    --tinta-3:      oklch(0.585 0.012 76);
-    --regla:        oklch(0.320 0.012 70);
-    --regla-fuerte: oklch(0.420 0.014 70);
-
-    --acento:       oklch(0.760 0.095 285);
-    --acento-suave: oklch(0.285 0.040 285);
-    --acento-borde: oklch(0.420 0.055 285);
-
-    --perdida:       oklch(0.735 0.130 32);
-    --perdida-suave: oklch(0.275 0.055 32);
-    --recuperable:       oklch(0.760 0.095 158);
-    --recuperable-suave: oklch(0.265 0.040 158);
-    --justo:       oklch(0.790 0.105 76);
-    --justo-suave: oklch(0.278 0.045 76);
-
-    --sombra: 0 1px 2px oklch(0 0 0 / 0.35), 0 4px 14px oklch(0 0 0 / 0.28);
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema='oscuro']) {
+    --fondo:    oklch(0.978 0.008 86);
+    --fondo-2:  oklch(0.948 0.011 84);
+    --relieve:  oklch(1 0 0);
+    --tinta:    oklch(0.205 0.016 46);
+    --tinta-2:  oklch(0.450 0.016 50);
+    --tinta-3:  oklch(0.470 0.016 55);
+    --regla:    oklch(0.880 0.012 80);
+    --regla-2:  oklch(0.760 0.014 76);
+    --acento:      oklch(0.450 0.185 32);
+    --acento-2:    oklch(0.390 0.165 30);
+    --acento-piso: oklch(0.940 0.045 34);
+    --sobre-acento: oklch(0.985 0.006 86);
+    --gana:  oklch(0.470 0.110 165);
+    --justo: oklch(0.435 0.105 74);
   }
 }
 
-:root[data-tema="oscuro"] {
-  --papel: oklch(0.185 0.010 68); --papel-2: oklch(0.225 0.012 68);
-  --tarjeta: oklch(0.235 0.012 68); --tinta: oklch(0.940 0.010 80);
-  --tinta-2: oklch(0.740 0.012 78); --tinta-3: oklch(0.585 0.012 76);
-  --regla: oklch(0.320 0.012 70); --regla-fuerte: oklch(0.420 0.014 70);
-  --acento: oklch(0.760 0.095 285); --acento-suave: oklch(0.285 0.040 285);
-  --acento-borde: oklch(0.420 0.055 285);
-  --perdida: oklch(0.735 0.130 32); --perdida-suave: oklch(0.275 0.055 32);
-  --recuperable: oklch(0.760 0.095 158); --recuperable-suave: oklch(0.265 0.040 158);
-  --justo: oklch(0.790 0.105 76); --justo-suave: oklch(0.278 0.045 76);
-  --sombra: 0 1px 2px oklch(0 0 0 / 0.35), 0 4px 14px oklch(0 0 0 / 0.28);
+:root[data-tema='claro'] {
+  --fondo: oklch(0.978 0.008 86); --fondo-2: oklch(0.948 0.011 84);
+  --relieve: oklch(1 0 0); --tinta: oklch(0.205 0.016 46);
+  --tinta-2: oklch(0.450 0.016 50); --tinta-3: oklch(0.470 0.016 55);
+  --regla: oklch(0.880 0.012 80); --regla-2: oklch(0.760 0.014 76);
+  --acento: oklch(0.450 0.185 32); --acento-2: oklch(0.390 0.165 30);
+  --acento-piso: oklch(0.940 0.045 34); --sobre-acento: oklch(0.985 0.006 86);
+  --gana: oklch(0.470 0.110 165); --justo: oklch(0.435 0.105 74);
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
 body {
-  background: var(--papel);
+  background: var(--fondo);
   color: var(--tinta);
   font-family: var(--sans);
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-h1, h2, h3 { margin: 0; font-weight: 620; letter-spacing: -0.011em; }
-h1 { font-size: 1.728rem; line-height: 1.2; }
-h2 { font-size: 1.44rem; line-height: 1.25; }
-h3 { font-size: 1.2rem; line-height: 1.3; }
-p  { margin: 0; max-width: 70ch; }
-
-a { color: var(--acento); text-underline-offset: 2px; }
-
+h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+h1 { font-size: var(--t-2xl); }
+h2 { font-size: var(--t-xl); }
+h3 { font-size: var(--t-lg); letter-spacing: -0.02em; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .num { font-variant-numeric: tabular-nums; }
 
-/* --- Estructura --------------------------------------------------------- */
-
-.marco { max-width: 940px; margin: 0 auto; padding: 0 var(--p4) var(--p8); }
+/* --- Barra ---------------------------------------------------------------- */
 
 .barra {
   position: sticky; top: 0; z-index: 20;
-  display: flex; align-items: center; gap: var(--p2);
-  padding: var(--p2) var(--p4);
-  background: var(--papel-2);
+  display: flex; align-items: center; gap: var(--e2);
+  padding: var(--e2) var(--e4);
+  background: var(--fondo);
   border-bottom: 1px solid var(--regla);
 }
-.barra nav { display: flex; gap: var(--p1); overflow-x: auto; scrollbar-width: none; }
+.barra nav { display: flex; gap: var(--e1); overflow-x: auto; scrollbar-width: none; }
 .barra nav::-webkit-scrollbar { display: none; }
 
 .tab {
   display: inline-flex; align-items: center; min-height: 44px;
-  padding: 0 var(--p3); border-radius: var(--r);
-  color: var(--tinta-2); text-decoration: none; font-size: 0.9375rem; font-weight: 520;
-  white-space: nowrap;
-  transition: background 160ms var(--salida), color 160ms var(--salida);
+  padding: 0 var(--e3);
+  color: var(--tinta-3); text-decoration: none;
+  font-size: var(--t-sm); font-weight: 600; letter-spacing: 0.01em;
+  white-space: nowrap; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 180ms var(--salida), border-color 180ms var(--salida);
 }
-.tab:hover { background: var(--papel); color: var(--tinta); }
-.tab[aria-current="page"] { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+.tab:hover { color: var(--tinta); }
+.tab:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; }
 
-.seccion { margin-top: var(--p7); }
-.seccion > h2 { margin-bottom: var(--p1); }
-.entradilla { color: var(--tinta-2); font-size: 0.9375rem; margin-bottom: var(--p4); }
+.marco { max-width: 62rem; margin: 0 auto; padding: 0 var(--e4) var(--e8); }
 
-/* --- Tipos fijos --------------------------------------------------------
-   Marca invariable adelante, borde completo, fondo tintado.
-   Sin raya lateral de color: el tipo se reconoce por la máscara, no por un
-   adorno en el margen. */
+/* Ritmo variable: mucho aire entre secciones, poco dentro. */
+.seccion { margin-top: var(--e7); }
+.seccion > h2 { margin-bottom: var(--e2); }
+.entradilla { color: var(--tinta-2); font-size: var(--t-sm); margin-bottom: var(--e5); }
+.entradilla b { color: var(--tinta); font-weight: 700; }
+
+/* --- Tipos fijos ----------------------------------------------------------
+   Marca invariable delante. Sin raya lateral de color: el tipo se reconoce por
+   la máscara, no por un adorno en el margen. */
 
 .tipo {
   display: inline-flex; align-items: center; gap: 0.4em;
-  padding: 0.15rem 0.55rem 0.2rem;
-  border: 1px solid var(--regla-fuerte); border-radius: 999px;
-  font-size: 0.8125rem; font-weight: 600; line-height: 1.35;
-  color: var(--tinta-2); background: var(--papel-2);
-  white-space: nowrap;
+  font-size: var(--t-xs); font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--tinta-3); white-space: nowrap;
 }
-.tipo .marca { font-size: 0.875em; }
+.tipo .marca {
+  display: inline-grid; place-items: center;
+  width: 1.35em; height: 1.35em; border-radius: 50%;
+  border: 1.5px solid currentColor; font-size: 0.8em; line-height: 1;
+}
+.tipo[data-t='comprada']     { color: var(--gana); }
+.tipo[data-t='recuperable']  { color: var(--gana); }
+.tipo[data-t='compatible']   { color: var(--gana); }
+.tipo[data-t='justo']        { color: var(--justo); }
+.tipo[data-t='cuesta']       { color: var(--justo); }
+.tipo[data-t='vencida']      { color: var(--justo); }
+.tipo[data-t='agendada']     { color: var(--tinta-3); }
+.tipo[data-t='perdida'],
+.tipo[data-t='no_alcanzada'] { color: var(--tinta-3); text-decoration: line-through; }
 
-.tipo[data-t="comprada"]     { color: var(--recuperable); background: var(--recuperable-suave); border-color: var(--recuperable); }
-.tipo[data-t="agendada"]     { color: var(--tinta-2); }
-.tipo[data-t="perdida"]      { color: var(--perdida); background: var(--perdida-suave); border-color: var(--perdida); }
-.tipo[data-t="no_alcanzada"] { color: var(--perdida); background: var(--perdida-suave); border-color: var(--perdida); }
-.tipo[data-t="recuperable"]  { color: var(--recuperable); background: var(--recuperable-suave); border-color: var(--recuperable); }
-.tipo[data-t="justo"]        { color: var(--justo); background: var(--justo-suave); border-color: var(--justo); }
-.tipo[data-t="vencida"]      { color: var(--justo); background: var(--justo-suave); border-color: var(--justo); }
-.tipo[data-t="cuesta"]       { color: var(--justo); background: var(--justo-suave); border-color: var(--justo); }
-.tipo[data-t="compatible"]   { color: var(--recuperable); background: var(--recuperable-suave); border-color: var(--recuperable); }
-.tipo[data-t="desplaza"]     { color: var(--tinta-2); }
-.tipo[data-t="libre"]        { color: var(--tinta-2); }
-
-/* --- Avisos -------------------------------------------------------------- */
+/* --- Avisos ---------------------------------------------------------------
+   Sin caja: un filete arriba y tipografía. Una alerta que parece tarjeta se
+   confunde con el contenido. */
 
 .aviso {
-  display: flex; gap: var(--p3); align-items: flex-start;
-  padding: var(--p3) var(--p4);
-  border: 1px solid var(--regla-fuerte); border-radius: var(--r);
-  background: var(--tarjeta);
-  font-size: 0.9375rem;
+  display: grid; grid-template-columns: 1.6rem 1fr; gap: var(--e3);
+  padding: var(--e3) 0;
+  border-top: 1px solid var(--regla);
+  font-size: var(--t-sm); color: var(--tinta-2);
 }
-.aviso + .aviso { margin-top: var(--p2); }
-.aviso[data-sev="alto"] { border-color: var(--perdida); background: var(--perdida-suave); }
-.aviso .marca { font-weight: 700; line-height: 1.5; }
-.aviso[data-sev="alto"] .marca { color: var(--perdida); }
-.aviso[data-sev="aviso"] .marca { color: var(--justo); }
-.aviso b { font-weight: 640; }
+.aviso:last-child { border-bottom: 1px solid var(--regla); }
+.aviso .marca {
+  font-weight: 800; font-size: var(--t-md); line-height: 1.3; color: var(--tinta-3);
+}
+.aviso[data-sev='alto'] { color: var(--tinta); }
+.aviso[data-sev='alto'] .marca { color: var(--acento); }
+.aviso b { font-weight: 700; }
 
-/* --- Lista de funciones -------------------------------------------------- */
+/* --- Funciones: renglones, no tarjetas ------------------------------------ */
 
-.funciones { display: flex; flex-direction: column; gap: var(--p2); list-style: none; margin: 0; padding: 0; }
+.funciones { display: flex; flex-direction: column; list-style: none; margin: 0; padding: 0; }
 
 .funcion {
   display: grid;
-  grid-template-columns: 5.2rem 1fr auto;
-  gap: var(--p2) var(--p3);
+  grid-template-columns: 5.5rem 1fr auto;
+  gap: var(--e1) var(--e4);
   align-items: baseline;
-  padding: var(--p3) var(--p4);
-  border: 1px solid var(--regla); border-radius: var(--r);
-  background: var(--tarjeta);
-  transition: border-color 160ms var(--salida);
+  padding: var(--e4) var(--e2);
+  border-top: 1px solid var(--regla);
+  transition: background 180ms var(--salida);
 }
-.funcion:hover { border-color: var(--regla-fuerte); }
-.funcion .hora { font-weight: 680; font-variant-numeric: tabular-nums; color: var(--tinta); }
-.funcion .obra { font-weight: 600; }
-.funcion .cia { display: block; color: var(--tinta-2); font-size: 0.875rem; font-weight: 400; }
-.funcion .lugar { color: var(--tinta-2); font-size: 0.875rem; }
+.funcion:last-child { border-bottom: 1px solid var(--regla); }
+.funcion:hover { background: var(--fondo-2); }
+
+.funcion .hora {
+  font-size: var(--t-lg); font-weight: 800; letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; color: var(--tinta);
+}
+.funcion .obra { font-size: var(--t-md); font-weight: 650; letter-spacing: -0.01em; }
+.funcion .cia {
+  display: block; color: var(--tinta-3); font-size: var(--t-sm);
+  font-weight: 400; letter-spacing: 0;
+}
 .funcion .estado { grid-column: 3; grid-row: 1; }
-.funcion .pie { grid-column: 1 / -1; color: var(--tinta-3); font-size: 0.8125rem; }
+.funcion .pie {
+  grid-column: 2 / -1; color: var(--tinta-3); font-size: var(--t-xs);
+  line-height: 1.55; max-width: 60ch;
+}
 
 @media (max-width: 560px) {
-  .funcion { grid-template-columns: 4.6rem 1fr; }
+  .funcion { grid-template-columns: 4.6rem 1fr; padding: var(--e3) 0; }
   .funcion .estado { grid-column: 2; grid-row: 3; justify-self: start; }
+  .funcion .pie { grid-column: 1 / -1; }
 }
 
-/* --- Controles ----------------------------------------------------------- */
+/* --- Controles ------------------------------------------------------------ */
 
 .boton {
-  display: inline-flex; align-items: center; justify-content: center; gap: var(--p2);
-  min-height: 44px; padding: 0 var(--p4);
-  border: 1px solid var(--regla-fuerte); border-radius: var(--r);
-  background: var(--tarjeta); color: var(--tinta);
-  font: inherit; font-size: 0.9375rem; font-weight: 560;
-  cursor: pointer;
-  transition: background 160ms var(--salida), border-color 160ms var(--salida), opacity 160ms var(--salida);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--e2);
+  min-height: 46px; padding: 0 var(--e5);
+  border: 1px solid var(--regla-2); border-radius: 3px;
+  background: transparent; color: var(--tinta);
+  font: inherit; font-size: var(--t-sm); font-weight: 700;
+  letter-spacing: 0.02em; cursor: pointer;
+  transition: background 180ms var(--salida), border-color 180ms var(--salida), color 180ms var(--salida);
 }
-.boton:hover { background: var(--papel-2); }
+.boton:hover { background: var(--fondo-2); border-color: var(--tinta-3); }
 .boton:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
-.boton:active { transform: translateY(0.5px); }
-.boton[disabled], .boton[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
-.boton[data-v="primario"] {
-  background: var(--acento); border-color: var(--acento); color: var(--papel);
+.boton[disabled], .boton[aria-disabled='true'] { opacity: 0.45; cursor: not-allowed; }
+.boton[data-v='primario'] {
+  background: var(--acento); border-color: var(--acento); color: var(--sobre-acento);
 }
-:root[data-tema="oscuro"] .boton[data-v="primario"],
-:root:not([data-tema="claro"]) .boton[data-v="primario"] { color: oklch(0.18 0.01 285); }
-@media (prefers-color-scheme: light) {
-  :root:not([data-tema="oscuro"]) .boton[data-v="primario"] { color: oklch(0.99 0.004 80); }
-}
-.boton[data-v="primario"]:hover { filter: brightness(1.08); }
+.boton[data-v='primario']:hover { background: var(--acento-2); border-color: var(--acento-2); }
 
-label { display: block; font-size: 0.875rem; font-weight: 580; color: var(--tinta-2); margin-bottom: var(--p1); }
-
-input[type="text"], input[type="number"], input[type="date"], input[type="time"], select, textarea {
-  width: 100%; min-height: 44px; padding: var(--p2) var(--p3);
-  border: 1px solid var(--regla-fuerte); border-radius: var(--r);
-  background: var(--tarjeta); color: var(--tinta);
-  font: inherit; font-size: 1rem;
+label {
+  display: block; font-size: var(--t-xs); font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--tinta-3); margin-bottom: var(--e2);
 }
-textarea { min-height: 8rem; resize: vertical; line-height: 1.55; }
+
+input[type='text'], input[type='password'], input[type='number'],
+input[type='date'], input[type='time'], input[type='file'], select, textarea {
+  width: 100%; min-height: 46px; padding: var(--e2) var(--e3);
+  border: 1px solid var(--regla-2); border-radius: 3px;
+  background: var(--relieve); color: var(--tinta);
+  font: inherit; font-size: var(--t-md);
+}
+textarea { min-height: 9rem; resize: vertical; line-height: 1.6; }
 input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--acento); outline-offset: 1px; border-color: var(--acento);
 }
-.campo { margin-bottom: var(--p4); }
-.campo[data-dudoso="true"] input { border-color: var(--justo); background: var(--justo-suave); }
-.campo .nota { font-size: 0.8125rem; color: var(--tinta-3); margin-top: var(--p1); }
-.campo[data-dudoso="true"] .nota { color: var(--justo); }
+.campo { margin-bottom: var(--e5); }
+.campo .nota { font-size: var(--t-xs); color: var(--tinta-3); margin-top: var(--e2); }
 
-/* --- Estrellas ----------------------------------------------------------- */
-
-.estrellas { display: flex; gap: var(--p1); }
+.estrellas { display: flex; gap: var(--e1); }
 .estrellas button {
-  width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
-  font-size: 1.5rem; line-height: 1; color: var(--tinta-3); padding: 0;
-  transition: color 160ms var(--salida);
+  width: 46px; height: 46px; border: 0; background: none; cursor: pointer;
+  font-size: 1.6rem; line-height: 1; color: var(--tinta-3); padding: 0;
+  transition: color 180ms var(--salida);
 }
-.estrellas button[aria-pressed="true"], .estrellas button.activa { color: var(--justo); }
-.estrellas button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; border-radius: var(--r); }
+.estrellas button.activa { color: var(--justo); }
+.estrellas button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
 
-/* --- Tabla --------------------------------------------------------------- */
+/* --- Tabla ---------------------------------------------------------------- */
 
-.tabla-scroll { overflow-x: auto; border: 1px solid var(--regla); border-radius: var(--r); }
-table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; }
-th, td { text-align: left; padding: var(--p2) var(--p3); border-bottom: 1px solid var(--regla); white-space: nowrap; }
-th { font-weight: 620; color: var(--tinta-2); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--papel-2); }
-tr:last-child td { border-bottom: 0; }
-td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-
-/* --- Vacío --------------------------------------------------------------- */
+.tabla-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: var(--t-sm); }
+th, td { text-align: left; padding: var(--e3) var(--e3) var(--e3) 0; border-bottom: 1px solid var(--regla); white-space: nowrap; }
+th {
+  font-weight: 700; color: var(--tinta-3); font-size: var(--t-xs);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  border-bottom-color: var(--regla-2);
+}
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: var(--e4); }
 
 .vacio {
-  padding: var(--p6) var(--p4);
-  border: 1px dashed var(--regla-fuerte); border-radius: var(--r);
-  color: var(--tinta-2); font-size: 0.9375rem;
+  padding: var(--e6) 0; border-top: 1px solid var(--regla); border-bottom: 1px solid var(--regla);
+  color: var(--tinta-2); font-size: var(--t-sm);
 }
-.vacio b { display: block; color: var(--tinta); font-weight: 620; margin-bottom: var(--p1); }
+.vacio b { display: block; color: var(--tinta); font-size: var(--t-lg); font-weight: 800; margin-bottom: var(--e2); }
+
+pre {
+  margin: 0; padding: var(--e4) 0;
+  border-top: 1px solid var(--regla); border-bottom: 1px solid var(--regla);
+  overflow-x: auto; font-size: var(--t-xs); line-height: 1.7; color: var(--tinta-2);
+}
+
+details > summary {
+  cursor: pointer; min-height: 46px; display: flex; align-items: center;
+  color: var(--tinta-3); font-size: var(--t-xs); font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+details > summary:hover { color: var(--acento); }
 
 /* =========================================================================
-   CANOVACCIO — la única superficie con textura y peso.
-   Una hoja de bastidores: renglones, numerales de escena en serif, sello.
+   ESTA NOCHE — el único momento con drama.
+   La hora manda: si a las 7:15 en la calle solo se puede leer una cosa, es a
+   qué hora hay que estar y dónde.
    ========================================================================= */
 
-.canovaccio {
-  position: relative;
-  margin: var(--p5) 0 var(--p7);
-  padding: var(--p5) var(--p4) var(--p6);
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 2.199rem,
-      var(--regla) 2.2rem,
-      var(--regla) calc(2.2rem + 1px)
-    ),
-    var(--tarjeta);
-  border: 1px solid var(--regla-fuerte);
-  border-radius: 2px;
-  box-shadow: var(--sombra);
-}
-
-.canovaccio::before {
-  content: "";
-  position: absolute; inset: 0 auto 0 3.4rem; width: 1px;
-  background: var(--perdida); opacity: 0.28;
-}
+.canovaccio { margin: var(--e6) 0 var(--e7); }
 
 .canovaccio .encabezado {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: var(--p3); flex-wrap: wrap;
-  padding-left: 4.4rem; margin-bottom: var(--p5);
+  display: flex; align-items: baseline; gap: var(--e3); flex-wrap: wrap;
+  padding-bottom: var(--e3); margin-bottom: var(--e6);
+  border-bottom: 2px solid var(--tinta);
 }
 .canovaccio .rotulo {
-  font-family: var(--serif); font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em;
+  font-size: var(--t-xs); font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--acento);
 }
-.canovaccio .fecha { color: var(--tinta-2); font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.canovaccio .fecha {
+  margin-left: auto; color: var(--tinta-3);
+  font-size: var(--t-xs); letter-spacing: 0.06em; text-transform: uppercase;
+}
 
 .escenas { list-style: none; margin: 0; padding: 0; }
 
 .escena {
-  position: relative;
   display: grid;
-  grid-template-columns: 3.4rem 1fr;
-  column-gap: 1rem;
-  padding: 0 0 var(--p5);
-  min-height: 4.4rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--e4);
+  padding-bottom: var(--e6);
+  margin-bottom: var(--e6);
+  border-bottom: 1px solid var(--regla);
+  position: relative;
 }
+.escena:last-child { border-bottom: 0; margin-bottom: 0; }
 
+/* El numeral de escena vive detrás, como una anotación al margen. */
 .escena .n {
-  font-family: var(--serif);
-  font-size: 2.4rem; line-height: 1;
-  font-variant-numeric: lining-nums tabular-nums;
-  color: var(--tinta-3);
-  text-align: right; padding-right: 0.65rem;
+  grid-column: 2; grid-row: 1 / span 2;
+  align-self: start;
+  font-size: var(--t-2xl); font-weight: 800; line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--regla-2);
 }
 
 .escena .hora {
-  font-family: var(--serif);
-  font-size: 1.6rem; line-height: 1.15; font-weight: 600;
+  font-size: clamp(3rem, 15vw, var(--t-3xl));
+  font-weight: 800; line-height: 0.92; letter-spacing: -0.055em;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.015em;
+  color: var(--acento);
+  margin-bottom: var(--e2);
 }
-.escena .obra { font-size: 1.0625rem; font-weight: 620; margin-top: 0.1rem; }
-.escena .donde { color: var(--tinta-2); font-size: 0.9375rem; }
-.escena .margen { color: var(--tinta-3); font-size: 0.8125rem; margin-top: var(--p1); }
-.escena .margen[data-estimado="true"]::after {
-  content: " · según duración estimada";
-  color: var(--justo);
+.escena .obra {
+  font-size: var(--t-xl); font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.03em; text-wrap: balance;
+  margin-bottom: var(--e1);
+}
+.escena .donde { color: var(--tinta-2); font-size: var(--t-sm); }
+.escena .margen { color: var(--tinta-3); font-size: var(--t-xs); margin-top: var(--e2); }
+.escena .margen[data-estimado='true']::after {
+  content: ' · según duración estimada'; color: var(--justo);
 }
 
-/* El sello. Único gesto saturado del producto, y es tinta de sello, no acento. */
+/* El sello. Único gesto girado de toda la app. */
 .sello {
-  display: inline-flex; align-items: center; gap: 0.35em;
-  margin-top: var(--p2);
-  padding: 0.2rem 0.6rem 0.25rem;
-  border: 2px solid currentColor; border-radius: 3px;
-  font-family: var(--serif);
-  font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  transform: rotate(-2.4deg);
-  opacity: 0.88;
+  display: inline-flex; align-items: center;
+  margin-top: var(--e3);
+  padding: 0.28rem 0.7rem 0.32rem;
+  border: 2px solid currentColor; border-radius: 2px;
+  font-size: var(--t-xs); font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  transform: rotate(-2.5deg);
 }
-.sello[data-t="comprada"]     { color: var(--recuperable); }
-.sello[data-t="agendada"]     { color: var(--tinta-3); border-style: dashed; transform: rotate(-1deg); }
-.sello[data-t="no_alcanzada"] { color: var(--perdida); }
+.sello[data-t='comprada']     { color: var(--gana); }
+.sello[data-t='agendada']     { color: var(--tinta-3); border-style: dashed; transform: rotate(-1deg); }
+.sello[data-t='vencida']      { color: var(--justo); }
+.sello[data-t='no_alcanzada'] { color: var(--tinta-3); }
 
-.escena[data-estado="no_alcanzada"] .obra,
-.escena[data-estado="no_alcanzada"] .hora {
+.escena[data-estado='no_alcanzada'] .obra,
+.escena[data-estado='no_alcanzada'] .hora {
   text-decoration: line-through;
-  text-decoration-color: var(--perdida);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 3px;
   color: var(--tinta-3);
 }
 
 @keyframes estampar {
-  from { opacity: 0; transform: rotate(-9deg) scale(1.5); }
-  to   { opacity: 0.88; transform: rotate(-2.4deg) scale(1); }
+  from { opacity: 0; transform: rotate(-10deg) scale(1.4); }
+  to   { opacity: 1; transform: rotate(-2.5deg) scale(1); }
 }
-.sello[data-nuevo="true"] { animation: estampar 220ms var(--salida) both; }
+.sello[data-nuevo='true'] { animation: estampar 240ms var(--salida) both; }
 
 @media (max-width: 560px) {
-  .canovaccio { padding: var(--p4) var(--p3) var(--p5); }
-  .canovaccio::before { left: 2.6rem; }
-  .canovaccio .encabezado { padding-left: 3.4rem; }
-  .escena { grid-template-columns: 2.6rem 1fr; column-gap: 0.8rem; }
-  .escena .n { font-size: 1.9rem; padding-right: 0.5rem; }
-  .escena .hora { font-size: 1.45rem; }
+  .marco { padding: 0 var(--e3) var(--e8); }
+  .escena .n { font-size: var(--t-xl); }
+  .escena .obra { font-size: var(--t-lg); }
 }
 
 @media (prefers-reduced-motion: reduce) {

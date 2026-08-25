@@ -10,14 +10,15 @@ export default function InterruptorTema() {
   const [tema, setTema] = useState('sistema');
 
   useEffect(() => {
-    const guardado = localStorage.getItem('tema');
+    let guardado = null;
+    try { guardado = localStorage.getItem('tema'); } catch { /* modo privado */ }
     if (guardado && ROTULO[guardado]) aplicar(guardado, setTema);
   }, []);
 
   return (
     <button
-      className="boton"
-      style={{ minWidth: '5.5rem', padding: '0 0.75rem' }}
+      className="tab"
+      style={{ border: 0, background: 'none', minWidth: '4.5rem', justifyContent: 'flex-end' }}
       onClick={() => aplicar(CICLO[tema], setTema)}
       aria-label={`Tema: ${ROTULO[tema]}. Cambiar a ${ROTULO[CICLO[tema]]}`}
     >
@@ -33,5 +34,5 @@ function aplicar(nuevo, setTema) {
     const raiz = document.documentElement;
     if (nuevo === 'sistema') raiz.removeAttribute('data-tema');
     else raiz.setAttribute('data-tema', nuevo);
-  } catch { /* modo privado: el tema simplemente sigue al sistema */ }
+  } catch { /* modo privado: el tema sigue al sistema */ }
 }

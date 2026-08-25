@@ -1,81 +1,73 @@
 # DESIGN
 
-## Estrategia de color: Restrained
+## Qué falló en la primera versión
 
-Neutros templados hacia el papel, un acento que no decora nada. El acento aparece solo en acción primaria, selección actual e indicador de estado. La semántica de veredicto es un vocabulario aparte y no comparte color con el acento.
+Se leía sin terminar, no sobria. Tres causas concretas, todas de jerarquía y ninguna de decoración:
 
-### Por qué no es rojo vino ni dorado
+- **Una sola familia del sistema en todos los pesos medios.** Sin webfont y sin contraste de peso, la pantalla parece HTML sin estilar.
+- **Escala 1.2.** El título era apenas más grande que el cuerpo. Nada mandaba.
+- **Todo dentro de cajas con borde y radio.** Funciones, avisos y tablas eran el mismo rectángulo repetido: la rejilla de tarjetas idénticas.
+- **Acento por debajo del 10%.** El resultado era gris sobre hueso.
 
-El reflejo de primer orden para una app de teatro es terciopelo y oro. El de segundo orden, una vez descartado ese, es cuero envejecido con rombos. Los dos siguen siendo decorado.
+La corrección no fue adornar. Fue subir el contraste de peso, abrir la escala, sacar las cajas y dejar que un color mande.
 
-La fuente real es una hoja de trabajo de bastidores: papel tibio, tinta, y un sello. Por eso el acento es tinta de pluma, un azul violáceo desaturado que en ningún momento se lee como marca corporativa ni como cartel de temporada. El único gesto saturado del producto es el sello del Canovaccio, y un sello real se estampa con tinta, no con color de acento.
+## Escena que decide el tema
 
-### Tokens
+Las 7:15 de la noche, Calle 47, luz de poste, el teléfono a un brazo, decidiendo si hay que apurar el paso.
+
+Esa frase obliga a **oscuro por defecto**: menos deslumbre y la hora legible de reojo. La versión clara existe de verdad, no como versión de segunda, porque la otra escena real es cargar boletas a la una de la tarde frente a un monitor.
+
+## Color: Committed en un solo gesto
+
+Bermellón. Es la tinta del sello, no el terciopelo del telón; el rojo vino y el dorado eran el primer reflejo de "app de teatro" y están descartados.
 
 ```
---papel        oklch(0.972 0.008 78)    fondo
---papel-2      oklch(0.945 0.010 76)    paneles, barras
---tarjeta      oklch(0.995 0.004 80)
---tinta        oklch(0.235 0.014 68)    texto principal
---tinta-2      oklch(0.470 0.014 68)    texto secundario
---tinta-3      oklch(0.620 0.012 68)    texto terciario
---regla        oklch(0.885 0.010 74)    bordes, renglones
-
---acento       oklch(0.415 0.075 285)   tinta de pluma
---acento-suave oklch(0.945 0.020 285)
-
---perdida      oklch(0.505 0.145 32)
---recuperable  oklch(0.480 0.085 158)
---justo        oklch(0.560 0.100 76)
---perdida-suave / --recuperable-suave / --justo-suave: mismos matices, L≈0.955, C≈0.03
+--fondo    oklch(0.155 0.012 40)     tierra tibia, nunca negro puro
+--tinta    oklch(0.955 0.008 82)
+--tinta-2  oklch(0.735 0.014 72)
+--tinta-3  oklch(0.615 0.014 66)
+--acento   oklch(0.680 0.190 32)     bermellón
+--gana     oklch(0.800 0.130 168)
+--justo    oklch(0.840 0.135 82)
 ```
 
-Oscuro: `--papel` baja a `oklch(0.185 0.010 68)`, los textos suben, y el croma del acento sube a 0.095 con L 0.72 para no apagarse. Nunca `#000` ni `#fff`.
+**La pérdida no lleva color.** Se tacha y se apaga. Un rojo de alarma competiría con el acento y volvería la pantalla un semáforo, y además es más fiel a lo que significa: una función perdida es ausencia, no peligro.
 
-## Tema
+Contraste verificado con el cálculo, no a ojo. Los ocho pares críticos pasan 4.5:1 en los dos temas; la primera pasada del tema claro fallaba cuatro.
 
-No hay tema por defecto: sigue al sistema, con interruptor manual que gana en ambas direcciones.
+## Tipografía: una familia, rango completo
 
-La escena que lo decide: a las 7:15 de la noche, en la calle, bajo luz de poste, mirando el teléfono a un brazo de distancia. Ahí el oscuro es más cómodo y menos encandilante. Pero el mismo usuario carga boletas a la una de la tarde frente a un monitor. Las dos escenas son reales, así que las dos se soportan de verdad y ninguna es la versión de segunda.
+**Archivo**, autoalojada por `next/font` (tres woff2 en el bundle, sin petición a Google y sin salto de layout).
 
-## Tipografía
+Una sola familia porque en producto dos son ruido. La jerarquía sale del **contraste de peso 800 contra 400** y de una escala de cuarta justa, 1.333, donde los saltos se notan:
 
-Una familia para todo el producto: pila del sistema. Escala fija en rem, razón 1.2. Cifras tabulares en horas, precios y contadores, siempre.
+```
+0.75 · 0.875 · 1 · 1.333 · 1.777 · 2.369 · 3.157 rem
+```
 
-**Una sola excepción**, y es el riesgo declarado: los numerales de escena y las horas del Canovaccio usan pila serif (`Iowan Old Style, Palatino Linotype, Georgia, serif`). Sin webfont: cero carga, sin salto de layout. El serif no aparece en ninguna etiqueta, botón ni dato de formulario.
+La hora de la noche escapa de la escala: `clamp(3rem, 15vw, 3.157rem)`, peso 800, tracking −0.055em. Es el único elemento con tratamiento de héroe.
 
-## Los tipos fijos
+## Composición: renglones, no tarjetas
 
-Cinco estados con marca invariable. Se reconocen por la marca, no por el color, porque a las siete de la noche en la calle el color es lo primero que se pierde.
+Las funciones son filas con filete, sin borde ni radio ni fondo. Un horario es una lista, y una lista de rectángulos idénticos no es más clara: es más ruidosa.
 
-| Estado | Marca | Uso |
-|---|---|---|
-| Comprada | `✓` en sello | boleta suficiente para todos los asistentes |
-| Agendada | `○` | decidida, sin boleta todavía |
-| Perdida | `✕` | choca y no se repite en ninguna otra fecha |
-| Recuperable | `↻` | choca, pero vuelve otro día |
-| Justo | `!` | alcanza con poco margen |
+Los avisos también perdieron la caja. Una alerta que parece tarjeta se confunde con el contenido.
 
-La marca va adelante, dentro de un contenedor con borde completo y fondo tintado.
+Ritmo variable: 3.5rem entre secciones, 0.75rem dentro de una fila.
 
-**Prohibido el `border-left` de color.** Es el reflejo obvio para esto y está vetado: raya lateral de acento en tarjetas, listas y avisos. La plantilla original de la skill lo usaba; aquí se reemplaza por marca más borde completo, que además es más fiel a la idea de tipo fijo, porque un tipo fijo se reconoce por la máscara, no por un adorno en el margen.
+## El único momento con drama
 
-## Composición
+La pantalla **Esta noche**. Hora enorme en bermellón, obra grande, numeral de escena al margen en color de regla, y el estado como sello girado 2.5 grados. Es el único elemento rotado de toda la app.
 
-Sin contenedor universal. Las listas de funciones respiran contra el fondo. Ritmo de espaciado variado: la lista de una noche está apretada, la separación entre noches es amplia.
+Todo lo demás se queda quieto. Agenda, baúl, formularios y bitácora son herramienta y desaparecen en la tarea.
 
-Tabla ancha: scroll dentro de su propio contenedor, nunca arrastra el cuerpo de la página.
+## Prohibiciones que se respetan
 
-Objetivo táctil mínimo 44 px en todo lo que se toque de pie.
+- Sin `border-left` de color como acento. El tipo se reconoce por la marca, no por un adorno al margen.
+- Sin desenfoque de fondo. La barra fija es opaca: el vidrio decorativo es reflejo, no decisión.
+- Sin degradado en texto, sin rejilla de tarjetas iguales, sin plantilla de métrica gigante.
+- Emoji nunca como icono. Las marcas de los tipos fijos son glifos tipográficos dentro de un círculo, y van acompañadas siempre de su rótulo.
 
 ## Movimiento
 
-150 a 200 ms, `cubic-bezier(0.22, 1, 0.36, 1)`. Solo cambio de estado y confirmación de acción. Nada de secuencias de entrada.
-
-Una excepción con propósito: el sello de "comprada" cae con una sola animación de 220 ms la primera vez que se marca. Es confirmación, no adorno, y respeta `prefers-reduced-motion`.
-
-## El riesgo, delimitado
-
-La pantalla Canovaccio de esta noche es una hoja de bastidores: renglones reales, numerales de escena grandes en serif, estado estampado o tachado. Es la única superficie con textura y peso tipográfico.
-
-El resto de la app no se entera. Agenda, boletas, formularios y bitácora usan el sistema quieto sin una gota de esa textura.
+150 a 240 ms, `cubic-bezier(0.16, 1, 0.3, 1)`. Solo cambio de estado. La única excepción con propósito es el sello, que cae una vez al marcarse comprada. Respeta `prefers-reduced-motion`.

@@ -1,6 +1,16 @@
 import './globals.css';
-import Link from 'next/link';
-import InterruptorTema from './InterruptorTema.js';
+import { Archivo } from 'next/font/google';
+import Nav from './Nav.js';
+
+// Una sola familia con rango completo de peso. La jerarquía sale del contraste
+// 800 contra 400, no de mezclar dos tipografías: en producto, dos familias son
+// ruido y esta app se lee de reojo en la calle.
+const archivo = Archivo({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--fuente-archivo',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Canovaccio',
@@ -11,30 +21,16 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#231d18' },
     { media: '(prefers-color-scheme: light)', color: '#f7f3ec' },
-    { media: '(prefers-color-scheme: dark)', color: '#211d19' },
   ],
 };
 
-const RUTAS = [
-  { href: '/', txt: 'Esta noche' },
-  { href: '/agenda', txt: 'Agenda' },
-  { href: '/boletas', txt: 'Baúl' },
-  { href: '/bitacora', txt: 'Bitácora' },
-];
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" className={archivo.variable} suppressHydrationWarning>
       <body>
-        <header className="barra">
-          <nav>
-            {RUTAS.map(r => (
-              <Link key={r.href} href={r.href} className="tab">{r.txt}</Link>
-            ))}
-          </nav>
-          <div style={{ marginLeft: 'auto' }}><InterruptorTema /></div>
-        </header>
+        <Nav />
         <main className="marco">{children}</main>
       </body>
     </html>
