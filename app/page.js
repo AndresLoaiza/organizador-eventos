@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { nocheDe, hoyMedellin, nombreDia, fechaLarga } from '../lib/panorama.mjs';
 import Avisos from './Avisos.js';
 import Pantalla from './Pantalla.js';
+import { BoletasDe } from './BotonBoleta.js';
 
 const SELLO = {
   comprada: 'Comprada', agendada: 'Agendada',
@@ -25,7 +26,7 @@ function Hoja({ p }) {
   return (
     <>
       {altos.length > 0 && (
-        <section className="seccion" style={{ marginTop: 'var(--p5)' }}>
+        <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
           <Avisos avisos={altos} />
         </section>
       )}
@@ -61,6 +62,7 @@ function Hoja({ p }) {
                       {e.necesarias > 1 && e.estado === 'comprada' ? ` ×${e.necesarias}` : ''}
                     </span>
                   </div>
+                  <BoletasDe funcion={e} />
                   {e.estado !== 'comprada' && e.necesarias > e.boletas.length && (
                     <div className="margen">
                       {e.boletas.length} de {e.necesarias} boletas.{' '}

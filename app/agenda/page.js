@@ -24,7 +24,7 @@ function Cuerpo({ p }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--p5)' }}>
+      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
         <h1>{p.festival.nombre}</h1>
         <p className="entradilla">
           {p.funciones.filter(f => f.agendada).length} funciones agendadas · pagado{' '}
@@ -93,11 +93,9 @@ function Cuerpo({ p }) {
             </ul>
 
             {otras.length > 0 && (
-              <details style={{ marginTop: 'var(--p3)' }}>
-                <summary style={{ cursor: 'pointer', color: 'var(--tinta-2)', fontSize: '0.9375rem', minHeight: 44, display: 'flex', alignItems: 'center' }}>
-                  Qué más había esa noche ({otras.length})
-                </summary>
-                <ul className="funciones" style={{ marginTop: 'var(--p2)' }}>
+              <details style={{ marginTop: 'var(--e3)' }}>
+                <summary>Qué más había esa noche ({otras.length})</summary>
+                <ul className="funciones" style={{ marginTop: 'var(--e2)' }}>
                   {otras.map(o => (
                     <li className="funcion" key={o.id}>
                       <span className="hora num">{fmtHora(o.hora_min)}</span>

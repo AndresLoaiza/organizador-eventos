@@ -3,6 +3,7 @@ import { nombreDia, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Cargar from './Cargar.js';
 import Pantalla from '../Pantalla.js';
+import BotonBoleta from '../BotonBoleta.js';
 
 export default function Baul() {
   return <Pantalla>{({ p, recargar }) => <Cuerpo p={p} recargar={recargar} />}</Pantalla>;
@@ -31,7 +32,7 @@ function Cuerpo({ p, recargar }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--p5)' }}>
+      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
         <h1>Baúl</h1>
         <p className="entradilla">
           {p.boletas.length} boletas en {archivos.size} archivos · {pendientes.length} sin extraer
@@ -67,7 +68,7 @@ function Cuerpo({ p, recargar }) {
                 <tr>
                   <th>Función</th><th>Cuándo</th><th>Categoría</th>
                   <th className="num">Ticket</th><th className="num">Servicio</th>
-                  <th>Titular</th><th>Código</th><th className="num">Pág.</th><th>Extracción</th>
+                  <th>Titular</th><th>Código</th><th className="num">Pág.</th><th>Extracción</th><th>Archivo</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,6 +91,7 @@ function Cuerpo({ p, recargar }) {
                       </td>
                       <td className="num">{b.pagina ?? '—'}</td>
                       <td>{b.extraccion_estado ?? '—'}</td>
+                      <td><BotonBoleta boleta={b} etiqueta="Abrir" /></td>
                     </tr>
                   );
                 })}
@@ -106,11 +108,7 @@ function Cuerpo({ p, recargar }) {
             Quedan {pendientes.length} archivos sin extraer. En una sesión de Claude Code,
             sobre este proyecto:
           </p>
-          <pre style={{
-            background: 'var(--papel-2)', border: '1px solid var(--regla)',
-            borderRadius: 'var(--r)', padding: 'var(--p3) var(--p4)', overflowX: 'auto',
-            fontSize: '0.875rem',
-          }}>{INSTRUCCIONES}</pre>
+          <pre>{INSTRUCCIONES}</pre>
         </section>
       )}
     </>

@@ -26,7 +26,7 @@ function Cuerpo({ p, recargar }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--p5)' }}>
+      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
         <h1>Bitácora</h1>
         <p className="entradilla">
           {registradas.length} de {pasadas.length} funciones vistas ya tienen juicio.

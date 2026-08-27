@@ -226,6 +226,13 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   background: var(--acento); border-color: var(--acento); color: var(--sobre-acento);
 }
 .boton[data-v='primario']:hover { background: var(--acento-2); border-color: var(--acento-2); }
+.boton[data-tam='chico'] {
+  min-height: 40px; padding: 0 var(--e3);
+  font-size: var(--t-xs); letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* En la puerta de la sala esto es lo que se toca: separado y con blanco propio. */
+.boletas-fila { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e3); }
 
 label {
   display: block; font-size: var(--t-xs); font-weight: 700;

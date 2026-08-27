@@ -38,7 +38,7 @@ export default function Puerta({ alEntrar }) {
           {estado.fase === 'probando' ? 'Probando…' : 'Entrar'}
         </button>
         {estado.msg && (
-          <div className="aviso" data-sev="alto" style={{ marginTop: 'var(--p4)' }}>
+          <div className="aviso" data-sev="alto" style={{ marginTop: 'var(--e4)' }}>
             <span className="marca" aria-hidden="true">!</span><span>{estado.msg}</span>
           </div>
         )}

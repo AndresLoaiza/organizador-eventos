@@ -101,7 +101,7 @@ export default function Registrar({ funciones, alGuardar }) {
         <div
           className="aviso"
           data-sev={estado.fase === 'error' ? 'alto' : 'aviso'}
-          style={{ marginTop: 'var(--p4)' }}
+          style={{ marginTop: 'var(--e4)' }}
         >
           <span className="marca" aria-hidden="true">{estado.fase === 'error' ? '!' : '✓'}</span>
           <span>{estado.msg}</span>

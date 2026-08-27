@@ -64,7 +64,7 @@ export default function Cargar({ funciones, panorama, alGuardar }) {
         <input
           ref={inputArchivo} id="archivo" type="file" name="archivo"
           accept="image/*,application/pdf" capture="environment"
-          style={{ padding: 'var(--p2)' }}
+          style={{ padding: 'var(--e2)' }}
         />
         <p className="nota">El original se guarda tal cual y no se modifica nunca.</p>
       </div>
@@ -94,7 +94,7 @@ export default function Cargar({ funciones, panorama, alGuardar }) {
         <div
           className="aviso"
           data-sev={estado.fase === 'error' ? 'alto' : 'aviso'}
-          style={{ marginTop: 'var(--p4)' }}
+          style={{ marginTop: 'var(--e4)' }}
         >
           <span className="marca" aria-hidden="true">
             {estado.fase === 'error' ? '!' : estado.repetida ? '=' : '✓'}
