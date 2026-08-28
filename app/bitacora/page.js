@@ -1,5 +1,5 @@
 'use client';
-import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
+import { nombreDia, fechaLarga, yaTermino, minutosAhoraMedellin } from '../../lib/panorama.mjs';
 import Registrar from './Registrar.js';
 import Pantalla from '../Pantalla.js';
 
@@ -8,10 +8,13 @@ export default function Bitacora() {
 }
 
 function Cuerpo({ p, recargar }) {
-  // Solo se juzga lo que ya pasó. Ofrecer registrar una obra que aún no ve
-  // invita a inventar, y el perfil del vault vive de no inventar.
+  // Solo se juzga lo que YA TERMINÓ, hora incluida. Comparar solo la fecha daba
+  // por vista la función de esa misma noche, la ponía primera por ser la más
+  // reciente y la dejaba de opción por defecto: así el juicio de KRAPP terminó
+  // guardado contra Petra, que aún no había empezado.
+  const ahora = minutosAhoraMedellin();
   const pasadas = p.funciones
-    .filter(f => f.agendada && f.fecha <= p.hoy)
+    .filter(f => f.agendada && yaTermino(f, p.hoy, ahora))
     .sort((a, b) => (b.fecha + b.hora_min).localeCompare(a.fecha + a.hora_min))
     .map(f => ({
       id: f.id,

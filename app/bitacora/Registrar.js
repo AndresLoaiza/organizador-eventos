@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { guardarJuicio } from '../../lib/cliente.mjs';
+import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 
 // El texto primero y las estrellas después, en ese orden, porque en ese orden
 // pesan. Un párrafo en sus palabras dice qué recomendarle el año que viene;
@@ -64,6 +65,14 @@ export default function Registrar({ funciones, alGuardar }) {
           ))}
         </select>
       </div>
+
+      {/* La función elegida se dice en grande, no solo dentro del desplegable:
+          un selector con el valor por defecto equivocado ya costó un juicio
+          guardado en la obra que no era. */}
+      <p className="juzgando">
+        Estás registrando <b>{actual?.obra ?? '—'}</b>
+        {actual ? `, del ${nombreDia(actual.fecha)} ${fechaLarga(actual.fecha)}` : ''}.
+      </p>
 
       <div className="campo">
         <label htmlFor="texto">Qué te pareció</label>

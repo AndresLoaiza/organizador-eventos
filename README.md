@@ -80,7 +80,7 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 45 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm test` | 57 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
 | `npm run seed` | Carga festival, salas, traslados, agenda y boletas |
@@ -116,4 +116,5 @@ supabase/     migraciones SQL, las aplica npm run migrar en orden
 - **El chip de veredicto se deriva de la marca, no de la clase.** La clase `v-lost` cubre dos casos distintos: la obra está perdida (✕) o elegirla te haría perder otra (⚠). Mapear por clase etiquetaba como "Perdida" obras que se podían ver perfectamente.
 - **"No se repite" y "se repite pero ese día está ocupado" se dicen distinto.** El segundo caso tiene salida y el usuario necesita saberlo.
 - **La unidad de extracción es el archivo, no la boleta.** Al leer un PDF hay que contar cuántas entradas trae antes de escribir filas. Hay test de regresión.
+- **Solo se juzga lo que ya terminó, con hora.** Filtrar la bitácora por `fecha <= hoy` daba por vista la función de esa misma noche: quedaba primera por ser la más reciente y por tanto de opción por defecto en el selector. Así una impresión se guardó contra la obra equivocada. `yaTermino()` exige que haya pasado la hora de inicio más la duración, y la pantalla dice en grande qué obra se está juzgando en vez de esconderlo en un desplegable.
 - **"Falta comprar" no es lo mismo que "falta el archivo".** Una función comprada cuyo PDF sigue en el correo no cuenta como pendiente de compra; para eso está el aviso de baúl.

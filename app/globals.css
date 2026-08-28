@@ -225,6 +225,13 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   .funcion .pie { grid-column: 1 / -1; }
 }
 
+.juzgando {
+  font-size: var(--t-lg); line-height: 1.3; letter-spacing: -0.015em;
+  color: var(--tinta-2); margin-bottom: var(--e5);
+  padding-bottom: var(--e3); border-bottom: 1px solid var(--regla);
+}
+.juzgando b { color: var(--tinta); font-weight: 800; }
+
 /* --- Decisor: dias y filtros --------------------------------------------- */
 
 .dias {
