@@ -6,7 +6,7 @@ import Puerta from './Puerta.js';
 // sitio para que cada pantalla se ocupe solo de lo suyo.
 
 export default function Pantalla({ children }) {
-  const { fase, p, msg, recargar } = usarPanorama();
+  const { fase, p, msg, recargar, cambiarFestival } = usarPanorama();
 
   if (fase === 'sin-codigo') return <Puerta alEntrar={recargar} />;
   if (fase === 'cargando') {
@@ -33,5 +33,22 @@ export default function Pantalla({ children }) {
       </section>
     );
   }
-  return children({ p, recargar });
+  return (
+    <>
+      {p.festivales?.length > 1 && (
+        <div className="cambio-festival">
+          <label htmlFor="festival">Festival</label>
+          <select
+            id="festival" value={p.festival.slug}
+            onChange={e => cambiarFestival(e.target.value)}
+          >
+            {p.festivales.map(f => (
+              <option key={f.slug} value={f.slug}>{f.nombre}</option>
+            ))}
+          </select>
+        </div>
+      )}
+      {children({ p, recargar })}
+    </>
+  );
 }

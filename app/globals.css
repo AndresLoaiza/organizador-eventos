@@ -128,6 +128,19 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 .entradilla { color: var(--tinta-2); font-size: var(--t-sm); margin-bottom: var(--e5); }
 .entradilla b { color: var(--tinta); font-weight: 700; }
 
+/* Cambio de festival: discreto y arriba, porque se toca una vez y no vuelve
+   a mirarse en toda la sesión. */
+.cambio-festival {
+  display: flex; align-items: center; gap: var(--e3);
+  padding-top: var(--e4);
+}
+.cambio-festival label { margin: 0; white-space: nowrap; }
+.cambio-festival select {
+  min-height: 38px; width: auto; max-width: 100%;
+  font-size: var(--t-sm); font-weight: 600;
+  border-color: var(--regla); background: transparent;
+}
+
 /* --- Tipos fijos ----------------------------------------------------------
    Marca invariable delante. Sin raya lateral de color: el tipo se reconoce por
    la máscara, no por un adorno en el margen. */
