@@ -4,6 +4,8 @@ import { nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../l
 import Avisos from '../Avisos.js';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
 import Pantalla from '../Pantalla.js';
+import Exportar from '../Exportar.js';
+import { filasAgenda, COLS_AGENDA } from '../../lib/exportar.mjs';
 
 export default function Agenda() {
   return <Pantalla>{({ p }) => <Cuerpo p={p} />}</Pantalla>;
@@ -33,6 +35,9 @@ function Cuerpo({ p }) {
             <> · falta comprar <b className="num">${porComprar.toLocaleString('es-CO')}</b></>
           )}
         </p>
+        <Exportar
+          cols={COLS_AGENDA} filas={filasAgenda(p.funciones)} que="la agenda"
+        />
       </section>
 
       {p.avisos.length > 0 && (

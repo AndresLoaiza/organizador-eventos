@@ -225,6 +225,14 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   .funcion .pie { grid-column: 1 / -1; }
 }
 
+.exportar {
+  display: flex; align-items: center; gap: var(--e3);
+  flex-wrap: wrap; margin-top: var(--e4);
+}
+.exportar-aviso { font-size: var(--t-sm); color: var(--tinta-2); }
+.exportar-aviso[data-ok="true"] { color: var(--acento); font-weight: 700; }
+.exportar-n { font-size: var(--t-sm); color: var(--tinta-3); margin-left: auto; }
+
 .juzgando {
   font-size: var(--t-lg); line-height: 1.3; letter-spacing: -0.015em;
   color: var(--tinta-2); margin-bottom: var(--e5);

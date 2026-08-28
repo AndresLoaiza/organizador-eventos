@@ -4,6 +4,8 @@ import { marcarAgendada } from '../../lib/cliente.mjs';
 import { fmtHora } from '../../lib/decisor.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
+import Exportar from '../Exportar.js';
+import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
 
 // El decisor: día por día, con el costo de cada elección a la vista.
 //
@@ -124,6 +126,17 @@ export default function Decisor({ p, recargar }) {
           {fechaLarga(fecha)} · {delDia.length} funciones
           {franja && ' en esta franja'}
         </p>
+
+        {/* Se exporta lo que está a la vista, no las 776 de todo el festival:
+            el filtro es la decisión, y una hoja con todo el volante no sirve
+            para lo que él hace con ella, que es mandarla o imprimirla. */}
+        {delDia.length > 0 && (
+          <Exportar
+            cols={COLS_PROGRAMACION}
+            filas={filasProgramacion(delDia, p.decisor, elegidas)}
+            que="lo que estás viendo"
+          />
+        )}
 
         {delDia.length === 0 ? (
           <div className="vacio"><b>Nada con ese filtro</b>Prueba otra franja o borra la búsqueda.</div>
