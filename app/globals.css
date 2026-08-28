@@ -225,6 +225,38 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   .funcion .pie { grid-column: 1 / -1; }
 }
 
+/* --- Decisor: dias y filtros --------------------------------------------- */
+
+.dias {
+  display: flex; gap: var(--e1); overflow-x: auto; scrollbar-width: none;
+  padding-bottom: var(--e2); margin-top: var(--e5);
+  border-bottom: 1px solid var(--regla);
+}
+.dias::-webkit-scrollbar { display: none; }
+
+.dia {
+  flex: 0 0 auto; min-width: 3.4rem; min-height: 52px;
+  display: grid; gap: 1px; place-items: center;
+  padding: var(--e2) var(--e2) var(--e1);
+  border: 0; border-bottom: 2px solid transparent;
+  background: none; color: var(--tinta-3); cursor: pointer; font: inherit;
+  transition: color 180ms var(--salida), border-color 180ms var(--salida);
+}
+.dia:hover { color: var(--tinta); }
+.dia[aria-current="true"] { color: var(--tinta); border-bottom-color: var(--acento); }
+.dia .dd { font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.dia .dn { font-size: var(--t-lg); font-weight: 800; line-height: 1; }
+.dia .dc { font-size: 0.5rem; color: var(--acento); min-height: 0.7em; letter-spacing: 0.1em; }
+
+.filtros { display: flex; gap: var(--e2); flex-wrap: wrap; margin-top: var(--e4); }
+.filtros select { flex: 1 1 16rem; }
+.filtros input { flex: 1 1 12rem; }
+
+/* Lo que ya esta en la agenda se reconoce sin leer. Fondo propio y peso, no
+   filete lateral de color, que es adorno vetado. */
+.funcion[data-elegida="true"] { background: var(--fondo-2); }
+.funcion[data-elegida="true"] .obra { font-weight: 750; }
+
 /* --- Controles ------------------------------------------------------------ */
 
 .boton {

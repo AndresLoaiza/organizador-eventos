@@ -6,6 +6,7 @@ import InterruptorTema from './InterruptorTema.js';
 const RUTAS = [
   { href: '/', txt: 'Esta noche' },
   { href: '/agenda', txt: 'Agenda' },
+  { href: '/decidir', txt: 'Decidir' },
   { href: '/boletas', txt: 'Baúl' },
   { href: '/bitacora', txt: 'Bitácora' },
 ];
