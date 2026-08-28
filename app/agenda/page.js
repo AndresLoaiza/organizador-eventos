@@ -60,6 +60,9 @@ function Cuerpo({ p }) {
                 <li className="funcion" key={f.id}>
                   <span className="hora num">{fmtHora(f.hora_min)}</span>
                   <span className="obra">
+                    {f.imagen_url && (
+                      <img className="miniatura" src={f.imagen_url} alt="" loading="lazy" decoding="async" />
+                    )}
                     {f.obra}
                     {f.compania && <span className="cia">{f.compania}</span>}
                     <span className="cia">

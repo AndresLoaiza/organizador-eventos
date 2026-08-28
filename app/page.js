@@ -47,6 +47,12 @@ function Hoja({ p }) {
               <li className="escena" key={e.id} data-estado={e.estado}>
                 <span className="n num" aria-hidden="true">{i + 1}</span>
                 <div>
+                  {e.imagen_url && (
+                    <img
+                      className="foto" src={e.imagen_url} alt={`${e.obra}, ${e.compania ?? ''}`}
+                      loading={i === 0 ? 'eager' : 'lazy'} decoding="async"
+                    />
+                  )}
                   <div className="hora num">{e.horaTexto}</div>
                   <div className="obra">{e.obra}</div>
                   <div className="donde">

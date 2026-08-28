@@ -192,6 +192,10 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   font-variant-numeric: tabular-nums; color: var(--tinta);
 }
 .funcion .obra { font-size: var(--t-md); font-weight: 650; letter-spacing: -0.01em; }
+.funcion .miniatura {
+  float: left; width: 3.25rem; height: 3.25rem; object-fit: cover;
+  margin: 0.1rem var(--e3) var(--e1) 0; background: var(--fondo-2);
+}
 .funcion .cia {
   display: block; color: var(--tinta-3); font-size: var(--t-sm);
   font-weight: 400; letter-spacing: 0;
@@ -338,6 +342,15 @@ details > summary:hover { color: var(--acento); }
   color: var(--regla-2);
 }
 
+/* La foto del volante. Va arriba de la escena y a sangre en el móvil: es lo
+   primero que reconoce el ojo, antes de leer el título. */
+.escena .foto {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 16 / 9; object-fit: cover;
+  margin-bottom: var(--e4);
+  background: var(--fondo-2);
+}
+
 .escena .hora {
   font-size: clamp(3rem, 15vw, var(--t-3xl));
   font-weight: 800; line-height: 0.92; letter-spacing: -0.055em;
@@ -386,6 +399,8 @@ details > summary:hover { color: var(--acento); }
 
 @media (max-width: 560px) {
   .marco { padding: 0 var(--e3) var(--e8); }
+  /* A sangre: el margen del marco se anula solo para la foto. */
+  .escena .foto { width: calc(100% + 2 * var(--e3)); margin-left: calc(-1 * var(--e3)); }
   .escena .n { font-size: var(--t-xl); }
   .escena .obra { font-size: var(--t-lg); }
 }
