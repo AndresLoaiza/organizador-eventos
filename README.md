@@ -86,7 +86,7 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 80 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm test` | 84 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
 | `npm run seed` | Carga festival, salas, traslados, agenda y boletas |
@@ -122,6 +122,9 @@ supabase/     migraciones SQL, las aplica npm run migrar en orden
 - **El chip de veredicto se deriva de la marca, no de la clase.** La clase `v-lost` cubre dos casos distintos: la obra está perdida (✕) o elegirla te haría perder otra (⚠). Mapear por clase etiquetaba como "Perdida" obras que se podían ver perfectamente.
 - **"No se repite" y "se repite pero ese día está ocupado" se dicen distinto.** El segundo caso tiene salida y el usuario necesita saberlo.
 - **La unidad de extracción es el archivo, no la boleta.** Al leer un PDF hay que contar cuántas entradas trae antes de escribir filas. Hay test de regresión.
+- **«Choca» no explica nada cuando las horas son distintas.** Una función de 4:00 a 5:00 y otra de 5:00 a 6:00 no se pisan, y aun así no caben: cruzar el recinto son 8 minutos. Decir solo «choca» hace que el veredicto parezca un error del programa. `motivoChoque()` separa los dos casos y dice la cuenta. El motor no cambió: decide igual, explica distinto.
+- **El detalle va en lista, no en la frase.** El texto del motor se conserva para la exportación y los tests, pero en la Fiesta del Libro hay noches con ocho funciones a la misma hora y esa frase salía con ocho títulos encadenados por comas. `verdictFor` devuelve además `choques`, `pierde`, `desplaza` y `justos` con hora, sala y motivo por renglón.
+- **El título no basta para decidir.** «Pura carreta» no dice nada; la ficha cuenta que es Quijote con percusión. La descripción va plegada en Ojear y en Decidir, para no tapar el veredicto.
 - **Ojear va antes que Decidir, y el decisor solo ve lo ojeado.** Con una excepción: si el festival entero está sin ojear pasa todo. Un decisor en blanco no se lee como «falta ojear», se lee como «no cargó la programación». Y lo agendado nunca se cae del decisor aunque no esté marcado: si desapareciera, el motor creería libre una noche tomada y prometería rescates que no existen. Hay tests de los dos casos.
 - **PostgREST cachea el esquema.** Una columna nueva no existe para el navegador hasta un `notify pgrst, 'reload schema'`. La migración se aplica sin error y la app falla después, que es la peor combinación.
 - **La exportación copia al portapapeles, no descarga un archivo.** En hosting estático no hay servidor que arme un `.xlsx`, y un CSV descargado abre en Excel con las tildes rotas. Se escriben `text/html` y `text/plain` a la vez: Excel toma el HTML y pega la tabla ya formada. El mecanismo, con sus tres respaldos, viene de `assets/tabla-filtro.html` de la skill. El decisor exporta **lo filtrado**, no las 776 funciones: el filtro es la decisión.

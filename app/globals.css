@@ -225,6 +225,22 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   .funcion .pie { grid-column: 1 / -1; }
 }
 
+/* --- Lo que se cae por elegir algo --- */
+
+.cae { grid-column: 1 / -1; margin-top: var(--e3); }
+.cae-titulo {
+  font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--tinta-3); margin-bottom: var(--e2);
+}
+.cae ul { list-style: none; display: grid; gap: var(--e2); }
+.cae li { display: grid; grid-template-columns: 1.25rem 1fr; align-items: start; }
+.cae-marca { color: var(--acento); font-weight: 700; line-height: 1.5; }
+.cae li b { font-weight: 700; }
+.cae-donde { color: var(--tinta-2); }
+.cae-motivo,
+.cae-rescate { display: block; font-size: var(--t-sm); color: var(--tinta-3); }
+.cae-rescate { color: var(--tinta-2); }
+
 /* --- Ojear: si o no, sin veredictos --- */
 
 .funcion.ojeo[data-interes="no"] { opacity: 0.45; }

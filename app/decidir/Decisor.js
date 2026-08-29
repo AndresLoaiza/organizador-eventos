@@ -3,7 +3,8 @@ import { useMemo, useState } from 'react';
 import { marcarAgendada } from '../../lib/cliente.mjs';
 import { fmtHora } from '../../lib/decisor.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
-import Tipo, { tipoDeVeredicto } from '../Tipo.js';
+import Veredicto from '../Veredicto.js';
+import { razonesDe } from '../../lib/interes.mjs';
 import Exportar from '../Exportar.js';
 import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
 import { paraDecidir } from '../../lib/interes.mjs';
@@ -183,6 +184,9 @@ export default function Decisor({ p, recargar }) {
                   <span className="hora num">{fmtHora(f.hora_min)}</span>
                   <span className="obra">
                     {f.obra}
+                    {razonesDe(f).map(r => (
+                      <b className="razon" key={r.id} title={r.fuente}> {r.etiqueta}</b>
+                    ))}
                     <span className="cia">
                       {f.sala?.nombre ?? 'Sala por confirmar'} · {f.duracion_min} min
                       {f.duracion_confirmada ? '' : ' estimados'}
@@ -198,11 +202,16 @@ export default function Decisor({ p, recargar }) {
                       {guardando === f.id ? '…' : f.agendada ? 'En la agenda' : 'Agendar'}
                     </button>
                   </span>
-                  <span className="pie">
-                    <Tipo t={f.agendada ? 'comprada' : tipoDeVeredicto(v)} />{' '}
-                    {v.txt}
-                    {v.estimado && ' Depende de una duración estimada.'}
-                  </span>
+                  <Veredicto v={v} agendada={f.agendada} />
+                  {/* El título solo no basta para decidir: "Pura carreta" no
+                      dice nada, y la ficha sí cuenta que es Quijote con
+                      percusión. Va plegada para no tapar el veredicto. */}
+                  {f.compania && (
+                    <details className="ficha">
+                      <summary>De qué se trata</summary>
+                      <p>{f.compania}</p>
+                    </details>
+                  )}
                 </li>
               );
             })}
