@@ -6,6 +6,7 @@ import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
 import Exportar from '../Exportar.js';
 import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
+import { paraDecidir } from '../../lib/interes.mjs';
 
 // El decisor: día por día, con el costo de cada elección a la vista.
 //
@@ -15,8 +16,13 @@ import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
 // sirve de nada frente a cien opciones diarias.
 
 export default function Decisor({ p, recargar }) {
+  // El decisor trabaja sobre lo ojeado, no sobre el volante entero: mirar 776
+  // veredictos de choque a la vez no es decidir, es rendirse.
+  const { funciones: candidatas, filtrado } = useMemo(
+    () => paraDecidir(p.funciones), [p.funciones]);
+
   const fechas = useMemo(
-    () => [...new Set(p.funciones.map(f => f.fecha))].sort(), [p.funciones]);
+    () => [...new Set(candidatas.map(f => f.fecha))].sort(), [candidatas]);
   const hoyIdx = Math.max(0, fechas.findIndex(f => f >= p.hoy));
 
   const [dia, setDia] = useState(hoyIdx === -1 ? 0 : hoyIdx);
@@ -30,26 +36,28 @@ export default function Decisor({ p, recargar }) {
 
   const franjas = useMemo(() => {
     const c = new Map();
-    for (const f of p.funciones) {
+    for (const f of candidatas) {
       const x = franjaDe(f);
       if (x) c.set(x, (c.get(x) ?? 0) + 1);
     }
     return [...c.entries()].sort((a, b) => b[1] - a[1]);
-  }, [p.funciones]);
+  }, [candidatas]);
 
   const elegidas = useMemo(
     () => new Set(p.funciones.filter(f => f.agendada).map(f => f.id)), [p.funciones]);
+  // Ojo: las agendadas salen de TODAS, no de las candidatas. El motor evalúa
+  // los choques contra la agenda completa del festival.
 
   const fecha = fechas[dia];
   const norm = s => (s ?? '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  const delDia = useMemo(() => p.funciones
+  const delDia = useMemo(() => candidatas
     .filter(f => f.fecha === fecha)
     .filter(f => !franja || franjaDe(f) === franja)
     .filter(f => !busca || norm(`${f.obra} ${f.compania} ${f.sala?.nombre}`).includes(norm(busca)))
     .sort((a, b) => a.hora_min - b.hora_min),
-  [p.funciones, fecha, franja, busca]);
+  [candidatas, fecha, franja, busca]);
 
   async function alternar(f) {
     setGuardando(f.id);
@@ -62,6 +70,19 @@ export default function Decisor({ p, recargar }) {
     } finally {
       setGuardando(null);
     }
+  }
+
+  if (!fechas.length && filtrado) {
+    return (
+      <section className="seccion">
+        <h1>Decidir</h1>
+        <div className="vacio">
+          <b>Todavía no has marcado nada como &laquo;me interesa&raquo;</b>
+          Empieza por Ojear: ahí se elige sin mirar el reloj, y lo que marques
+          aparece aquí con el costo de cada elección.
+        </div>
+      </section>
+    );
   }
 
   if (!fechas.length) {
@@ -81,14 +102,24 @@ export default function Decisor({ p, recargar }) {
       <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
         <h1>Decidir</h1>
         <p className="entradilla">
-          {p.funciones.length} funciones · <b>{elegidas.size}</b> en tu agenda.
-          Marca una y mira abajo qué se cae por elegirla.
+          {filtrado ? (
+            <>
+              {candidatas.length} de {p.funciones.length} funciones — solo las que
+              marcaste en <b>Ojear</b>. <b>{elegidas.size}</b> en tu agenda.
+            </>
+          ) : (
+            <>
+              {p.funciones.length} funciones, sin ojear todavía.{' '}
+              <b>{elegidas.size}</b> en tu agenda. Pasa primero por <b>Ojear</b>:
+              aquí cada renglón ya viene con el costo de elegirlo encima.
+            </>
+          )}
         </p>
       </section>
 
       <div className="dias">
         {fechas.map((f, i) => {
-          const n = p.funciones.filter(x => x.fecha === f && x.agendada).length;
+          const n = candidatas.filter(x => x.fecha === f && x.agendada).length;
           return (
             <button
               key={f} type="button" className="dia"
@@ -105,7 +136,7 @@ export default function Decisor({ p, recargar }) {
 
       <div className="filtros">
         <select value={franja} onChange={e => setFranja(e.target.value)} aria-label="Franja">
-          <option value="">Todas las franjas ({p.funciones.length})</option>
+          <option value="">Todas las franjas ({candidatas.length})</option>
           {franjas.map(([f, n]) => <option key={f} value={f}>{f} ({n})</option>)}
         </select>
         <input

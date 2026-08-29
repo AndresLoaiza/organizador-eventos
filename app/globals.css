@@ -225,6 +225,39 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   .funcion .pie { grid-column: 1 / -1; }
 }
 
+/* --- Ojear: si o no, sin veredictos --- */
+
+.funcion.ojeo[data-interes="no"] { opacity: 0.45; }
+.funcion.ojeo[data-interes="si"] { border-left: none; }
+.funcion.ojeo[data-interes="si"] .obra { font-weight: 700; }
+
+.ojeo-botones { display: flex; gap: var(--e2); flex-wrap: wrap; }
+.boton-no[aria-pressed="true"] {
+  background: var(--tinta-3); border-color: var(--tinta-3); color: var(--fondo);
+}
+
+.razon {
+  display: inline-block; font-size: var(--t-xs); font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--acento); margin-right: var(--e3);
+}
+.cuerpo-aviso { color: var(--tinta-2); font-size: var(--t-sm); }
+
+.marcador { font-size: var(--t-sm); color: var(--tinta-2); margin-top: var(--e2); }
+.marcador b { color: var(--tinta); font-size: var(--t-base); }
+
+.ficha { grid-column: 1 / -1; margin-top: var(--e2); }
+.ficha summary {
+  font-size: var(--t-sm); color: var(--tinta-3); cursor: pointer;
+  list-style: none; width: max-content;
+}
+.ficha summary::before { content: '+ '; }
+.ficha[open] summary::before { content: '2 '; }
+.ficha p {
+  font-size: var(--t-sm); color: var(--tinta-2); margin-top: var(--e2);
+  max-width: 68ch; line-height: 1.55;
+}
+
 .exportar {
   display: flex; align-items: center; gap: var(--e3);
   flex-wrap: wrap; margin-top: var(--e4);
