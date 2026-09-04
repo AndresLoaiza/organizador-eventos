@@ -245,12 +245,11 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 .drolerie {
   display: block; pointer-events: none;
   /* Los trazos son líneas de pluma de un píxel. A opacidad baja no se leen
-     como dibujo, se leen como suciedad en la pantalla: el ornamento tiene que
-     pesar bastante más que un fondo decorativo para existir. */
+     como dibujo, se leen como suciedad en la pantalla. */
   background-color: var(--tinta-2);
   opacity: 0.82;
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  -webkit-mask-position: center bottom; mask-position: center bottom;
+  -webkit-mask-position: center; mask-position: center;
   -webkit-mask-size: contain; mask-size: contain;
 }
 .drolerie[data-fig='arlecchino'] {
@@ -261,33 +260,115 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   -webkit-mask-image: url('./_margen/pantalone.png');
   mask-image: url('./_margen/pantalone.png');
 }
-.drolerie[data-fig='capitano'] {
-  -webkit-mask-image: url('./_margen/capitano.png');
-  mask-image: url('./_margen/capitano.png');
-}
 .drolerie[data-fig='dottore'] {
   -webkit-mask-image: url('./_margen/dottore.png');
   mask-image: url('./_margen/dottore.png');
 }
-.drolerie[data-tam='chico']  { width: 3.5rem;  height: 4.6rem; }
-.drolerie[data-tam='medio']  { width: 6rem;    height: 7.8rem; }
-.drolerie[data-tam='grande'] { width: 11rem;   height: 14.3rem; }
+.drolerie[data-fig='capitano'] {
+  -webkit-mask-image: url('./_margen/capitano.png');
+  mask-image: url('./_margen/capitano.png');
+}
+.drolerie[data-fig='colombina'] {
+  -webkit-mask-image: url('./_margen/colombina.png');
+  mask-image: url('./_margen/colombina.png');
+}
+.drolerie[data-fig='pulcinella'] {
+  -webkit-mask-image: url('./_margen/pulcinella.png');
+  mask-image: url('./_margen/pulcinella.png');
+}
+.drolerie[data-fig='mask-bauta'] {
+  -webkit-mask-image: url('./_margen/mask-bauta.png');
+  mask-image: url('./_margen/mask-bauta.png');
+}
+.drolerie[data-fig='mask-volto'] {
+  -webkit-mask-image: url('./_margen/mask-volto.png');
+  mask-image: url('./_margen/mask-volto.png');
+}
+.drolerie[data-fig='mask-peste'] {
+  -webkit-mask-image: url('./_margen/mask-peste.png');
+  mask-image: url('./_margen/mask-peste.png');
+}
+.drolerie[data-fig='mask-antifaz'] {
+  -webkit-mask-image: url('./_margen/mask-antifaz.png');
+  mask-image: url('./_margen/mask-antifaz.png');
+}
+.drolerie[data-fig='mask-moretta'] {
+  -webkit-mask-image: url('./_margen/mask-moretta.png');
+  mask-image: url('./_margen/mask-moretta.png');
+}
+.drolerie[data-fig='mask-cuoio'] {
+  -webkit-mask-image: url('./_margen/mask-cuoio.png');
+  mask-image: url('./_margen/mask-cuoio.png');
+}
 
-/* Sobre papel la tinta aguanta más peso. Sobre el fondo oscuro la misma
-   opacidad convierte la figura en una mancha clara que compite con la hora,
-   que es lo único que debe leerse de reojo desde la calle. */
+.drolerie[data-tam='friso']     { width: 2.7rem;  height: 2.7rem; }
+.drolerie[data-tam='capitular'] { width: 4.6rem;  height: 4.6rem; }
+.drolerie[data-tam='chico']     { width: 3.5rem;  height: 4.6rem; }
+.drolerie[data-tam='medio']     { width: 6rem;    height: 7.8rem; }
+.drolerie[data-tam='grande']    { width: 11rem;   height: 14.3rem; }
+.drolerie[data-tam='medio'],
+.drolerie[data-tam='grande'],
+.drolerie[data-tam='chico'] {
+  -webkit-mask-position: center bottom; mask-position: center bottom;
+}
+
 @media (prefers-color-scheme: light) {
-  :root:not([data-tema='oscuro']) .drolerie {
-    background-color: var(--tinta-2); opacity: 0.85;
-  }
+  :root:not([data-tema='oscuro']) .drolerie { opacity: 0.85; }
 }
-:root[data-tema='claro'] .drolerie {
-  background-color: var(--tinta-2); opacity: 0.85;
+:root[data-tema='claro'] .drolerie { opacity: 0.85; }
+
+/* --- Capitular: la apertura de capítulo -----------------------------------
+ * En el códice la inicial historiada rompe la caja de texto y anuncia la
+ * sección. Aquí la máscara hace lo mismo, arriba del todo: antes el ornamento
+ * vivía solo al pie de la página, donde casi nunca se llega. */
+.capitular {
+  display: grid; grid-template-columns: auto 1fr;
+  align-items: center; column-gap: var(--e4);
+  margin: var(--e6) 0 var(--e5);
+  padding-bottom: var(--e4);
+  border-bottom: 2px solid var(--tinta);
+}
+.capitular > div { min-width: 0; }
+.capitular h1, .capitular h2 { margin: 0; }
+.capitular .entradilla { margin-top: var(--e2); }
+.capitular .drolerie {
+  /* Sobresale por arriba del filete, como la inicial que se sale de la caja. */
+  margin-top: calc(var(--e4) * -1);
+  opacity: 0.92;
+}
+@media (max-width: 34rem) {
+  .capitular { column-gap: var(--e3); }
+  .capitular .drolerie[data-tam='capitular'] { width: 3.4rem; height: 3.4rem; }
 }
 
-/* Bas-de-page: la figura al pie de la hoja, como en la página del códice.
-   Debajo del último renglón y al margen, nunca entre las escenas: metida en
-   medio dejaría de ser margen y pasaría a ser contenido. */
+/* La máscara de cuero preside el canovaccio. El encabezado alinea por línea
+   base para que la fecha cuelgue del rótulo; la máscara no participa de esa
+   alineación o arrastraría la línea base al fondo de la imagen. */
+.marca-noche {
+  align-self: center; margin-right: var(--e2);
+  width: 3.2rem; height: 3.2rem; opacity: 0.9;
+}
+@media (max-width: 34rem) { .marca-noche { width: 2.6rem; height: 2.6rem; } }
+
+/* --- Friso: hilera de máscaras como remate de sección --- */
+.friso {
+  display: flex; justify-content: center; align-items: center;
+  gap: clamp(0.9rem, 5vw, 2.4rem);
+  margin: var(--e6) 0;
+  padding: var(--e4) 0;
+  border-top: 1px solid var(--regla); border-bottom: 1px solid var(--regla);
+}
+.friso .drolerie { opacity: 0.7; }
+:root[data-tema='claro'] .friso .drolerie { opacity: 0.75; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema='oscuro']) .friso .drolerie { opacity: 0.75; }
+}
+@media (max-width: 26rem) {
+  /* Seis máscaras no caben sin apretarse: se quedan cuatro. */
+  .friso .drolerie:nth-child(n+5) { display: none; }
+}
+
+/* Bas-de-page: la figura al pie de la hoja, como en la página del códice. */
 .pie-de-hoja {
   display: grid; grid-template-columns: auto 1fr;
   align-items: end; column-gap: var(--e4);
@@ -329,14 +410,14 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 .seccion > h2::before {
   content: '¶';
   color: var(--acento); font-weight: 400;
-  margin-right: 0.4em; margin-left: -0.95em;
+  margin-right: 0.35em;
   opacity: 0.75;
 }
-@media (max-width: 44rem) {
-  /* Sin margen donde colgarlo, el calderón empujaría el título. */
-  .seccion > h2::before { margin-left: 0; }
+@media (min-width: 68rem) {
+  /* Con el marco ya centrado sobra sitio fuera: ahí sí puede colgar. */
+  .seccion > h2::before { margin-left: -0.95em; }
 }
-
+.capitular h2::before { content: none; }
 /* --- Lo que se cae por elegir algo --- */
 
 .cae { grid-column: 1 / -1; margin-top: var(--e3); }

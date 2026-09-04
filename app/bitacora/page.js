@@ -2,7 +2,7 @@
 import { nombreDia, fechaLarga, yaTermino, minutosAhoraMedellin } from '../../lib/panorama.mjs';
 import Registrar from './Registrar.js';
 import Pantalla from '../Pantalla.js';
-import Margen from '../Margen.js';
+import Margen, { Cabecera, Friso } from '../Margen.js';
 
 export default function Bitacora() {
   return <Pantalla>{({ p, recargar }) => <Cuerpo p={p} recargar={recargar} />}</Pantalla>;
@@ -30,14 +30,11 @@ function Cuerpo({ p, recargar }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
-        <h1>Bitácora</h1>
-        <p className="entradilla">
-          {registradas.length} de {pasadas.length} funciones vistas ya tienen juicio.
-          Lo que escribas aquí va al perfil de Obsidian y decide qué se te recomienda
-          en el próximo festival.
-        </p>
-      </section>
+      <Cabecera mascara="peste" titulo="Bitácora">
+        {registradas.length} de {pasadas.length} funciones vistas ya tienen juicio.
+        Lo que escribas aquí va al perfil de Obsidian y decide qué se te recomienda
+        en el próximo festival.
+      </Cabecera>
 
       <section className="seccion">
         <h2>Registrar</h2>

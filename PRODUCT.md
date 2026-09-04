@@ -31,7 +31,8 @@ Nunca inventar un dato del usuario. Si falta algo que cambia una recomendación,
 ## Anti-referencias
 
 - Dashboard de SaaS con tarjetas iguales y acentos de color decorativos.
-- Cliché de arlequín: rombos de colores, antifaz veneciano, telón de terciopelo con borlas doradas.
+- Cliché de arlequín: rombos de colores, telón de terciopelo con borlas doradas.
+- **La máscara veneciana dejó de ser anti-referencia** _(4 sep 2026, dicho por Andrés)_. La pidió explícitamente. Lo que sigue prohibido es la versión de tienda de souvenirs: color, plumas, cintas, pedrería, purpurina. Entra dibujada a pluma, en el mismo registro de manuscrito que el resto.
 - Serif ornamental de cartel de teatro aplicado a etiquetas de formulario.
 - Cualquier cosa que se lea como plantilla de "app de eventos".
 

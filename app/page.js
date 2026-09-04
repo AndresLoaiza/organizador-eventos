@@ -4,7 +4,7 @@ import { nocheDe, hoyMedellin, nombreDia, fechaLarga } from '../lib/panorama.mjs
 import Avisos from './Avisos.js';
 import Pantalla from './Pantalla.js';
 import { BoletasDe } from './BotonBoleta.js';
-import Margen from './Margen.js';
+import Margen, { Friso } from './Margen.js';
 
 const SELLO = {
   comprada: 'Comprada', agendada: 'Agendada',
@@ -34,6 +34,7 @@ function Hoja({ p }) {
 
       <section className="canovaccio">
         <div className="encabezado">
+          <Margen tipo="cuoio" tam="capitular" className="marca-noche" />
           <span className="rotulo">{fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}</span>
           <span className="fecha num">{fechaLarga(fecha)} · {p.festival.nombre}</span>
         </div>

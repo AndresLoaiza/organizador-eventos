@@ -1,52 +1,94 @@
-// Drôleries: los tipi fissi dibujados en el margen.
+// Ornamento de manuscrito: personajes y máscaras.
 //
-// El puente entre la comedia del arte y el manuscrito gótico no es decorativo,
-// es literal. Las drôleries del margen bajomedieval son híbridos hombre-animal:
-// un hombre con cabeza de pájaro tocando una flauta al pie de la página. Y las
-// máscaras de la comedia son máscaras de animal — la guía de Andrés lo dice sin
-// ambigüedad: Pantalón es un águila, Il Dottore un toro, Arlequín un zorro, Il
-// Capitano un gallo. Es la misma gramática visual llegando por dos caminos.
+// Los personajes son los tipi fissi de verdad, con su media máscara de cuero
+// puesta. La versión anterior los dibujaba como híbridos con cabeza de animal,
+// y eso era pasarse: la guía de Andrés dice que la máscara *evoca* un animal
+// —recurso para el trabajo corporal del actor, "¿cómo caminaría Pantaleón?"—
+// no que el personaje sea una bestia.
 //
-// Sin pan de oro. El oro y el vino eran el primer reflejo de "app de teatro" y
-// están descartados desde la primera versión; son también el primer reflejo de
-// "manuscrito medieval". Lo que queda es lo que de verdad tenía un documento de
-// trabajo: tinta y rúbrica. La rúbrica es tinta roja, y el acento de la app ya
-// era bermellón, así que no hubo que inventar un color.
-//
-// Van en el margen y no en el contenido. Eso no es un detalle de maquetación:
-// es el principio del producto — un riesgo estético en un solo lugar, el resto
-// quieto — hecho estructura. El adorno vive donde no estorba la tarea.
+// Las máscaras van aparte y solas porque hacen otro trabajo. Un personaje
+// entero necesita sitio y solo cabe al pie o en un vacío; una máscara de frente
+// funciona pequeña y repetida, y por eso puede abrir cada pantalla. Sin eso el
+// adorno vivía únicamente al final de la página, donde casi nunca se llega.
 
-const FIGURAS = {
-  // Arlequín, el zorro acróbata con el batocchio: la noche que se improvisa
-  // sobre el canovaccio.
-  arlecchino: 'Arlequín, zorro acróbata con su batocchio',
-  // Pantalón, el águila avara abrazada a su bolsa: el baúl de las boletas.
-  pantalone: 'Pantalón, viejo avaro abrazado a su bolsa',
-  // Il Capitano, el gallo que fanfarronea y nunca desenvaina: decidir.
-  capitano: 'Il Capitano, gallo fanfarrón que no desenvaina',
-  // Il Dottore, el toro con el libro pegado a la cara: quien escribe el juicio.
-  dottore: 'Il Dottore, toro erudito leyendo demasiado cerca',
+const PERSONAJES = {
+  arlecchino: 'Arlequín saltando, con su traje de rombos',
+  pantalone: 'Pantalón encorvado, agarrado a su bolsa',
+  dottore: 'Il Dottore con la toga y el libro abierto',
+  capitano: 'Il Capitano con penacho y espada sin desenvainar',
+  colombina: 'Colombina con delantal y pandereta',
+  pulcinella: 'Pulcinella con su gorro cónico',
+};
+
+const MASCARAS = {
+  cuoio: 'máscara de cuero de la comedia del arte',
+  antifaz: 'antifaz veneciano de media cara',
+  bauta: 'bauta veneciana',
+  volto: 'volto veneciano',
+  moretta: 'moretta veneciana',
+  peste: 'máscara del médico de la peste',
 };
 
 /**
- * La figura es puro adorno, así que se esconde de los lectores de pantalla: un
- * lector que anuncie "zorro acróbata" en mitad de una lista de funciones no
- * está describiendo nada útil, está interrumpiendo.
+ * Adorno puro, así que se esconde de los lectores de pantalla. Anunciar
+ * "Pantalón agarrado a su bolsa" en mitad de una lista de funciones no
+ * describe nada útil: interrumpe.
  *
- * Se pinta con `mask-image` y no como `<img>` para que una sola imagen sirva en
- * los dos temas: el PNG solo aporta la silueta y el color lo pone el CSS.
+ * Se pinta con `mask-image` y no como `<img>` para que una sola imagen sirva
+ * en los dos temas: el PNG aporta la silueta y el color lo pone el CSS.
  */
-export default function Margen({ tipo = 'arlecchino', tam = 'medio', className = '' }) {
-  if (!FIGURAS[tipo]) return null;
+export default function Margen({ tipo, tam = 'medio', className = '' }) {
+  const esMascara = tipo in MASCARAS;
+  if (!esMascara && !(tipo in PERSONAJES)) return null;
   return (
     <span
       aria-hidden="true"
       className={`drolerie ${className}`.trim()}
-      data-fig={tipo}
+      data-fig={esMascara ? `mask-${tipo}` : tipo}
       data-tam={tam}
     />
   );
 }
 
-export { FIGURAS };
+/**
+ * Apertura de capítulo. En el códice cada sección abre con una inicial
+ * historiada que rompe la caja de texto; aquí abre con la máscara de la
+ * pantalla, arriba del todo, para que el ornamento se vea sin bajar.
+ *
+ * La máscara no es decoración intercambiable: cada pantalla lleva la suya y
+ * significa algo. El antifaz de media cara para Ojear, donde solo te estás
+ * asomando. La bauta para Decidir, que era la que se ponía el veneciano para
+ * moverse sin dar la cara. El volto entero para la Agenda, donde ya no hay
+ * ambigüedad. La moretta muda para el Baúl, que no habla, guarda.
+ */
+export function Cabecera({ mascara, titulo, children, nivel = 'h1' }) {
+  const H = nivel;
+  return (
+    <header className="capitular">
+      <Margen tipo={mascara} tam="capitular" />
+      <div>
+        <H>{titulo}</H>
+        {children && <p className="entradilla">{children}</p>}
+      </div>
+    </header>
+  );
+}
+
+/**
+ * Friso: hilera de máscaras como separador. El equivalente del remate que
+ * cerraba una sección en el manuscrito, y la razón de que haya adorno también
+ * a media página y no solo en los extremos.
+ */
+const FRISO = ['cuoio', 'antifaz', 'bauta', 'peste', 'volto', 'moretta'];
+
+export function Friso({ desde = 0 }) {
+  return (
+    <div className="friso" aria-hidden="true">
+      {FRISO.map((m, i) => (
+        <Margen key={m} tipo={FRISO[(i + desde) % FRISO.length]} tam="friso" />
+      ))}
+    </div>
+  );
+}
+
+export { PERSONAJES, MASCARAS };

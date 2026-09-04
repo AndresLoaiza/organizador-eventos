@@ -3,7 +3,7 @@ import { nombreDia, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Cargar from './Cargar.js';
 import Pantalla from '../Pantalla.js';
-import Margen from '../Margen.js';
+import Margen, { Cabecera, Friso } from '../Margen.js';
 import BotonBoleta from '../BotonBoleta.js';
 
 export default function Baul() {
@@ -33,13 +33,10 @@ function Cuerpo({ p, recargar }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
-        <h1>Baúl</h1>
-        <p className="entradilla">
-          {p.boletas.length} boletas en {archivos.size} archivos · {pendientes.length} sin extraer
-          {huerfanas.length > 0 && <> · {huerfanas.length} sin vincular</>}
-        </p>
-      </section>
+      <Cabecera mascara="moretta" titulo="Baúl">
+        {p.boletas.length} boletas en {archivos.size} archivos · {pendientes.length} sin extraer
+        {huerfanas.length > 0 && <> · {huerfanas.length} sin vincular</>}
+      </Cabecera>
 
       <section className="seccion">
         <h2>Guardar una boleta</h2>
@@ -54,6 +51,8 @@ function Cuerpo({ p, recargar }) {
           <Avisos titulo="Sin vincular" avisos={p.avisos.filter(a => a.tipo === 'boleta_huerfana')} />
         </section>
       )}
+
+      <Friso />
 
       <section className="seccion">
         <h2>Lo que hay dentro</h2>

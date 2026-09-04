@@ -8,7 +8,7 @@ import { razonesDe } from '../../lib/interes.mjs';
 import Exportar from '../Exportar.js';
 import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
 import { paraDecidir } from '../../lib/interes.mjs';
-import Margen from '../Margen.js';
+import Margen, { Cabecera, Friso } from '../Margen.js';
 
 // El decisor: día por día, con el costo de cada elección a la vista.
 //
@@ -102,9 +102,7 @@ export default function Decisor({ p, recargar }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
-        <h1>Decidir</h1>
-        <p className="entradilla">
+      <Cabecera mascara="bauta" titulo="Decidir">
           {filtrado ? (
             <>
               {candidatas.length} de {p.funciones.length} funciones — solo las que
@@ -117,8 +115,7 @@ export default function Decisor({ p, recargar }) {
               aquí cada renglón ya viene con el costo de elegirlo encima.
             </>
           )}
-        </p>
-      </section>
+      </Cabecera>
 
       <div className="dias">
         {fechas.map((f, i) => {

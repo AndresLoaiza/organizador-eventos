@@ -5,6 +5,7 @@ import Avisos from '../Avisos.js';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
 import Pantalla from '../Pantalla.js';
 import Exportar from '../Exportar.js';
+import Margen, { Cabecera, Friso } from '../Margen.js';
 import { filasAgenda, COLS_AGENDA } from '../../lib/exportar.mjs';
 
 export default function Agenda() {
@@ -26,19 +27,15 @@ function Cuerpo({ p }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
-        <h1>{p.festival.nombre}</h1>
-        <p className="entradilla">
+      <Cabecera mascara="volto" titulo={p.festival.nombre}>
           {p.funciones.filter(f => f.agendada).length} funciones agendadas · pagado{' '}
           <b className="num">${p.total.toLocaleString('es-CO')}</b>
           {porComprar > 0 && (
             <> · falta comprar <b className="num">${porComprar.toLocaleString('es-CO')}</b></>
           )}
-        </p>
-        <Exportar
-          cols={COLS_AGENDA} filas={filasAgenda(p.funciones)} que="la agenda"
-        />
-      </section>
+      </Cabecera>
+
+      <Exportar cols={COLS_AGENDA} filas={filasAgenda(p.funciones)} que="la agenda" />
 
       {p.avisos.length > 0 && (
         <section className="seccion">
@@ -129,6 +126,7 @@ function Cuerpo({ p }) {
 
       {faltantes.length > 0 && (
         <section className="seccion">
+          <Friso />
           <h2>Pendientes de compra</h2>
           <p className="entradilla">
             En orden de urgencia real: primero lo que se agota, no lo que cuesta más.

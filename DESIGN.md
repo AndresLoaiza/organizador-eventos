@@ -63,7 +63,11 @@ Todo lo demás se queda quieto. Agenda, baúl, formularios y bitácora son herra
 
 ## Marginalia: drôleries de los tipi fissi
 
-Adorno de manuscrito gótico bajomedieval, pedido explícitamente. Lo que hace que no sea un injerto es que el puente ya estaba en la fuente: las drôleries del margen medieval son **híbridos hombre-animal**, y las máscaras de la comedia del arte **son máscaras de animal**. La guía del propio usuario lo dice sin ambigüedad — Pantalón es un águila, Il Dottore un toro, Arlequín un zorro, Il Capitano un gallo. Es la misma gramática visual llegando por dos caminos, no una mezcla de dos estéticas.
+Adorno de manuscrito gótico bajomedieval, pedido explícitamente.
+
+**Corrección de la primera versión.** Dibujó a los personajes como híbridos con cabeza de animal, apoyándose en que la guía asocia cada máscara a un animal. Eso fue pasarse de la fuente: la guía dice que la máscara *evoca* un águila o un toro, y que el actor imita al animal como ejercicio de trabajo corporal («¿cómo caminaría Pantaleón?»). El personaje no es una bestia. Ahora son los tipi fissi de verdad, humanos, con su media máscara de cuero puesta.
+
+**Dos familias de imagen, porque hacen dos trabajos distintos.** Un personaje entero necesita sitio y solo cabe al pie de la página o en un vacío. Una máscara de frente funciona pequeña y repetida, y por eso puede abrir cada pantalla y formar un friso a media página. Con solo personajes, el ornamento vivía únicamente al final, donde casi nunca se llega — que fue exactamente la queja.
 
 **Sin pan de oro.** El oro y el vino eran el primer reflejo de «app de teatro» y ya estaban descartados; son también el primer reflejo de «manuscrito medieval». El segundo reflejo —pergamino envejecido y letra gótica en las etiquetas— tampoco: una tipografía de exhibición en un rótulo de formulario está prohibida en registro de producto.
 
@@ -71,14 +75,27 @@ Lo que queda es la lectura honesta de la fuente, la misma que ya gobernaba el ca
 
 **El adorno vive en el margen, y eso es estructura, no maquetación.** El principio del producto —un riesgo estético en un solo lugar, el resto quieto— se cumple poniendo el ornamento donde por definición no estorba la tarea: al pie de la hoja (`bas-de-page`) y en los vacíos, que es exactamente donde el copista ponía un remate de pluma porque no había renglón que escribir.
 
-Cada figura va donde su tipo fijo significa algo:
+**La capitular.** En el códice cada sección abre con una inicial historiada que rompe la caja de texto. Aquí cada pantalla abre con su máscara, arriba del todo. La máscara no es decoración intercambiable:
+
+| Pantalla | Máscara | Por qué |
+|---|---|---|
+| Esta noche | Cuero de la comedia | La máscara de trabajo, la noche que se juega |
+| Ojear | Antifaz de media cara | Solo te estás asomando |
+| Decidir | Bauta | La que se ponía el veneciano para moverse sin dar la cara |
+| Agenda | Volto | El rostro entero: ya no hay ambigüedad |
+| Baúl | Moretta, la muda | El baúl no habla, guarda |
+| Bitácora | Médico de la peste | El que dictamina |
+
+Y el personaje entero, al pie o en el vacío:
 
 | Figura | Dónde | Por qué |
 |---|---|---|
-| Arlequín, zorro con batocchio | Canovaccio, Ojear | La noche que se improvisa sobre el esqueleto fijo |
-| Pantalón, avaro con su bolsa | Baúl | Dinero guardado y nada que se bota |
-| Il Capitano, gallo que no desenvaina | Decidir | Fanfarronea hasta que hay que elegir |
-| Il Dottore, toro leyendo muy de cerca | Bitácora | Su ridículo es creerse crítico |
+| Arlequín, traje de rombos, saltando | Canovaccio | La noche que se improvisa sobre el esqueleto fijo |
+| Colombina, delantal y pandereta | Ojear | La que entiende las intrigas y desenreda |
+| Il Capitano, que no desenvaina | Decidir | Fanfarronea hasta que hay que elegir |
+| Pantalón, agarrado a su bolsa | Baúl | Dinero guardado y nada que se bota |
+| Il Dottore, con el libro en la cara | Bitácora | Su ridículo es creerse crítico |
+| Pulcinella | Agenda | El criado que carga con el plan |
 
 **Se pintan con `mask-image`, no como `<img>`.** El PNG aporta solo la silueta y el color lo pone el CSS, así una sola imagen sirve en los dos temas en vez de dos juegos de archivos que se desincronizan. Las rutas son relativas al CSS a propósito: en Pages la app vive bajo `/organizador-eventos` y una `url(/...)` absoluta no recibe el `basePath`.
 

@@ -4,7 +4,7 @@ import { marcarInteres, marcarInteresVarias } from '../../lib/cliente.mjs';
 import { fmtHora } from '../../lib/decisor.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import { razonesDe, avisoCuerpo, ordenarParaOjear, contarOjeo } from '../../lib/interes.mjs';
-import Margen from '../Margen.js';
+import Margen, { Cabecera, Friso } from '../Margen.js';
 
 // Ojear: el primer paso, y a propósito sin motor de choques.
 //
@@ -84,12 +84,12 @@ export default function Ojeo({ p, recargar }) {
 
   return (
     <>
-      <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
-        <h1>Ojear</h1>
-        <p className="entradilla">
-          Sí o no, sin pensar en horarios. Los choques se miran después, en{' '}
-          <b>Decidir</b>, y solo sobre lo que marques aquí.
-        </p>
+      <Cabecera mascara="antifaz" titulo="Ojear">
+        Sí o no, sin pensar en horarios. Los choques se miran después, en{' '}
+        <b>Decidir</b>, y solo sobre lo que marques aquí.
+      </Cabecera>
+
+      <section className="seccion" style={{ marginTop: 0 }}>
         <p className="marcador num">
           <b>{cuenta.si}</b> te interesan · {cuenta.no} descartadas ·{' '}
           {cuenta.sinVer} sin ojear
@@ -147,7 +147,7 @@ export default function Ojeo({ p, recargar }) {
             {ver === 'sinVer'
               ? 'Ojeaste todo lo que cabía aquí.'
               : 'Prueba otro día o borra la búsqueda.'}
-            <Margen tipo="arlecchino" tam="medio" />
+            <Margen tipo="colombina" tam="medio" />
           </div>
         ) : (
           <ul className="funciones">
