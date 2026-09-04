@@ -4,6 +4,7 @@ import { nocheDe, hoyMedellin, nombreDia, fechaLarga } from '../lib/panorama.mjs
 import Avisos from './Avisos.js';
 import Pantalla from './Pantalla.js';
 import { BoletasDe } from './BotonBoleta.js';
+import Margen from './Margen.js';
 
 const SELLO = {
   comprada: 'Comprada', agendada: 'Agendada',
@@ -38,9 +39,11 @@ function Hoja({ p }) {
         </div>
 
         {escenas.length === 0 ? (
-          <p style={{ paddingLeft: '4.4rem', color: 'var(--tinta-2)' }}>
-            Nada agendado. <Link href="/agenda">Mira la agenda completa</Link>.
-          </p>
+          <div className="vacio">
+            <b>Nada agendado para esta noche</b>
+            <Link href="/agenda">Mira la agenda completa</Link>.
+            <Margen tipo="arlecchino" tam="medio" />
+          </div>
         ) : (
           <ol className="escenas">
             {escenas.map((e, i) => (
@@ -79,6 +82,13 @@ function Hoja({ p }) {
               </li>
             ))}
           </ol>
+        )}
+
+        {escenas.length > 0 && (
+          <div className="pie-de-hoja">
+            <Margen tipo="arlecchino" tam="grande" />
+            <p>Canovaccio · {escenas.length} {escenas.length === 1 ? 'escena' : 'escenas'} · el resto se improvisa</p>
+          </div>
         )}
       </section>
 

@@ -3,6 +3,7 @@ import { nombreDia, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Cargar from './Cargar.js';
 import Pantalla from '../Pantalla.js';
+import Margen from '../Margen.js';
 import BotonBoleta from '../BotonBoleta.js';
 
 export default function Baul() {
@@ -60,6 +61,7 @@ function Cuerpo({ p, recargar }) {
           <div className="vacio">
             <b>El baúl está vacío</b>
             Sube la primera boleta arriba. Si ya compraste por internet, el PDF está en tu correo.
+            <Margen tipo="pantalone" tam="medio" />
           </div>
         ) : (
           <div className="tabla-scroll">

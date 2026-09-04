@@ -4,6 +4,7 @@ import { marcarInteres, marcarInteresVarias } from '../../lib/cliente.mjs';
 import { fmtHora } from '../../lib/decisor.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import { razonesDe, avisoCuerpo, ordenarParaOjear, contarOjeo } from '../../lib/interes.mjs';
+import Margen from '../Margen.js';
 
 // Ojear: el primer paso, y a propósito sin motor de choques.
 //
@@ -146,6 +147,7 @@ export default function Ojeo({ p, recargar }) {
             {ver === 'sinVer'
               ? 'Ojeaste todo lo que cabía aquí.'
               : 'Prueba otro día o borra la búsqueda.'}
+            <Margen tipo="arlecchino" tam="medio" />
           </div>
         ) : (
           <ul className="funciones">

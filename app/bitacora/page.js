@@ -2,6 +2,7 @@
 import { nombreDia, fechaLarga, yaTermino, minutosAhoraMedellin } from '../../lib/panorama.mjs';
 import Registrar from './Registrar.js';
 import Pantalla from '../Pantalla.js';
+import Margen from '../Margen.js';
 
 export default function Bitacora() {
   return <Pantalla>{({ p, recargar }) => <Cuerpo p={p} recargar={recargar} />}</Pantalla>;
@@ -85,6 +86,14 @@ function Cuerpo({ p, recargar }) {
           </ul>
         </section>
       )}
+
+      {/* Il Dottore al pie: el toro que lee con el libro pegado a la cara. Su
+          ridículo es el de creerse crítico, que es el riesgo de esta pantalla
+          y la razón de que aquí solo entre lo que Andrés escribió. */}
+      <div className="pie-de-hoja">
+        <Margen tipo="dottore" tam="grande" />
+        <p>Aquí solo entra lo que escribiste tú</p>
+      </div>
     </>
   );
 }

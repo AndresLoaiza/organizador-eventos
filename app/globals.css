@@ -225,6 +225,118 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   .funcion .pie { grid-column: 1 / -1; }
 }
 
+
+/* --- Marginalia: drôleries de los tipi fissi -------------------------------
+ *
+ * Adorno de manuscrito gótico sin pan de oro. El oro y el vino eran el primer
+ * reflejo de "app de teatro" y están descartados desde la primera versión; son
+ * también el primer reflejo de "manuscrito medieval". Queda lo que de verdad
+ * tenía un documento de trabajo clavado entre bastidores: tinta y rúbrica.
+ *
+ * Las figuras se pintan con máscara, no como <img>. El PNG solo aporta la
+ * silueta y el color lo pone el CSS, así una sola imagen sirve en los dos
+ * temas en vez de dos juegos de archivos que se desincronizan.
+ *
+ * Las rutas son relativas a este archivo a propósito: en GitHub Pages la app
+ * vive bajo /organizador-eventos, y una url(/...) absoluta en CSS no recibe el
+ * basePath. Relativa, la resuelve el empaquetador y sale bien en los dos sitios.
+ */
+
+.drolerie {
+  display: block; pointer-events: none;
+  /* Los trazos son líneas de pluma de un píxel. A opacidad baja no se leen
+     como dibujo, se leen como suciedad en la pantalla: el ornamento tiene que
+     pesar bastante más que un fondo decorativo para existir. */
+  background-color: var(--tinta-2);
+  opacity: 0.82;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center bottom; mask-position: center bottom;
+  -webkit-mask-size: contain; mask-size: contain;
+}
+.drolerie[data-fig='arlecchino'] {
+  -webkit-mask-image: url('./_margen/arlecchino.png');
+  mask-image: url('./_margen/arlecchino.png');
+}
+.drolerie[data-fig='pantalone'] {
+  -webkit-mask-image: url('./_margen/pantalone.png');
+  mask-image: url('./_margen/pantalone.png');
+}
+.drolerie[data-fig='capitano'] {
+  -webkit-mask-image: url('./_margen/capitano.png');
+  mask-image: url('./_margen/capitano.png');
+}
+.drolerie[data-fig='dottore'] {
+  -webkit-mask-image: url('./_margen/dottore.png');
+  mask-image: url('./_margen/dottore.png');
+}
+.drolerie[data-tam='chico']  { width: 3.5rem;  height: 4.6rem; }
+.drolerie[data-tam='medio']  { width: 6rem;    height: 7.8rem; }
+.drolerie[data-tam='grande'] { width: 11rem;   height: 14.3rem; }
+
+/* Sobre papel la tinta aguanta más peso. Sobre el fondo oscuro la misma
+   opacidad convierte la figura en una mancha clara que compite con la hora,
+   que es lo único que debe leerse de reojo desde la calle. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema='oscuro']) .drolerie {
+    background-color: var(--tinta-2); opacity: 0.85;
+  }
+}
+:root[data-tema='claro'] .drolerie {
+  background-color: var(--tinta-2); opacity: 0.85;
+}
+
+/* Bas-de-page: la figura al pie de la hoja, como en la página del códice.
+   Debajo del último renglón y al margen, nunca entre las escenas: metida en
+   medio dejaría de ser margen y pasaría a ser contenido. */
+.pie-de-hoja {
+  display: grid; grid-template-columns: auto 1fr;
+  align-items: end; column-gap: var(--e4);
+  margin-top: var(--e5); padding-top: var(--e4);
+  border-top: 1px solid var(--regla);
+}
+.pie-de-hoja p {
+  font-size: var(--t-xs); color: var(--tinta-3);
+  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.7;
+  padding-bottom: var(--e3);
+}
+/* Filete de pluma: el remate que cerraba el renglón corto para que la columna
+   no quedara coja. Aquí cierra la hoja, y no cuesta un byte de imagen. */
+.pie-de-hoja p::after {
+  content: ''; display: block; margin-top: var(--e2);
+  height: 1px; width: 100%;
+  background: linear-gradient(90deg, var(--regla), transparent);
+}
+
+/* El vacío es donde el copista ponía un remate de pluma: no hay renglón que
+   escribir y la página no se deja en blanco. */
+.vacio { position: relative; overflow: hidden; }
+.vacio .drolerie {
+  position: absolute; right: 0; bottom: var(--e3);
+  opacity: 0.55;
+}
+:root[data-tema='claro'] .vacio .drolerie { opacity: 0.6; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema='oscuro']) .vacio .drolerie { opacity: 0.6; }
+}
+@media (max-width: 34rem) {
+  /* En teléfono el texto del vacío ocupa el mismo sitio que la figura. */
+  .vacio .drolerie { display: none; }
+  .drolerie[data-tam='grande'] { width: 7rem; height: 9.1rem; }
+}
+
+/* Calderón rubricado. En el manuscrito el rojo no era adorno: marcaba dónde
+   empezaba algo. Aquí hace lo mismo, colgado en el margen izquierdo. */
+.seccion > h2::before {
+  content: '¶';
+  color: var(--acento); font-weight: 400;
+  margin-right: 0.4em; margin-left: -0.95em;
+  opacity: 0.75;
+}
+@media (max-width: 44rem) {
+  /* Sin margen donde colgarlo, el calderón empujaría el título. */
+  .seccion > h2::before { margin-left: 0; }
+}
+
 /* --- Lo que se cae por elegir algo --- */
 
 .cae { grid-column: 1 / -1; margin-top: var(--e3); }

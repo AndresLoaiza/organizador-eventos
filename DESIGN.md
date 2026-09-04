@@ -61,6 +61,31 @@ La pantalla **Esta noche**. Hora enorme en bermellón, obra grande, numeral de e
 
 Todo lo demás se queda quieto. Agenda, baúl, formularios y bitácora son herramienta y desaparecen en la tarea.
 
+## Marginalia: drôleries de los tipi fissi
+
+Adorno de manuscrito gótico bajomedieval, pedido explícitamente. Lo que hace que no sea un injerto es que el puente ya estaba en la fuente: las drôleries del margen medieval son **híbridos hombre-animal**, y las máscaras de la comedia del arte **son máscaras de animal**. La guía del propio usuario lo dice sin ambigüedad — Pantalón es un águila, Il Dottore un toro, Arlequín un zorro, Il Capitano un gallo. Es la misma gramática visual llegando por dos caminos, no una mezcla de dos estéticas.
+
+**Sin pan de oro.** El oro y el vino eran el primer reflejo de «app de teatro» y ya estaban descartados; son también el primer reflejo de «manuscrito medieval». El segundo reflejo —pergamino envejecido y letra gótica en las etiquetas— tampoco: una tipografía de exhibición en un rótulo de formulario está prohibida en registro de producto.
+
+Lo que queda es la lectura honesta de la fuente, la misma que ya gobernaba el canovaccio: un documento **de trabajo**. Tinta y rúbrica. Y la rúbrica es tinta roja, así que el bermellón que ya era el acento no hubo que inventarlo — el calderón `¶` colgado en el margen de cada `h2` es rubricación literal y no cuesta un byte de imagen.
+
+**El adorno vive en el margen, y eso es estructura, no maquetación.** El principio del producto —un riesgo estético en un solo lugar, el resto quieto— se cumple poniendo el ornamento donde por definición no estorba la tarea: al pie de la hoja (`bas-de-page`) y en los vacíos, que es exactamente donde el copista ponía un remate de pluma porque no había renglón que escribir.
+
+Cada figura va donde su tipo fijo significa algo:
+
+| Figura | Dónde | Por qué |
+|---|---|---|
+| Arlequín, zorro con batocchio | Canovaccio, Ojear | La noche que se improvisa sobre el esqueleto fijo |
+| Pantalón, avaro con su bolsa | Baúl | Dinero guardado y nada que se bota |
+| Il Capitano, gallo que no desenvaina | Decidir | Fanfarronea hasta que hay que elegir |
+| Il Dottore, toro leyendo muy de cerca | Bitácora | Su ridículo es creerse crítico |
+
+**Se pintan con `mask-image`, no como `<img>`.** El PNG aporta solo la silueta y el color lo pone el CSS, así una sola imagen sirve en los dos temas en vez de dos juegos de archivos que se desincronizan. Las rutas son relativas al CSS a propósito: en Pages la app vive bajo `/organizador-eventos` y una `url(/...)` absoluta no recibe el `basePath`.
+
+Opacidad alta (0.82 oscuro, 0.85 claro). Los trazos son líneas de pluma de un píxel: a opacidad baja no se leen como dibujo, se leen como suciedad en la pantalla. En teléfono la figura del vacío se esconde, porque ahí el texto ocupa su sitio.
+
+Generadas con Ideogram v3, MagicPrompt apagado para que no reescribiera el encargo.
+
 ## Prohibiciones que se respetan
 
 - Sin `border-left` de color como acento. El tipo se reconoce por la marca, no por un adorno al margen.

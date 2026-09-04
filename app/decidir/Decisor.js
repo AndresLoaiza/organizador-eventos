@@ -8,6 +8,7 @@ import { razonesDe } from '../../lib/interes.mjs';
 import Exportar from '../Exportar.js';
 import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
 import { paraDecidir } from '../../lib/interes.mjs';
+import Margen from '../Margen.js';
 
 // El decisor: día por día, con el costo de cada elección a la vista.
 //
@@ -81,6 +82,7 @@ export default function Decisor({ p, recargar }) {
           <b>Todavía no has marcado nada como &laquo;me interesa&raquo;</b>
           Empieza por Ojear: ahí se elige sin mirar el reloj, y lo que marques
           aparece aquí con el costo de cada elección.
+          <Margen tipo="capitano" tam="medio" />
         </div>
       </section>
     );
@@ -171,7 +173,10 @@ export default function Decisor({ p, recargar }) {
         )}
 
         {delDia.length === 0 ? (
-          <div className="vacio"><b>Nada con ese filtro</b>Prueba otra franja o borra la búsqueda.</div>
+          <div className="vacio">
+            <b>Nada con ese filtro</b>Prueba otra franja o borra la búsqueda.
+            <Margen tipo="capitano" tam="medio" />
+          </div>
         ) : (
           <ul className="funciones">
             {delDia.map(f => {
