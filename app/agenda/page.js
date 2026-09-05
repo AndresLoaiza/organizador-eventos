@@ -6,6 +6,7 @@ import Tipo, { tipoDeVeredicto } from '../Tipo.js';
 import Pantalla from '../Pantalla.js';
 import Exportar from '../Exportar.js';
 import Margen, { Cabecera, Friso } from '../Margen.js';
+import { costoPendiente, textoPrecio, precioDe, pesos } from '../../lib/precios.mjs';
 import { filasAgenda, COLS_AGENDA } from '../../lib/exportar.mjs';
 
 export default function Agenda() {
@@ -22,8 +23,10 @@ function Cuerpo({ p }) {
   const faltantes = p.funciones.filter(f =>
     f.agendada && f.fecha >= p.hoy && f.estado !== 'comprada' &&
     f.boletas.length < f.necesarias);
-  const porComprar = faltantes.reduce(
-    (s, f) => s + (f.necesarias - f.boletas.length) * (f.precio_dcto ?? f.precio_pleno), 0);
+  // El total ignora lo que no tiene tarifa publicada, y por eso hay que decir
+  // cuántas quedaron fuera: un total que se lee como el costo del plan entero
+  // cuando en realidad le faltan ocho funciones es peor que no dar total.
+  const { total: porComprar, sinPrecio } = costoPendiente(faltantes);
 
   return (
     <>
@@ -31,7 +34,10 @@ function Cuerpo({ p }) {
           {p.funciones.filter(f => f.agendada).length} funciones agendadas · pagado{' '}
           <b className="num">${p.total.toLocaleString('es-CO')}</b>
           {porComprar > 0 && (
-            <> · falta comprar <b className="num">${porComprar.toLocaleString('es-CO')}</b></>
+            <> · falta comprar <b className="num">{pesos(porComprar)}</b></>
+          )}
+          {sinPrecio > 0 && (
+            <> · {sinPrecio} sin tarifa publicada, fuera de esa cuenta</>
           )}
       </Cabecera>
 
@@ -79,12 +85,16 @@ function Cuerpo({ p }) {
                     />
                   </span>
                   <span className="pie">
-                    {f.pagado > 0
-                      ? <>Pagado <b className="num">${f.pagado.toLocaleString('es-CO')}</b></>
-                      : f.precio_pleno > 0
-                        ? <>Vale <span className="num">${f.precio_pleno.toLocaleString('es-CO')}</span>
-                          {f.precio_dcto ? <> · con descuento <span className="num">${f.precio_dcto.toLocaleString('es-CO')}</span></> : null}</>
-                        : 'Entrada libre'}
+                    {(() => {
+                      const t = textoPrecio(f);
+                      if (!t.valor) return t.etiqueta;
+                      return (
+                        <>
+                          {t.etiqueta} <b className="num">{t.valor}</b>
+                          {t.descuento && <> · con descuento <span className="num">{t.descuento}</span></>}
+                        </>
+                      );
+                    })()}
                     {f.margen && <> · {f.margen.texto}</>}
                     {' · '}
                     {f.juicio
@@ -147,7 +157,9 @@ function Cuerpo({ p }) {
                     <td>{f.sala?.nombre ?? '—'}</td>
                     <td className="num">{f.necesarias - f.boletas.length}</td>
                     <td className="num">
-                      ${(((f.precio_dcto ?? f.precio_pleno)) * (f.necesarias - f.boletas.length)).toLocaleString('es-CO')}
+                      {precioDe(f) == null
+                        ? <span title="El organizador no la publicó">sin publicar</span>
+                        : pesos(precioDe(f) * (f.necesarias - f.boletas.length))}
                     </td>
                     <td style={{ whiteSpace: 'normal', minWidth: '18ch' }}>{f.nota_boleteria ?? ''}</td>
                   </tr>

@@ -14,8 +14,9 @@ import { FESTIVAL, FUNCIONES } from './datos-san-ignacio.mjs';
 //
 // Lo que NO trae el sitio es el precio. Comfama cobra por tarifas escalonadas
 // TA/TB/TC/TD según afiliación, y la TA puede ser menos de la cuarta parte de
-// la TD. Poner un precio plausible contaminaría el total del festival en
-// silencio, así que van en cero y la nota lo dice.
+// la TD. Van en NULL, que significa "no publicado", y no en cero, que significa
+// entrada libre: con cero la agenda decía "Entrada libre" sobre funciones que
+// sí se pagan y la tabla de pendientes mostraba un costo de $0 con aire de dato.
 
 const DIR_IMG = 'trabajo/sanignacio/imagenes';
 
@@ -123,7 +124,7 @@ for (const f of FUNCIONES) {
       `insert into eventos.funciones
          (festival_id, sala_id, fecha, hora_min, duracion_min, duracion_confirmada, obra,
           compania, precio_pleno, precio_dcto, nota_boleteria, acompanantes, agendada, fuente_horario)
-       values ($1,$2,$3,$4,$5,$6,$7,$8,0,null,$9,0,false,'sitio-web')`,
+       values ($1,$2,$3,$4,$5,$6,$7,$8,null,null,$9,0,false,'sitio-web')`,
       [festival.id, salaId[SEDES[f.sala][0]], f.fecha, f.hora_min, f.duracion_min,
        f.duracion_confirmada, obra, ficha, nota]);
     nuevas++;
