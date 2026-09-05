@@ -92,6 +92,7 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 | `npm run seed` | Carga festival, salas, traslados, agenda y boletas |
 | `npm run programacion` | Carga la programación de la Fiesta de las Artes Escénicas |
 | `npm run fiesta-libro` | Carga la Fiesta del Libro desde el CSV del sitio |
+| `npm run san-ignacio` | Carga el Festival de Teatro San Ignacio y sube las fotos de cada obra |
 | `npm run imagenes` | Sube las fotos recortadas del volante |
 | `npm run boletas:pendientes` | Baja a `trabajo/` los archivos que faltan extraer |
 | `npm run boletas:aplicar` | Escribe lo extraído |
@@ -116,6 +117,7 @@ supabase/     migraciones SQL, las aplica npm run migrar en orden
 - **`duracion_confirmada` marca lo que es estimación.** Las duraciones no salen del volante. Cuando un margen depende de un número inventado, la interfaz lo dice.
 - **El schema es `eventos`, no `public`.** El proyecto de Supabase es compartido con `polla-app` y `viajes-app`.
 - **Las alternativas de una noche se evalúan contra TODAS las agendadas del festival**, no contra las de esa fecha. Filtrar por fecha hace que el motor crea que las otras noches están libres y prometa rescates que no existen. Hay test de regresión.
+- **La extracción de una página web se congela en un módulo.** `scripts/datos-san-ignacio.mjs` guarda las 52 funciones tal como se extrajeron; el cargador lee el módulo, no la red. Un sitio de festival cambia y se cae, y sin la copia no hay con qué comparar. Cómo se rehace: `scripts/extraccion/LEEME.md`, que también lista las seis trampas del sitio de Comfama.
 - **Cada festival trae sus propias zonas de traslado.** Las de la Fiesta del Libro llevan prefijo `flc-` porque comparten ciudad con las de artes escénicas, que usan `centro` y `norte` con otro significado. Dentro del recinto el traslado son 8 minutos, no cero: son salas separadas por senderos y filas.
 - **Sin elección explícita manda el festival que está corriendo hoy**, después el próximo que empieza, y solo al final el más reciente. Abrir la app en mitad de un festival y ver otro sería absurdo. Hay test.
 - **Los títulos se normalizan antes de insertar.** El motor agrupa repeticiones comparando el título exacto: "Ixaquene" y "IXAQUENE" quedaban como dos obras y la app decía que se perdía algo que sí se podía ver otro día. El cargador busca un título que solo difiera en mayúsculas o tildes y reutiliza el que ya está.

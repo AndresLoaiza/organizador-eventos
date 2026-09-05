@@ -17,6 +17,7 @@
     "programacion": "node --env-file=.env.local scripts/cargar-programacion.mjs",
     "codigo": "node --env-file=.env.local scripts/rotar-codigo.mjs",
     "imagenes": "node --env-file=.env.local scripts/cargar-imagenes.mjs",
+    "san-ignacio": "node --env-file=.env.local scripts/cargar-san-ignacio.mjs",
     "fiesta-libro": "node --env-file=.env.local scripts/cargar-fiesta-libro.mjs",
     "obsidian:seco": "node --env-file=.env.local agente/obsidian-sync.mjs --seco"
   },
