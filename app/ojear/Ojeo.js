@@ -194,6 +194,9 @@ export default function Ojeo({ p, recargar }) {
               const razones = razonesDe(g.ref);
               const cuerpo = avisoCuerpo(g.ref);
               const unaSola = g.ocurrencias.length === 1;
+              // La foto se ata función por función (script cargar-imagenes),
+              // pero es la misma obra: basta con que una fecha la tenga.
+              const imagen = g.ocurrencias.find(o => o.imagen_url)?.imagen_url;
               return (
                 <li className="funcion ojeo" key={g.obra} data-interes={estado ?? 'sin'}>
                   <span className="hora num">
@@ -202,6 +205,9 @@ export default function Ojeo({ p, recargar }) {
                       : <>{g.ocurrencias.length}<span className="hora-cuenta"> fechas</span></>}
                   </span>
                   <span className="obra">
+                    {imagen && (
+                      <img className="miniatura" src={imagen} alt="" loading="lazy" decoding="async" />
+                    )}
                     {g.obra}
                     <span className="cia">
                       {g.ocurrencias.map(o => (
