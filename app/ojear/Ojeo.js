@@ -64,8 +64,8 @@ export default function Ojeo({ p, recargar }) {
   // de día solo esté mostrando la del domingo.
   const porObra = useMemo(() => {
     const m = new Map();
-    for (const [obra, fs] of agruparPorObra(p.funciones)) {
-      m.set(obra, [...fs].sort((a, b) => a.fecha.localeCompare(b.fecha) || a.hora_min - b.hora_min));
+    for (const fs of agruparPorObra(p.funciones)) {
+      m.set(fs[0].obra, [...fs].sort((a, b) => a.fecha.localeCompare(b.fecha) || a.hora_min - b.hora_min));
     }
     return m;
   }, [p.funciones]);
