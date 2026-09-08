@@ -440,6 +440,13 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 .funcion.ojeo[data-interes="si"] { border-left: none; }
 .funcion.ojeo[data-interes="si"] .obra { font-weight: 700; }
 
+/* Una tarjeta por obra puede traer varias fechas: cada una en su renglón, y el
+   número de fechas reemplaza la hora única cuando hay más de una. */
+.funcion.ojeo .cia .ocurrencia { display: block; }
+.funcion.ojeo .hora .hora-cuenta {
+  display: block; font-size: var(--t-xs); font-weight: 600; color: var(--tinta-3);
+}
+
 .ojeo-botones { display: flex; gap: var(--e2); flex-wrap: wrap; }
 .boton-no[aria-pressed="true"] {
   background: var(--tinta-3); border-color: var(--tinta-3); color: var(--fondo);
