@@ -35,13 +35,22 @@ function Hoja({ p }) {
       <section className="canovaccio">
         <div className="encabezado">
           <Margen tipo="cuoio" tam="capitular" className="marca-noche" />
-          <span className="rotulo">{fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}</span>
-          <span className="fecha num">{fechaLarga(fecha)} · {p.festival.nombre}</span>
+          {fecha ? (
+            <>
+              <span className="rotulo">{fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}</span>
+              <span className="fecha num">{fechaLarga(fecha)} · {p.festival.nombre}</span>
+            </>
+          ) : (
+            <span className="fecha num">{p.festival.nombre}</span>
+          )}
         </div>
 
         {escenas.length === 0 ? (
           <div className="vacio">
-            <b>Nada agendado para esta noche</b>
+            {/* Sin fecha no hay "esta noche" que contemplar: nada del
+                festival tiene agendada=true todavía, así que el mensaje es
+                sobre el festival entero, no sobre una noche vacía. */}
+            <b>{fecha ? 'Nada agendado para esta noche' : 'Todavía no has agendado nada'}</b>
             <Link href="/agenda">Mira la agenda completa</Link>.
             <Margen tipo="arlecchino" tam="medio" />
           </div>
