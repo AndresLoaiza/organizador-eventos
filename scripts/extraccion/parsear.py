@@ -30,8 +30,9 @@ CABECERA = re.compile(
     r'\s*(?:\((?P<dur>[^)]*)\))?\s*$')
 FICHA = re.compile(
     r'^\*\*(?P<cia>[^*]+)\*\*[ \t]*(?P<publico>[^|\n]*?)[ \t]*(?:\|[ \t]*(?P<desc>.+))?$', re.M)
+# Tras la hora puede venir una nota ("| Subtitulada al español"); se ignora.
 # La hora puede traer dos: "3:00 p. m. y 5:00 p. m." es doble funcion.
-SALA = re.compile(r'^\*\*(?P<sala>[^*]+)\*\*\s*\|\s*(?P<hora>\d{1,2}:\d{2}[^|\n]*)$', re.M)
+SALA = re.compile(r'^\*\*(?P<sala>[^*]+)\*\*\s*\|\s*(?P<hora>\d{1,2}:\d{2}[^|\n]*?)\s*(?:\|[^\n]*)?$', re.M)
 UNA_HORA = re.compile(r'\d{1,2}:\d{2}\s*[ap]\.?\s*m\.?', re.I)
 ENLACE = re.compile(r'\[Ver más\]\((?P<url>[^)]+)\)')
 

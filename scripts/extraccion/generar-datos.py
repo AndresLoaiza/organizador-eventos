@@ -9,6 +9,13 @@ import io, json, re, unicodedata
 
 fs = json.load(io.open('trabajo/sanignacio/funciones.json', encoding='utf-8'))
 
+# Agotadas en latiquetera al 2026-10-20 (obra, fecha, hora_min). No se cargan:
+# no se pueden comprar, y en la agenda solo estorban.
+AGOTADAS = {('Lo que no tiene nombre', '2026-11-06', 1020),
+            ('Lo que no tiene nombre', '2026-11-07', 1020),
+            ('Lo que no tiene nombre', '2026-11-07', 1200)}
+fs = [f for f in fs if (f['obra'], f['fecha'], f['hora_min']) not in AGOTADAS]
+
 # El sitio escribe la misma sala de dos maneras. Sin unificar, el motor las
 # trata como salas distintas y calcula un traslado entre una sala y ella misma.
 SALA_CANONICA = {

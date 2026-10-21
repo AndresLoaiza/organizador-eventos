@@ -33,7 +33,7 @@ def original(url):
     fuente = q.get('u', [None])[0]
     if not fuente:
         return url
-    return original
+    return fuente
 
 
 os.makedirs(DESTINO, exist_ok=True)
