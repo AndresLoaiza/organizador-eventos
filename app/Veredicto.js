@@ -35,13 +35,15 @@ function Lista({ titulo, cosas, marca }) {
   );
 }
 
-export default function Veredicto({ v, agendada }) {
+// «Agendada» es que la elegiste; «comprada» es que ya hay boleta. Son pasos
+// distintos y confundirlos hace creer que ya tienes la entrada.
+export default function Veredicto({ v, agendada, comprada }) {
   // La frase del motor se queda: dice el veredicto en una línea. Lo que se
   // reparte en lista es el detalle, que es lo que se volvía ilegible.
   return (
     <>
       <span className="pie">
-        <Tipo t={agendada ? 'comprada' : tipoDeVeredicto(v)} />{' '}
+        <Tipo t={agendada ? (comprada ? 'comprada' : 'agendada') : tipoDeVeredicto(v)} />{' '}
         {v.txt}
         {v.estimado && ' Depende de una duración estimada.'}
       </span>

@@ -204,7 +204,7 @@ export default function Decisor({ p, recargar }) {
                       {guardando === f.id ? '…' : f.agendada ? 'En la agenda' : 'Agendar'}
                     </button>
                   </span>
-                  <Veredicto v={v} agendada={f.agendada} />
+                  <Veredicto v={v} agendada={f.agendada} comprada={f.boletas?.length > 0} />
                   {/* El título solo no basta para decidir: "Pura carreta" no
                       dice nada, y la ficha sí cuenta que es Quijote con
                       percusión. Va plegada para no tapar el veredicto. */}
