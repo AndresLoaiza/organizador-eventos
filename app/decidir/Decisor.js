@@ -18,8 +18,8 @@ import Margen, { Cabecera, Friso } from '../Margen.js';
 // sirve de nada frente a cien opciones diarias.
 
 export default function Decisor({ p, recargar }) {
-  // El decisor trabaja sobre lo ojeado, no sobre el volante entero: mirar 776
-  // veredictos de choque a la vez no es decidir, es rendirse.
+  // Sin lo descartado en Ojear, pero con lo que aún no has ojeado: una función
+  // sin marcar que cae a la misma hora de otra tiene que poder agendarse.
   const { funciones: candidatas, filtrado } = useMemo(
     () => paraDecidir(p.funciones), [p.funciones]);
 
@@ -88,9 +88,9 @@ export default function Decisor({ p, recargar }) {
       <section className="seccion">
         <h1>Decidir</h1>
         <div className="vacio">
-          <b>Todavía no has marcado nada como &laquo;me interesa&raquo;</b>
-          Empieza por Ojear: ahí se elige sin mirar el reloj, y lo que marques
-          aparece aquí con el costo de cada elección.
+          <b>Descartaste todo en Ojear</b>
+          Vuelve a Ojear y desmarca lo que quieras recuperar: lo que no
+          descartes aparece aquí con el costo de cada elección.
           <Margen tipo="capitano" tam="medio" />
         </div>
       </section>
@@ -114,8 +114,8 @@ export default function Decisor({ p, recargar }) {
       <Cabecera mascara="bauta" titulo="Decidir">
           {filtrado ? (
             <>
-              {candidatas.length} de {p.funciones.length} funciones — solo las que
-              marcaste en <b>Ojear</b>. <b>{elegidas.size}</b> en tu agenda.
+              {candidatas.length} de {p.funciones.length} funciones — sin las que
+              descartaste en <b>Ojear</b>. <b>{elegidas.size}</b> en tu agenda.
             </>
           ) : (
             <>
