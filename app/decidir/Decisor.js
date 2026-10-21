@@ -59,6 +59,14 @@ export default function Decisor({ p, recargar }) {
       && f.hora_min < d.hora_min + d.duracion_min)
     .map(d => d.obra))];
 
+  // Si ya agendaste una fecha de la obra, las demás son solo información:
+  // no compiten por ninguna noche, así que no llevan botón ni veredicto.
+  const agendadaDe = useMemo(() => {
+    const m = new Map();
+    for (const f of p.funciones) if (f.agendada && !m.has(f.obra)) m.set(f.obra, f);
+    return m;
+  }, [p.funciones]);
+
   const fecha = fechas[dia];
   const norm = s => (s ?? '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -186,6 +194,24 @@ export default function Decisor({ p, recargar }) {
         ) : (
           <ul className="funciones">
             {delDia.map(f => {
+              const otra = !f.agendada ? agendadaDe.get(f.obra) : null;
+              if (otra) {
+                return (
+                  <li className="funcion" key={f.id} data-elegida="false" style={{ opacity: 0.7 }}>
+                    <span className="hora num">{fmtHora(f.hora_min)}</span>
+                    <span className="obra">
+                      {f.obra}
+                      <span className="cia">
+                        {f.sala?.nombre ?? 'Sala por confirmar'} · {f.duracion_min} min
+                      </span>
+                    </span>
+                    <span className="pie">
+                      Ya la tienes agendada el {nombreDia(otra.fecha).toLowerCase()}{' '}
+                      {fechaLarga(otra.fecha)} a las {fmtHora(otra.hora_min)}.
+                    </span>
+                  </li>
+                );
+              }
               const v = p.decisor.verdictFor({
                 id: f.id, day: f.fecha, t: f.hora_min, dur: f.duracion_min,
                 durEstimada: !f.duracion_confirmada, title: f.obra, v: f.sala_slug,
