@@ -195,6 +195,7 @@ export default function Decisor({ p, recargar }) {
                   <span className="hora num">{fmtHora(f.hora_min)}</span>
                   <span className="obra">
                     {f.obra}
+                    {f.interes === 'si' && <b className="razon" title="La marcaste en Ojear"> ★ Me interesa</b>}
                     {razonesDe(f).map(r => (
                       <b className="razon" key={r.id} title={r.fuente}> {r.etiqueta}</b>
                     ))}
