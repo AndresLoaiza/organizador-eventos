@@ -4,6 +4,7 @@ import process from 'node:process';
 import { sql, unaFila, poolPg, almacen, BUCKET } from './_cliente.mjs';
 import { tituloNormalizado } from '../lib/nombres.mjs';
 import { FESTIVAL, FUNCIONES } from './datos-san-ignacio.mjs';
+import { TIPOS } from './tipos-san-ignacio.mjs';
 
 // Carga el Festival de Teatro Comfama San Ignacio 2026.
 //
@@ -129,6 +130,15 @@ for (const f of FUNCIONES) {
        f.duracion_confirmada, obra, ficha, nota]);
     nuevas++;
   }
+}
+
+// --- Tipos ------------------------------------------------------------------
+// Una obra nueva sin entrada en TIPOS es un olvido, no un null: se avisa.
+const sinTipo = [...canon.values()].filter(o => !(o in TIPOS));
+if (sinTipo.length) console.log('\nObras sin entrada en tipos-san-ignacio.mjs:', sinTipo);
+for (const [obra, tipos] of Object.entries(TIPOS)) {
+  await sql(`update eventos.funciones set tipos = $3 where festival_id = $1 and obra = $2`,
+    [festival.id, obra, tipos]);
 }
 
 // --- Imágenes ---------------------------------------------------------------

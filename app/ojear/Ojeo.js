@@ -27,6 +27,8 @@ const franjaDe = f => (f.nota_boleteria ?? '').split(' · ')[0].trim();
 export default function Ojeo({ p, recargar }) {
   const [dia, setDia] = useState('');
   const [franja, setFranja] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [lugar, setLugar] = useState('');
   const [ver, setVer] = useState('sinVer');
   const [busca, setBusca] = useState('');
   const [ocupado, setOcupado] = useState(null);
@@ -44,6 +46,30 @@ export default function Ojeo({ p, recargar }) {
     return [...c.entries()].sort((a, b) => b[1] - a[1]);
   }, [p.funciones]);
 
+  // Una obra puede tener varios tipos; las sin clasificar tienen su propia
+  // opción, porque esconderlas bajo cualquier filtro sería perderlas.
+  const SIN_TIPO = '__sin';
+  const tipos = useMemo(() => {
+    const c = new Map();
+    for (const f of p.funciones) for (const t of f.tipos ?? []) {
+      if (!c.has(t)) c.set(t, new Set());
+      c.get(t).add(f.obra);
+    }
+    return [...c.entries()].map(([t, o]) => [t, o.size]).sort((a, b) => b[1] - a[1]);
+  }, [p.funciones]);
+  const lugares = useMemo(() => {
+    const c = new Map();
+    for (const f of p.funciones) {
+      const x = f.sala?.nombre;
+      if (!x) continue;
+      if (!c.has(x)) c.set(x, new Set());
+      c.get(x).add(f.obra);
+    }
+    return [...c.entries()].map(([l, o]) => [l, o.size]).sort((a, b) => b[1] - a[1]);
+  }, [p.funciones]);
+  const haySinTipo = p.funciones.some(f => !f.tipos?.length);
+  const hayTipos = tipos.length > 0;
+
   const cuenta = useMemo(() => contarOjeo(p.funciones), [p.funciones]);
 
   const norm = s => (s ?? '').toLowerCase()
@@ -51,13 +77,15 @@ export default function Ojeo({ p, recargar }) {
 
   const visibles = useMemo(() => ordenarParaOjear(p.funciones
     .filter(f => !dia || f.fecha === dia)
+    .filter(f => !lugar || f.sala?.nombre === lugar)
     .filter(f => !franja || franjaDe(f) === franja)
+    .filter(f => !tipo || (tipo === SIN_TIPO ? !f.tipos?.length : f.tipos?.includes(tipo)))
     .filter(f => ver === 'todas'
       || (ver === 'sinVer' && !f.interes)
       || (ver === 'destacadas' && razonesDe(f).length && f.interes !== 'no')
       || f.interes === ver)
     .filter(f => !busca || norm(`${f.obra} ${f.compania}`).includes(norm(busca)))),
-  [p.funciones, dia, franja, ver, busca]);
+  [p.funciones, dia, franja, lugar, tipo, ver, busca]);
 
   // Todas las fechas de cada obra en el festival, sin filtrar: marcar interés
   // en una tarjeta tiene que alcanzar a la función del lunes aunque el filtro
@@ -152,6 +180,19 @@ export default function Ojeo({ p, recargar }) {
           <option value="">Todas las franjas</option>
           {franjas.map(([f, n]) => <option key={f} value={f}>{f} ({n})</option>)}
         </select>
+        {lugares.length > 1 && (
+          <select value={lugar} onChange={e => setLugar(e.target.value)} aria-label="Lugar">
+            <option value="">Todos los lugares</option>
+            {lugares.map(([l, n]) => <option key={l} value={l}>{l} ({n})</option>)}
+          </select>
+        )}
+        {hayTipos && (
+          <select value={tipo} onChange={e => setTipo(e.target.value)} aria-label="Tipo de obra">
+            <option value="">Todos los tipos</option>
+            {tipos.map(([t, n]) => <option key={t} value={t}>{t} ({n})</option>)}
+            {haySinTipo && <option value={SIN_TIPO}>Sin clasificar</option>}
+          </select>
+        )}
         <input
           type="text" value={busca} onChange={e => setBusca(e.target.value)}
           placeholder="Buscar obra o invitado" aria-label="Buscar"
@@ -217,6 +258,9 @@ export default function Ojeo({ p, recargar }) {
                           {o.sala?.nombre ?? franjaDe(o) ?? 'Sala por confirmar'}
                         </span>
                       ))}
+                      {g.ref.tipos?.length > 0 && (
+                        <span className="ocurrencia">{g.ref.tipos.join(' · ')}</span>
+                      )}
                     </span>
                   </span>
                   <span className="estado ojeo-botones">
