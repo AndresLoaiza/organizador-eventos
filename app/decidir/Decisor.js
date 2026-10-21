@@ -50,6 +50,15 @@ export default function Decisor({ p, recargar }) {
   // Ojo: las agendadas salen de TODAS, no de las candidatas. El motor evalúa
   // los choques contra la agenda completa del festival.
 
+  // Lo que dijiste que no en Ojear no cuenta en el veredicto, pero si cae a la
+  // misma hora que una función de aquí se avisa, para que no parezca un olvido.
+  const descartadas = useMemo(() => p.funciones.filter(f => f.interes === 'no' && !f.agendada),
+    [p.funciones]);
+  const descartadasQueSeCruzan = f => [...new Set(descartadas
+    .filter(d => d.fecha === f.fecha && d.hora_min < f.hora_min + f.duracion_min
+      && f.hora_min < d.hora_min + d.duracion_min)
+    .map(d => d.obra))];
+
   const fecha = fechas[dia];
   const norm = s => (s ?? '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -204,6 +213,11 @@ export default function Decisor({ p, recargar }) {
                       {guardando === f.id ? '…' : f.agendada ? 'En la agenda' : 'Agendar'}
                     </button>
                   </span>
+                  {descartadasQueSeCruzan(f).map(o => (
+                    <span className="pie" key={o}>
+                      Se cruza en horario con <b>{o}</b>, pero dijiste que no a esa obra en Ojear.
+                    </span>
+                  ))}
                   <Veredicto v={v} agendada={f.agendada} comprada={f.boletas?.length > 0} />
                   {/* El título solo no basta para decidir: "Pura carreta" no
                       dice nada, y la ficha sí cuenta que es Quijote con
