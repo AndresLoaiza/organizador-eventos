@@ -67,6 +67,12 @@ export default function Decisor({ p, recargar }) {
     return m;
   }, [p.funciones]);
 
+  // Las demás funciones de cada obra, para decir «también está el…» en cada fila.
+  const otrasFechas = f => p.funciones
+    .filter(o => o.obra === f.obra && o.id !== f.id)
+    .sort((a, b) => a.fecha.localeCompare(b.fecha) || a.hora_min - b.hora_min)
+    .map(o => `${nombreDia(o.fecha).slice(0, 3).toLowerCase()} ${o.fecha.slice(8)} · ${fmtHora(o.hora_min)}${o.agendada ? ' (agendada)' : ''}`);
+
   const fecha = fechas[dia];
   const norm = s => (s ?? '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -228,6 +234,11 @@ export default function Decisor({ p, recargar }) {
                     <span className="cia">
                       {f.sala?.nombre ?? 'Sala por confirmar'} · {f.duracion_min} min
                       {f.duracion_confirmada ? '' : ' estimados'}
+                    </span>
+                    <span className="cia">
+                      {otrasFechas(f).length
+                        ? <>También: {otrasFechas(f).join(' · ')}</>
+                        : 'Única función'}
                     </span>
                   </span>
                   <span className="estado">
