@@ -103,6 +103,15 @@ function Cuerpo({ p }) {
                            target="_blank" rel="noopener noreferrer">Comprar boleta</a>
                       </>
                     )}
+                    {f.boletas.filter(b => b.url_entrada).map((b, i, a) => (
+                      <span key={b.id}>
+                        {' · '}
+                        <a className="boton" data-tam="chico" href={b.url_entrada}
+                           target="_blank" rel="noopener noreferrer">
+                          {a.length > 1 ? `Entrada ${i + 1}` : 'Ver entrada'}
+                        </a>
+                      </span>
+                    ))}
                     {' · '}
                     {f.juicio
                       ? <Link href="/bitacora">Ya la registraste</Link>
