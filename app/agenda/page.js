@@ -96,6 +96,13 @@ function Cuerpo({ p }) {
                       );
                     })()}
                     {f.margen && <> · {f.margen.texto}</>}
+                    {f.boletas.length === 0 && f.url_compra && (
+                      <>
+                        {' · '}
+                        <a className="boton" data-tam="chico" href={f.url_compra}
+                           target="_blank" rel="noopener noreferrer">Comprar boleta</a>
+                      </>
+                    )}
                     {' · '}
                     {f.juicio
                       ? <Link href="/bitacora">Ya la registraste</Link>

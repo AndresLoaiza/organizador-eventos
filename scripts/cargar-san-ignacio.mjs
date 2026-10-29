@@ -117,17 +117,17 @@ for (const f of FUNCIONES) {
   if (previa) {
     await sql(
       `update eventos.funciones set sala_id = $2, duracion_min = $3,
-              duracion_confirmada = $4, compania = $5, nota_boleteria = $6 where id = $1`,
-      [previa.id, salaId[SEDES[f.sala][0]], f.duracion_min, f.duracion_confirmada, ficha, nota]);
+              duracion_confirmada = $4, compania = $5, nota_boleteria = $6, url_compra = $7 where id = $1`,
+      [previa.id, salaId[SEDES[f.sala][0]], f.duracion_min, f.duracion_confirmada, ficha, nota, f.enlace ?? null]);
     actualizadas++;
   } else {
     await sql(
       `insert into eventos.funciones
          (festival_id, sala_id, fecha, hora_min, duracion_min, duracion_confirmada, obra,
-          compania, precio_pleno, precio_dcto, nota_boleteria, acompanantes, agendada, fuente_horario)
-       values ($1,$2,$3,$4,$5,$6,$7,$8,null,null,$9,0,false,'sitio-web')`,
+          compania, precio_pleno, precio_dcto, nota_boleteria, acompanantes, agendada, fuente_horario, url_compra)
+       values ($1,$2,$3,$4,$5,$6,$7,$8,null,null,$9,0,false,'sitio-web',$10)`,
       [festival.id, salaId[SEDES[f.sala][0]], f.fecha, f.hora_min, f.duracion_min,
-       f.duracion_confirmada, obra, ficha, nota]);
+       f.duracion_confirmada, obra, ficha, nota, f.enlace ?? null]);
     nuevas++;
   }
 }
