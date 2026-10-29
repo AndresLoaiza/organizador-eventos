@@ -19,6 +19,13 @@ import { TIPOS } from './tipos-san-ignacio.mjs';
 // entrada libre: con cero la agenda decía "Entrada libre" sobre funciones que
 // sí se pagan y la tabla de pendientes mostraba un costo de $0 con aire de dato.
 
+// Confirmado por Andrés: sin enlace en latiquetera porque no se pagan.
+const GRATIS = new Set([
+  'Todavía tenemos un tiempo|2026-11-03|960',
+  'Todos somos Poe|2026-11-05|960',
+]);
+const esGratis = (obra, f) => GRATIS.has(`${obra}|${f.fecha}|${f.hora_min}`);
+
 const DIR_IMG = 'trabajo/sanignacio/imagenes';
 
 // Zonas propias del festival, con prefijo. Medellín ya tiene zonas cargadas
@@ -105,7 +112,8 @@ console.log('Funciones…');
 let nuevas = 0, actualizadas = 0;
 for (const f of FUNCIONES) {
   const obra = canon.get(tituloNormalizado(f.obra));
-  const nota = [f.publico, 'Boletería por confirmar (tarifas Comfama)']
+  const gratis = esGratis(obra, f);
+  const nota = [f.publico, gratis ? 'Entrada libre' : 'Boletería por confirmar (tarifas Comfama)']
     .filter(Boolean).join(' · ');
   const ficha = [f.compania, f.descripcion].filter(Boolean).join(' · ').slice(0, 900);
 
@@ -117,17 +125,18 @@ for (const f of FUNCIONES) {
   if (previa) {
     await sql(
       `update eventos.funciones set sala_id = $2, duracion_min = $3,
-              duracion_confirmada = $4, compania = $5, nota_boleteria = $6, url_compra = $7 where id = $1`,
-      [previa.id, salaId[SEDES[f.sala][0]], f.duracion_min, f.duracion_confirmada, ficha, nota, f.enlace ?? null]);
+              duracion_confirmada = $4, compania = $5, nota_boleteria = $6, url_compra = $7,
+              precio_pleno = case when $8 then 0 else precio_pleno end where id = $1`,
+      [previa.id, salaId[SEDES[f.sala][0]], f.duracion_min, f.duracion_confirmada, ficha, nota, f.enlace ?? null, gratis]);
     actualizadas++;
   } else {
     await sql(
       `insert into eventos.funciones
          (festival_id, sala_id, fecha, hora_min, duracion_min, duracion_confirmada, obra,
           compania, precio_pleno, precio_dcto, nota_boleteria, acompanantes, agendada, fuente_horario, url_compra)
-       values ($1,$2,$3,$4,$5,$6,$7,$8,null,null,$9,0,false,'sitio-web',$10)`,
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$11,null,$9,0,false,'sitio-web',$10)`,
       [festival.id, salaId[SEDES[f.sala][0]], f.fecha, f.hora_min, f.duracion_min,
-       f.duracion_confirmada, obra, ficha, nota, f.enlace ?? null]);
+       f.duracion_confirmada, obra, ficha, nota, f.enlace ?? null, gratis ? 0 : null]);
     nuevas++;
   }
 }
