@@ -12,9 +12,12 @@ const archivo = Archivo({
   display: 'swap',
 });
 
+const base = process.env.GITHUB_ACTIONS === 'true' ? '/organizador-eventos' : '';
+
 export const metadata = {
   title: 'Canovaccio',
   description: 'Programación, boletas y bitácora de festivales',
+  icons: { icon: `${base}/icono-192.png`, apple: `${base}/apple-touch-icon.png` },
 };
 
 export const viewport = {
