@@ -48,18 +48,18 @@ export default function BotonBoleta({ boleta, etiqueta, descargar = false }) {
 
 /** Las boletas de una función, en fila. Con acompañante son dos. */
 export function BoletasDe({ funcion }) {
-  const suyas = (funcion.boletas ?? []).filter(b => b.storage_key);
-  if (!suyas.length) return null;
+  const todas = (funcion.boletas ?? []).filter(b => b.storage_key || b.url_entrada);
+  if (!todas.length) return null;
 
   return (
     <div className="boletas-fila">
-      {suyas.map((b, i) => (
-        <BotonBoleta
-          key={b.id}
-          boleta={b}
-          etiqueta={suyas.length > 1 ? `Boleta ${i + 1} de ${suyas.length}` : 'Ver boleta'}
-        />
-      ))}
+      {todas.map((b, i) => {
+        const etiqueta = todas.length > 1 ? `Boleta ${i + 1} de ${todas.length}` : 'Ver boleta';
+        return b.storage_key
+          ? <BotonBoleta key={b.id} boleta={b} etiqueta={etiqueta} />
+          : <a key={b.id} className="boton" data-tam="chico" href={b.url_entrada}
+               target="_blank" rel="noopener noreferrer">{etiqueta}</a>;
+      })}
     </div>
   );
 }
