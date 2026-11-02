@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { urlSegura } from '../../lib/url.mjs';
 import { nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
@@ -96,17 +97,17 @@ function Cuerpo({ p }) {
                       );
                     })()}
                     {f.margen && <> · {f.margen.texto}</>}
-                    {f.boletas.length === 0 && f.url_compra && (
+                    {f.boletas.length === 0 && urlSegura(f.url_compra) && (
                       <>
                         {' · '}
-                        <a className="boton" data-tam="chico" href={f.url_compra}
+                        <a className="boton" data-tam="chico" href={urlSegura(f.url_compra)}
                            target="_blank" rel="noopener noreferrer">Comprar boleta</a>
                       </>
                     )}
-                    {f.boletas.filter(b => b.url_entrada).map((b, i, a) => (
+                    {f.boletas.filter(b => urlSegura(b.url_entrada)).map((b, i, a) => (
                       <span key={b.id}>
                         {' · '}
-                        <a className="boton" data-tam="chico" href={b.url_entrada}
+                        <a className="boton" data-tam="chico" href={urlSegura(b.url_entrada)}
                            target="_blank" rel="noopener noreferrer">
                           {a.length > 1 ? `Entrada ${i + 1}` : 'Ver entrada'}
                         </a>

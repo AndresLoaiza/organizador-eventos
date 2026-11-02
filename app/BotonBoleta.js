@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { urlFirmada } from '../lib/cliente.mjs';
+import { urlSegura } from '../lib/url.mjs';
 
 // Abre el original de una boleta desde el baúl.
 //
@@ -48,7 +49,7 @@ export default function BotonBoleta({ boleta, etiqueta, descargar = false }) {
 
 /** Las boletas de una función, en fila. Con acompañante son dos. */
 export function BoletasDe({ funcion }) {
-  const todas = (funcion.boletas ?? []).filter(b => b.storage_key || b.url_entrada);
+  const todas = (funcion.boletas ?? []).filter(b => b.storage_key || urlSegura(b.url_entrada));
   if (!todas.length) return null;
 
   return (
@@ -57,7 +58,7 @@ export function BoletasDe({ funcion }) {
         const etiqueta = todas.length > 1 ? `Boleta ${i + 1} de ${todas.length}` : 'Ver boleta';
         return b.storage_key
           ? <BotonBoleta key={b.id} boleta={b} etiqueta={etiqueta} />
-          : <a key={b.id} className="boton" data-tam="chico" href={b.url_entrada}
+          : <a key={b.id} className="boton" data-tam="chico" href={urlSegura(b.url_entrada)}
                target="_blank" rel="noopener noreferrer">{etiqueta}</a>;
       })}
     </div>
