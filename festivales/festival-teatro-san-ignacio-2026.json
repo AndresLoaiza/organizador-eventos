@@ -1,0 +1,1715 @@
+{
+  "formato": 1,
+  "festival": {
+    "slug": "festival-teatro-san-ignacio-2026",
+    "nombre": "Festival de Teatro Comfama San Ignacio",
+    "ciudad": "Medellín",
+    "fecha_inicio": "2026-10-31",
+    "fecha_fin": "2026-11-07"
+  },
+  "fuentes": [],
+  "salas": [
+    {
+      "slug": "fsi-bodega",
+      "nombre": "Bodega Comfama",
+      "direccion": "Distrito San Ignacio",
+      "telefono": null,
+      "zona": "fsi-distrito"
+    },
+    {
+      "slug": "fsi-capilla",
+      "nombre": "La Capilla – Claustro Comfama",
+      "direccion": "Claustro Comfama San Ignacio",
+      "telefono": null,
+      "zona": "fsi-claustro"
+    },
+    {
+      "slug": "fsi-casa-clown",
+      "nombre": "Casa Clown",
+      "direccion": "Cra. 42 #44-46 · 321 8386557",
+      "telefono": null,
+      "zona": "fsi-centro"
+    },
+    {
+      "slug": "fsi-claustro-sala",
+      "nombre": "Claustro Comfama",
+      "direccion": "Claustro Comfama San Ignacio",
+      "telefono": null,
+      "zona": "fsi-claustro"
+    },
+    {
+      "slug": "fsi-comfama",
+      "nombre": "Teatro Comfama",
+      "direccion": "Clle. 48 #43-87",
+      "telefono": null,
+      "zona": "fsi-distrito"
+    },
+    {
+      "slug": "fsi-matacandelas",
+      "nombre": "Teatro Matacandelas",
+      "direccion": "Clle. 47 #43-47 · 604 2151010",
+      "telefono": null,
+      "zona": "fsi-distrito"
+    },
+    {
+      "slug": "fsi-pascasia",
+      "nombre": "La Pascasia",
+      "direccion": "La Pascasia, San Ignacio",
+      "telefono": null,
+      "zona": "fsi-claustro"
+    },
+    {
+      "slug": "fsi-patio",
+      "nombre": "Patio Teatro Claustro Comfama",
+      "direccion": "Claustro Comfama San Ignacio",
+      "telefono": null,
+      "zona": "fsi-claustro"
+    },
+    {
+      "slug": "fsi-pequeno",
+      "nombre": "Pequeño Teatro",
+      "direccion": "Cra. 42 #50A-12",
+      "telefono": null,
+      "zona": "fsi-centro"
+    },
+    {
+      "slug": "fsi-plazuela",
+      "nombre": "Plazuela San Ignacio",
+      "direccion": "Plazuela San Ignacio, al aire libre",
+      "telefono": null,
+      "zona": "fsi-claustro"
+    },
+    {
+      "slug": "fsi-ptu",
+      "nombre": "Teatro Pablo Tobón Uribe (TPTU)",
+      "direccion": "Cra. 40 #51-24 · 604 2397500",
+      "telefono": null,
+      "zona": "fsi-centro"
+    },
+    {
+      "slug": "fsi-san-antonio",
+      "nombre": "Estación San Antonio Metro de Medellín",
+      "direccion": "Estación San Antonio, Metro",
+      "telefono": null,
+      "zona": "fsi-distrito"
+    },
+    {
+      "slug": "fsi-tpm",
+      "nombre": "Teatro Popular de Medellín (TPM)",
+      "direccion": "Clle. 48 #41-13 · 604 5574964",
+      "telefono": null,
+      "zona": "fsi-distrito"
+    },
+    {
+      "slug": "fsi-udea-camilo",
+      "nombre": "Teatro Universitario Camilo Torres - UdeA",
+      "direccion": "Ciudad Universitaria UdeA",
+      "telefono": null,
+      "zona": "fsi-udea"
+    }
+  ],
+  "traslados": [
+    {
+      "zona_a": "fsi-centro",
+      "zona_b": "fsi-centro",
+      "minutos": 12
+    },
+    {
+      "zona_a": "fsi-centro",
+      "zona_b": "fsi-claustro",
+      "minutos": 20
+    },
+    {
+      "zona_a": "fsi-centro",
+      "zona_b": "fsi-distrito",
+      "minutos": 18
+    },
+    {
+      "zona_a": "fsi-centro",
+      "zona_b": "fsi-udea",
+      "minutos": 25
+    },
+    {
+      "zona_a": "fsi-claustro",
+      "zona_b": "fsi-centro",
+      "minutos": 20
+    },
+    {
+      "zona_a": "fsi-claustro",
+      "zona_b": "fsi-claustro",
+      "minutos": 6
+    },
+    {
+      "zona_a": "fsi-claustro",
+      "zona_b": "fsi-distrito",
+      "minutos": 10
+    },
+    {
+      "zona_a": "fsi-claustro",
+      "zona_b": "fsi-udea",
+      "minutos": 30
+    },
+    {
+      "zona_a": "fsi-distrito",
+      "zona_b": "fsi-centro",
+      "minutos": 18
+    },
+    {
+      "zona_a": "fsi-distrito",
+      "zona_b": "fsi-claustro",
+      "minutos": 10
+    },
+    {
+      "zona_a": "fsi-distrito",
+      "zona_b": "fsi-distrito",
+      "minutos": 12
+    },
+    {
+      "zona_a": "fsi-distrito",
+      "zona_b": "fsi-udea",
+      "minutos": 28
+    },
+    {
+      "zona_a": "fsi-udea",
+      "zona_b": "fsi-centro",
+      "minutos": 25
+    },
+    {
+      "zona_a": "fsi-udea",
+      "zona_b": "fsi-claustro",
+      "minutos": 30
+    },
+    {
+      "zona_a": "fsi-udea",
+      "zona_b": "fsi-distrito",
+      "minutos": 28
+    },
+    {
+      "zona_a": "fsi-udea",
+      "zona_b": "fsi-udea",
+      "minutos": 5
+    }
+  ],
+  "funciones": [
+    {
+      "obra": "El mago de Oz",
+      "compania": "Comfama (Colombia)",
+      "descripcion": "Inspirada en el clásico de Lyman Frank Baum, esta es una historia para te sumerjas en un universo fantástico y explores temas como la autoconfianza, la unión y la valentía.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+ 5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-10-31",
+      "hora": "15:00",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 75,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/el-mago-de-oz-festival-comfama-2026",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/el-mago-de-oz.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "La tercera mitad",
+      "compania": "Casa Taller Teatro (Colombia)",
+      "descripcion": "Un caminante visita los extremos de la existencia. Viaja desde las alturas del cielo hasta las profundidades del sueño, pasando por la cruda realidad.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+8 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-10-31",
+      "hora": "15:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/la-tercera-mitad",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/la-tercera-mitad.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Caminito del mar",
+      "compania": "Teatro Contraluz (Costa Rica)",
+      "descripcion": "La Muñeca Clementina, para evitar ser separada del Capitán de Marineros, se propondrá una misión casi imposible: traerle el mar a su amigo para que pueda navegar en él.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos"
+      ],
+      "publico": "+ 5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-10-31",
+      "hora": "17:00",
+      "sala": "fsi-ptu",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/caminito-de-mar",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/caminito-del-mar.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Tom Tom. The piper´s son",
+      "compania": "SMH Studios (Colombia)",
+      "descripcion": "Tomás y su amiga Betty cruzan el valle en busca de sirenas y criaturas maravillosas. Lo que encuentran, sin embargo, es un territorio atravesado por la violencia y el despojo.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-10-31",
+      "hora": "18:30",
+      "sala": "fsi-comfama",
+      "duracion": {
+        "min": 70,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/tom-tom-the-piper-s-son",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/tom-tom-the-piper-s-son.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "La casa grande",
+      "compania": "Teatro Matacandelas (Colombia)",
+      "descripcion": "Una representación épica, coral y musical para recordar uno de los acontecimientos más dolorosos de la historia de Colombia en el siglo XX.",
+      "franjas": [],
+      "tipos": [
+        "Teatro musical"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-10-31",
+      "hora": "20:00",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 85,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/la-casa-grande",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/la-casa-grande.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "L@s niñ@s del Winnipeg",
+      "compania": "La Llave Maestra (Chile)",
+      "descripcion": "Sobre las niñas y los niños, supervivientes de la guerra civil española, que viajaron a bordo del barco de la esperanza en 1939.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos"
+      ],
+      "publico": "+5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-01",
+      "hora": "15:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 50,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/l-s-nin-s-del-winnipeg",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/l-s-nin-s-del-winnipeg.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "L@s niñ@s del Winnipeg",
+      "compania": "La Llave Maestra (Chile)",
+      "descripcion": "Sobre las niñas y los niños, supervivientes de la guerra civil española, que viajaron a bordo del barco de la esperanza en 1939.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos"
+      ],
+      "publico": "+5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-01",
+      "hora": "17:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 50,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/l-s-nin-s-del-winnipeg",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/l-s-nin-s-del-winnipeg.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Tom Tom. The piper´s son",
+      "compania": "SMH Studios (Colombia)",
+      "descripcion": "Tomás y su amiga Betty cruzan el valle en busca de sirenas y criaturas maravillosas. Lo que encuentran, sin embargo, es un territorio atravesado por la violencia y el despojo.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-01",
+      "hora": "18:00",
+      "sala": "fsi-comfama",
+      "duracion": {
+        "min": 70,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/tom-tom-the-piper-s-son",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/tom-tom-the-piper-s-son.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Cariño malo",
+      "compania": "Ministerio de la Belleza (Perú)",
+      "descripcion": "Silvio, un hombre de 40 años, vive atrapado bajo el dominio de su madre. Decidido a perder su virginidad y liberarse de su represión, escapa de la casa familiar.",
+      "franjas": [],
+      "tipos": [
+        "Teatro musical"
+      ],
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-01",
+      "hora": "19:30",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 75,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/carino-malo",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/carino-malo.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Concierto: Nobuntu",
+      "compania": "Inganekwane 'The Folktale' (Inganekwane 'El Cuento Popular') (Zimbabue)",
+      "descripcion": "Este cuarteto vocal a cappella se dedica a celebrar la cultura y el patrimonio de África.",
+      "franjas": [],
+      "tipos": [
+        "Concierto"
+      ],
+      "publico": "+ 5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-01",
+      "hora": "20:00",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 90,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/nobuntu",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/concierto-nobuntu.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Cariño malo",
+      "compania": "Ministerio de la Belleza (Perú)",
+      "descripcion": "Silvio, un hombre de 40 años, vive atrapado bajo el dominio de su madre. Decidido a perder su virginidad y liberarse de su represión, escapa de la casa familiar.",
+      "franjas": [],
+      "tipos": [
+        "Teatro musical"
+      ],
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-02",
+      "hora": "14:30",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 75,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/carino-malo",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/carino-malo.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "L@s niñ@s del Winnipeg",
+      "compania": "La Llave Maestra (Chile)",
+      "descripcion": "Sobre las niñas y los niños, supervivientes de la guerra civil española, que viajaron a bordo del barco de la esperanza en 1939.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos"
+      ],
+      "publico": "+5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-02",
+      "hora": "15:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 50,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/l-s-nin-s-del-winnipeg",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/l-s-nin-s-del-winnipeg.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Ni flores, ni funeral, ni cenizas, ni tantán",
+      "compania": "La Dramática Errante (España)",
+      "descripcion": "Centrada en los procesos de duelo y en el «buen morir», la pieza es un viaje que nos empuja a afrontar la vida con alegría y a preguntarnos cómo será su final.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-02",
+      "hora": "16:00",
+      "sala": "fsi-comfama",
+      "duracion": {
+        "min": 90,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/ni-flores-ni-funeral-ni-cenizas-ni-tantan",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/ni-flores-ni-funeral-ni-cenizas-ni-tantan.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Mohammed (o el coyote)",
+      "compania": "Materile Lab (Colombia)",
+      "descripcion": "Obra de animación de objetos, danza y teatro que se desarrolla como una reflexión sobre la migración, la memoria y la ética del arte frente al dolor ajeno.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos",
+        "Danza-teatro"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-02",
+      "hora": "18:00",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/mohammed-o-el-coyote",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/mohammed-o-el-coyote.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Todavía tenemos un tiempo",
+      "compania": "Impulsos (España)",
+      "descripcion": "La obra explora la fragilidad, la resistencia, el paso del tiempo y la transformación de los cuerpos a través del humor, el teatro físico y el circo.",
+      "franjas": [],
+      "tipos": [
+        "Teatro físico y circo"
+      ],
+      "publico": "+16 años",
+      "nota": "Entrada libre",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-03",
+      "hora": "16:00",
+      "sala": "fsi-plazuela",
+      "duracion": {
+        "min": 45,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/todavia-tenemos-un-tiempo.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "La defensa de Absalón",
+      "compania": "Teatro La Concha (Colombia)",
+      "descripcion": "La historia de Juan de Espinoza Medrano, el primer sacerdote indígena de la Colonia Española en el Cusco, cuya palabra desafió las estructuras de poder de su época.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+12 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-03",
+      "hora": "17:30",
+      "sala": "fsi-capilla",
+      "duracion": {
+        "min": 45,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/la-defensa-de-absalon",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/la-defensa-de-absalon.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Los Tumbaos",
+      "compania": "Teatro El Paso (Colombia)",
+      "descripcion": "La vida de Alirio Alicante, un músico frustrado del chucu – chucu, que espera ansiosamente las regalías de sus composiciones.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-03",
+      "hora": "18:00",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 75,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/los-tumbaos",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/los-tumbaos.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Ser humana",
+      "compania": "Angie Oña - Freddy González (Uruguay)",
+      "descripcion": "Una pieza escrita y creada en honor a la memoria de Sabina Spielrein (1885-1942), rescatando palabras de su diario, su correspondencia y su teoría.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-03",
+      "hora": "18:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 90,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/ser-humana",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/ser-humana.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Mohammed (o el coyote)",
+      "compania": "Materile Lab (Colombia)",
+      "descripcion": "Obra de animación de objetos, danza y teatro que se desarrolla como una reflexión sobre la migración, la memoria y la ética del arte frente al dolor ajeno.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos",
+        "Danza-teatro"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-03",
+      "hora": "19:00",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/mohammed-o-el-coyote",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/mohammed-o-el-coyote.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Ni flores, ni funeral, ni cenizas, ni tantán",
+      "compania": "La Dramática Errante (España)",
+      "descripcion": "Centrada en los procesos de duelo y en el «buen morir», la pieza es un viaje que nos empuja a afrontar la vida con alegría y a preguntarnos cómo será su final.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-03",
+      "hora": "19:30",
+      "sala": "fsi-comfama",
+      "duracion": {
+        "min": 90,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/ni-flores-ni-funeral-ni-cenizas-ni-tantan",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/ni-flores-ni-funeral-ni-cenizas-ni-tantan.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Taller: Suelo, cuerpo y aire (piso móvil, Cortocinesis)",
+      "compania": "Cortocinesis (Colombia)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "09:00",
+      "sala": "fsi-bodega",
+      "duracion": {
+        "min": 180,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/tallercortocinesis",
+      "imagen": null
+    },
+    {
+      "obra": "La defensa de Absalón",
+      "compania": "Teatro La Concha (Colombia)",
+      "descripcion": "La historia de Juan de Espinoza Medrano, el primer sacerdote indígena de la Colonia Española en el Cusco, cuya palabra desafió las estructuras de poder de su época.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+12 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "17:30",
+      "sala": "fsi-capilla",
+      "duracion": {
+        "min": 45,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/la-defensa-de-absalon",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/la-defensa-de-absalon.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "El pabellón del oído",
+      "compania": "Teatro Petra (Colombia)",
+      "descripcion": "Una madre y una hija viven juntas sin más familia que ellas mismas. No se sabe cuánto tiempo, pero por lo que se ve parece que llevaran toda la vida.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "18:00",
+      "sala": "fsi-ptu",
+      "duracion": {
+        "min": 70,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/el-pabellon-del-oido",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/el-pabellon-del-oido.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Ser humana",
+      "compania": "Angie Oña - Freddy González (Uruguay)",
+      "descripcion": "Una pieza escrita y creada en honor a la memoria de Sabina Spielrein (1885-1942), rescatando palabras de su diario, su correspondencia y su teoría.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "18:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 90,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/ser-humana",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/ser-humana.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "La Celestina, tragicomedia de Lita",
+      "compania": "Rey Marciali Producciones (Argentina)",
+      "descripcion": "Las voces de la clásica obra de Fernando de Rojas atraviesan a Lita que está en permanente riesgo de muerte; con sus manos debe sostener una escenografía que se le ha caído encima.",
+      "franjas": [],
+      "tipos": [
+        "Clown"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "18:30",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/la-celestina-tragicomedia-de-lita",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/la-celestina-tragicomedia-de-lita.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Entre líneas",
+      "compania": "Teatro Azul (Colombia)",
+      "descripcion": "Con una impactante poesía visual y narrativa, esta obra nos recuerda que migrar no es solo atravesar geografías; es desafiar lo imposible, es enfrentarse al odio y sobrevivir.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "19:00",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 58,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/entre-lineas",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/entre-lineas.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "El pabellón del oído",
+      "compania": "Teatro Petra (Colombia)",
+      "descripcion": "Una madre y una hija viven juntas sin más familia que ellas mismas. No se sabe cuánto tiempo, pero por lo que se ve parece que llevaran toda la vida.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-04",
+      "hora": "20:30",
+      "sala": "fsi-ptu",
+      "duracion": {
+        "min": 70,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/el-pabellon-del-oido",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/el-pabellon-del-oido.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Taller «De la palabra al cuerpo» con Javier Molina",
+      "compania": "Dirigido a actores y directores",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "09:00",
+      "sala": "fsi-claustro-sala",
+      "duracion": {
+        "min": 240,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/tallerjaviermolina",
+      "imagen": null
+    },
+    {
+      "obra": "Taller: Suelo, cuerpo y aire (piso móvil, Cortocinesis)",
+      "compania": "Cortocinesis (Colombia)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "09:00",
+      "sala": "fsi-bodega",
+      "duracion": {
+        "min": 180,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/tallercortocinesis",
+      "imagen": null
+    },
+    {
+      "obra": "García Multicolor",
+      "compania": "Tercer Acto (Colombia)",
+      "descripcion": "Homenaje a Gabriel García Márquez, a quien supo narrar a Colombia, a través de una obra que expone la diversidad social, cultural y política de nuestro país.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "Familiar",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "15:40",
+      "sala": "fsi-san-antonio",
+      "duracion": {
+        "min": 40,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/garcia-multicolor.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Todos somos Poe",
+      "compania": "Átomos Teatro (Colombia)",
+      "descripcion": "Cuatro payasos forman un club de lectura cuya misión es homenajear a los grandes de la literatura. En esta velada, el elegido es Edgar Allan Poe.",
+      "franjas": [],
+      "tipos": [
+        "Clown"
+      ],
+      "publico": "+7 años",
+      "nota": "Entrada libre",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "16:00",
+      "sala": "fsi-udea-camilo",
+      "duracion": {
+        "min": 70,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/todos-somos-poe.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Escuela de espectadores con Jorge Dubatti",
+      "compania": "Sesión 1. Invitado: Fabio Rubiano (Teatro Petra, El Pabellón del oído)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "17:00",
+      "sala": "fsi-pascasia",
+      "duracion": {
+        "min": 90,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/encuentrosdubatti",
+      "imagen": null
+    },
+    {
+      "obra": "Continental",
+      "compania": "Yellow Factory (Colombia)",
+      "descripcion": "Thomás, director y dramaturgo en crisis, tiene que hacer una obra sobre Tennessee Williams.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "18:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 85,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/continental",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/continental.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "La Celestina, tragicomedia de Lita",
+      "compania": "Rey Marciali Producciones (Argentina)",
+      "descripcion": "Las voces de la clásica obra de Fernando de Rojas atraviesan a Lita que está en permanente riesgo de muerte; con sus manos debe sostener una escenografía que se le ha caído encima.",
+      "franjas": [],
+      "tipos": [
+        "Clown"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "18:30",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/la-celestina-tragicomedia-de-lita",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/la-celestina-tragicomedia-de-lita.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Hotel de vagabundos",
+      "compania": "ID Studio Theater (Estados Unidos)",
+      "descripcion": "Escrita por Manuel Zapata Olivella e inspirada en su estancia en el Nueva York de los años 40, la obra explora el mito de Estados Unidos como una “tierra de oportunidades”.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "19:30",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 65,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/hotel-de-vagabundos",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/hotel-de-vagabundos.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Panza de burro",
+      "compania": "Delirium Teatro (España)",
+      "descripcion": "Desgrana de una manera descarnada y divertida, el mundo de dos niñas de 10 años, en un barrio del norte de Tenerife en la ladera del volcán.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-05",
+      "hora": "20:00",
+      "sala": "fsi-pequeno",
+      "duracion": {
+        "min": 83,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/panza-de-burro",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/panza-de-burro.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Taller «De la palabra al cuerpo» con Javier Molina",
+      "compania": "Dirigido a actores y directores",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "09:00",
+      "sala": "fsi-claustro-sala",
+      "duracion": {
+        "min": 240,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/tallerjaviermolina",
+      "imagen": null
+    },
+    {
+      "obra": "García Multicolor",
+      "compania": "Tercer Acto (Colombia)",
+      "descripcion": "Homenaje a Gabriel García Márquez, a quien supo narrar a Colombia, a través de una obra que expone la diversidad social, cultural y política de nuestro país.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "Familiar",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "15:40",
+      "sala": "fsi-san-antonio",
+      "duracion": {
+        "min": 40,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/garcia-multicolor.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Conversatorio: ¿Para quiénes creamos nuestras obras de teatro?",
+      "compania": "Con Jorge Dubatti, Marleny Carvajal y Maibell Ciodaro; modera Víctor López",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "17:00",
+      "sala": "fsi-pascasia",
+      "duracion": {
+        "min": 90,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/encuentrosdubatti",
+      "imagen": null
+    },
+    {
+      "obra": "Continental",
+      "compania": "Yellow Factory (Colombia)",
+      "descripcion": "Thomás, director y dramaturgo en crisis, tiene que hacer una obra sobre Tennessee Williams.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "18:00",
+      "sala": "fsi-tpm",
+      "duracion": {
+        "min": 85,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/continental",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/continental.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Panza de burro",
+      "compania": "Delirium Teatro (España)",
+      "descripcion": "Desgrana de una manera descarnada y divertida, el mundo de dos niñas de 10 años, en un barrio del norte de Tenerife en la ladera del volcán.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "18:00",
+      "sala": "fsi-pequeno",
+      "duracion": {
+        "min": 83,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/panza-de-burro",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/panza-de-burro.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Murmuria",
+      "compania": "Cortocinesis (Colombia)",
+      "descripcion": "Lo que vemos, lo que escuchamos, lo que sentimos nos transporta a lugares recónditos de nuestra persona, donde la memoria del amor se alberga.",
+      "franjas": [],
+      "tipos": [
+        "Danza-teatro",
+        "Teatro musical"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "19:00",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/murmuria",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/murmuria.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Todos somos Poe",
+      "compania": "Átomos Teatro (Colombia)",
+      "descripcion": "Cuatro payasos forman un club de lectura cuya misión es homenajear a los grandes de la literatura. En esta velada, el elegido es Edgar Allan Poe.",
+      "franjas": [],
+      "tipos": [
+        "Clown"
+      ],
+      "publico": "+7 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "19:00",
+      "sala": "fsi-casa-clown",
+      "duracion": {
+        "min": 70,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/todos-somos-poe",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/todos-somos-poe.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Hotel de vagabundos",
+      "compania": "ID Studio Theater (Estados Unidos)",
+      "descripcion": "Escrita por Manuel Zapata Olivella e inspirada en su estancia en el Nueva York de los años 40, la obra explora el mito de Estados Unidos como una “tierra de oportunidades”.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto"
+      ],
+      "publico": "+14 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "19:30",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 65,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/hotel-de-vagabundos",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/hotel-de-vagabundos.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "(Un) Ensayo sobre la ceguera",
+      "compania": "Grupo Galpão (Brasil)",
+      "descripcion": "Una epidemia de ceguera azota la ciudad, privando a sus habitantes de ver el mundo como antes.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto",
+        "Teatro inmersivo"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-06",
+      "hora": "20:00",
+      "sala": "fsi-ptu",
+      "duracion": {
+        "min": 140,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/un-ensayo-sobre-la-ceguera",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/un-ensayo-sobre-la-ceguera.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Taller «De la palabra al cuerpo» con Javier Molina",
+      "compania": "Dirigido a actores y directores",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "09:00",
+      "sala": "fsi-claustro-sala",
+      "duracion": {
+        "min": 240,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/tallerjaviermolina",
+      "imagen": null
+    },
+    {
+      "obra": "Escuela de espectadores con Jorge Dubatti",
+      "compania": "Sesión 2. Invitados: Eduardo Moreira (Grupo Galpão) y Sori (Delirium Teatro)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": [
+        "Académico"
+      ],
+      "publico": null,
+      "nota": "Entrada libre con inscripción previa",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "15:00",
+      "sala": "fsi-capilla",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://bit.ly/encuentrosdubatti",
+      "imagen": null
+    },
+    {
+      "obra": "Gaspar, el señor de las nubes",
+      "compania": "La Libélula Dorada (Colombia)",
+      "descripcion": "La historia de un oso de anteojos que desde muy cachorro es perseguido, cazado y sacado de su hábitat, el páramo.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos"
+      ],
+      "publico": "Familiar",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "15:00",
+      "sala": "fsi-pequeno",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/gaspar-el-senor-de-las-nubes",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/gaspar-el-senor-de-las-nubes.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Pato, muerte y tulipán",
+      "compania": "Proyecto Perla (México)",
+      "descripcion": "Esta historia que verás hoy sucede en un libro. Dentro de este libro hay un estanque. Cerca del estanque, un pato. Y cerca del pato... alguien más.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "15:00",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 50,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/pato-muerte-y-tulipan",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/pato-muerte-y-tulipan.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Gaspar, el señor de las nubes",
+      "compania": "La Libélula Dorada (Colombia)",
+      "descripcion": "La historia de un oso de anteojos que desde muy cachorro es perseguido, cazado y sacado de su hábitat, el páramo.",
+      "franjas": [],
+      "tipos": [
+        "Títeres y objetos"
+      ],
+      "publico": "Familiar",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "17:30",
+      "sala": "fsi-pequeno",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/gaspar-el-senor-de-las-nubes",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/gaspar-el-senor-de-las-nubes.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Pato, muerte y tulipán",
+      "compania": "Proyecto Perla (México)",
+      "descripcion": "Esta historia que verás hoy sucede en un libro. Dentro de este libro hay un estanque. Cerca del estanque, un pato. Y cerca del pato... alguien más.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+5 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "17:30",
+      "sala": "fsi-matacandelas",
+      "duracion": {
+        "min": 50,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/pato-muerte-y-tulipan",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/pato-muerte-y-tulipan.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Loba",
+      "compania": "El Ensueño Teatro (Colombia)",
+      "descripcion": "Tres mujeres buscan conectar consigo mismas a través de rituales que les permiten adentrarse en su psique y reconocer el origen de sus miedos.",
+      "franjas": [],
+      "tipos": null,
+      "publico": "+18 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "19:00",
+      "sala": "fsi-casa-clown",
+      "duracion": {
+        "min": 45,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/loba",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/loba.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "Murmuria",
+      "compania": "Cortocinesis (Colombia)",
+      "descripcion": "Lo que vemos, lo que escuchamos, lo que sentimos nos transporta a lugares recónditos de nuestra persona, donde la memoria del amor se alberga.",
+      "franjas": [],
+      "tipos": [
+        "Danza-teatro",
+        "Teatro musical"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "19:00",
+      "sala": "fsi-patio",
+      "duracion": {
+        "min": 60,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/murmuria",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/murmuria.webp",
+        "credito": "comfama.com"
+      }
+    },
+    {
+      "obra": "(Un) Ensayo sobre la ceguera",
+      "compania": "Grupo Galpão (Brasil)",
+      "descripcion": "Una epidemia de ceguera azota la ciudad, privando a sus habitantes de ver el mundo como antes.",
+      "franjas": [],
+      "tipos": [
+        "Teatro de texto",
+        "Teatro inmersivo"
+      ],
+      "publico": "+16 años",
+      "nota": "Boletería por confirmar (tarifas Comfama)",
+      "fuente_horario": "sitio-web",
+      "fecha": "2026-11-07",
+      "hora": "19:30",
+      "sala": "fsi-ptu",
+      "duracion": {
+        "min": 140,
+        "confirmada": true
+      },
+      "precio": {
+        "pleno": null,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": "https://latiquetera.com/site/festival-de-teatro-comfama-san-ignacio-2026/events/view/un-ensayo-sobre-la-ceguera",
+      "imagen": {
+        "key": "fotos/festival-teatro-san-ignacio-2026/un-ensayo-sobre-la-ceguera.webp",
+        "credito": "comfama.com"
+      }
+    }
+  ]
+}

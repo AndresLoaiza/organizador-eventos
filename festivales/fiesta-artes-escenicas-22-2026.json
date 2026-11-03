@@ -1,0 +1,1979 @@
+{
+  "formato": 1,
+  "festival": {
+    "slug": "fiesta-artes-escenicas-22-2026",
+    "nombre": "22.ª Fiesta de las Artes Escénicas",
+    "ciudad": "Medellín",
+    "fecha_inicio": "2026-08-20",
+    "fecha_fin": "2026-08-30"
+  },
+  "fuentes": [],
+  "salas": [
+    {
+      "slug": "agite",
+      "nombre": "Agité Teatro",
+      "direccion": "Clle. 52 #39A-30",
+      "telefono": "604 4237030",
+      "zona": "centro"
+    },
+    {
+      "slug": "arle",
+      "nombre": "Teatro Arlequín y los Juglares",
+      "direccion": "Cra. 44 #69-71",
+      "telefono": "604 4335829",
+      "zona": "norte"
+    },
+    {
+      "slug": "barra",
+      "nombre": "Teatro Barra del Silencio",
+      "direccion": "Clle. 45C #75-151",
+      "telefono": "310 8456329",
+      "zona": "occidente"
+    },
+    {
+      "slug": "canchi",
+      "nombre": "Corporación Canchimalos",
+      "direccion": "Clle. 47dd #88-24",
+      "telefono": "604 2046178",
+      "zona": "occidente"
+    },
+    {
+      "slug": "caran",
+      "nombre": "Teatro Carantoña",
+      "direccion": "Cra. 75 #24-47",
+      "telefono": "316 2534548",
+      "zona": "occidente"
+    },
+    {
+      "slug": "caretas",
+      "nombre": "Teatro de Títeres Caretas",
+      "direccion": "Cra. 126B #61A-71",
+      "telefono": "604 4270698",
+      "zona": "corregimiento"
+    },
+    {
+      "slug": "casat",
+      "nombre": "Casa del Teatro de Medellín",
+      "direccion": "Clle. 59 #50A-25",
+      "telefono": "319 7297209",
+      "zona": "centro"
+    },
+    {
+      "slug": "clown",
+      "nombre": "Teatro Casa Clown",
+      "direccion": "Cra. 42 #44-46",
+      "telefono": "321 8386557",
+      "zona": "centro"
+    },
+    {
+      "slug": "elemen",
+      "nombre": "Elemental Teatro Casa Contenta",
+      "direccion": "Diag. 48 este #53-224, Santa Elena",
+      "telefono": "319 6582877",
+      "zona": "corregimiento"
+    },
+    {
+      "slug": "esc3",
+      "nombre": "Teatro Escena 3",
+      "direccion": "Cra. 45 #52-72",
+      "telefono": "321 7035575",
+      "zona": "centro"
+    },
+    {
+      "slug": "fanfa",
+      "nombre": "La Fanfarria Teatro",
+      "direccion": "Cra. 84 #42C-54",
+      "telefono": "316 4568732",
+      "zona": "occidente"
+    },
+    {
+      "slug": "gente",
+      "nombre": "Corporación Cultural Nuestra Gente",
+      "direccion": "Clle. 99 #50C-38",
+      "telefono": "604 2580348",
+      "zona": "norte"
+    },
+    {
+      "slug": "mata",
+      "nombre": "Teatro Matacandelas",
+      "direccion": "Clle. 47 #43-47",
+      "telefono": "604 2151010",
+      "zona": "centro"
+    },
+    {
+      "slug": "ocs",
+      "nombre": "Teatro Oficina Central de los Sueños",
+      "direccion": "Cra. 43 #52-50",
+      "telefono": "604 2394179",
+      "zona": "centro"
+    },
+    {
+      "slug": "pasca",
+      "nombre": "La Pascasia",
+      "direccion": "Clle. 47 #43-88",
+      "telefono": "604 5808660",
+      "zona": "centro"
+    },
+    {
+      "slug": "pobla",
+      "nombre": "CasaTeatro El Poblado",
+      "direccion": "Cra. 47B #17B Sur-30",
+      "telefono": "317 6803421",
+      "zona": "sur"
+    },
+    {
+      "slug": "poli",
+      "nombre": "La Polilla",
+      "direccion": "Clle. 23 #76-85",
+      "telefono": "320 6777067",
+      "zona": "occidente"
+    },
+    {
+      "slug": "popu",
+      "nombre": "Teatro Popular de Medellín",
+      "direccion": "Clle. 48 #41-13",
+      "telefono": "604 5574964",
+      "zona": "centro"
+    },
+    {
+      "slug": "ptu",
+      "nombre": "Teatro Pablo Tobón Uribe",
+      "direccion": "Cra. 40 #51-24",
+      "telefono": "604 2397500",
+      "zona": "centro"
+    },
+    {
+      "slug": "sucur",
+      "nombre": "Teatro La Sucursal",
+      "direccion": "Clle. 54 #42-44",
+      "telefono": "317 4620095",
+      "zona": "centro"
+    },
+    {
+      "slug": "viva",
+      "nombre": "Vivapalabra",
+      "direccion": "Clle. 55 #43-63",
+      "telefono": "313 6150109",
+      "zona": "centro"
+    },
+    {
+      "slug": "ziru",
+      "nombre": "Corporación Ziruma",
+      "direccion": "Clle. 64 #39-18",
+      "telefono": "311 3069236",
+      "zona": "norte"
+    }
+  ],
+  "traslados": [
+    {
+      "zona_a": "centro",
+      "zona_b": "centro",
+      "minutos": 12
+    },
+    {
+      "zona_a": "centro",
+      "zona_b": "corregimiento",
+      "minutos": 50
+    },
+    {
+      "zona_a": "centro",
+      "zona_b": "norte",
+      "minutos": 25
+    },
+    {
+      "zona_a": "centro",
+      "zona_b": "occidente",
+      "minutos": 25
+    },
+    {
+      "zona_a": "centro",
+      "zona_b": "sur",
+      "minutos": 30
+    },
+    {
+      "zona_a": "corregimiento",
+      "zona_b": "centro",
+      "minutos": 50
+    },
+    {
+      "zona_a": "corregimiento",
+      "zona_b": "corregimiento",
+      "minutos": 60
+    },
+    {
+      "zona_a": "corregimiento",
+      "zona_b": "norte",
+      "minutos": 55
+    },
+    {
+      "zona_a": "corregimiento",
+      "zona_b": "occidente",
+      "minutos": 55
+    },
+    {
+      "zona_a": "corregimiento",
+      "zona_b": "sur",
+      "minutos": 45
+    },
+    {
+      "zona_a": "norte",
+      "zona_b": "centro",
+      "minutos": 25
+    },
+    {
+      "zona_a": "norte",
+      "zona_b": "corregimiento",
+      "minutos": 55
+    },
+    {
+      "zona_a": "norte",
+      "zona_b": "norte",
+      "minutos": 15
+    },
+    {
+      "zona_a": "norte",
+      "zona_b": "occidente",
+      "minutos": 35
+    },
+    {
+      "zona_a": "norte",
+      "zona_b": "sur",
+      "minutos": 40
+    },
+    {
+      "zona_a": "occidente",
+      "zona_b": "centro",
+      "minutos": 25
+    },
+    {
+      "zona_a": "occidente",
+      "zona_b": "corregimiento",
+      "minutos": 55
+    },
+    {
+      "zona_a": "occidente",
+      "zona_b": "norte",
+      "minutos": 35
+    },
+    {
+      "zona_a": "occidente",
+      "zona_b": "occidente",
+      "minutos": 15
+    },
+    {
+      "zona_a": "occidente",
+      "zona_b": "sur",
+      "minutos": 30
+    },
+    {
+      "zona_a": "sur",
+      "zona_b": "centro",
+      "minutos": 30
+    },
+    {
+      "zona_a": "sur",
+      "zona_b": "corregimiento",
+      "minutos": 45
+    },
+    {
+      "zona_a": "sur",
+      "zona_b": "norte",
+      "minutos": 40
+    },
+    {
+      "zona_a": "sur",
+      "zona_b": "occidente",
+      "minutos": 30
+    },
+    {
+      "zona_a": "sur",
+      "zona_b": "sur",
+      "minutos": 12
+    }
+  ],
+  "funciones": [
+    {
+      "obra": "KRAPP, la última cinta",
+      "compania": "Actores en Escena (Manizales)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-24",
+      "hora": "20:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10300,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p07_0.jpg",
+        "credito": "Actores en Escena (Manizales) Teatro Oficina Central de los Suenos (Medellin)"
+      }
+    },
+    {
+      "obra": "La Séptima Trompeta",
+      "compania": "Teatro El Nombre (Medellín)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-25",
+      "hora": "19:30",
+      "sala": "esc3",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p07_4.jpg",
+        "credito": "Teatro El Nombre (Medellin)"
+      }
+    },
+    {
+      "obra": "Antígona la necia",
+      "compania": "Teatro del Bardo (Argentina)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-25",
+      "hora": "20:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p07_3.jpg",
+        "credito": "Teatro del Bardo (Argentina)"
+      }
+    },
+    {
+      "obra": "Petra, versión libre para gesto y danza",
+      "compania": "AmbidiestroLab (Bogotá)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-25",
+      "hora": "20:00",
+      "sala": "mata",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10900,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_3.jpg",
+        "credito": "AmbidiestroLab (Bogota)"
+      }
+    },
+    {
+      "obra": "Eco-Clown",
+      "compania": "Jader Clown",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada libre (Salas Abiertas)",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "19:00",
+      "sala": "caran",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "La Bruja sin nombre",
+      "compania": "Teatro del Bardo (Argentina)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada con trueque",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "19:00",
+      "sala": "gente",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p07_3.jpg",
+        "credito": "Teatro del Bardo (Argentina)"
+      }
+    },
+    {
+      "obra": "Cuando las emociones hablan",
+      "compania": "Conversatorio · Carolina Restrepo",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Encuentro entre la psicología y el arte de la voz",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "19:30",
+      "sala": "sucur",
+      "duracion": {
+        "min": 90,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Fe de Ratas",
+      "compania": "Corporación Teatro Estudio (El Carmen de Viboral)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Aporte cultural o trueque equivalente",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "20:00",
+      "sala": "ziru",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": 10000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_0.jpg",
+        "credito": "Corporacion Teatro Estudio (El Carmen de Viboral)"
+      }
+    },
+    {
+      "obra": "Kaká y Wesika: Colcha Onírica de la desmemoria",
+      "compania": "Fantoches y Monalisas (Villa de Leyva / Sutamarchán)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "20:00",
+      "sala": "agite",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_2.jpg",
+        "credito": "Fantoches y Monalisas (Villa de Leyva / Sutamarchan)"
+      }
+    },
+    {
+      "obra": "Molienda de Danza",
+      "compania": "Evento especial · INCOLBALLET (Cali) y Era Parca (Medellín)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada libre con Eticketa Blanca. Se agota antes que las pagas.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "20:00",
+      "sala": "ptu",
+      "duracion": {
+        "min": 180,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_1.jpg",
+        "credito": "INCOLBALLET (Cali)"
+      }
+    },
+    {
+      "obra": "Os Chorizos (Homenaje a Cartola)",
+      "compania": null,
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "20:00",
+      "sala": "pasca",
+      "duracion": {
+        "min": 90,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 36000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Petra, versión libre para gesto y danza",
+      "compania": "AmbidiestroLab (Bogotá)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-26",
+      "hora": "20:00",
+      "sala": "mata",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10900,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_3.jpg",
+        "credito": "AmbidiestroLab (Bogota)"
+      }
+    },
+    {
+      "obra": "Diente de leche",
+      "compania": "Fundación Títerefué (Ecuador)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Función de mañana, 10:30 a.m.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "10:30",
+      "sala": "sucur",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_0.jpg",
+        "credito": "Fundacion Titerefue (Ecuador)"
+      }
+    },
+    {
+      "obra": "La vida es un cilindro",
+      "compania": "Los Chicos del Jardín (Manizales)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Doble función: 5:00 y 8:00 p.m.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "17:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_2.jpg",
+        "credito": "Los Chicos del Jardin (Manizales)"
+      }
+    },
+    {
+      "obra": "Doña Felipa o El Motín de las Chicheras",
+      "compania": "Nómade Teatro (Pasto)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada con trueque",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "19:00",
+      "sala": "gente",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_3.jpg",
+        "credito": "Nomade Teatro (Pasto)"
+      }
+    },
+    {
+      "obra": "La Casa... El lugar donde todo comienza",
+      "compania": "Cazamáscaras (Cali)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "19:00",
+      "sala": "canchi",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_4.jpg",
+        "credito": "Cazamascaras (Cali)"
+      }
+    },
+    {
+      "obra": "Aqua",
+      "compania": "Kósmosis (Envigado)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "19:30",
+      "sala": "poli",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_1.jpg",
+        "credito": "Kosmosis (Envigado)"
+      }
+    },
+    {
+      "obra": "Instrucciones para Imaginar",
+      "compania": "Yovanny Torres",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "19:30",
+      "sala": "viva",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Obstinados",
+      "compania": "INCOLBALLET (Cali)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "19:30",
+      "sala": "popu",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_1.jpg",
+        "credito": "INCOLBALLET (Cali)"
+      }
+    },
+    {
+      "obra": "Perversa",
+      "compania": "Teatro Escena 3",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Compra por WhatsApp 321 7035575, no en taquilla",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "19:30",
+      "sala": "esc3",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Kaká y Wesika: Colcha Onírica de la desmemoria",
+      "compania": "Fantoches y Monalisas (Villa de Leyva / Sutamarchán)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "20:00",
+      "sala": "agite",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p08_2.jpg",
+        "credito": "Fantoches y Monalisas (Villa de Leyva / Sutamarchan)"
+      }
+    },
+    {
+      "obra": "La Soledad en Tiempos de Pandemia",
+      "compania": "Semillero Ziruma",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Trueque equivalente",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "20:00",
+      "sala": "ziru",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": 10000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "La vida es un cilindro",
+      "compania": "Los Chicos del Jardín (Manizales)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Doble función: 5:00 y 8:00 p.m.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "20:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_2.jpg",
+        "credito": "Los Chicos del Jardin (Manizales)"
+      }
+    },
+    {
+      "obra": "Primer Amor",
+      "compania": "Colectivo Teatral Matacandelas · de Samuel Beckett",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "General $45.000 · estudiantes, tercera edad y discapacidad $25.000 · en bicicleta $20.000 · asociados CONFIAR $20.000 · Comfama TA $13.700",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "20:00",
+      "sala": "mata",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 45000,
+        "dcto": 13700,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Macha y El Bloque Depresivo",
+      "compania": null,
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-27",
+      "hora": "21:00",
+      "sala": "pasca",
+      "duracion": {
+        "min": 90,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 65000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Teatro y Cocina",
+      "compania": "Jorge Blandón · Teatro Comunitario y Sancocho",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Precio único, incluye cena. Fe de erratas del 20 de agosto: la hora es 10:00 p.m., el volante impreso dice 9:30.",
+      "fuente_horario": "fe-de-erratas",
+      "fecha": "2026-08-27",
+      "hora": "22:00",
+      "sala": "mata",
+      "duracion": {
+        "min": 120,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 40000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "La Maleta Mágica",
+      "compania": "Vive La Voz",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Función de mañana, 10:00 a.m.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "10:00",
+      "sala": "sucur",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "El Rey Midas",
+      "compania": null,
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "15:00",
+      "sala": "fanfa",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 42000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "A la diestra de Dios padre",
+      "compania": "Jorge Wolf",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada libre",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "16:00",
+      "sala": "arle",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Antígona la necia",
+      "compania": "Teatro del Bardo (Argentina)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "En Santa Elena: bloquea la noche entera",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:00",
+      "sala": "elemen",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p07_3.jpg",
+        "credito": "Teatro del Bardo (Argentina)"
+      }
+    },
+    {
+      "obra": "Doña Felipa o El Motín de las Chicheras",
+      "compania": "Nómade Teatro (Pasto)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada con trueque",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:00",
+      "sala": "gente",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_3.jpg",
+        "credito": "Nomade Teatro (Pasto)"
+      }
+    },
+    {
+      "obra": "Diente de leche",
+      "compania": "Fundación Títerefué (Ecuador)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "barra",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_0.jpg",
+        "credito": "Fundacion Titerefue (Ecuador)"
+      }
+    },
+    {
+      "obra": "La Casa... El lugar donde todo comienza",
+      "compania": "Teatro Cazamáscaras (Cali)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "casat",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_4.jpg",
+        "credito": "Cazamascaras (Cali)"
+      }
+    },
+    {
+      "obra": "La montaña que arde",
+      "compania": "Lacerarte",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "canchi",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Los cuentos de Papita Manuel",
+      "compania": "Liliana Zapata",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Donación o trueque",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "caretas",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 10000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Mestiza",
+      "compania": "CasaTaller Teatro (Medellín)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "popu",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p11_1.jpg",
+        "credito": "CasaTaller Teatro (Medellin)"
+      }
+    },
+    {
+      "obra": "Molienda de la Palabra",
+      "compania": "Evento especial · narración oral y cuentería",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Maratón de más de tres horas",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "viva",
+      "duracion": {
+        "min": 180,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Perversa",
+      "compania": "Teatro Escena 3",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Compra por WhatsApp 321 7035575, no en taquilla",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "19:30",
+      "sala": "esc3",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Edipo Rey",
+      "compania": "Ecos Teatro (Medellín)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "20:00",
+      "sala": "clown",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p10_1.jpg",
+        "credito": "Ecos Teatro (Medellin)"
+      }
+    },
+    {
+      "obra": "El Klownmasutra",
+      "compania": "Agité Teatro (Estreno)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "20:00",
+      "sala": "agite",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": 20000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Habitar",
+      "compania": "Móvil Teatro Laboratorio (Bogotá)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "20:00",
+      "sala": "pobla",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10900,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p10_0.jpg",
+        "credito": "Movil Teatro Laboratorio (Bogota)"
+      }
+    },
+    {
+      "obra": "Ixaquene",
+      "compania": "Laquebaila (Bogotá)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Acrobacia aérea en tela y video mapping. Descuentos afiliados a Comfama.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "20:00",
+      "sala": "mata",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10900,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p10_2.jpg",
+        "credito": "Laquebaila (Bogota)"
+      }
+    },
+    {
+      "obra": "La Soledad en Tiempos de Pandemia",
+      "compania": "Semillero Ziruma",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Trueque equivalente",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "20:00",
+      "sala": "ziru",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": 10000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "PESSOAS",
+      "compania": "Teatro Oficina Central de los Sueños (Estreno)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "20:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 25000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p11_0.jpg",
+        "credito": "Teatro Oficina Central de los Suenos"
+      }
+    },
+    {
+      "obra": "Orquesta La Pascasia",
+      "compania": null,
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-28",
+      "hora": "21:00",
+      "sala": "pasca",
+      "duracion": {
+        "min": 90,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 50000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "El Rey Midas",
+      "compania": "Piñata de la Fiesta",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "15:00",
+      "sala": "fanfa",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 42000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p12_0.jpg",
+        "credito": "PINATA DE LA FIESTA"
+      }
+    },
+    {
+      "obra": "Cuando los cuentos se pusieron la nariz roja",
+      "compania": "Clau Torres, Jacobo Villa, Luz Restrepo, Vicky Valencia, Lorena Montes (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Los niños pagan con sonrisas",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "16:00",
+      "sala": "viva",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 10000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "El duende del circo",
+      "compania": "Teatro Oficina Central de los Sueños (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Niños y niñas $15.000",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "16:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 25000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p11_0.jpg",
+        "credito": "Teatro Oficina Central de los Suenos"
+      }
+    },
+    {
+      "obra": "Pachito el silleterito",
+      "compania": "Teatro Barra del Silencio (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "16:00",
+      "sala": "barra",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 25000,
+        "dcto": 20000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Una Aventura de Circo",
+      "compania": "Ácrora Circo (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "16:00",
+      "sala": "caran",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "GalactiGatos",
+      "compania": "Marary Teatro (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "16:30",
+      "sala": "mata",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": 25000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Diente de leche",
+      "compania": "Fundación Títerefué (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Donación o trueque",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "17:00",
+      "sala": "caretas",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 10000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p09_0.jpg",
+        "credito": "Fundacion Titerefue (Ecuador)"
+      }
+    },
+    {
+      "obra": "La Maleta Mágica",
+      "compania": "Vive La Voz (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "17:00",
+      "sala": "sucur",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 25000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Sastrecillo Valiente",
+      "compania": "Teatro Popular de Medellín (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "17:00",
+      "sala": "popu",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "¡Acción! Una Aventura Gestual",
+      "compania": null,
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "En Santa Elena: bloquea la noche entera",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "19:00",
+      "sala": "elemen",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": 10000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Danza que honra la vida",
+      "compania": "Celajes (Piñata de la Fiesta)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Entrada libre con aporte voluntario",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "19:30",
+      "sala": "arle",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 0,
+        "dcto": null,
+        "libre": true
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "El sendero del brujo",
+      "compania": "Camilo Cano",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "19:30",
+      "sala": "viva",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "La montaña que arde",
+      "compania": "Lacerarte",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "19:30",
+      "sala": "canchi",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Perversa",
+      "compania": "Teatro Escena 3",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Compra por WhatsApp 321 7035575, no en taquilla",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "19:30",
+      "sala": "esc3",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "El Klownmasutra",
+      "compania": "Agité Teatro (Estreno)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "20:00",
+      "sala": "agite",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": 20000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "Fiesta Clown",
+      "compania": "Colectivo Teatral Infusión",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Comfama TA $10.700 · TB $15.500 · TC $26.300",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "20:00",
+      "sala": "clown",
+      "duracion": {
+        "min": 70,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 30000,
+        "dcto": 10700,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p13_0.jpg",
+        "credito": "FIESTA CLOWN"
+      }
+    },
+    {
+      "obra": "Habitar",
+      "compania": "Móvil Teatro Laboratorio (Bogotá)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "20:00",
+      "sala": "pobla",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10900,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p10_0.jpg",
+        "credito": "Movil Teatro Laboratorio (Bogota)"
+      }
+    },
+    {
+      "obra": "Ixaquene",
+      "compania": "Laquebaila (Bogotá)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Acrobacia aérea en tela y video mapping. Descuentos afiliados a Comfama.",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "20:00",
+      "sala": "mata",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 10900,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p10_2.jpg",
+        "credito": "Laquebaila (Bogota)"
+      }
+    },
+    {
+      "obra": "La Soledad en Tiempos de Pandemia",
+      "compania": "Semillero Ziruma",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Trueque equivalente",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "20:00",
+      "sala": "ziru",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 20000,
+        "dcto": 10000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    },
+    {
+      "obra": "PESSOAS",
+      "compania": "Teatro Oficina Central de los Sueños (Estreno)",
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": "Descuentos afiliados a Comfama",
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "20:00",
+      "sala": "ocs",
+      "duracion": {
+        "min": 80,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 35000,
+        "dcto": 25000,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": {
+        "key": "fotos/fiesta-artes-escenicas-22-2026/p11_0.jpg",
+        "credito": "Teatro Oficina Central de los Suenos"
+      }
+    },
+    {
+      "obra": "El Son de Pablo",
+      "compania": null,
+      "descripcion": null,
+      "franjas": [],
+      "tipos": null,
+      "publico": null,
+      "nota": null,
+      "fuente_horario": "volante",
+      "fecha": "2026-08-29",
+      "hora": "22:00",
+      "sala": "pasca",
+      "duracion": {
+        "min": 90,
+        "confirmada": false
+      },
+      "precio": {
+        "pleno": 50000,
+        "dcto": null,
+        "libre": false
+      },
+      "url_compra": null,
+      "imagen": null
+    }
+  ]
+}
