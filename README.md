@@ -86,12 +86,15 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 144 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm test` | 178 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
 | `npm run exportar -- <slug>` | Base → `festivales/<slug>.json`; aborta si separar los campos pierde algo |
 | `npm run fuente -- <slug> <md> <metodo> <url> <fecha>` | Archiva la fuente en markdown en el bucket |
 | `npm run cargar -- <slug> [--seco]` | `festivales/<slug>.json` → base; en seco solo muestra el diff |
+| `npm run fixture` | Tu ojeo → `lib/fixtures/ojeo.json` (fuera de git: es tu gusto) |
+| `npm run recomendador` | Mide el recomendador contra tu ojeo con validación cruzada y lo imprime |
+| `npm run razones -- <slug>` | `festivales/<slug>.razones.json` → razones de Claude por obra |
 | `npm run imagenes` | Sube las fotos recortadas del volante |
 | `npm run boletas:pendientes` | Baja a `trabajo/` los archivos que faltan extraer |
 | `npm run boletas:aplicar` | Escribe lo extraído |
@@ -129,6 +132,10 @@ supabase/     migraciones SQL, las aplica npm run migrar en orden
 - **El detalle va en lista, no en la frase.** El texto del motor se conserva para la exportación y los tests, pero en la Fiesta del Libro hay noches con ocho funciones a la misma hora y esa frase salía con ocho títulos encadenados por comas. `verdictFor` devuelve además `choques`, `pierde`, `desplaza` y `justos` con hora, sala y motivo por renglón.
 - **El título no basta para decidir.** «Pura carreta» no dice nada; la ficha cuenta que es Quijote con percusión. La descripción va plegada en Ojear y en Decidir, para no tapar el veredicto.
 - **Ojear va antes que Decidir, y el decisor solo ve lo ojeado.** Con una excepción: si el festival entero está sin ojear pasa todo. Un decisor en blanco no se lee como «falta ojear», se lee como «no cargó la programación». Y lo agendado nunca se cae del decisor aunque no esté marcado: si desapareciera, el motor creería libre una noche tomada y prometería rescates que no existen. Hay tests de los dos casos.
+- **Cada resaltado dice de dónde sale y cuánto acierta.** Tres orígenes: `dicho` (una regla que Andrés dictó: se queda aunque acierte poco, mostrando su cifra en este festival), `ojeo` (un rasgo donde viene diciendo que sí, p. ej. «El Quijote: 8 de 9») y `claude` (una nota por obra escrita al cargar). Aprender de lo ojeado es `lib/evidencia.mjs`; los umbrales (≥ 5 obras, ≥ 50% de sí, ≥ 1,5 veces la base) se fijaron antes de medir.
+- **La medición no se hace sobre lo mismo que se aprendió.** `lib/medida.mjs` hace validación cruzada por obra. En la Fiesta del Libro resalta con ~54% de aciertos contra una base de 25%. Esa cifra incluye descartes en lote de origen desconocido; `funciones.interes_origen` los separa desde el 3 nov 2026, y el test solo exige superar la base cuando hay ≥ 20 sí y ≥ 20 no marcados a mano.
+- **Lo que baja de prioridad no desaparece.** Una franja donde casi siempre dices no pasa al final del ojeo; descartar sigue siendo cosa tuya. Esas obras tienen ~13% de sí, la mitad de la base.
+- **El ojeo es privado, el repositorio no.** `lib/fixtures/` y `festivales/*.razones.json` están en `.gitignore`.
 - **PostgREST cachea el esquema.** Una columna nueva no existe para el navegador hasta un `notify pgrst, 'reload schema'`. La migración se aplica sin error y la app falla después, que es la peor combinación.
 - **La exportación copia al portapapeles, no descarga un archivo.** En hosting estático no hay servidor que arme un `.xlsx`, y un CSV descargado abre en Excel con las tildes rotas. Se escriben `text/html` y `text/plain` a la vez: Excel toma el HTML y pega la tabla ya formada. El mecanismo, con sus tres respaldos, viene de `assets/tabla-filtro.html` de la skill. El decisor exporta **lo filtrado**, no las 776 funciones: el filtro es la decisión.
 - **Solo se juzga lo que ya terminó, con hora.** Filtrar la bitácora por `fecha <= hoy` daba por vista la función de esa misma noche: quedaba primera por ser la más reciente y por tanto de opción por defecto en el selector. Así una impresión se guardó contra la obra equivocada. `yaTermino()` exige que haya pasado la hora de inicio más la duración, y la pantalla dice en grande qué obra se está juzgando en vez de esconderlo en un desplegable.

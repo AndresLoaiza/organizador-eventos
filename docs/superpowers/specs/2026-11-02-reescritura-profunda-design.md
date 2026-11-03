@@ -254,6 +254,14 @@ cálculo de evidencia vive aparte (`lib/evidencia.mjs`) y es puro.
 - Sesgo conocido y no corregido: el ojeo actual mostraba primero lo resaltado,
   lo que infla algo la precisión de `dicho`. El reporte lo dice.
 
+### Lo que cambió al implementarlo (3 nov 2026)
+
+- La evidencia `ojeo` se aprende solo del festival en curso, no entre festivales.
+- Las razones `claude` van por obra (`eventos.razones (festival_id, obra, texto)`), no por función.
+- Se agregó `funciones.interes_origen` (`manual` | `lote` | NULL). El descarte en lote («Descartar las N sin resaltar») contaminaba la verdad con «no» que no eran juicios.
+- La compuerta del test solo se exige con marcas manuales conocidas (≥ 20 sí y ≥ 20 no). Hoy no hay ninguna, así que la medición se imprime sin exigirse.
+- Migraciones: `013_interes_origen`, `014_razones`. Bitácora y Calendar pasan a `015` y `016`.
+
 ## 3. Umbral de duración
 
 El motor de choques no cambia. Función pura nueva `umbral(r)` en
