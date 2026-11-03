@@ -359,7 +359,7 @@ Solo en sesión, solo lectura: no se marca, archiva, borra ni responde nada.
 - README: quitar `/entrar?k=`, describir el acceso por cabecera tal como es, y
   actualizar la tabla de scripts.
 - Skill `festival-agenda` (vive en `~/.claude/skills/`, fuera de git): copia a
-  `~/.claude/skills/festival-agenda.bak-2026-11-02/` antes de tocarla. Cambios:
+  `~/.claude/skills-respaldo/festival-agenda.bak-2026-11-02/` antes de tocarla (fuera de `skills/`: ahí adentro se registraría como una segunda skill). Cambios:
   el paso 2 produce el JSON en formato 1 y corre el validador; el paso 5 aplica
   las tres fuentes con evidencia; pasos nuevos de sesión para Calendar y Gmail.
 

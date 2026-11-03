@@ -114,8 +114,8 @@ La skill vive fuera del repo y sin git: primero la copia.
 - [ ] **Step 1: Respaldo**
 
 ```bash
-cp -r ~/.claude/skills/festival-agenda ~/.claude/skills/festival-agenda.bak-2026-11-02
-ls ~/.claude/skills/festival-agenda.bak-2026-11-02
+mkdir -p ~/.claude/skills-respaldo && cp -r ~/.claude/skills/festival-agenda ~/.claude/skills-respaldo/festival-agenda.bak-2026-11-02
+ls ~/.claude/skills-respaldo/festival-agenda.bak-2026-11-02
 ```
 
 Expected: `SKILL.md  assets  references`.
