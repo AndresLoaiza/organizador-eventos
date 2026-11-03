@@ -1,5 +1,9 @@
 # Organizador de Eventos — diseño
 
+> **Histórico.** Reemplazado por [2026-11-02-reescritura-profunda-design.md](2026-11-02-reescritura-profunda-design.md).
+> Lo que aquí dice de Vercel, route handlers y cookie `httpOnly` no es lo que se construyó:
+> la app es estática en GitHub Pages y se protege con la cabecera `x-acceso` verificada en RLS.
+
 Fecha: 24 de agosto de 2026
 Estado: aprobado para construir la Fase 1
 
