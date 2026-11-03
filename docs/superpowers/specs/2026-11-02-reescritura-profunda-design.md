@@ -379,6 +379,7 @@ Solo en sesión, solo lectura: no se marca, archiva, borra ni responde nada.
 - `planCalendario(funciones, eventos, desde)`: lo anterior a hoy no se crea ni se toca, y un evento con la marca de una función de **otro** festival no se borra (el plan se calcula festival por festival).
 - El lugar del evento no repite el nombre de la sala ni lleva el teléfono; la entrada libre no dice «falta».
 - La mitad local es `npm run calendario -- plan <slug> <eventos.json>` y `-- guardar <funcion_id> <event_id>`; el MCP lo opera Claude en sesión.
+- Sin calendario «Festivales»: el MCP no crea calendarios y Andrés prefirió no crear uno. Los eventos van al calendario principal, separados por la marca `[oe:…]`. Primera sincronización el 3 nov 2026: 10 eventos de San Ignacio; la segunda pasada da 0 por crear, 10 por actualizar y 0 por borrar.
 
 ### Lo que cambió al implementarlo (3 nov 2026)
 

@@ -7,7 +7,7 @@ import { sql, poolPg } from './_cliente.mjs';
 // La mitad local de la sincronización con Google Calendar. La otra mitad la
 // hace Claude en sesión con el MCP, que no existe fuera de ella:
 //
-//   1. Claude lista los eventos del calendario «Festivales» y del principal en
+//   1. Claude lista los eventos con [oe:…] del calendario principal en
 //      las fechas del festival y los guarda en un JSON: [{ id, description }].
 //   2. npm run calendario -- plan <slug> <eventos.json>
 //        imprime qué crear, actualizar y borrar (solo eventos con [oe:…]).

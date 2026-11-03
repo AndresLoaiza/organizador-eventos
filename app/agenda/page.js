@@ -119,7 +119,7 @@ function Cuerpo({ p }) {
                         </a>
                       ))}
                       {/* Abre Google Calendar con el evento lleno; en la próxima
-                          sesión con Claude se pasa al calendario «Festivales». */}
+                          sesión con Claude se adopta por su marca y no se duplica. */}
                       {f.fecha >= p.hoy && (
                         <a className="boton" data-tam="chico" href={urlPlantilla(f)}
                            target="_blank" rel="noopener noreferrer">Al calendario</a>
