@@ -296,10 +296,11 @@ export default function Ojeo({ p, recargar }) {
                       {cuerpo && <span className="cuerpo-aviso">{cuerpo}</span>}
                     </span>
                   )}
-                  {g.ref.compania && (
+                  {(g.ref.compania || g.ref.razon_claude) && (
                     <details className="ficha">
                       <summary>De qué se trata</summary>
-                      <p>{g.ref.compania}</p>
+                      {g.ref.razon_claude && <p><b>Nota de Claude:</b> {g.ref.razon_claude}</p>}
+                      {g.ref.compania && <p>{g.ref.compania}</p>}
                     </details>
                   )}
                 </li>
