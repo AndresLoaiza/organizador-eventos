@@ -7,7 +7,14 @@
     "fecha_inicio": "2026-09-11",
     "fecha_fin": "2026-09-20"
   },
-  "fuentes": [],
+  "fuentes": [
+    {
+      "key": "fuentes/fiesta-libro-cultura-20-2026/2026-08-28_1ed14635.md",
+      "url": "desconocida",
+      "bajada": "2026-08-28",
+      "metodo": "markitdown"
+    }
+  ],
   "salas": [
     {
       "slug": "flc-almadia",

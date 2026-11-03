@@ -7,7 +7,14 @@
     "fecha_inicio": "2026-08-20",
     "fecha_fin": "2026-08-30"
   },
-  "fuentes": [],
+  "fuentes": [
+    {
+      "key": "fuentes/fiesta-artes-escenicas-22-2026/2026-08-11_307302bc.md",
+      "url": "desconocida",
+      "bajada": "2026-08-11",
+      "metodo": "imagen"
+    }
+  ],
   "salas": [
     {
       "slug": "agite",
