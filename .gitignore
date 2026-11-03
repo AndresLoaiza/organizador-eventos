@@ -7,3 +7,8 @@ trabajo/
 baul-backup/
 *.log
 out/
+
+# Tu gusto: el repositorio es público. Se regenera con npm run fixture.
+lib/fixtures/
+# Razones que Claude escribe a partir de tu perfil.
+festivales/*.razones.json
