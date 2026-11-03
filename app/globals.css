@@ -15,7 +15,7 @@
   --tinta-2:  oklch(0.735 0.014 72);
   --tinta-3:  oklch(0.615 0.014 66);
   --regla:    oklch(0.300 0.014 46);
-  --regla-2:  oklch(0.450 0.016 46);
+  --regla-2:  oklch(0.550 0.016 46);  /* bordes de campo: 3:1 sobre el fondo */
 
   /* Bermellón: el sello, la tinta del capocómico. Un solo color manda. */
   --acento:      oklch(0.680 0.190 32);
@@ -54,7 +54,7 @@
     --tinta-2:  oklch(0.450 0.016 50);
     --tinta-3:  oklch(0.470 0.016 55);
     --regla:    oklch(0.880 0.012 80);
-    --regla-2:  oklch(0.760 0.014 76);
+    --regla-2:  oklch(0.600 0.014 76);
     --acento:      oklch(0.450 0.185 32);
     --acento-2:    oklch(0.390 0.165 30);
     --acento-piso: oklch(0.940 0.045 34);
@@ -68,7 +68,7 @@
   --fondo: oklch(0.978 0.008 86); --fondo-2: oklch(0.948 0.011 84);
   --relieve: oklch(1 0 0); --tinta: oklch(0.205 0.016 46);
   --tinta-2: oklch(0.450 0.016 50); --tinta-3: oklch(0.470 0.016 55);
-  --regla: oklch(0.880 0.012 80); --regla-2: oklch(0.760 0.014 76);
+  --regla: oklch(0.880 0.012 80); --regla-2: oklch(0.600 0.014 76);
   --acento: oklch(0.450 0.185 32); --acento-2: oklch(0.390 0.165 30);
   --acento-piso: oklch(0.940 0.045 34); --sobre-acento: oklch(0.985 0.006 86);
   --gana: oklch(0.470 0.110 165); --justo: oklch(0.435 0.105 74);
@@ -107,6 +107,17 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 }
 .barra nav { display: flex; gap: var(--e1); overflow-x: auto; scrollbar-width: none; }
 .barra nav::-webkit-scrollbar { display: none; }
+/* En el celular las seis pestañas no caben: el borde se desvanece para que se
+   note que la barra sigue (Baúl y Bitácora quedaban escondidas sin aviso). El
+   relleno final deja que la última pestaña salga del desvanecido al deslizar. */
+@media (max-width: 40rem) {
+  .barra nav,
+  .dias {
+    mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+    padding-right: 2.5rem;
+  }
+  .tab { padding: 0 var(--e2); }
+}
 
 .tab {
   display: inline-flex; align-items: center; min-height: 44px;
@@ -136,7 +147,7 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 }
 .cambio-festival label { margin: 0; white-space: nowrap; }
 .cambio-festival select {
-  min-height: 38px; width: auto; max-width: 100%;
+  min-height: 44px; width: auto; max-width: 100%;
   font-size: var(--t-sm); font-weight: 600;
   border-color: var(--regla); background: transparent;
 }
@@ -437,8 +448,9 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 
 /* --- Ojear: si o no, sin veredictos --- */
 
-.funcion.ojeo[data-interes="no"] { opacity: 0.45; }
-.funcion.ojeo[data-interes="si"] { border-left: none; }
+/* Lo descartado se apaga con color, no con opacidad: a 0.45 el texto bajaba a 2:1. */
+.funcion.ojeo[data-interes="no"] :is(.obra, .cia, .hora) { color: var(--tinta-3); }
+.funcion.ojeo[data-interes="no"] img { opacity: 0.45; }
 .funcion.ojeo[data-interes="si"] .obra { font-weight: 700; }
 
 /* Una tarjeta por obra puede traer varias fechas: cada una en su renglón, y el
@@ -458,10 +470,14 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   letter-spacing: 0.04em; text-transform: uppercase;
   color: var(--acento); margin-right: var(--e3);
 }
+/* El bermellón es para lo que dijiste tú. Lo aprendido y lo que sugiere Claude
+   van en tinta: el acento no se reparte en cada renglón. */
+.razon[data-origen='ojeo'],
+.razon[data-origen='claude'] { color: var(--tinta-2); }
 .cuerpo-aviso { color: var(--tinta-2); font-size: var(--t-sm); }
 
 .marcador { font-size: var(--t-sm); color: var(--tinta-2); margin-top: var(--e2); }
-.marcador b { color: var(--tinta); font-size: var(--t-base); }
+.marcador b { color: var(--tinta); font-size: var(--t-md); }
 
 .ficha { grid-column: 1 / -1; margin-top: var(--e2); }
 .ficha summary {
@@ -469,7 +485,7 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   list-style: none; width: max-content;
 }
 .ficha summary::before { content: '+ '; }
-.ficha[open] summary::before { content: '2 '; }
+.ficha[open] summary::before { content: '− '; }
 .ficha p {
   font-size: var(--t-sm); color: var(--tinta-2); margin-top: var(--e2);
   max-width: 68ch; line-height: 1.55;
@@ -541,7 +557,7 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 }
 .boton[data-v='primario']:hover { background: var(--acento-2); border-color: var(--acento-2); }
 .boton[data-tam='chico'] {
-  min-height: 40px; padding: 0 var(--e3);
+  min-height: 44px; padding: 0 var(--e3);
   font-size: var(--t-xs); letter-spacing: 0.06em; text-transform: uppercase;
 }
 
@@ -578,8 +594,10 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .estrellas button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
 
 /* Estrellas de un toque, con media: dos mitades tocables sobre cada estrella. */
-.estrellas-toque { display: flex; align-items: center; gap: 2px; margin: var(--e2) 0; }
-.estrella { position: relative; width: 64px; height: 64px; font-size: 52px; line-height: 64px; color: var(--justo); }
+.estrellas-toque { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; margin: var(--e2) 0; }
+/* flex: none: si el renglón no alcanza, el número baja; las estrellas no se encogen
+   bajo sus mitades tocables. */
+.estrella { flex: none; position: relative; width: 64px; height: 64px; font-size: 52px; line-height: 64px; color: var(--justo); }
 .estrella .vacia,
 .estrella .llena > span { position: absolute; top: 0; left: 0; width: 64px; text-align: center; }
 .estrella .llena { position: absolute; top: 0; left: 0; height: 64px; overflow: hidden; }
@@ -590,8 +608,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .estrella .mitad:disabled { cursor: progress; }
 .estrellas-numero { min-width: 2.5rem; margin-left: var(--e2); font-size: var(--t-lg); }
 
-.juicios-rapidos { display: grid; gap: var(--e4); margin-top: var(--e5); }
-.juicio-rapido { padding: var(--e4); border: 1px solid var(--tinta-3); }
+.juicios-rapidos { margin-top: var(--e6); }
+/* Renglones con filete, no tarjetas: la regla de DESIGN.md vale aquí también. */
+.juicio-rapido { padding: var(--e4) 0; border-top: 1px solid var(--regla); }
 .juicio-pregunta { font-size: var(--t-lg); margin: 0; }
 .juicio-acciones { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e2); }
 
@@ -670,12 +689,14 @@ details > summary:hover { color: var(--acento); }
   color: var(--regla-2);
 }
 
-/* La foto del volante. Va arriba de la escena y a sangre en el móvil: es lo
-   primero que reconoce el ojo, antes de leer el título. */
+/* La foto del volante, al final de la escena y a sangre en el móvil. Iba arriba
+   («lo primero que reconoce el ojo»), pero medida el 3 nov 2026 empujaba la hora
+   a 858 px en una pantalla de 853: la escena de las 7:15 pide hora, sala y
+   boleta sin bajar. El alto se limita para que no tape la escena siguiente. */
 .escena .foto {
-  display: block; width: 100%; height: auto;
+  display: block; width: 100%; height: auto; max-height: 40vh;
   aspect-ratio: 16 / 9; object-fit: cover;
-  margin-bottom: var(--e4);
+  margin-top: var(--e4);
   background: var(--fondo-2);
 }
 

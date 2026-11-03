@@ -111,7 +111,7 @@ function Cuerpo({ p }) {
                       <>
                         {' · '}
                         <a className="boton" data-tam="chico" href={urlPlantilla(f)}
-                           target="_blank" rel="noopener noreferrer">A Calendar</a>
+                           target="_blank" rel="noopener noreferrer">Al calendario</a>
                       </>
                     )}
                     {f.boletas.filter(b => urlSegura(b.url_entrada)).map((b, i, a) => (

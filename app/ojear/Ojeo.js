@@ -296,10 +296,12 @@ export default function Ojeo({ p, recargar }) {
                       {cuerpo && <span className="cuerpo-aviso">{cuerpo}</span>}
                     </span>
                   )}
-                  {(g.ref.compania || g.ref.razon_claude) && (
+                  {(g.ref.compania || razones.length > 0) && (
                     <details className="ficha">
                       <summary>De qué se trata</summary>
-                      {g.ref.razon_claude && <p><b>Nota de Claude:</b> {g.ref.razon_claude}</p>}
+                      {/* El porqué de cada razón también aquí: el title del chip
+                          no se ve en el celular. */}
+                      {razones.map(r => <p key={r.id}>{textoRazon(r)}</p>)}
                       {g.ref.compania && <p>{g.ref.compania}</p>}
                     </details>
                   )}

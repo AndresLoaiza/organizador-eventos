@@ -49,7 +49,7 @@ export default function Exportar({ cols, filas, que = 'la tabla' }) {
 
     const tsv = aTSV(cols, filas);
     const html = aHTML(cols, filas);
-    const listo = () => setAviso({ ok: true, txt: `Copiado — pega en Excel con Ctrl+V` });
+    const listo = () => setAviso({ ok: true, txt: `Copiado. Pégalo en Excel con Ctrl+V` });
 
     try {
       if (navigator.clipboard && window.ClipboardItem) {

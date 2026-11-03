@@ -69,7 +69,8 @@ export default function JuicioRapido({ funcion, hoy, alTerminar }) {
 
       {fase === 'texto' && (
         <div className="campo">
-          <label htmlFor={idTexto}>Guardado. Si quieres, en tus palabras (puedes dictarlo)</label>
+          <p className="nota" role="status">Guardado.</p>
+          <label htmlFor={idTexto}>En tus palabras, si quieres (puedes dictarlo)</label>
           <textarea
             id={idTexto} rows={3} value={texto} onChange={e => setTexto(e.target.value)}
             placeholder="Qué funcionó, qué no, qué te robas para escena."

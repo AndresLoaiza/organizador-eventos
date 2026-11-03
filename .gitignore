@@ -12,3 +12,11 @@ out/
 lib/fixtures/
 # Razones que Claude escribe a partir de tu perfil.
 festivales/*.razones.json
+
+# Configuración local de Claude Code y la página temporal de entrada en desarrollo.
+.claude/settings.local.json
+public/_entrar-local.html
+
+# Página temporal de entrada en desarrollo (scripts/entrar-local.mjs).
+public/_entrar-local.html
+.claude/settings.local.json

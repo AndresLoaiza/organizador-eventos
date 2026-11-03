@@ -25,8 +25,8 @@ function Hoja({ p, recargar }) {
   const fecha = fechas.includes(hoy) ? hoy : (fechas.find(f => f >= hoy) ?? fechas.at(-1));
   const escenas = fecha ? nocheDe(p, fecha) : [];
   const altos = p.avisos.filter(a => a.severidad === 'alto');
-  // Lo que ya viste y no has juzgado: arriba, antes que la noche, porque es
-  // lo único de esta pantalla que se vence (a los pocos días ya no está fresco).
+  // Lo que ya viste y no has juzgado. Se vence a los pocos días, pero va debajo
+  // de la noche: la escena de las 7:15 manda en esta pantalla.
   const pendientes = porJuzgar(p.funciones, hoy, minutosAhoraMedellin());
 
   return (
@@ -34,14 +34,6 @@ function Hoja({ p, recargar }) {
       {altos.length > 0 && (
         <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
           <Avisos avisos={altos} />
-        </section>
-      )}
-
-      {pendientes.length > 0 && (
-        <section className="seccion juicios-rapidos" aria-label="Lo que ya viste">
-          {pendientes.map(f => (
-            <JuicioRapido key={f.id} funcion={f} hoy={hoy} alTerminar={recargar} />
-          ))}
         </section>
       )}
 
@@ -73,17 +65,13 @@ function Hoja({ p, recargar }) {
               <li className="escena" key={e.id} data-estado={e.estado}>
                 <span className="n num" aria-hidden="true">{i + 1}</span>
                 <div>
-                  {e.imagen_url && (
-                    <img
-                      className="foto" src={e.imagen_url} alt={`${e.obra}, ${e.compania ?? ''}`}
-                      loading={i === 0 ? 'eager' : 'lazy'} decoding="async"
-                    />
-                  )}
                   <div className="hora num">{e.horaTexto}</div>
                   <div className="obra">{e.obra}</div>
                   <div className="donde">
-                    {e.sala?.nombre ?? 'Sala por confirmar'}
-                    {e.sala?.direccion ? ` · ${e.sala.direccion}` : ''}
+                    {/* Si la dirección ya empieza con el nombre de la sala, no se repite. */}
+                    {e.sala?.nombre && e.sala?.direccion?.startsWith(e.sala.nombre)
+                      ? e.sala.direccion
+                      : <>{e.sala?.nombre ?? 'Sala por confirmar'}{e.sala?.direccion ? ` · ${e.sala.direccion}` : ''}</>}
                   </div>
                   {e.margen && (
                     <div className="margen" data-estimado={String(e.margen.estimado)}>{e.margen.texto}</div>
@@ -95,6 +83,15 @@ function Hoja({ p, recargar }) {
                     </span>
                   </div>
                   <BoletasDe funcion={e} />
+                  {/* La foto va al final: a las 7:15 lo que se mira de reojo es
+                      la hora, la sala y la boleta. Antes iba arriba y empujaba la
+                      hora fuera de la pantalla. */}
+                  {e.imagen_url && (
+                    <img
+                      className="foto" src={e.imagen_url} alt={`${e.obra}, ${e.compania ?? ''}`}
+                      loading="lazy" decoding="async"
+                    />
+                  )}
                   {e.estado !== 'comprada' && e.necesarias > e.boletas.length && (
                     <div className="margen">
                       {e.boletas.length} de {e.necesarias} boletas.{' '}
@@ -114,6 +111,16 @@ function Hoja({ p, recargar }) {
           </div>
         )}
       </section>
+
+      {/* Debajo de la noche, no encima: a las 7:15 lo primero es la hora, la sala
+          y la boleta. El juicio puede esperar un renglón. */}
+      {pendientes.length > 0 && (
+        <section className="seccion juicios-rapidos" aria-label="Lo que ya viste">
+          {pendientes.map(f => (
+            <JuicioRapido key={f.id} funcion={f} hoy={hoy} alTerminar={recargar} />
+          ))}
+        </section>
+      )}
 
       <p className="entradilla">
         {escenas.length > 0 && (

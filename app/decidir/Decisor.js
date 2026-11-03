@@ -129,7 +129,7 @@ export default function Decisor({ p, recargar }) {
       <Cabecera mascara="bauta" titulo="Decidir">
           {filtrado ? (
             <>
-              {candidatas.length} de {p.funciones.length} funciones — sin las que
+              {candidatas.length} de {p.funciones.length} funciones, sin las que
               descartaste en <b>Ojear</b>. <b>{elegidas.size}</b> en tu agenda.
             </>
           ) : (
@@ -228,7 +228,7 @@ export default function Decisor({ p, recargar }) {
                   <span className="hora num">{fmtHora(f.hora_min)}</span>
                   <span className="obra">
                     {f.obra}
-                    {f.interes === 'si' && <b className="razon" title="La marcaste en Ojear"> ★ Me interesa</b>}
+                    {f.interes === 'si' && <b className="razon" title="La marcaste en Ojear"> Me interesa</b>}
                     {razonesDe(f, ev).map(r => (
                       <b className="razon" key={r.id} data-origen={r.origen} title={textoRazon(r)}> {r.etiqueta}</b>
                     ))}
