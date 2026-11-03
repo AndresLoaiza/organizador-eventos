@@ -42,7 +42,7 @@ function Hoja({ p, recargar }) {
           <Margen tipo="cuoio" tam="capitular" className="marca-noche" />
           {fecha ? (
             <>
-              <span className="rotulo">{fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}</span>
+              <h1 className="rotulo">{fecha === hoy ? 'Esta noche' : `El ${nombreDia(fecha)}`}</h1>
               <span className="fecha num">{fechaLarga(fecha)} · {p.festival.nombre}</span>
             </>
           ) : (

@@ -179,6 +179,19 @@ export default function Ojeo({ p, recargar }) {
             <option key={f} value={f}>{nombreDia(f)} {f.slice(8)}</option>
           ))}
         </select>
+        <input
+          type="text" value={busca} onChange={e => setBusca(e.target.value)}
+          placeholder="Buscar obra o invitado" aria-label="Buscar"
+        />
+        {/* Franja, lugar y tipo, plegados: con seis controles a la vista el
+            filtro se volvía la tarea. Se abre solo si alguno está activo. */}
+        <details className="mas-filtros" open={Boolean(franja || lugar || tipo)}>
+          <summary>
+            Más filtros{[franja, lugar, tipo].filter(Boolean).length
+              ? ` (${[franja, lugar, tipo].filter(Boolean).length} activo${[franja, lugar, tipo].filter(Boolean).length > 1 ? 's' : ''})`
+              : ''}
+          </summary>
+          <div className="filtros">
         <select value={franja} onChange={e => setFranja(e.target.value)} aria-label="Franja">
           <option value="">Todas las franjas</option>
           {franjas.map(([f, n]) => <option key={f} value={f}>{f} ({n})</option>)}
@@ -196,10 +209,8 @@ export default function Ojeo({ p, recargar }) {
             {haySinTipo && <option value={SIN_TIPO}>Sin clasificar</option>}
           </select>
         )}
-        <input
-          type="text" value={busca} onChange={e => setBusca(e.target.value)}
-          placeholder="Buscar obra o invitado" aria-label="Buscar"
-        />
+          </div>
+        </details>
       </div>
 
       {error && (

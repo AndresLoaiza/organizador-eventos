@@ -98,37 +98,33 @@ function Cuerpo({ p }) {
                       );
                     })()}
                     {f.margen && <> · {f.margen.texto}</>}
-                    {f.boletas.length === 0 && urlSegura(f.url_compra) && (
-                      <>
-                        {' · '}
-                        <a className="boton" data-tam="chico" href={urlSegura(f.url_compra)}
-                           target="_blank" rel="noopener noreferrer">Comprar boleta</a>
-                      </>
-                    )}
-                    {/* Abre Google Calendar con el evento lleno; en la próxima
-                        sesión con Claude se pasa al calendario «Festivales». */}
-                    {f.fecha >= p.hoy && (
-                      <>
-                        {' · '}
-                        <a className="boton" data-tam="chico" href={urlPlantilla(f)}
-                           target="_blank" rel="noopener noreferrer">Al calendario</a>
-                      </>
-                    )}
-                    {f.boletas.filter(b => urlSegura(b.url_entrada)).map((b, i, a) => (
-                      <span key={b.id}>
-                        {' · '}
-                        <a className="boton" data-tam="chico" href={urlSegura(b.url_entrada)}
-                           target="_blank" rel="noopener noreferrer">
-                          {a.length > 1 ? `Entrada ${i + 1}` : 'Ver entrada'}
-                        </a>
-                      </span>
-                    ))}
                     {' · '}
                     {f.juicio
                       ? <Link href="/bitacora">Ya la registraste</Link>
                       : f.fecha <= p.hoy
                         ? <Link href="/bitacora">Registrar qué te pareció</Link>
                         : <Link href="/boletas">Boletas</Link>}
+                    {/* Los botones en su propia línea: mezclados con el precio y
+                        separados por « · », a 375 px partían en renglones con
+                        puntos huérfanos al principio. */}
+                    <span className="acciones">
+                      {f.boletas.length === 0 && urlSegura(f.url_compra) && (
+                        <a className="boton" data-tam="chico" href={urlSegura(f.url_compra)}
+                           target="_blank" rel="noopener noreferrer">Comprar boleta</a>
+                      )}
+                      {f.boletas.filter(b => urlSegura(b.url_entrada)).map((b, i, a) => (
+                        <a key={b.id} className="boton" data-tam="chico" href={urlSegura(b.url_entrada)}
+                           target="_blank" rel="noopener noreferrer">
+                          {a.length > 1 ? `Entrada ${i + 1}` : 'Ver entrada'}
+                        </a>
+                      ))}
+                      {/* Abre Google Calendar con el evento lleno; en la próxima
+                          sesión con Claude se pasa al calendario «Festivales». */}
+                      {f.fecha >= p.hoy && (
+                        <a className="boton" data-tam="chico" href={urlPlantilla(f)}
+                           target="_blank" rel="noopener noreferrer">Al calendario</a>
+                      )}
+                    </span>
                   </span>
                 </li>
               ))}

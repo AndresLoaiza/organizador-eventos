@@ -249,7 +249,7 @@ export default function Decisor({ p, recargar }) {
                       disabled={guardando === f.id}
                       onClick={() => alternar(f)}
                     >
-                      {guardando === f.id ? '…' : f.agendada ? 'En la agenda' : 'Agendar'}
+                      {guardando === f.id ? '…' : f.agendada ? 'Quitar' : 'Agendar'}
                     </button>
                   </span>
                   {descartadasQueSeCruzan(f).map(o => (
