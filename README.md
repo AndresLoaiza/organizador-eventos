@@ -23,11 +23,11 @@ cp .env.example .env.local
 ```bash
 npm run migrar   # aplica las migraciones de supabase/ en orden
 npm run setup    # verifica schema y bucket
-npm run seed     # carga la 22.ª Fiesta y sube los archivos de D:\Download
+npm run cargar -- <slug>   # carga un festival desde festivales/<slug>.json
 npm run dev
 ```
 
-Entra una sola vez con `http://localhost:3000/entrar?k=TU_ACCESO_SECRETO`. Queda una cookie `httpOnly` por 120 días.
+La primera vez en cada dispositivo la app pide el código de acceso (lo imprime `npm run codigo`) y lo guarda ahí.
 
 ## Cómo se entra
 
@@ -67,7 +67,7 @@ Lo que resalta sale del perfil de gustos del vault o de algo que Andrés pidió,
 
 **Decidir** es el decisor: día por día, con filtro por franja y búsqueda, marcando funciones y viendo en el mismo renglón qué se cae por elegirlas. Con 776 opciones en diez días la pregunta deja de ser qué alcanza el bolsillo y pasa a ser qué se descarta, así que el filtro va primero y el veredicto después.
 
-La transcripción del volante se hizo **leyendo las páginas como imagen**, no del texto extraído. El PDF es de tres columnas: al pasarlo a texto plano los campos se intercalan (la hora de una obra queda pegada a la boletería de otra) y el volante reimprime el nombre de la compañía en la columna de al lado como eco de diseño. Reconstruirlo con heurísticas de coordenadas dejaba una de cada cinco filas contaminada, y ese error es invisible después. `scripts/datos-22-fiesta.mjs` es el resultado verificado; `npm run programacion` lo carga.
+La transcripción del volante se hizo **leyendo las páginas como imagen**, no del texto extraído. El PDF es de tres columnas: al pasarlo a texto plano los campos se intercalan (la hora de una obra queda pegada a la boletería de otra) y el volante reimprime el nombre de la compañía en la columna de al lado como eco de diseño. Reconstruirlo con heurísticas de coordenadas dejaba una de cada cinco filas contaminada, y ese error es invisible después. El resultado verificado vive en `festivales/fiesta-artes-escenicas-22-2026.json`, y la transcripción quedó archivada en el bucket con `metodo: imagen`.
 
 ## Extracción de boletas
 
@@ -86,13 +86,12 @@ Mientras tanto, la captura rápida de la app (obra y valor, diez segundos de pie
 
 | Comando | Qué hace |
 |---|---|
-| `npm test` | 92 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
+| `npm test` | 144 pruebas del motor de choques, las alarmas y la agenda, con datos reales de la Fiesta |
 | `npm run migrar` | Aplica el schema por Postgres directo |
 | `npm run setup` | Verifica el schema y crea el bucket |
-| `npm run seed` | Carga festival, salas, traslados, agenda y boletas |
-| `npm run programacion` | Carga la programación de la Fiesta de las Artes Escénicas |
-| `npm run fiesta-libro` | Carga la Fiesta del Libro desde el CSV del sitio |
-| `npm run san-ignacio` | Carga el Festival de Teatro San Ignacio y sube las fotos de cada obra |
+| `npm run exportar -- <slug>` | Base → `festivales/<slug>.json`; aborta si separar los campos pierde algo |
+| `npm run fuente -- <slug> <md> <metodo> <url> <fecha>` | Archiva la fuente en markdown en el bucket |
+| `npm run cargar -- <slug> [--seco]` | `festivales/<slug>.json` → base; en seco solo muestra el diff |
 | `npm run imagenes` | Sube las fotos recortadas del volante |
 | `npm run boletas:pendientes` | Baja a `trabajo/` los archivos que faltan extraer |
 | `npm run boletas:aplicar` | Escribe lo extraído |
@@ -119,7 +118,7 @@ supabase/     migraciones SQL, las aplica npm run migrar en orden
 - **Las alternativas de una noche se evalúan contra TODAS las agendadas del festival**, no contra las de esa fecha. Filtrar por fecha hace que el motor crea que las otras noches están libres y prometa rescates que no existen. Hay test de regresión.
 - **«Gratis» y «no lo sé» son distintos, y `precio_pleno` los distingue.** Cero es entrada libre; `NULL` es que el organizador no publicó tarifa. Con un entero `NOT NULL DEFAULT 0` eran indistinguibles, y la agenda decía «Entrada libre» sobre funciones de Comfama que sí se pagan. Cuando el total de pendientes deja funciones fuera por no tener tarifa, la pantalla dice cuántas: un total que se lee como el costo del plan completo cuando le faltan ocho funciones es peor que no dar total.
 - **Los precios no se estiman.** Si el organizador no los publica, la respuesta es que no los publica.
-- **La extracción de una página web se congela en un módulo.** `scripts/datos-san-ignacio.mjs` guarda las 52 funciones tal como se extrajeron; el cargador lee el módulo, no la red. Un sitio de festival cambia y se cae, y sin la copia no hay con qué comparar. Cómo se rehace: `scripts/extraccion/LEEME.md`, que también lista las seis trampas del sitio de Comfama.
+- **La extracción se congela en `festivales/<slug>.json`.** El cargador lee el JSON, no la red. La fuente cruda queda archivada en markdown en el bucket (`fuentes/`), y el JSON dice cuál y cómo se obtuvo. Cómo se rehizo San Ignacio: `scripts/extraccion/LEEME.md`, que también lista las seis trampas del sitio de Comfama.
 - **Cada festival trae sus propias zonas de traslado.** Las de la Fiesta del Libro llevan prefijo `flc-` porque comparten ciudad con las de artes escénicas, que usan `centro` y `norte` con otro significado. Dentro del recinto el traslado son 8 minutos, no cero: son salas separadas por senderos y filas.
 - **Sin elección explícita manda el festival que está corriendo hoy**, después el próximo que empieza, y solo al final el más reciente. Abrir la app en mitad de un festival y ver otro sería absurdo. Hay test.
 - **Los títulos se normalizan antes de insertar.** El motor agrupa repeticiones comparando el título exacto: "Ixaquene" y "IXAQUENE" quedaban como dos obras y la app decía que se perdía algo que sí se podía ver otro día. El cargador busca un título que solo difiera en mayúsculas o tildes y reutiliza el que ya está.

@@ -1,6 +1,7 @@
 # Extracción del Festival San Ignacio
 
-De dónde salió `scripts/datos-san-ignacio.mjs`. Se guarda porque la
+De dónde salió la programación de San Ignacio (hoy en
+`festivales/festival-teatro-san-ignacio-2026.json`). Se guarda porque la
 programación vino de una página web: si el sitio cambia, hay que poder rehacer
 la extracción y ver en qué difiere, no volver a empezar de memoria.
 
@@ -8,9 +9,13 @@ la extracción y ver en qué difiere, no volver a empezar de memoria.
 defuddle parse https://www.comfama.com/festivales/festival-teatro-san-ignacio/   --md -o trabajo/sanignacio/pagina.md
 python scripts/extraccion/parsear.py          # -> trabajo/sanignacio/funciones.json
 python scripts/extraccion/bajar-imagenes.py   # -> trabajo/sanignacio/imagenes/
-python scripts/extraccion/generar-datos.py    # -> scripts/datos-san-ignacio.mjs
-npm run san-ignacio                           # carga base + sube fotos
+# funciones.json se pasa a festivales/festival-teatro-san-ignacio-2026.json (formato 1)
+npm run fuente -- festival-teatro-san-ignacio-2026 trabajo/sanignacio/pagina.md defuddle <url> <fecha>
+npm run cargar -- festival-teatro-san-ignacio-2026 --seco
 ```
+
+`generar-datos.py` escribía `scripts/datos-san-ignacio.mjs`, que ya no existe:
+la salida ahora es el JSON del formato 1.
 
 ## Lo que costó descubrir
 

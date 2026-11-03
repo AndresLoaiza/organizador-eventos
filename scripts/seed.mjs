@@ -1,3 +1,7 @@
+// HISTÓRICO. Sembró la 22.ª Fiesta el 24 ago 2026 y sus datos ya están en la
+// base. La programación ahora vive en festivales/*.json y se carga con
+// `npm run cargar`. No correr sobre una base que ya tiene datos.
+
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import process from 'node:process';
