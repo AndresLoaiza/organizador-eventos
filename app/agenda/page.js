@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import { useState } from 'react';
+import Calendario from './Calendario.js';
 import { urlSegura } from '../../lib/url.mjs';
 import { urlPlantilla } from '../../lib/calendario.mjs';
 import { nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/panorama.mjs';
@@ -18,6 +20,7 @@ export default function Agenda() {
 
 
 function Cuerpo({ p }) {
+  const [vista, setVista] = useState('lista');
   // Solo de hoy en adelante: lo que ya pasó no se planea, se juzga en la Bitácora.
   const todas = [...new Set(p.funciones.filter(f => f.agendada).map(f => f.fecha))].sort();
   const fechas = todas.filter(f => f >= p.hoy);
@@ -50,6 +53,13 @@ function Cuerpo({ p }) {
 
       <Exportar cols={COLS_AGENDA} filas={filasAgenda(p.funciones)} que="la agenda" />
 
+      <div className="vista-toggle" role="group" aria-label="Cómo ver la agenda">
+        {[['lista', 'Lista'], ['calendario', 'Calendario']].map(([v, rotulo]) => (
+          <button key={v} type="button" className="boton" data-tam="chico"
+                  aria-pressed={vista === v} onClick={() => setVista(v)}>{rotulo}</button>
+        ))}
+      </div>
+
       {pasadas > 0 && (
         <p className="entradilla">
           {pasadas === 1 ? 'Una noche ya pasó y no se muestra' : `${pasadas} noches ya pasaron y no se muestran`}.{' '}
@@ -74,7 +84,7 @@ function Cuerpo({ p }) {
         </section>
       )}
 
-      {fechas.map(fecha => {
+      {vista === 'calendario' ? <section className="seccion"><Calendario p={p} /></section> : fechas.map(fecha => {
         const noche = nocheDe(p, fecha);
         const otras = alternativasDe(p, fecha);
         const esHoy = fecha === p.hoy;

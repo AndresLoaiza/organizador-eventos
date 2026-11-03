@@ -630,6 +630,57 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 /* --- Tabla ---------------------------------------------------------------- */
 
 .tabla-scroll { overflow-x: auto; }
+
+/* --- Agenda como calendario ------------------------------------------------ */
+
+.vista-toggle { display: flex; gap: var(--e2); margin-top: var(--e4); }
+.vista-toggle .boton[aria-pressed='true'] { background: var(--tinta); border-color: var(--tinta); color: var(--fondo); }
+
+/* Un día por columna. En el celular no caben todos: se desliza, y cada columna
+   guarda un ancho legible en vez de encogerse hasta no decir nada. */
+.cal-scroll { overflow-x: auto; }
+.cal {
+  display: grid;
+  grid-template-columns: 4.25rem repeat(var(--dias), minmax(9.5rem, 1fr));
+  border-top: 1px solid var(--regla);
+}
+.cal-dia-titulo {
+  display: flex; flex-direction: column; padding: var(--e2) var(--e2) var(--e3);
+  border-bottom: 1px solid var(--regla);
+}
+.cal-dia-titulo b { text-transform: capitalize; }
+.cal-dia-titulo span { font-size: var(--t-xs); color: var(--tinta-3); }
+.cal-dia-titulo[data-hoy='true'] b { color: var(--acento); }
+.cal-horas { position: relative; }
+.cal-horas span {
+  position: absolute; right: var(--e2); transform: translateY(-50%);
+  font-size: var(--t-xs); color: var(--tinta-3);
+}
+.cal-horas span:first-child { transform: none; }
+.cal-columna { position: relative; border-left: 1px solid var(--regla); }
+.cal-linea { position: absolute; left: 0; right: 0; border-top: 1px solid var(--regla); }
+
+/* El bloque es una función, no una tarjeta decorativa: fondo apenas distinto,
+   filete completo y el estado en texto. Comprada en verde, sin boleta en acento. */
+.cal-bloque {
+  position: absolute; overflow: hidden;
+  display: flex; flex-direction: column; gap: 1px;
+  padding: var(--e1) var(--e2);
+  background: var(--fondo-2); border: 1px solid var(--regla-2); border-radius: 2px;
+  font-size: var(--t-xs); line-height: 1.25;
+}
+.cal-bloque[data-estado='comprada'] { border-color: var(--gana); }
+.cal-bloque[data-estado='agendada'] { border-color: var(--acento); }
+.cal-cabeza { display: flex; justify-content: space-between; gap: var(--e1); }
+.cal-hora { color: var(--tinta-2); white-space: nowrap; }
+.cal-obra {
+  font-size: var(--t-sm); font-weight: 700;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.cal-sala { color: var(--tinta-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cal-estado { color: var(--tinta-3); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.68rem; white-space: nowrap; }
+.cal-bloque[data-estado='comprada'] .cal-estado { color: var(--gana); }
+.cal-bloque[data-estado='agendada'] .cal-estado { color: var(--acento); }
 table { border-collapse: collapse; width: 100%; font-size: var(--t-sm); }
 th, td { text-align: left; padding: var(--e3) var(--e3) var(--e3) 0; border-bottom: 1px solid var(--regla); white-space: nowrap; }
 th {
