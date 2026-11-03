@@ -85,10 +85,10 @@ que recargar no pueda pisar una decisión.
                 "nombre": "Festival de Teatro Comfama San Ignacio",
                 "ciudad": "Medellín",
                 "fecha_inicio": "2026-10-31", "fecha_fin": "2026-11-07" },
-  "fuente": { "key": "fuentes/festival-teatro-san-ignacio-2026/2026-10-20_a1b2c3d4.md",
-              "url": "https://www.comfama.com/festivales/festival-teatro-san-ignacio/",
-              "bajada": "2026-10-20",
-              "metodo": "defuddle" },
+  "fuentes": [{ "key": "fuentes/festival-teatro-san-ignacio-2026/2026-10-20_a1b2c3d4.md",
+                "url": "https://www.comfama.com/festivales/festival-teatro-san-ignacio/",
+                "bajada": "2026-10-20",
+                "metodo": "defuddle" }],
   "salas": [{ "slug": "teatro-matacandelas", "nombre": "Teatro Matacandelas",
               "direccion": "…", "zona": "centro" }],
   "traslados": [{ "zona_a": "centro", "zona_b": "norte", "minutos": 25 }],
@@ -96,14 +96,17 @@ que recargar no pueda pisar una decisión.
     "obra": "Cariño malo",
     "compania": "Ministerio de la Belleza (Perú)",
     "descripcion": "Silvio, un hombre de 40 años…",
-    "franja": null,
+    "franjas": [],
     "tipos": ["Teatro de texto"],
     "publico": "+18 años",
+    "nota": "Boletería por confirmar (tarifas Comfama)",
+    "fuente_horario": "sitio-web",
     "fecha": "2026-11-01", "hora": "19:30", "sala": "teatro-matacandelas",
     "duracion": { "min": 75, "confirmada": true },
     "precio": { "pleno": null, "dcto": null, "libre": false },
     "url_compra": "https://latiquetera.com/…",
-    "imagen": "carino-malo.webp"
+    "imagen": { "key": "fotos/festival-teatro-san-ignacio-2026/carino-malo.webp",
+                "credito": "comfama.com" }
   }]
 }
 ```
@@ -118,14 +121,24 @@ Reglas de los campos:
   «Entrada libre» sobre funciones de Comfama que se pagan.
 - `duracion.confirmada = false` cuando el número es estimado (80 teatro, 90
   concierto, 180 molienda, como hasta hoy).
-- `franja`, `descripcion` y `publico` son campos propios. Hoy la descripción
-  vive dentro de `funciones.compania` y la franja dentro de
-  `funciones.nota_boleteria`; la migración `012_campos_ficha.sql` agrega las
-  columnas `descripcion`, `franja`, `publico` y separa los datos existentes.
+- `franjas` (lista: en la Fiesta del Libro un evento puede estar en dos),
+  `descripcion` y `publico` son campos propios. `nota` es el resto del texto de
+  boletería. La migración `012_campos_ficha.sql` agrega las columnas
+  `descripcion text`, `franjas text[]`, `publico text`.
+- **Columnas heredadas.** Hoy la descripción vive dentro de `compania` y la
+  franja y el público dentro de `nota_boleteria`. Para no tocar la app en este
+  subproyecto, el cargador sigue escribiendo esas dos columnas, recompuestas con
+  una sola regla para los tres festivales (`lib/legado.mjs`):
+  `compania = [compania, descripcion].join(' · ')` recortado a 900, y
+  `nota_boleteria = [...franjas, publico, nota].join(' · ')`, omitiendo vacíos.
+  Las pantallas pasan a leer las columnas nuevas en el subproyecto 2; ahí se
+  deja de recomponer.
 
 ### Fuente cruda
 
-La fuente se archiva una sola vez por bajada, en el bucket `baul-eventos`, como
+Un festival puede tener varias fuentes (San Ignacio: la programación artística
+y la académica son dos páginas), por eso `fuentes` es una lista; el validador
+exige al menos una. Cada fuente se archiva una sola vez por bajada, en el bucket `baul-eventos`, como
 markdown: `fuentes/{festival}/{AAAA-MM-DD}_{hash8}.md`. No se guardan los
 originales. El encabezado del markdown dice cómo se obtuvo:
 
@@ -172,20 +185,20 @@ Tests en `lib/formato.test.mjs`, uno por regla.
 
 ### Prueba de equivalencia
 
-1. `npm run exportar <slug>` escribe el JSON desde la base actual, ya con la
-   migración 012 aplicada.
-2. Se recarga con `npm run cargar <slug> --seco`.
-3. El diff tiene que salir vacío en los tres festivales.
-4. Como el paso 1 sale de la misma base, los pasos 1 a 3 solo prueban que
-   exportar y cargar son inversos. Falta probar que la base coincide con lo que
-   producían los cargadores viejos: se compara el JSON contra
-   `datos-22-fiesta.mjs`, `datos-san-ignacio.mjs` y el CSV de la Fiesta del
-   Libro, en los campos de catálogo (obra, fecha, hora, sala, duración,
-   precio). Toda diferencia se lista y se explica una por una; una explicable
-   es, por ejemplo, la fe de erratas de la 22.ª Fiesta. Una diferencia sin
-   explicación se corrige antes de seguir.
+La referencia es la base actual: ahí están los cargadores, la siembra, la fe de
+erratas, los tipos y las fotos ya aplicados.
 
-Los pasos 3 y 4 juntos son la condición para borrar los cargadores viejos.
+1. `npm run exportar <slug>` escribe el JSON desde la base. Separa
+   `compania` y `nota_boleteria` en los campos nuevos y **aborta si recomponer
+   lo separado no devuelve exactamente lo que había**, fila por fila. Esa es la
+   prueba que no es circular: demuestra que la separación no pierde nada en las
+   896 filas.
+2. `npm run cargar <slug> --seco` contra la base: las columnas existentes no
+   cambian; solo aparecen llenas las tres columnas nuevas.
+3. `npm run cargar <slug>` y de nuevo `--seco`: diff vacío.
+
+Pasar los tres pasos en los tres festivales es la condición para borrar los
+cargadores viejos.
 
 ### Qué se borra
 
@@ -194,9 +207,11 @@ Después de la prueba de equivalencia:
 - `scripts/cargar-programacion.mjs`, `cargar-fiesta-libro.mjs`,
   `cargar-san-ignacio.mjs`, `cargar-academico-san-ignacio.mjs`,
   `datos-22-fiesta.mjs`, `datos-san-ignacio.mjs`, `tipos-san-ignacio.mjs`;
-- la parte de programación de `scripts/seed.mjs` (festival, salas, traslados,
-  funciones). Las boletas sembradas se quedan;
 - los scripts npm `programacion`, `fiesta-libro`, `san-ignacio`.
+
+`scripts/seed.mjs` se queda sin cambios, marcado como histórico: su parte de
+boletas depende de su parte de programación, y sus datos ya están en la base.
+Se quita del arranque del README.
 
 `scripts/extraccion/` se queda como receta de cómo se sacó San Ignacio, con su
 `LEEME.md` apuntando a que ahora el destino es el JSON.
