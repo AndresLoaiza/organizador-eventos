@@ -23,7 +23,7 @@ const SECO = process.argv.includes('--seco');
 const festivales = await sql(
   `select *, to_char(fecha_inicio, 'YYYY-MM-DD') as fecha_inicio from eventos.festivales`);
 const funciones = await sql(
-  `select id, festival_id, to_char(fecha, 'YYYY-MM-DD') as fecha, obra, compania, agendada
+  `select id, festival_id, to_char(fecha, 'YYYY-MM-DD') as fecha, obra, compania, descripcion, agendada
      from eventos.funciones where agendada`);
 const bitacora = await sql('select * from eventos.bitacora');
 
