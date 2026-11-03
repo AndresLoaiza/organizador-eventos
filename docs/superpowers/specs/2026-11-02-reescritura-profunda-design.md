@@ -283,6 +283,11 @@ llevan el umbral, y la interfaz lo dice:
 Con duración confirmada o `umbral ≤ 0` no se dice nada. Tests nuevos para los
 tres casos; los 96 actuales no se tocan.
 
+### Lo que cambió al implementarlo (3 nov 2026)
+
+- La función se llama `textoUmbral(r)` y devuelve la frase o `null`.
+- En un choque, el umbral solo se dice si la obra tendría que durar a lo sumo 20 min menos de lo estimado (`MARGEN_VEROSIMIL`, la misma regla de la skill). Sin ese filtro, 70 de 115 renglones de la 22.ª Fiesta tenían umbral, varios del tipo «cabría si dura 18 min». Con él quedan 4, todos confirmables.
+
 ## 4. Bitácora de un toque
 
 En inicio (`app/page.js`), arriba, aparece una tarjeta por cada función
