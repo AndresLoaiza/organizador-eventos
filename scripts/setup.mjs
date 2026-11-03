@@ -27,7 +27,7 @@ if (!storage) {
     const { error: e } = await storage.storage.createBucket(BUCKET, {
       public: false,
       fileSizeLimit: '25MB',
-      allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'application/pdf'],
+      allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'application/pdf', 'text/markdown'],
     });
     if (e) console.error(`No se pudo crear el bucket: ${e.message}`);
     else console.log(`Bucket ${BUCKET}: creado, privado.`);

@@ -7,7 +7,20 @@
     "fecha_inicio": "2026-10-31",
     "fecha_fin": "2026-11-07"
   },
-  "fuentes": [],
+  "fuentes": [
+    {
+      "key": "fuentes/festival-teatro-san-ignacio-2026/2026-10-20_1a736901.md",
+      "url": "https://www.comfama.com/festivales/festival-teatro-san-ignacio/",
+      "bajada": "2026-10-20",
+      "metodo": "defuddle"
+    },
+    {
+      "key": "fuentes/festival-teatro-san-ignacio-2026/2026-10-29_358e337e.md",
+      "url": "https://www.comfama.com/festivales/festival-teatro-san-ignacio/programacion-academica/",
+      "bajada": "2026-10-29",
+      "metodo": "defuddle"
+    }
+  ],
   "salas": [
     {
       "slug": "fsi-bodega",

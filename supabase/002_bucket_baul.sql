@@ -10,7 +10,8 @@
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
   'baul-eventos', 'baul-eventos', false, 26214400,
-  array['image/jpeg','image/png','image/webp','image/heic','application/pdf']
+  -- text/markdown: fuentes de programación archivadas (fuentes/{festival}/...).
+  array['image/jpeg','image/png','image/webp','image/heic','application/pdf','text/markdown']
 )
 on conflict (id) do update
   set public = false,

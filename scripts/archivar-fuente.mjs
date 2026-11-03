@@ -27,7 +27,7 @@ const bytes = Buffer.from(texto, 'utf8');
 const key = `fuentes/${slug}/${bajada}_${hashContenido(bytes).slice(0, 8)}.md`;
 
 const { error } = await storage.storage.from(BUCKET)
-  .upload(key, bytes, { contentType: 'text/markdown; charset=utf-8', upsert: false });
+  .upload(key, bytes, { contentType: 'text/markdown', upsert: false });
 if (error && !/exists|Duplicate/i.test(error.message)) { console.error(error.message); process.exit(1); }
 console.log(error ? `Ya estaba: ${key}` : `Subida: ${key} (${bytes.length} bytes)`);
 
