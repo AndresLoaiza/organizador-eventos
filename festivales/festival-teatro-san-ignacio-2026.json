@@ -949,9 +949,9 @@
       "tipos": null,
       "publico": "+18 años",
       "nota": "Boletería por confirmar (tarifas Comfama)",
-      "fuente_horario": "sitio-web",
+      "fuente_horario": "correo:1a198b8b7d05faf2",
       "fecha": "2026-11-04",
-      "hora": "20:30",
+      "hora": "20:00",
       "sala": "fsi-ptu",
       "duracion": {
         "min": 70,
