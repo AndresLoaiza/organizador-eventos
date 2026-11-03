@@ -5,7 +5,7 @@ import { fmtHora } from '../../lib/decisor.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import {
   razonesDe, avisoCuerpo, ordenarParaOjear, contarOjeo,
-  agruparPorObra, interesDeGrupo,
+  agruparPorObra, interesDeGrupo, aprenderOjeo, textoRazon,
 } from '../../lib/interes.mjs';
 import Margen, { Cabecera, Friso } from '../Margen.js';
 
@@ -71,6 +71,9 @@ export default function Ojeo({ p, recargar }) {
   const hayTipos = tipos.length > 0;
 
   const cuenta = useMemo(() => contarOjeo(p.funciones), [p.funciones]);
+  // Lo que este ojeo ya enseñó: franjas, técnicas, salas y compañías donde
+  // vienes diciendo que sí. Se recalcula al marcar, y por eso el orden cambia.
+  const ev = useMemo(() => aprenderOjeo(p.funciones), [p.funciones]);
 
   const norm = s => (s ?? '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -82,10 +85,10 @@ export default function Ojeo({ p, recargar }) {
     .filter(f => !tipo || (tipo === SIN_TIPO ? !f.tipos?.length : f.tipos?.includes(tipo)))
     .filter(f => ver === 'todas'
       || (ver === 'sinVer' && !f.interes)
-      || (ver === 'destacadas' && razonesDe(f).length && f.interes !== 'no')
+      || (ver === 'destacadas' && razonesDe(f, ev).length && f.interes !== 'no')
       || f.interes === ver)
-    .filter(f => !busca || norm(`${f.obra} ${f.compania}`).includes(norm(busca)))),
-  [p.funciones, dia, franja, lugar, tipo, ver, busca]);
+    .filter(f => !busca || norm(`${f.obra} ${f.compania}`).includes(norm(busca))), ev),
+  [p.funciones, dia, franja, lugar, tipo, ver, busca, ev]);
 
   // Todas las fechas de cada obra en el festival, sin filtrar: marcar interés
   // en una tarjeta tiene que alcanzar a la función del lunes aunque el filtro
@@ -115,7 +118,7 @@ export default function Ojeo({ p, recargar }) {
   // Nunca toca lo destacado ni lo ya marcado, en ninguna de sus fechas: sirve
   // para vaciar una franja de 317 lanzamientos, no para borrar trabajo hecho.
   const gruposParaDescartar = grupos.filter(g =>
-    g.ocurrencias.every(o => !o.interes) && !razonesDe(g.ref).length);
+    g.ocurrencias.every(o => !o.interes) && !razonesDe(g.ref, ev).length);
 
   async function marcar(g, valor) {
     const ids = g.ocurrencias.map(o => o.id);
@@ -232,7 +235,7 @@ export default function Ojeo({ p, recargar }) {
           <ul className="funciones">
             {grupos.map(g => {
               const estado = interesDeGrupo(g.ocurrencias);
-              const razones = razonesDe(g.ref);
+              const razones = razonesDe(g.ref, ev);
               const cuerpo = avisoCuerpo(g.ref);
               const unaSola = g.ocurrencias.length === 1;
               // La foto se ata función por función (script cargar-imagenes),
@@ -288,7 +291,7 @@ export default function Ojeo({ p, recargar }) {
                           darle la contraria a la app, hay que saber de dónde
                           sacó que esto te interesaba. */}
                       {razones.map(r => (
-                        <b className="razon" key={r.id} title={r.fuente}>{r.etiqueta}</b>
+                        <b className="razon" key={r.id} data-origen={r.origen} title={textoRazon(r)}>{r.etiqueta}</b>
                       ))}
                       {cuerpo && <span className="cuerpo-aviso">{cuerpo}</span>}
                     </span>

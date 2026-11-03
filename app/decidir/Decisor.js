@@ -4,7 +4,7 @@ import { marcarAgendada } from '../../lib/cliente.mjs';
 import { fmtHora } from '../../lib/decisor.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
 import Veredicto from '../Veredicto.js';
-import { razonesDe } from '../../lib/interes.mjs';
+import { razonesDe, aprenderOjeo, textoRazon } from '../../lib/interes.mjs';
 import Exportar from '../Exportar.js';
 import { filasProgramacion, COLS_PROGRAMACION } from '../../lib/exportar.mjs';
 import { paraDecidir } from '../../lib/interes.mjs';
@@ -22,6 +22,7 @@ export default function Decisor({ p, recargar }) {
   // sin marcar que cae a la misma hora de otra tiene que poder agendarse.
   const { funciones: candidatas, filtrado } = useMemo(
     () => paraDecidir(p.funciones), [p.funciones]);
+  const ev = useMemo(() => aprenderOjeo(p.funciones), [p.funciones]);
 
   const fechas = useMemo(
     () => [...new Set(candidatas.map(f => f.fecha))].sort(), [candidatas]);
@@ -228,8 +229,8 @@ export default function Decisor({ p, recargar }) {
                   <span className="obra">
                     {f.obra}
                     {f.interes === 'si' && <b className="razon" title="La marcaste en Ojear"> ★ Me interesa</b>}
-                    {razonesDe(f).map(r => (
-                      <b className="razon" key={r.id} title={r.fuente}> {r.etiqueta}</b>
+                    {razonesDe(f, ev).map(r => (
+                      <b className="razon" key={r.id} data-origen={r.origen} title={textoRazon(r)}> {r.etiqueta}</b>
                     ))}
                     <span className="cia">
                       {f.sala?.nombre ?? 'Sala por confirmar'} · {f.duracion_min} min
