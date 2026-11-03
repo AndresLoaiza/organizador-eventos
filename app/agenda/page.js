@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { urlSegura } from '../../lib/url.mjs';
+import { urlPlantilla } from '../../lib/calendario.mjs';
 import { nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
@@ -102,6 +103,15 @@ function Cuerpo({ p }) {
                         {' · '}
                         <a className="boton" data-tam="chico" href={urlSegura(f.url_compra)}
                            target="_blank" rel="noopener noreferrer">Comprar boleta</a>
+                      </>
+                    )}
+                    {/* Abre Google Calendar con el evento lleno; en la próxima
+                        sesión con Claude se pasa al calendario «Festivales». */}
+                    {f.fecha >= p.hoy && (
+                      <>
+                        {' · '}
+                        <a className="boton" data-tam="chico" href={urlPlantilla(f)}
+                           target="_blank" rel="noopener noreferrer">A Calendar</a>
                       </>
                     )}
                     {f.boletas.filter(b => urlSegura(b.url_entrada)).map((b, i, a) => (
