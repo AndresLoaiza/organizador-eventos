@@ -139,7 +139,7 @@ export default function Ojeo({ p, recargar }) {
     setOcupado('lote');
     setError(null);
     try {
-      await marcarInteresVarias(ids, 'no');
+      await marcarInteresVarias(ids, 'no', { lote: true });
       await recargar();
     } catch (e) {
       setError(`No se pudo guardar: ${e.message}`);
