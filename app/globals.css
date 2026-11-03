@@ -577,6 +577,24 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .estrellas button.activa { color: var(--justo); }
 .estrellas button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
 
+/* Estrellas de un toque, con media: dos mitades tocables sobre cada estrella. */
+.estrellas-toque { display: flex; align-items: center; gap: 2px; margin: var(--e2) 0; }
+.estrella { position: relative; width: 64px; height: 64px; font-size: 52px; line-height: 64px; color: var(--justo); }
+.estrella .vacia,
+.estrella .llena > span { position: absolute; top: 0; left: 0; width: 64px; text-align: center; }
+.estrella .llena { position: absolute; top: 0; left: 0; height: 64px; overflow: hidden; }
+.estrella .mitad { position: absolute; top: 0; width: 32px; height: 64px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.estrella .mitad.izq { left: 0; }
+.estrella .mitad.der { right: 0; }
+.estrella .mitad:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; }
+.estrella .mitad:disabled { cursor: progress; }
+.estrellas-numero { min-width: 2.5rem; margin-left: var(--e2); font-size: var(--t-lg); }
+
+.juicios-rapidos { display: grid; gap: var(--e4); margin-top: var(--e5); }
+.juicio-rapido { padding: var(--e4); border: 1px solid var(--tinta-3); }
+.juicio-pregunta { font-size: var(--t-lg); margin: 0; }
+.juicio-acciones { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e2); }
+
 /* --- Tabla ---------------------------------------------------------------- */
 
 .tabla-scroll { overflow-x: auto; }

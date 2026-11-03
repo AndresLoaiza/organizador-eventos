@@ -1,5 +1,6 @@
 'use client';
 import { nombreDia, fechaLarga, yaTermino, minutosAhoraMedellin } from '../../lib/panorama.mjs';
+import { pintarEstrellas } from '../../lib/juicio.mjs';
 import Registrar from './Registrar.js';
 import Pantalla from '../Pantalla.js';
 import Margen, { Cabecera, Friso } from '../Margen.js';
@@ -67,11 +68,11 @@ function Cuerpo({ p, recargar }) {
                 <span className="obra">
                   {f.obra}
                   <span className="cia" style={{ whiteSpace: 'normal', marginTop: '0.35rem' }}>
-                    {f.juicio.texto}
+                    {f.juicio.asistio === false ? 'No fui' : (f.juicio.texto ?? 'Solo estrellas')}
                   </span>
                 </span>
                 <span className="estado" style={{ color: 'var(--justo)' }}>
-                  {f.juicio.estrellas ? '★'.repeat(f.juicio.estrellas) : ''}
+                  {pintarEstrellas(f.juicio.estrellas)}
                 </span>
                 <span className="pie">
                   {f.juicio.sincronizado_obsidian

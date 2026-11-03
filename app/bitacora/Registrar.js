@@ -2,10 +2,14 @@
 import { useState } from 'react';
 import { guardarJuicio } from '../../lib/cliente.mjs';
 import { nombreDia, fechaLarga } from '../../lib/panorama.mjs';
+import Estrellas from '../Estrellas.js';
 
 // El texto primero y las estrellas después, en ese orden, porque en ese orden
 // pesan. Un párrafo en sus palabras dice qué recomendarle el año que viene;
-// un 3 sobre 5 no dice nada.
+// un 3 sobre 5 dice poco. Desde el 3 nov 2026 el texto no es obligatorio: con
+// él obligatorio hubo tres juicios en tres festivales, y un juicio de solo
+// estrellas vale más que ninguno. Lo rápido está en inicio («Anoche viste…»);
+// aquí se corrige y se escribe con calma.
 
 export default function Registrar({ funciones, alGuardar }) {
   const [funcionId, setFuncionId] = useState(funciones[0]?.id ?? '');
@@ -24,8 +28,8 @@ export default function Registrar({ funciones, alGuardar }) {
 
   async function enviar(e) {
     e.preventDefault();
-    if (!texto.trim()) {
-      setEstado({ fase: 'error', msg: 'Escribe qué te pareció, aunque sea una línea.' });
+    if (!texto.trim() && !estrellas) {
+      setEstado({ fase: 'error', msg: 'Pon estrellas o escribe qué te pareció.' });
       return;
     }
     setEstado({ fase: 'guardando' });
@@ -79,27 +83,14 @@ export default function Registrar({ funciones, alGuardar }) {
         <textarea
           id="texto" value={texto} onChange={e => setTexto(e.target.value)}
           placeholder="En tus palabras. Qué funcionó, qué no, qué te robas para escena."
-          required
         />
         <p className="nota">Esto es lo que hace mejor la recomendación del próximo festival.</p>
       </div>
 
       <div className="campo">
         <label id="rot-estrellas">Estrellas</label>
-        <div className="estrellas" role="group" aria-labelledby="rot-estrellas">
-          {[1, 2, 3, 4, 5].map(n => (
-            <button
-              key={n} type="button"
-              aria-pressed={estrellas >= n}
-              aria-label={`${n} de 5`}
-              className={estrellas >= n ? 'activa' : ''}
-              onClick={() => setEstrellas(estrellas === n ? 0 : n)}
-            >
-              {estrellas >= n ? '★' : '☆'}
-            </button>
-          ))}
-        </div>
-        <p className="nota">Opcional. Sirve para ordenar, no para explicar.</p>
+        <Estrellas valor={estrellas} alCambiar={setEstrellas} rotulo="Estrellas" />
+        <p className="nota">Media estrella: toca la mitad izquierda. Sirve para ordenar, no para explicar.</p>
       </div>
 
       <button className="boton" data-v="primario" type="submit" disabled={estado.fase === 'guardando'}>

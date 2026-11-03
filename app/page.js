@@ -1,6 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { nocheDe, hoyMedellin, nombreDia, fechaLarga } from '../lib/panorama.mjs';
+import { nocheDe, hoyMedellin, nombreDia, fechaLarga, minutosAhoraMedellin } from '../lib/panorama.mjs';
+import { porJuzgar } from '../lib/juicio.mjs';
+import JuicioRapido from './JuicioRapido.js';
 import Avisos from './Avisos.js';
 import Pantalla from './Pantalla.js';
 import { BoletasDe } from './BotonBoleta.js';
@@ -12,10 +14,10 @@ const SELLO = {
 };
 
 export default function Canovaccio() {
-  return <Pantalla>{({ p }) => <Hoja p={p} />}</Pantalla>;
+  return <Pantalla>{({ p, recargar }) => <Hoja p={p} recargar={recargar} />}</Pantalla>;
 }
 
-function Hoja({ p }) {
+function Hoja({ p, recargar }) {
   const hoy = hoyMedellin();
   // Si hoy no hay nada, muestra la próxima noche con funciones. La pantalla
   // sirve para salir de casa, no para contemplar un día vacío.
@@ -23,12 +25,23 @@ function Hoja({ p }) {
   const fecha = fechas.includes(hoy) ? hoy : (fechas.find(f => f >= hoy) ?? fechas.at(-1));
   const escenas = fecha ? nocheDe(p, fecha) : [];
   const altos = p.avisos.filter(a => a.severidad === 'alto');
+  // Lo que ya viste y no has juzgado: arriba, antes que la noche, porque es
+  // lo único de esta pantalla que se vence (a los pocos días ya no está fresco).
+  const pendientes = porJuzgar(p.funciones, hoy, minutosAhoraMedellin());
 
   return (
     <>
       {altos.length > 0 && (
         <section className="seccion" style={{ marginTop: 'var(--e5)' }}>
           <Avisos avisos={altos} />
+        </section>
+      )}
+
+      {pendientes.length > 0 && (
+        <section className="seccion juicios-rapidos" aria-label="Lo que ya viste">
+          {pendientes.map(f => (
+            <JuicioRapido key={f.id} funcion={f} hoy={hoy} alTerminar={recargar} />
+          ))}
         </section>
       )}
 

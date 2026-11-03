@@ -314,6 +314,12 @@ Migración `013_bitacora_toque.sql`:
 `lib/obsidian.mjs` escribe `★★½` y no escribe estrellas cuando `asistio` es
 falso. Con test.
 
+### Lo que cambió al implementarlo (3 nov 2026)
+
+- La migración es `015_bitacora_toque.sql` (no 013). Además de lo de arriba, la base rechaza un «no fui» con estrellas.
+- Quitar la estrella tocándola de nuevo no guarda nada: un juicio vacío haría desaparecer la tarjeta sin decir nada.
+- La tarjeta no se va tras el primer toque: se va al guardar el texto, al decir «Así está bien» o al decir «No fui».
+
 ## 5. Google Calendar
 
 ### En la app
