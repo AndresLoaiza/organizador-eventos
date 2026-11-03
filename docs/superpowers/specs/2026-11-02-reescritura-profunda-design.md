@@ -49,6 +49,7 @@ Cada subproyecto tiene su propio plan y su propia prueba de terminado.
 | 4 | Bitácora de un toque | Juicio guardable en un toque desde inicio |
 | 5 | Google Calendar | Sesión deja un evento por función agendada, cero duplicados |
 | 6 | Gmail | Sesión aplica las boletas seguras y pregunta el resto |
+| 7 | Interfaz con las skills de UI | Auditoría hecha, hallazgos corregidos y verificados en el navegador a 375 px |
 
 La skill `festival-agenda` se reescribe después de este spec y antes del código
 del subproyecto 1, porque el paso 2 de la skill es quien produce el formato.
@@ -371,6 +372,39 @@ Solo en sesión, solo lectura: no se marca, archiva, borra ni responde nada.
    Siempre se pregunta. Si se aprueba, la función cambia con
    `fuente_horario = 'correo:<id del mensaje>'` y Calendar se corrige en la
    misma pasada.
+
+### Lo que cambió al implementarlo (3 nov 2026)
+
+- Migración `016_calendar.sql`.
+- `planCalendario(funciones, eventos, desde)`: lo anterior a hoy no se crea ni se toca, y un evento con la marca de una función de **otro** festival no se borra (el plan se calcula festival por festival).
+- El lugar del evento no repite el nombre de la sala ni lleva el teléfono; la entrada libre no dice «falta».
+- La mitad local es `npm run calendario -- plan <slug> <eventos.json>` y `-- guardar <funcion_id> <event_id>`; el MCP lo opera Claude en sesión.
+
+## 7. Interfaz con las skills de UI
+
+Pedido el 3 nov 2026. Va después de lo funcional para no pulir pantallas que todavía cambian.
+
+**Marco que no se negocia.** `PRODUCT.md` y `DESIGN.md` mandan: el canovaccio como documento de trabajo, un solo riesgo estético (la pantalla de esta noche), las máscaras a pluma, nada de dashboard de SaaS ni de plantilla de app de eventos. Las skills se usan para auditar y pulir dentro de esa identidad, no para reemplazarla.
+
+**Skills y para qué:**
+
+| Skill | Uso |
+|---|---|
+| `impeccable` | Crítica y auditoría de cada pantalla: jerarquía, carga cognitiva, estados vacíos y de error, copy, movimiento. Después, pulido |
+| `ui-ux-pro-max` | Revisión de accesibilidad y patrones táctiles: contraste en los dos temas, objetivos de 44 px, foco visible, `prefers-reduced-motion` |
+| `superpowers:verification-before-completion` | Nada se da por mejorado sin verlo en el navegador |
+
+**Qué se revisa, en orden de uso real:**
+
+1. Inicio / Canovaccio a 375 px, con la prueba de los cinco segundos de `PRODUCT.md`: a qué hora entro, en qué sala, tengo boleta.
+2. La tarjeta «Anoche viste…» y las estrellas. Deuda conocida: cada media estrella mide 32 px, bajo los 44 recomendados.
+3. Ojear: chips de razón por origen (`data-origen` existe pero no tiene estilo), el `title` que no se ve en el celular.
+4. Decidir: veredicto, umbral de duración, listas de choques.
+5. Agenda, Baúl y Bitácora.
+
+**Cómo se verifica.** Servidor local, navegador a 375 px y a escritorio, en los dos temas. Para entrar hace falta el código de acceso: Andrés lo escribe en la puerta, o autoriza leerlo de `.env.local`. Cada hallazgo se corrige con un antes/después visto, no supuesto.
+
+**Fuera de alcance:** cambiar la identidad visual, agregar pantallas o funciones.
 
 ## Spec, README y skill
 
