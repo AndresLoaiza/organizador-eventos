@@ -622,9 +622,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": null,
       "imagen": {
@@ -795,9 +795,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/tallercortocinesis",
       "imagen": null
@@ -987,9 +987,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/tallerjaviermolina",
       "imagen": null
@@ -1013,9 +1013,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/tallercortocinesis",
       "imagen": null
@@ -1066,9 +1066,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": null,
       "imagen": {
@@ -1095,9 +1095,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/encuentrosdubatti",
       "imagen": null
@@ -1237,9 +1237,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/tallerjaviermolina",
       "imagen": null
@@ -1290,9 +1290,9 @@
         "confirmada": false
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/encuentrosdubatti",
       "imagen": null
@@ -1492,9 +1492,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/tallerjaviermolina",
       "imagen": null
@@ -1518,9 +1518,9 @@
         "confirmada": true
       },
       "precio": {
-        "pleno": null,
+        "pleno": 0,
         "dcto": null,
-        "libre": false
+        "libre": true
       },
       "url_compra": "https://bit.ly/encuentrosdubatti",
       "imagen": null
