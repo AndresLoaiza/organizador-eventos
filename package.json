@@ -19,6 +19,7 @@
     "fixture": "node --env-file=.env.local scripts/fixture-ojeo.mjs",
     "razones": "node --env-file=.env.local scripts/razones.mjs",
     "calendario": "node --env-file=.env.local scripts/calendario.mjs",
+    "correo": "node --env-file=.env.local scripts/correo.mjs",
     "recomendador": "node --test lib/recomendador.test.mjs",
     "fuente": "node --env-file=.env.local scripts/archivar-fuente.mjs",
     "codigo": "node --env-file=.env.local scripts/rotar-codigo.mjs",

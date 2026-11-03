@@ -380,6 +380,13 @@ Solo en sesión, solo lectura: no se marca, archiva, borra ni responde nada.
 - El lugar del evento no repite el nombre de la sala ni lleva el teléfono; la entrada libre no dice «falta».
 - La mitad local es `npm run calendario -- plan <slug> <eventos.json>` y `-- guardar <funcion_id> <event_id>`; el MCP lo opera Claude en sesión.
 
+### Lo que cambió al implementarlo (3 nov 2026)
+
+- Ninguno de los dos operadores manda PDF: cada entrada es un enlace personal en el cuerpo del correo, que va a `boletas.url_entrada`. No hay adjunto que subir al baúl.
+- La Tiquetera no dice la hora. Con doble función el mismo día, si exactamente una de las candidatas está agendada se elige esa (`por: 'agenda'`); si no, se pregunta.
+- Verificado con los dos correos reales de San Ignacio: 16 entradas, 16 ya cargadas, y en memoria con la base vacía las 16 caen en la misma función que la carga manual.
+- Pendiente: cruzar el valor pagado con `placetopay`/`tucompra` (el recibo trae el total de la compra, no el de cada entrada) y los cambios de horario desde boletines, que siguen siendo trabajo de sesión con pregunta.
+
 ## 7. Interfaz con las skills de UI
 
 Pedido el 3 nov 2026. Va después de lo funcional para no pulir pantallas que todavía cambian.
