@@ -1286,8 +1286,8 @@
       "hora": "17:00",
       "sala": "fsi-pascasia",
       "duracion": {
-        "min": 90,
-        "confirmada": false
+        "min": 60,
+        "confirmada": true
       },
       "precio": {
         "pleno": 0,

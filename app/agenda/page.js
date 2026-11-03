@@ -18,7 +18,12 @@ export default function Agenda() {
 
 
 function Cuerpo({ p }) {
-  const fechas = [...new Set(p.funciones.filter(f => f.agendada).map(f => f.fecha))].sort();
+  // Solo de hoy en adelante: lo que ya pasó no se planea, se juzga en la Bitácora.
+  const todas = [...new Set(p.funciones.filter(f => f.agendada).map(f => f.fecha))].sort();
+  const fechas = todas.filter(f => f >= p.hoy);
+  const pasadas = todas.length - fechas.length;
+  const fechaDe = Object.fromEntries(p.funciones.map(f => [f.id, f.fecha]));
+  const avisos = p.avisos.filter(a => !a.funcion_id || (fechaDe[a.funcion_id] ?? p.hoy) >= p.hoy);
   // Falta COMPRAR, que no es lo mismo que faltar el archivo. Una función marcada
   // como comprada cuyo PDF sigue en el correo no va aquí: para eso está el aviso
   // de "sin archivo en el baúl". Mezclarlas infla el costo pendiente.
@@ -45,13 +50,27 @@ function Cuerpo({ p }) {
 
       <Exportar cols={COLS_AGENDA} filas={filasAgenda(p.funciones)} que="la agenda" />
 
-      {p.avisos.length > 0 && (
+      {pasadas > 0 && (
+        <p className="entradilla">
+          {pasadas === 1 ? 'Una noche ya pasó y no se muestra' : `${pasadas} noches ya pasaron y no se muestran`}.{' '}
+          Lo que viste se juzga en la <Link href="/bitacora">Bitácora</Link>.
+        </p>
+      )}
+
+      {fechas.length === 0 && pasadas > 0 && (
+        <div className="vacio">
+          <b>Este festival ya pasó</b>
+          No queda ninguna noche por delante. La exportación de arriba sigue teniendo la agenda completa.
+        </div>
+      )}
+
+      {avisos.length > 0 && (
         <section className="seccion">
           <h2>Qué revisar</h2>
           <p className="entradilla">
             Cruces entre lo que compraste, lo que dice el volante y lo que falta.
           </p>
-          <Avisos avisos={[...p.avisos].sort((a, b) => (a.severidad === 'alto' ? -1 : 1))} />
+          <Avisos avisos={[...avisos].sort((a, b) => (a.severidad === 'alto' ? -1 : 1))} />
         </section>
       )}
 

@@ -50,9 +50,9 @@ export default function Registrar({ funciones, alGuardar }) {
   if (!funciones.length) {
     return (
       <div className="vacio">
-        <b>Todavía no hay nada que juzgar</b>
-        Cuando pase la primera función, aparece aquí para que la registres el mismo día,
-        mientras está fresca.
+        <b>Nada pendiente de juicio</b>
+        Cuando termine tu próxima función agendada, aparece aquí para que la registres el
+        mismo día, mientras está fresca.
       </div>
     );
   }

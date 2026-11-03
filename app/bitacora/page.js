@@ -39,7 +39,8 @@ function Cuerpo({ p, recargar }) {
 
       <section className="seccion">
         <h2>Registrar</h2>
-        <Registrar funciones={pasadas} alGuardar={recargar} />
+        {/* Solo lo que falta: lo ya registrado se ve abajo, en «Ya registradas». */}
+        <Registrar funciones={sinRegistrar} alGuardar={recargar} />
       </section>
 
       {sinRegistrar.length > 0 && (
