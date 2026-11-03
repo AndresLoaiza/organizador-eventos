@@ -433,6 +433,7 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 .cae-motivo,
 .cae-rescate { display: block; font-size: var(--t-sm); color: var(--tinta-3); }
 .cae-rescate { color: var(--tinta-2); }
+.cae-umbral { display: block; font-size: var(--t-sm); color: var(--tinta-2); font-style: italic; }
 
 /* --- Ojear: si o no, sin veredictos --- */
 

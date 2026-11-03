@@ -24,6 +24,9 @@ function Lista({ titulo, cosas, marca }) {
                 {' '}· {c.hora}{c.sala ? ` · ${c.sala}` : ''}
               </span>
               <span className="cae-motivo">{c.motivo}</span>
+              {/* Solo cuando la duración es estimada: el número que vale la
+                  pena confirmar con la sala antes de comprar. */}
+              {c.umbral && <span className="cae-umbral">{c.umbral}</span>}
               {c.vuelve?.length > 0 && (
                 <span className="cae-rescate">Vuelve el {c.vuelve.join(' o el ')}.</span>
               )}
