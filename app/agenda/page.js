@@ -6,6 +6,8 @@ import { urlSegura } from '../../lib/url.mjs';
 import { urlPlantilla } from '../../lib/calendario.mjs';
 import { nocheDe, alternativasDe, nombreDia, fechaLarga, fmtHora } from '../../lib/panorama.mjs';
 import Avisos from '../Avisos.js';
+import BotonBoleta from '../BotonBoleta.js';
+import Salidas from '../Salidas.js';
 import Tipo, { tipoDeVeredicto } from '../Tipo.js';
 import Pantalla from '../Pantalla.js';
 import Exportar from '../Exportar.js';
@@ -141,18 +143,21 @@ function Cuerpo({ p }) {
                         <a className="boton" data-tam="chico" href={urlSegura(f.url_compra)}
                            target="_blank" rel="noopener noreferrer">Comprar boleta</a>
                       )}
-                      {f.boletas.filter(b => urlSegura(b.url_entrada)).map((b, i, a) => (
-                        <a key={b.id} className="boton" data-tam="chico" href={urlSegura(b.url_entrada)}
-                           target="_blank" rel="noopener noreferrer">
-                          {a.length > 1 ? `Entrada ${i + 1}` : 'Ver entrada'}
-                        </a>
-                      ))}
+                      {/* La boleta del baúl (PDF, QR) o, si solo hay enlace, el enlace. */}
+                      {f.boletas.filter(b => b.storage_key || urlSegura(b.url_entrada)).map((b, i, a) => {
+                        const etiqueta = a.length > 1 ? `Boleta ${i + 1}` : 'Ver boleta';
+                        return b.storage_key
+                          ? <BotonBoleta key={b.id} boleta={b} etiqueta={etiqueta} />
+                          : <a key={b.id} className="boton" data-tam="chico" href={urlSegura(b.url_entrada)}
+                               target="_blank" rel="noopener noreferrer">{etiqueta}</a>;
+                      })}
                       {/* Abre Google Calendar con el evento lleno; en la próxima
                           sesión con Claude se adopta por su marca y no se duplica. */}
                       {f.fecha >= p.hoy && (
                         <a className="boton" data-tam="chico" href={urlPlantilla(f)}
                            target="_blank" rel="noopener noreferrer">Al calendario</a>
                       )}
+                      <Salidas funcion={f} />
                     </span>
                   </span>
                 </li>
