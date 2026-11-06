@@ -6,7 +6,10 @@ import { urlUber, destinoTexto, urlInstagram } from '../lib/enlaces.mjs';
 // pedir el carro a la sala. Botones sueltos: el que los pone decide la fila.
 //
 // DiDi no publica un enlace que reciba el destino, así que su botón copia la
-// dirección para pegarla en «¿A dónde vas?» y lo dice.
+// dirección para pegarla en «¿A dónde vas?» y, en Android, abre la app.
+
+const DIDI_ANDROID = 'intent:#Intent;action=android.intent.action.MAIN;'
+  + 'category=android.intent.category.LAUNCHER;package=com.didiglobal.passenger;end';
 
 export default function Salidas({ funcion }) {
   const [copiado, setCopiado] = useState(false);
@@ -18,10 +21,13 @@ export default function Salidas({ funcion }) {
     try {
       await navigator.clipboard.writeText(destino);
       setCopiado(true);
-      setTimeout(() => setCopiado(false), 4000);
+      setTimeout(() => setCopiado(false), 6000);
     } catch {
       window.prompt('Copia la dirección y pégala en DiDi:', destino);
     }
+    // En Android, Chrome abre la app por su paquete; si no está, va a la
+    // tienda. iOS no tiene un enlace público de DiDi: ahí solo se copia.
+    if (/Android/i.test(navigator.userAgent)) window.location.href = DIDI_ANDROID;
   }
 
   return (
