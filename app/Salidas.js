@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { urlUber, destinoTexto, urlInstagram } from '../lib/enlaces.mjs';
+import { urlUber, destinoTexto, urlInstagram, cuentasInstagram } from '../lib/enlaces.mjs';
 
 // Lo que se hace con una función fuera de la app: ver el Instagram del grupo y
 // pedir el carro a la sala. Botones sueltos: el que los pone decide la fila.
@@ -13,7 +13,8 @@ const DIDI_ANDROID = 'intent:#Intent;action=android.intent.action.MAIN;'
 
 export default function Salidas({ funcion }) {
   const [copiado, setCopiado] = useState(false);
-  const ig = urlInstagram(funcion);
+  const cuentas = cuentasInstagram(funcion);
+  const ig = cuentas.length ? null : urlInstagram(funcion);
   const uber = urlUber(funcion.sala);
   const destino = destinoTexto(funcion.sala);
 
@@ -32,9 +33,16 @@ export default function Salidas({ funcion }) {
 
   return (
     <>
+      {/* Una cuenta: «Instagram». Varias (directora, actriz): la cuenta en el botón. */}
+      {cuentas.map(c => (
+        <a key={c.cuenta} className="boton" data-tam="chico" href={c.url} target="_blank" rel="noopener noreferrer"
+           aria-label={`Instagram @${c.cuenta}`}>
+          {cuentas.length > 1 ? `@${c.cuenta}` : 'Instagram'}
+        </a>
+      ))}
       {ig && (
         <a className="boton" data-tam="chico" href={ig} target="_blank" rel="noopener noreferrer"
-           aria-label={`Instagram de ${funcion.obra} (búsqueda)`}>Instagram</a>
+           aria-label={`Buscar el Instagram de ${funcion.obra}`}>Buscar IG</a>
       )}
       {uber && (
         <a className="boton" data-tam="chico" href={uber} target="_blank" rel="noopener noreferrer"

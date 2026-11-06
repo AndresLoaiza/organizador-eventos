@@ -58,6 +58,7 @@ const funciones = filas.map(r => {
     duracion: { min: r.duracion_min, confirmada: r.duracion_confirmada },
     precio: { pleno: r.precio_pleno, dcto: r.precio_dcto, libre: r.precio_pleno === 0 },
     url_compra: r.url_compra ?? null,
+    instagram: r.instagram ? r.instagram.split(' ') : null,
     imagen: r.imagen_key ? { key: r.imagen_key, credito: r.imagen_credito ?? null } : null,
   };
 });
