@@ -6,6 +6,7 @@ import JuicioRapido from './JuicioRapido.js';
 import Avisos from './Avisos.js';
 import Pantalla from './Pantalla.js';
 import { BoletasDe } from './BotonBoleta.js';
+import Salidas from './Salidas.js';
 import Margen, { Friso } from './Margen.js';
 
 const SELLO = {
@@ -83,6 +84,7 @@ function Hoja({ p, recargar }) {
                     </span>
                   </div>
                   <BoletasDe funcion={e} />
+                  <div className="boletas-fila"><Salidas funcion={e} /></div>
                   {/* La foto va al final: a las 7:15 lo que se mira de reojo es
                       la hora, la sala y la boleta. Antes iba arriba y empujaba la
                       hora fuera de la pantalla. */}

@@ -148,6 +148,8 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
 .cambio-festival label { margin: 0; white-space: nowrap; }
 .cambio-festival select {
   min-height: 44px; width: auto; max-width: 100%;
+  min-width: 0; flex: 0 1 auto;   /* en flex, sin esto el nombre largo desborda a 375 px */
+  text-overflow: ellipsis;
   font-size: var(--t-sm); font-weight: 600;
   border-color: var(--regla); background: transparent;
 }
@@ -557,7 +559,7 @@ a { color: var(--acento); text-underline-offset: 3px; text-decoration-thickness:
   display: inline-flex; align-items: center; justify-content: center; gap: var(--e2);
   min-height: 46px; padding: 0 var(--e5);
   border: 1px solid var(--regla-2); border-radius: 3px;
-  background: transparent; color: var(--tinta);
+  background: transparent; color: var(--tinta); text-decoration: none;  /* <a class="boton"> igual que <button> */
   font: inherit; font-size: var(--t-sm); font-weight: 700;
   letter-spacing: 0.02em; cursor: pointer;
   transition: background 180ms var(--salida), border-color 180ms var(--salida), color 180ms var(--salida);
