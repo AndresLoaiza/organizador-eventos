@@ -13,7 +13,7 @@
       "nombre": "Cinemark",
       "url": "https://www.cinemark.com.co/cartelera/medellin",
       "leida": "2026-11-09",
-      "estado": "Leída el 2026-11-09: 20 películas en cartelera; 12 sedes con función en idioma original (solo el primer día que ofrece su web).",
+      "estado": "Leída el 2026-11-09: 21 películas en cartelera; 14 sedes con función en idioma original (todos los días que publica su web).",
       "peliculas": [
         {
           "titulo": "Clayface",
@@ -23,9 +23,14 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/clayface",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6abee847c67224dbb6de2a73/common/clayface-113296-1792532929767",
           "funciones": [
             "2026-11-09 19:10",
-            "2026-11-09 22:15"
+            "2026-11-09 22:15",
+            "2026-11-10 19:10",
+            "2026-11-10 22:15",
+            "2026-11-11 19:10",
+            "2026-11-11 22:15"
           ]
         },
         {
@@ -36,6 +41,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ac00fa0fb327e365ceab7a4/common/godzilla-minus-zero-113416-1790974517203",
           "funciones": [
             "2026-11-09 21:00"
           ]
@@ -48,6 +54,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ac00fa0fb327e365ceab7a4/common/godzilla-minus-zero-113416-1790974517203",
           "funciones": [
             "2026-11-09 15:10",
             "2026-11-09 17:45",
@@ -63,8 +70,11 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/madre-siniestra",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aa1c0a66ec86f08f0fe7354/common/madre-siniestra-112853-1793221391118",
           "funciones": [
-            "2026-11-09 17:10"
+            "2026-11-09 17:10",
+            "2026-11-10 17:10",
+            "2026-11-11 17:10"
           ]
         },
         {
@@ -75,9 +85,14 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/el-corazon-de-la-bestia",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9595bf0e75d9870e67b412/common/el-corazon-de-la-bestia-112683-1788203374252",
           "funciones": [
             "2026-11-09 15:20",
-            "2026-11-09 21:50"
+            "2026-11-09 21:50",
+            "2026-11-10 15:20",
+            "2026-11-10 21:50",
+            "2026-11-11 15:20",
+            "2026-11-11 21:50"
           ]
         },
         {
@@ -88,8 +103,25 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/rocky",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ad64b682ee212a36f71b0c8/common/rocky-113513-1792428994338",
           "funciones": [
-            "2026-11-09 18:10"
+            "2026-11-09 18:10",
+            "2026-11-10 18:10",
+            "2026-11-11 18:10"
+          ]
+        },
+        {
+          "titulo": "Rammstein",
+          "original": "Rammstein",
+          "sede": "Cinemark Arkadia",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/rammstein",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aac1eea27c81b4b03905238/common/rammstein-113071-1789678652326",
+          "funciones": [
+            "2026-11-10 18:40",
+            "2026-11-11 20:40"
           ]
         },
         {
@@ -100,9 +132,14 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/verity",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aa1dcb18c1145ee764a4255/common/verity-111111-1790775055108",
           "funciones": [
             "2026-11-09 17:55",
-            "2026-11-09 21:10"
+            "2026-11-09 21:10",
+            "2026-11-10 17:55",
+            "2026-11-10 21:10",
+            "2026-11-11 17:55",
+            "2026-11-11 21:10"
           ]
         },
         {
@@ -113,8 +150,11 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/wildwood",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6acfb3ebd1a620d42024d1a5/common/wildwood-113745-1792010139629",
           "funciones": [
-            "2026-11-09 21:40"
+            "2026-11-09 21:40",
+            "2026-11-10 21:40",
+            "2026-11-11 21:40"
           ]
         },
         {
@@ -125,8 +165,11 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/a-cualquier-precio",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ae11a3e324b4c65989b9cbe/common/a-cualquier-precio-113957-1793807236657",
           "funciones": [
-            "2026-11-09 20:10"
+            "2026-11-09 20:10",
+            "2026-11-10 20:10",
+            "2026-11-11 20:10"
           ]
         },
         {
@@ -137,8 +180,11 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/caballo-salvaje-nueve",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ae10c2dbb11bb36a262a457/common/caballo-salvaje-nueve-113958-1793140074115",
           "funciones": [
-            "2026-11-09 14:50"
+            "2026-11-09 14:50",
+            "2026-11-10 14:50",
+            "2026-11-11 14:50"
           ]
         },
         {
@@ -149,8 +195,13 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/akira-re",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6adb86dd5a746be3728b16f7/common/akira-re-113434-1792790105568",
           "funciones": [
-            "2026-11-12 18:20"
+            "2026-11-12 18:20",
+            "2026-11-13 18:20",
+            "2026-11-14 18:20",
+            "2026-11-15 18:20",
+            "2026-11-16 18:20"
           ]
         },
         {
@@ -161,9 +212,31 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.cinemark.com.co/cartelera/medellin/rapido-y-furioso-re",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6adf8263e2e35737929f5159/common/rapido-y-furioso-re-113897-1793110705358",
           "funciones": [
             "2026-11-12 18:40",
-            "2026-11-12 22:10"
+            "2026-11-12 22:10",
+            "2026-11-13 18:40",
+            "2026-11-13 22:10",
+            "2026-11-14 18:40",
+            "2026-11-14 22:10",
+            "2026-11-15 18:40",
+            "2026-11-15 22:10",
+            "2026-11-16 18:40",
+            "2026-11-16 22:10"
+          ]
+        },
+        {
+          "titulo": "Rápido y Furioso",
+          "original": "Rápido y Furioso",
+          "sede": "Cinemark Arkadia",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/rapido-y-furioso-re",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6adf8263e2e35737929f5159/common/rapido-y-furioso-re-113897-1793110705358",
+          "funciones": [
+            "2026-11-16 20:10"
           ]
         }
       ]
@@ -182,6 +255,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/resurrection-685227398-large-1.jpg",
           "funciones": [
             "2026-11-10 14:00",
             "2026-11-12 19:00"
@@ -195,6 +269,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/MV5BN2JjOGQ1OGMtZmUwYS00YmQ2LTllNzQtZjU2YjY1NzM2NzJjXkEyXkFqcGc@._V1_-scaled.jpg",
           "funciones": [
             "2026-11-10 17:00",
             "2026-11-15 14:00"
@@ -208,6 +283,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/FATHERLAND_ALT-ART_DIGI_2700x4000px_ES-LAT_OS_CINEPLEX_Cines-Ya-scaled.jpg",
           "funciones": [
             "2026-11-10 19:15",
             "2026-11-11 14:30",
@@ -222,6 +298,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/digger-pelicula-tom-cruise-de-que-trata-1-811x1024-1.jpg",
           "funciones": [
             "2026-11-11 16:30",
             "2026-11-12 14:00"
@@ -235,6 +312,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/POSTER-2026-CON-laureles-ganadoreslow.jpg",
           "funciones": [
             "2026-11-11 19:00",
             "2026-11-13 18:00"
@@ -248,6 +326,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/ElGranFalsificador_Poster_35x50-1-scaled.jpg",
           "funciones": [
             "2026-11-12 16:30",
             "2026-11-13 14:00",
@@ -262,6 +341,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/wild_horse_nine-895746008-large.jpg",
           "funciones": [
             "2026-11-13 18:30",
             "2026-11-14 13:45",
@@ -276,6 +356,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/520436_12442__imagen__.jpg",
           "funciones": [
             "2026-11-14 16:00",
             "2026-11-15 17:00"
@@ -289,6 +370,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/MV5BMjA0NDkyNjY3OV5BMl5BanBnXkFtZTcwNDg5OTg5NA@@._V1_.jpg",
           "funciones": [
             "2026-11-14 19:00"
           ]
@@ -301,6 +383,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/der_geteilte_himmel-752435756-large.jpg",
           "funciones": [
             "2026-11-10 15:00"
           ]
@@ -313,6 +396,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/MPIF_Afiche-scaled.jpg",
           "funciones": [
             "2026-11-11 18:30",
             "2026-11-14 17:00"
@@ -326,6 +410,7 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/57150_136__imagen__.jpg",
           "funciones": [
             "2026-11-12 19:00"
           ]
@@ -346,6 +431,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/47244/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/09/Fotograma_CaballoSalvaje.jpg",
           "funciones": [
             "2026-11-13 21:10",
             "2026-11-14 19:00"
@@ -359,6 +445,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/babystar/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma_Babystar.jpg",
           "funciones": [
             "2026-11-13 16:20",
             "2026-11-16 18:10"
@@ -372,6 +459,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/digger/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/09/Fotograma_Digger.jpg",
           "funciones": [
             "2026-11-14 21:20"
           ]
@@ -384,6 +472,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/donde-comienza-el-rio/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/09/Fotograma_Dondecomienzaelrio.jpg",
           "funciones": [
             "2026-11-11 16:20"
           ]
@@ -396,6 +485,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/el-gran-falsificador/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/09/Fotograma_Elgranfalsificador.jpg",
           "funciones": [
             "2026-11-16 13:30"
           ]
@@ -408,6 +498,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/kmkz-salvaje-libre-y-valiente/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma-KMKZ.jpg",
           "funciones": [
             "2026-11-13 14:30"
           ]
@@ -420,6 +511,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/las-pesadillas-del-siervo/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma_Laspesadillasdelsiervo.jpg",
           "funciones": [
             "2026-11-11 18:30"
           ]
@@ -432,6 +524,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/maria-antonieta/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/11/Fotograma_MariaAntonieta.jpg",
           "funciones": [
             "2026-11-13 18:30",
             "2026-11-14 16:30"
@@ -445,6 +538,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/resurrection/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/08/Fotograma_Resurrection.jpeg",
           "funciones": [
             "2026-11-15 13:00"
           ]
@@ -457,6 +551,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/seis-meses-en-el-edificio-rosa-con-azul/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotogram_Seismeses.jpg",
           "funciones": [
             "2026-11-16 16:00"
           ]
@@ -469,6 +564,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/sensatez-y-sentimiento/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma_Sensatez.jpg",
           "funciones": [
             "2026-11-14 14:00",
             "2026-11-15 16:00"
@@ -482,6 +578,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/tierra-de-mi-padre/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/08/Fotograma_Tierrademipadre.jpeg",
           "funciones": [
             "2026-11-14 12:20",
             "2026-11-15 21:05"
@@ -495,6 +592,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "url": "https://www.elmamm.org/producto/wildwood/",
+          "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma_Wildwood.jpg",
           "funciones": [
             "2026-11-15 18:30",
             "2026-11-16 20:10"

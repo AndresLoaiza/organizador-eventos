@@ -90,12 +90,18 @@ def hora_24(texto):
     return f'{h:02d}:{mi}'
 
 
-def pelicula(titulo, sede, idioma, url, funciones, original=None, confirmado=True, anio=None):
+def pelicula(titulo, sede, idioma, url, funciones, original=None, confirmado=True, anio=None, poster=None):
     return {
         'titulo': titulo.strip(), 'original': (original or titulo).strip(), 'sede': sede, 'anio': anio,
-        'idioma': idioma, 'idioma_confirmado': confirmado, 'url': url,
+        'idioma': idioma, 'idioma_confirmado': confirmado, 'url': url, 'poster': poster,
         'funciones': sorted(funciones),
     }
+
+
+def og_image(pagina):
+    m = pagina.css('meta[property="og:image"]')
+    u = m[0].attrib.get('content') if m else None
+    return u if u and u.startswith('https://') else None
 
 
 # --- Procinal ---------------------------------------------------------------
@@ -119,7 +125,7 @@ def leer_procinal(hoy):
         sede = 'Procinal ' + next(iter(sedes.values()), 'Terminal del Sur')
         out.append(pelicula(m['titulo'].title(), sede, idioma,
                             f"https://www.procinal.com.co/ciudad/medellin/pelicula/{m['slug']}",
-                            funciones, m.get('titulo_original', '').title()))
+                            funciones, m.get('titulo_original', '').title(), poster=m.get('imagen')))
     return out, f'{len(datos["movies"])} entradas leídas; {len(out)} en idioma original'
 
 
@@ -132,6 +138,21 @@ LIMPIA_CM = re.compile(r'\s*\([^)]*\)\s*$|\s+RE$')
 def titulo_de(f):
     t = LIMPIA_CM.sub('', f.get('TitleAlt') or f['Title'])
     return t.title() if t.isupper() else t
+
+
+def recorrer_dias(page):
+    """Clic en cada día de la tira (div.week__day): cada clic pide las funciones
+    de ese día y el page_setup las guarda. Su web publica de lunes a miércoles
+    hasta que el jueves abre la semana nueva."""
+    page.wait_for_timeout(2500)
+    dias = page.locator('.week__day')
+    for i in range(dias.count()):
+        try:
+            dias.nth(i).click(timeout=5000)
+            page.wait_for_timeout(1800)
+        except Exception:
+            pass
+    return page
 
 
 def leer_cinemark(hoy, sesion):
@@ -161,7 +182,7 @@ def leer_cinemark(hoy, sesion):
         # Su web a veces pide /city/undefined/ (carrera al cargar la ciudad);
         # esa respuesta no sirve, así que se reintenta.
         for _ in range(3):
-            sesion.fetch(url, page_setup=setup, network_idle=True, wait=2500, timeout=90000)
+            sesion.fetch(url, page_setup=setup, page_action=recorrer_dias, network_idle=True, wait=1500, timeout=120000)
             if recibidas:
                 break
         else:
@@ -183,11 +204,11 @@ def leer_cinemark(hoy, sesion):
                         s['funciones'].add(f"{dia.isoformat()} {ses['Showtime'][:5]}")
         titulo = titulo_de(f)
         for sede, s in por_sede.items():
-            out.append(pelicula(titulo, f'Cinemark {sede}',
-                                s['idioma'], url, s['funciones']))
+            out.append(pelicula(titulo, f'Cinemark {sede}', s['idioma'], url, s['funciones'],
+                                poster=f.get('GraphicUrl') or f.get('CoverImageUrl') or None))
     falta = f'; sin leer: {", ".join(sin_leer)}' if sin_leer else ''
     return out, (f'{len(pelis)} películas en cartelera; {len(out)} sedes con función en idioma original '
-                 f'(solo el primer día que ofrece su web){falta}')
+                 f'(todos los días que publica su web){falta}')
 
 
 # --- Colombo Americano ------------------------------------------------------
@@ -223,8 +244,10 @@ def leer_colombo(hoy, sesion):
         tx = fp.get_all_text(ignore_tags=('script', 'style'))
         anio = re.search(r'Año:\s*(\d{4})', tx)
         h = next((e.text.strip() for e in fp.css('h1, h2') if plano_py(e.text) in planos), None)
-        if anio and h:
-            out[planos[plano_py(h)]]['anio'] = int(anio.group(1))
+        if h:
+            p_ = out[planos[plano_py(h)]]
+            p_['anio'] = int(anio.group(1)) if anio else None
+            p_['poster'] = og_image(fp)
     return list(out.values()), f'{len(out)} películas con función en los próximos {VENTANA} días'
 
 
@@ -253,7 +276,8 @@ def leer_mamm(hoy, sesion):
             # «2026 | Estados Unidos» en la ficha
             anio = re.search(r'\b(19\d\d|20\d\d)\s*\|', f.get_all_text(ignore_tags=('script', 'style')))
             out.append(pelicula(titulo, 'MAMM', 'Subtitulada' if original else 'el MAMM no lo publica',
-                                url, funciones, confirmado=original, anio=int(anio.group(1)) if anio else None))
+                                url, funciones, confirmado=original, anio=int(anio.group(1)) if anio else None,
+                                poster=og_image(f)))
     return out, f'{len(fichas)} fichas leídas; {len(out)} con función en los próximos {VENTANA} días'
 
 

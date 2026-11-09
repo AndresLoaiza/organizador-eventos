@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import InterruptorTema from './InterruptorTema.js';
@@ -16,6 +17,11 @@ const RUTAS = [
 export default function Nav() {
   const ruta = usePathname();
   const activa = h => (h === '/' ? ruta === '/' : ruta.startsWith(h));
+  // En el celular no caben las siete: la barra se desliza hasta la pestaña
+  // activa para que se vea dónde estás.
+  useEffect(() => {
+    document.querySelector('.barra [aria-current="page"]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [ruta]);
 
   return (
     <header className="barra">

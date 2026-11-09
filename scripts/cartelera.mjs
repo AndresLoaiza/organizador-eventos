@@ -10,7 +10,7 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
-import { API, VENTANA_DIAS, armarCartelera, escogerImdb, unirSalas } from '../lib/cartelera.mjs';
+import { API, VENTANA_DIAS, armarCartelera, escogerImdb, posterImdb, unirSalas } from '../lib/cartelera.mjs';
 import { hoyMedellin } from '../lib/panorama.mjs';
 
 const RUTA = new URL('../cartelera/cartelera.json', import.meta.url);
@@ -63,6 +63,16 @@ for (const p of cartelera) {
   }
   const r = elegido && ratings.get(elegido.id);
   if (r) p.imdb = { id: elegido.id, nota: r.nota, votos: r.votos, ...(elegido.dudoso ? { dudoso: true } : {}) };
+  // Póster: el de IMDb (vertical y servible desde aquí) gana; se guarda para no
+  // pedirlo cada semana. Si no hay, queda el de la sala (Cinemark, Colombo, MAMM).
+  let img = viejo?.imdb?.id === p.imdb?.id ? viejo?.poster_imdb : null;
+  if (p.imdb && !img) {
+    try {
+      const s = await json(`https://v3.sg.media-imdb.com/suggestion/x/${p.imdb.id}.json`);
+      img = posterImdb(s.d?.find(x => x.id === p.imdb.id)?.i?.imageUrl);
+    } catch { img = null; }
+  }
+  if (img) { p.poster_imdb = img; p.poster = img; }
   // Lo de Cine Colombia ya quedó en p.donde.
   for (const k of ['anio', 'salas', 'idioma', 'fechas']) delete p[k];
 }

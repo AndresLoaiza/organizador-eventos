@@ -824,3 +824,80 @@ details > summary:hover { color: var(--acento); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
 }
+
+/* --- Cine ------------------------------------------------------------------
+   Herramienta, no escena: renglones con filete como el resto. El póster es
+   referencia para reconocer la película de un vistazo, no decoración; va
+   pequeño y fijo a la izquierda para que el ojo baje por los títulos. */
+
+.cine-filtros { display: grid; gap: var(--e3); margin-top: var(--e5); }
+.cine-filtros .vista-toggle { margin-top: 0; flex-wrap: wrap; }
+
+.cine-cuenta { margin: var(--e5) 0 var(--e3); color: var(--tinta-2); font-size: var(--t-sm); }
+.cine-cuenta b { color: var(--tinta); }
+
+.cine-lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--regla); }
+
+.cine-peli {
+  display: grid; grid-template-columns: 6rem minmax(0, 1fr); column-gap: var(--e5);
+  padding: var(--e5) 0; border-bottom: 1px solid var(--regla);
+}
+
+.cine-poster {
+  grid-row: 1 / span 2;  /* las salas suben junto al título, sin hueco bajo el póster */
+  width: 6rem; aspect-ratio: 2 / 3; height: auto; object-fit: cover;
+  border-radius: 2px; background: var(--fondo-2);
+}
+/* Sin póster: la inicial, como el hueco que el copista dejaba para la capitular. */
+.cine-poster[data-vacio] {
+  display: grid; place-items: center; border: 1px solid var(--regla);
+  font-size: var(--t-xl); font-weight: 800; color: var(--tinta-3);
+}
+
+.cine-cuerpo { min-width: 0; }
+.cine-titulo { font-size: var(--t-lg); font-weight: 800; line-height: 1.15; margin: 0; }
+.cine-original { margin: var(--e1) 0 0; color: var(--tinta-3); font-size: var(--t-sm); }
+
+.cine-imdb {
+  display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: var(--e2);
+  margin-top: var(--e2); font-size: var(--t-sm); color: var(--tinta-2); text-decoration: none;
+}
+a.cine-imdb:hover b, a.cine-imdb:focus-visible b { color: var(--acento); }
+.cine-imdb b { font-size: var(--t-md); font-weight: 800; color: var(--tinta); }
+.cine-imdb-marca {
+  font-size: var(--t-xs); font-weight: 800; letter-spacing: 0.06em;
+  padding: 0 var(--e1); border: 1px solid var(--regla-2); border-radius: 2px;
+}
+.cine-imdb[data-sin] { color: var(--tinta-3); }
+.cine-duda { color: var(--tinta-3); font-size: var(--t-xs); }
+.cine-motivo { margin: var(--e2) 0 0; font-size: var(--t-sm); color: var(--tinta-2); }
+
+.cine-salas { grid-column: 2; list-style: none; margin: var(--e4) 0 0; padding: 0; }
+.cine-sala {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--e3);
+  padding: var(--e2) 0; border-top: 1px solid var(--regla);
+}
+.cine-sala-texto { display: flex; flex-direction: column; gap: 0.1rem; font-size: var(--t-sm); color: var(--tinta-2); min-width: 0; }
+.cine-sala-texto b { color: var(--tinta); font-weight: 700; }
+/* Idioma sin confirmar: se dice y se apaga, sin color de alarma. */
+.cine-sala-texto [data-dudoso] { color: var(--tinta-3); font-style: italic; }
+
+.cine-fuentes { margin-top: var(--e7); font-size: var(--t-sm); color: var(--tinta-2); }
+.cine-fuentes ul { margin: var(--e3) 0 0; padding-left: var(--e4); }
+.cine-fuentes li { margin-bottom: var(--e2); }
+
+@media (max-width: 34rem) {
+  .cine-peli { grid-template-columns: 4.5rem minmax(0, 1fr); column-gap: var(--e4); }
+  .cine-poster { width: 4.5rem; grid-row: 1; }
+  /* En el celular la sala ocupa todo el ancho: el póster ya se leyó arriba. */
+  .cine-salas { grid-column: 1 / -1; }
+  /* Cada grupo de filtros en una línea que se desliza, no tres renglones de
+     botones antes de la primera película. */
+  .cine-filtros .vista-toggle {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+    padding-right: 2.5rem;
+  }
+  .cine-filtros .vista-toggle::-webkit-scrollbar { display: none; }
+  .cine-filtros .boton { flex: none; }
+}
