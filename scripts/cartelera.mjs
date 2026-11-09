@@ -1,0 +1,79 @@
+// Refresca cartelera/cartelera.json: Cine Colombia Medellín + notas de IMDb.
+//
+//   npm run cartelera              escribe el JSON
+//   npm run cartelera -- --seco    solo muestra lo que escribiría
+//
+// No necesita .env ni navegador: la API de Cine Colombia es pública y la nota
+// sale del dataset oficial de IMDb. Las otras cadenas (Procinal, Cinemark,
+// Colombo, MAMM) no se leen aquí; su «estado» en el JSON se conserva.
+
+import { readFileSync, writeFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
+import { API, VENTANA_DIAS, armarCartelera, escogerImdb } from '../lib/cartelera.mjs';
+import { hoyMedellin } from '../lib/panorama.mjs';
+
+const RUTA = new URL('../cartelera/cartelera.json', import.meta.url);
+const UA = { 'user-agent': 'Mozilla/5.0 (organizador-eventos; uso personal)' };
+const seco = process.argv.includes('--seco');
+
+async function json(url) {
+  const r = await fetch(url, { headers: UA });
+  if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+  return r.json();
+}
+
+const hoy = hoyMedellin();
+const { sites: sedes } = await json(`${API}/sites?city=medellin`);
+if (!sedes?.length) throw new Error('La API no devolvió sedes de Medellín: no se toca el JSON.');
+
+// now_showing trae lo de cartelera; alternative, el teatro y la ópera filmados.
+const segmentos = ['section=regular&segment=now_showing', 'section=regular&segment=advance_booking', 'section=alternative'];
+const tableros = await Promise.all(segmentos.map(s => json(`${API}/billboard?city=medellin&${s}&per_page=100`)));
+const peliculas = [...new Map(tableros.flatMap(t => t.films).map(f => [f.id, f])).values()];
+const atributos = tableros.flatMap(t => t.related_data?.attributes ?? []);
+
+const ids = sedes.map(s => s.id).join(',');
+const { film_screening_dates: fechas } = await json(`${API}/films/screening-dates?site_ids=${ids}`);
+
+const cartelera = armarCartelera({ sedes, peliculas, atributos, fechas, hoy });
+if (!cartelera.length) throw new Error('Cero películas en idioma original: algo cambió en la API. No se toca el JSON.');
+
+const previo = JSON.parse(readFileSync(RUTA, 'utf8'));
+const antes = Object.fromEntries(previo.peliculas.map(p => [p.slug, p]));
+
+// IMDb: id del buscador público (o del JSON anterior, que ya pudo corregirse a
+// mano); nota y votos del dataset oficial, que se publica a diario.
+const tsv = gunzipSync(Buffer.from(await (await fetch('https://datasets.imdbws.com/title.ratings.tsv.gz')).arrayBuffer())).toString('utf8');
+const ratings = new Map(tsv.split('\n').slice(1).map(l => l.split('\t')).map(([id, n, v]) => [id, { nota: Number(n), votos: Number(v) }]));
+
+for (const p of cartelera) {
+  const viejo = antes[p.slug];
+  if (viejo?.motivo) p.motivo = viejo.motivo;
+  let elegido = viejo?.imdb ? { id: viejo.imdb.id, dudoso: Boolean(viejo.imdb.dudoso) } : null;
+  if (!elegido) {
+    try {
+      const s = await json(`https://v3.sg.media-imdb.com/suggestion/titles/x/${encodeURIComponent(p.original)}.json`);
+      elegido = escogerImdb(s.d, p.original, p.anio);
+    } catch { elegido = null; }
+  }
+  const r = elegido && ratings.get(elegido.id);
+  if (r) p.imdb = { id: elegido.id, nota: r.nota, votos: r.votos, ...(elegido.dudoso ? { dudoso: true } : {}) };
+  delete p.anio;
+}
+
+const nuevo = {
+  ...previo,
+  verificado: hoy,
+  imdb_leido: hoy,
+  nota: `Películas con función subtitulada o en español en Cine Colombia Medellín entre hoy y los próximos ${VENTANA_DIAS} días, leídas el ${hoy}. El botón abre la película en vivo para ver horarios.`,
+  peliculas: cartelera,
+  cadenas: previo.cadenas.map(c => c.nombre !== 'Cine Colombia' ? c : {
+    ...c, estado: `Leída el ${hoy} desde su API, en las ${sedes.length} sedes de Medellín.`,
+  }),
+};
+
+console.log(cartelera.map(p => `${p.titulo} [${p.idioma}] ${p.salas.join(', ')} · ${p.fechas.length} días · IMDb ${p.imdb ? `${p.imdb.nota} (${p.imdb.votos})${p.imdb.dudoso ? ' dudoso' : ''}` : 'sin dato'}`).join('\n'));
+if (!seco) {
+  writeFileSync(RUTA, JSON.stringify(nuevo, null, 2) + '\n');
+  console.log(`\n${cartelera.length} películas escritas en cartelera/cartelera.json`);
+}

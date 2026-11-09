@@ -2,6 +2,8 @@
 import datos from '../../cartelera/cartelera.json';
 
 const URL_CC = 'https://www.cinecolombia.com/peliculas/';
+// '2026-11-09' → 'lun 9'. Mediodía UTC para que el huso no corra el día.
+const dia = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('es-CO', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
 
 // Cartelera en idioma original. Sin Pantalla: son datos públicos, no pasan por
 // la base ni piden el código de acceso.
@@ -19,11 +21,16 @@ export default function Cine() {
               <div className="obra">{f.titulo}</div>
               <div className="donde">{f.original !== f.titulo ? `${f.original} · ` : ''}{f.idioma}</div>
               <div className="donde">{f.salas.join(' · ')}</div>
+              {f.fechas?.length > 0 && <div className="donde num">{f.fechas.map(dia).join(' · ')}</div>}
               <div className="donde">
-                <a href={`https://www.imdb.com/title/${f.imdb.id}/`} target="_blank" rel="noreferrer">IMDb</a>{' '}
-                <b className="num">{f.imdb.nota.toFixed(1)}</b> · {f.imdb.votos.toLocaleString('es-CO')} votos
-                {f.imdb.votos < 1000 ? ' (pocos votos: poco fiable)' : ''}
-                {f.imdb.dudoso ? ' (coincidencia por título; confirma que es la misma película)' : ''}
+                {f.imdb ? (
+                  <>
+                    <a href={`https://www.imdb.com/title/${f.imdb.id}/`} target="_blank" rel="noreferrer">IMDb</a>{' '}
+                    <b className="num">{f.imdb.nota.toFixed(1)}</b> · {f.imdb.votos.toLocaleString('es-CO')} votos
+                    {f.imdb.votos < 1000 ? ' (pocos votos: poco fiable)' : ''}
+                    {f.imdb.dudoso ? ' (coincidencia por título; confirma que es la misma película)' : ''}
+                  </>
+                ) : 'IMDb: sin dato seguro'}
               </div>
               {f.motivo && <div className="margen">{f.motivo}</div>}
               <div className="boletas-fila">

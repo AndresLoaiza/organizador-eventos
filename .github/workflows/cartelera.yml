@@ -1,0 +1,52 @@
+name: Cartelera de cine (jueves)
+
+# Refresca cartelera/cartelera.json cada jueves: los estrenos en Colombia caen
+# en jueves y ese día las cadenas cambian de semana. Corre aquí y no en una
+# rutina de Claude porque la nube de Claude no deja salir a cinecolombia.com.
+# El script no necesita secretos: la API de Cine Colombia y el dataset de IMDb
+# son públicos.
+
+on:
+  schedule:
+    - cron: '0 13 * * 4'   # jueves 8:00 a.m. Bogotá
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: cartelera
+  cancel-in-progress: false
+
+jobs:
+  refrescar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/cartelera.mjs
+      - run: node --test lib/cartelera.test.mjs
+      - name: Commit si cambió
+        id: commit
+        run: |
+          if git diff --quiet cartelera/cartelera.json; then
+            echo "Sin cambios."
+            echo "cambio=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cartelera/cartelera.json
+          git commit -m "chore: cartelera semanal $(date -u +%F)"
+          git push
+          echo "cambio=si" >> "$GITHUB_OUTPUT"
+      # Un push hecho con GITHUB_TOKEN no dispara otros workflows; el despliegue
+      # se pide explícito.
+      - name: Publicar
+        if: steps.commit.outputs.cambio == 'si'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref master

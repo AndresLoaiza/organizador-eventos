@@ -24,6 +24,7 @@
     "fuente": "node --env-file=.env.local scripts/archivar-fuente.mjs",
     "codigo": "node --env-file=.env.local scripts/rotar-codigo.mjs",
     "imagenes": "node --env-file=.env.local scripts/cargar-imagenes.mjs",
+    "cartelera": "node scripts/cartelera.mjs",
     "obsidian:seco": "node --env-file=.env.local agente/obsidian-sync.mjs --seco"
   },
   "dependencies": {
