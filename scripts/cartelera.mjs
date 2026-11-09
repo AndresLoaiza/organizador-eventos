@@ -4,15 +4,17 @@
 //   npm run cartelera -- --seco    solo muestra lo que escribiría
 //
 // No necesita .env ni navegador: la API de Cine Colombia es pública y la nota
-// sale del dataset oficial de IMDb. Las otras cadenas (Procinal, Cinemark,
-// Colombo, MAMM) no se leen aquí; su «estado» en el JSON se conserva.
+// sale del dataset oficial de IMDb. Las otras salas (Procinal, Cinemark,
+// Colombo, MAMM) las lee scripts/salas.py con Scrapling y las deja en
+// cartelera/salas.json; aquí se juntan con Cine Colombia en una sola lista.
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
-import { API, VENTANA_DIAS, armarCartelera, escogerImdb } from '../lib/cartelera.mjs';
+import { API, VENTANA_DIAS, armarCartelera, escogerImdb, unirSalas } from '../lib/cartelera.mjs';
 import { hoyMedellin } from '../lib/panorama.mjs';
 
 const RUTA = new URL('../cartelera/cartelera.json', import.meta.url);
+const RUTA_SALAS = new URL('../cartelera/salas.json', import.meta.url);
 const UA = { 'user-agent': 'Mozilla/5.0 (organizador-eventos; uso personal)' };
 const seco = process.argv.includes('--seco');
 
@@ -35,8 +37,11 @@ const atributos = tableros.flatMap(t => t.related_data?.attributes ?? []);
 const ids = sedes.map(s => s.id).join(',');
 const { film_screening_dates: fechas } = await json(`${API}/films/screening-dates?site_ids=${ids}`);
 
-const cartelera = armarCartelera({ sedes, peliculas, atributos, fechas, hoy });
-if (!cartelera.length) throw new Error('Cero películas en idioma original: algo cambió en la API. No se toca el JSON.');
+const deCineColombia = armarCartelera({ sedes, peliculas, atributos, fechas, hoy });
+if (!deCineColombia.length) throw new Error('Cero películas en idioma original: algo cambió en la API. No se toca el JSON.');
+
+const salas = existsSync(RUTA_SALAS) ? JSON.parse(readFileSync(RUTA_SALAS, 'utf8')) : { cadenas: [] };
+const cartelera = unirSalas(deCineColombia, salas.cadenas);
 
 const previo = JSON.parse(readFileSync(RUTA, 'utf8'));
 const antes = Object.fromEntries(previo.peliculas.map(p => [p.slug, p]));
@@ -53,26 +58,29 @@ for (const p of cartelera) {
   if (!elegido) {
     try {
       const s = await json(`https://v3.sg.media-imdb.com/suggestion/titles/x/${encodeURIComponent(p.original)}.json`);
-      elegido = escogerImdb(s.d, p.original, p.anio);
+      elegido = escogerImdb(s.d, p.original, p.anio, id => ratings.get(id)?.votos ?? 0);
     } catch { elegido = null; }
   }
   const r = elegido && ratings.get(elegido.id);
   if (r) p.imdb = { id: elegido.id, nota: r.nota, votos: r.votos, ...(elegido.dudoso ? { dudoso: true } : {}) };
-  delete p.anio;
+  // Lo de Cine Colombia ya quedó en p.donde.
+  for (const k of ['anio', 'salas', 'idioma', 'fechas']) delete p[k];
 }
 
 const nuevo = {
   ...previo,
   verificado: hoy,
   imdb_leido: hoy,
-  nota: `Películas con función subtitulada o en español en Cine Colombia Medellín entre hoy y los próximos ${VENTANA_DIAS} días, leídas el ${hoy}. El botón abre la película en vivo para ver horarios.`,
+  nota: `Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana. Cine Colombia leída el ${hoy}; las otras salas, el ${salas.leido ?? 'sin leer'}. Cada botón abre la sala en vivo para ver horarios.`,
   peliculas: cartelera,
-  cadenas: previo.cadenas.map(c => c.nombre !== 'Cine Colombia' ? c : {
-    ...c, estado: `Leída el ${hoy} desde su API, en las ${sedes.length} sedes de Medellín.`,
-  }),
+  cadenas: [
+    { nombre: 'Cine Colombia', url: 'https://www.cinecolombia.com/cartelera/medellin',
+      estado: `Leída el ${hoy} desde su API, en las ${sedes.length} sedes de Medellín.` },
+    ...salas.cadenas.map(({ nombre, url, estado }) => ({ nombre, url, estado })),
+  ],
 };
 
-console.log(cartelera.map(p => `${p.titulo} [${p.idioma}] ${p.salas.join(', ')} · ${p.fechas.length} días · IMDb ${p.imdb ? `${p.imdb.nota} (${p.imdb.votos})${p.imdb.dudoso ? ' dudoso' : ''}` : 'sin dato'}`).join('\n'));
+console.log(cartelera.map(p => `${p.titulo} · ${p.donde.map(d => d.cadena).join(', ')} · IMDb ${p.imdb ? `${p.imdb.nota} (${p.imdb.votos})${p.imdb.dudoso ? ' dudoso' : ''}` : 'sin dato'}`).join('\n'));
 if (!seco) {
   writeFileSync(RUTA, JSON.stringify(nuevo, null, 2) + '\n');
   console.log(`\n${cartelera.length} películas escritas en cartelera/cartelera.json`);

@@ -1,15 +1,28 @@
 name: Cartelera de cine (jueves)
 
-# Refresca cartelera/cartelera.json cada jueves: los estrenos en Colombia caen
-# en jueves y ese día las cadenas cambian de semana. Corre aquí y no en una
-# rutina de Claude porque la nube de Claude no deja salir a cinecolombia.com.
-# El script no necesita secretos: la API de Cine Colombia y el dataset de IMDb
-# son públicos.
+# Refresca la cartelera cada jueves: los estrenos en Colombia caen en jueves y
+# ese día las cadenas cambian de semana. Corre aquí y no en una rutina de
+# Claude porque la nube de Claude no deja salir a los sitios de cine.
+#   1. scripts/salas.py (Python + Scrapling): Procinal, Cinemark, Colombo, MAMM
+#      → cartelera/salas.json. Si falla, se sigue con el último salas.json.
+#   2. scripts/cartelera.mjs: Cine Colombia + IMDb, y junta todo
+#      → cartelera/cartelera.json.
+# No hay secretos: todo lo que se lee es público.
 
 on:
   schedule:
     - cron: '0 13 * * 4'   # jueves 8:00 a.m. Bogotá
   workflow_dispatch:
+  # También cuando cambia el código que lee las salas, para probarlo en el
+  # acto. El commit del bot solo toca cartelera/*.json: no se dispara a sí mismo.
+  push:
+    branches: [master]
+    paths:
+      - scripts/salas.py
+      - scripts/cartelera.mjs
+      - lib/cartelera.mjs
+      - scripts/requirements-salas.txt
+      - .github/workflows/cartelera.yml
 
 permissions:
   contents: write
@@ -27,19 +40,32 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-salas.txt
+      - name: Instalar Scrapling y su navegador
+        run: |
+          pip install -r scripts/requirements-salas.txt
+          scrapling install
+      - run: python -m unittest scripts/test_salas.py
+      - name: Leer las otras salas
+        continue-on-error: true
+        run: python scripts/salas.py
       - run: node scripts/cartelera.mjs
       - run: node --test lib/cartelera.test.mjs
       - name: Commit si cambió
         id: commit
         run: |
-          if git diff --quiet cartelera/cartelera.json; then
+          if git diff --quiet cartelera/; then
             echo "Sin cambios."
             echo "cambio=no" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cartelera/cartelera.json
+          git add cartelera/cartelera.json cartelera/salas.json
           git commit -m "chore: cartelera semanal $(date -u +%F)"
           git push
           echo "cambio=si" >> "$GITHUB_OUTPUT"

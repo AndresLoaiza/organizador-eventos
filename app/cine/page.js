@@ -1,7 +1,7 @@
 'use client';
 import datos from '../../cartelera/cartelera.json';
+import { urlSegura } from '../../lib/url.mjs';
 
-const URL_CC = 'https://www.cinecolombia.com/peliculas/';
 // '2026-11-09' → 'lun 9'. Mediodía UTC para que el huso no corra el día.
 const dia = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('es-CO', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
 
@@ -19,9 +19,7 @@ export default function Cine() {
             <span className="n num" aria-hidden="true">{i + 1}</span>
             <div>
               <div className="obra">{f.titulo}</div>
-              <div className="donde">{f.original !== f.titulo ? `${f.original} · ` : ''}{f.idioma}</div>
-              <div className="donde">{f.salas.join(' · ')}</div>
-              {f.fechas?.length > 0 && <div className="donde num">{f.fechas.map(dia).join(' · ')}</div>}
+              {f.original && f.original !== f.titulo && <div className="donde">{f.original}</div>}
               <div className="donde">
                 {f.imdb ? (
                   <>
@@ -33,21 +31,31 @@ export default function Cine() {
                 ) : 'IMDb: sin dato seguro'}
               </div>
               {f.motivo && <div className="margen">{f.motivo}</div>}
-              <div className="boletas-fila">
-                <a className="boton" data-tam="chico" data-v="primario"
-                   href={`${URL_CC}${f.slug}`} target="_blank" rel="noreferrer">Comprar boleta</a>
-              </div>
+              {f.donde.map(d => (
+                <div className="boletas-fila" key={`${d.cadena}-${d.sede}`}>
+                  <div className="donde">
+                    {/* «Cinemark El Tesoro», «MAMM»: la sede ya nombra la cadena. */}
+                    <b>{d.sede.startsWith(d.cadena.split(' ')[0]) ? d.sede : `${d.cadena} · ${d.sede}`}</b>
+                    {' · '}{d.idioma_confirmado ? d.idioma : `idioma sin confirmar: ${d.idioma}`}
+                    {d.fechas?.length > 0 && <span className="num"> · {d.fechas.map(dia).join(', ')}</span>}
+                  </div>
+                  {urlSegura(d.url) && (
+                    <a className="boton" data-tam="chico" data-v="primario"
+                       href={d.url} target="_blank" rel="noreferrer">Comprar</a>
+                  )}
+                </div>
+              ))}
             </div>
           </li>
         ))}
       </ol>
 
-      <h2>Cadenas</h2>
+      <h2>Salas</h2>
       <ul>
         {datos.cadenas.map(c => (
           <li key={c.nombre}>
             <b>{c.nombre}</b>: {c.estado}{' '}
-            {c.url && <a href={c.url} target="_blank" rel="noreferrer">Abrir</a>}
+            {urlSegura(c.url) && <a href={c.url} target="_blank" rel="noreferrer">Abrir</a>}
           </li>
         ))}
       </ul>

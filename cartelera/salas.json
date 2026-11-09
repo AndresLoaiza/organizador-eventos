@@ -1,0 +1,506 @@
+{
+  "leido": "2026-11-09",
+  "ventana_dias": 8,
+  "cadenas": [
+    {
+      "nombre": "Procinal (Terminal del Sur)",
+      "url": "https://www.procinal.com.co/ciudad/medellin",
+      "leida": "2026-11-09",
+      "estado": "Leída el 2026-11-09: 9 entradas leídas; 0 en idioma original.",
+      "peliculas": []
+    },
+    {
+      "nombre": "Cinemark",
+      "url": "https://www.cinemark.com.co/cartelera/medellin",
+      "leida": "2026-11-09",
+      "estado": "Leída el 2026-11-09: 20 películas en cartelera; 12 sedes con función en idioma original (solo el primer día que ofrece su web).",
+      "peliculas": [
+        {
+          "titulo": "Clayface",
+          "original": "Clayface",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/clayface",
+          "funciones": [
+            "2026-11-09 19:10",
+            "2026-11-09 22:15"
+          ]
+        },
+        {
+          "titulo": "Godzilla Minus Zero",
+          "original": "Godzilla Minus Zero",
+          "sede": "Cinemark Arkadia",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero",
+          "funciones": [
+            "2026-11-09 21:00"
+          ]
+        },
+        {
+          "titulo": "Godzilla Minus Zero",
+          "original": "Godzilla Minus Zero",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero",
+          "funciones": [
+            "2026-11-09 15:10",
+            "2026-11-09 17:45",
+            "2026-11-09 21:00",
+            "2026-11-09 22:00"
+          ]
+        },
+        {
+          "titulo": "Madre Siniestra",
+          "original": "Madre Siniestra",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/madre-siniestra",
+          "funciones": [
+            "2026-11-09 17:10"
+          ]
+        },
+        {
+          "titulo": "El Corazon de la Bestia",
+          "original": "El Corazon de la Bestia",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/el-corazon-de-la-bestia",
+          "funciones": [
+            "2026-11-09 15:20",
+            "2026-11-09 21:50"
+          ]
+        },
+        {
+          "titulo": "Rocky",
+          "original": "Rocky",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/rocky",
+          "funciones": [
+            "2026-11-09 18:10"
+          ]
+        },
+        {
+          "titulo": "Verity",
+          "original": "Verity",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/verity",
+          "funciones": [
+            "2026-11-09 17:55",
+            "2026-11-09 21:10"
+          ]
+        },
+        {
+          "titulo": "Wildwood",
+          "original": "Wildwood",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/wildwood",
+          "funciones": [
+            "2026-11-09 21:40"
+          ]
+        },
+        {
+          "titulo": "A Cualquier Precio",
+          "original": "A Cualquier Precio",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/a-cualquier-precio",
+          "funciones": [
+            "2026-11-09 20:10"
+          ]
+        },
+        {
+          "titulo": "Caballo Salvaje Nueve",
+          "original": "Caballo Salvaje Nueve",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/caballo-salvaje-nueve",
+          "funciones": [
+            "2026-11-09 14:50"
+          ]
+        },
+        {
+          "titulo": "Akira",
+          "original": "Akira",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/akira-re",
+          "funciones": [
+            "2026-11-12 18:20"
+          ]
+        },
+        {
+          "titulo": "Rápido y Furioso",
+          "original": "Rápido y Furioso",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/rapido-y-furioso-re",
+          "funciones": [
+            "2026-11-12 18:40",
+            "2026-11-12 22:10"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Colombo Americano",
+      "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+      "leida": "2026-11-09",
+      "estado": "Leída el 2026-11-09: 12 películas con función en los próximos 8 días.",
+      "peliculas": [
+        {
+          "titulo": "Resurrection",
+          "original": "Resurrection",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2025,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-10 14:00",
+            "2026-11-12 19:00"
+          ]
+        },
+        {
+          "titulo": "Wildwood: El bosque salvaje",
+          "original": "Wildwood: El bosque salvaje",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-10 17:00",
+            "2026-11-15 14:00"
+          ]
+        },
+        {
+          "titulo": "Tierra de mi padre",
+          "original": "Tierra de mi padre",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-10 19:15",
+            "2026-11-11 14:30",
+            "2026-11-13 16:30"
+          ]
+        },
+        {
+          "titulo": "Digger",
+          "original": "Digger",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-11 16:30",
+            "2026-11-12 14:00"
+          ]
+        },
+        {
+          "titulo": "KMKZ: Salvaje, Libre y Valiente",
+          "original": "KMKZ: Salvaje, Libre y Valiente",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-11 19:00",
+            "2026-11-13 18:00"
+          ]
+        },
+        {
+          "titulo": "El gran falsificador",
+          "original": "El gran falsificador",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-12 16:30",
+            "2026-11-13 14:00",
+            "2026-11-15 18:45"
+          ]
+        },
+        {
+          "titulo": "Wild Horse Nine",
+          "original": "Wild Horse Nine",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-13 18:30",
+            "2026-11-14 13:45",
+            "2026-11-15 16:30"
+          ]
+        },
+        {
+          "titulo": "La sinfonía de los bichos raros",
+          "original": "La sinfonía de los bichos raros",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 2025,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-14 16:00",
+            "2026-11-15 17:00"
+          ]
+        },
+        {
+          "titulo": "Bad Lieutenant",
+          "original": "Bad Lieutenant",
+          "sede": "Colombo Americano, sala 1",
+          "anio": 1992,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-14 19:00"
+          ]
+        },
+        {
+          "titulo": "El cielo dividido",
+          "original": "El cielo dividido",
+          "sede": "Colombo Americano, sala 2",
+          "anio": 1964,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-10 15:00"
+          ]
+        },
+        {
+          "titulo": "Manual para invocar fantasmas",
+          "original": "Manual para invocar fantasmas",
+          "sede": "Colombo Americano, sala 2",
+          "anio": 2026,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-11 18:30",
+            "2026-11-14 17:00"
+          ]
+        },
+        {
+          "titulo": "Kalibre 35",
+          "original": "Kalibre 35",
+          "sede": "Colombo Americano, sala 2",
+          "anio": 2000,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "funciones": [
+            "2026-11-12 19:00"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "MAMM (cine)",
+      "url": "https://www.elmamm.org/cine/",
+      "leida": "2026-11-09",
+      "estado": "Leída el 2026-11-09: 25 fichas leídas; 13 con función en los próximos 8 días.",
+      "peliculas": [
+        {
+          "titulo": "Caballo salvaje nueve",
+          "original": "Caballo salvaje nueve",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/47244/",
+          "funciones": [
+            "2026-11-13 21:10",
+            "2026-11-14 19:00"
+          ]
+        },
+        {
+          "titulo": "Babystar",
+          "original": "Babystar",
+          "sede": "MAMM",
+          "anio": 2025,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/babystar/",
+          "funciones": [
+            "2026-11-13 16:20",
+            "2026-11-16 18:10"
+          ]
+        },
+        {
+          "titulo": "Digger",
+          "original": "Digger",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/digger/",
+          "funciones": [
+            "2026-11-14 21:20"
+          ]
+        },
+        {
+          "titulo": "Donde comienza el río",
+          "original": "Donde comienza el río",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/donde-comienza-el-rio/",
+          "funciones": [
+            "2026-11-11 16:20"
+          ]
+        },
+        {
+          "titulo": "El gran falsificador",
+          "original": "El gran falsificador",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/el-gran-falsificador/",
+          "funciones": [
+            "2026-11-16 13:30"
+          ]
+        },
+        {
+          "titulo": "KMKZ: salvaje, libre y valiente",
+          "original": "KMKZ: salvaje, libre y valiente",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/kmkz-salvaje-libre-y-valiente/",
+          "funciones": [
+            "2026-11-13 14:30"
+          ]
+        },
+        {
+          "titulo": "Las pesadillas del siervo",
+          "original": "Las pesadillas del siervo",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/las-pesadillas-del-siervo/",
+          "funciones": [
+            "2026-11-11 18:30"
+          ]
+        },
+        {
+          "titulo": "Maria Antonieta",
+          "original": "Maria Antonieta",
+          "sede": "MAMM",
+          "anio": 2006,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/maria-antonieta/",
+          "funciones": [
+            "2026-11-13 18:30",
+            "2026-11-14 16:30"
+          ]
+        },
+        {
+          "titulo": "Resurrección",
+          "original": "Resurrección",
+          "sede": "MAMM",
+          "anio": 2025,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/resurrection/",
+          "funciones": [
+            "2026-11-15 13:00"
+          ]
+        },
+        {
+          "titulo": "Seis meses en el edificio rosa con azul",
+          "original": "Seis meses en el edificio rosa con azul",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/seis-meses-en-el-edificio-rosa-con-azul/",
+          "funciones": [
+            "2026-11-16 16:00"
+          ]
+        },
+        {
+          "titulo": "Sensatez y sentimiento",
+          "original": "Sensatez y sentimiento",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/sensatez-y-sentimiento/",
+          "funciones": [
+            "2026-11-14 14:00",
+            "2026-11-15 16:00"
+          ]
+        },
+        {
+          "titulo": "Tierra de mi padre",
+          "original": "Tierra de mi padre",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/tierra-de-mi-padre/",
+          "funciones": [
+            "2026-11-14 12:20",
+            "2026-11-15 21:05"
+          ]
+        },
+        {
+          "titulo": "Wildwood",
+          "original": "Wildwood",
+          "sede": "MAMM",
+          "anio": 2026,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.elmamm.org/producto/wildwood/",
+          "funciones": [
+            "2026-11-15 18:30",
+            "2026-11-16 20:10"
+          ]
+        }
+      ]
+    }
+  ]
+}

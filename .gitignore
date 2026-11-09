@@ -20,3 +20,5 @@ public/_entrar-local.html
 # Página temporal de entrada en desarrollo (scripts/entrar-local.mjs).
 public/_entrar-local.html
 .claude/settings.local.json
+.venv-cine/
+__pycache__/

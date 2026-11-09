@@ -1,23 +1,70 @@
 {
   "verificado": "2026-11-09",
   "ciudad": "Medellín",
-  "nota": "Películas con función subtitulada o en español en Cine Colombia Medellín entre hoy y los próximos 7 días, leídas el 2026-11-09. El botón abre la película en vivo para ver horarios.",
+  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana. Cine Colombia leída el 2026-11-09; las otras salas, el 2026-11-09. Cada botón abre la sala en vivo para ver horarios.",
   "peliculas": [
     {
       "titulo": "Caballo Salvaje Nueve",
       "original": "Wild Horse Nine",
       "slug": "wild-horse-nine",
-      "salas": [
-        "Molinos",
-        "Oviedo",
-        "Viva Envigado",
-        "Vizcaya"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/wild-horse-nine"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 14:50"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/caballo-salvaje-nueve"
+        },
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-13 18:30",
+            "2026-11-14 13:45",
+            "2026-11-15 16:30"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-13",
+            "2026-11-14"
+          ],
+          "funciones": [
+            "2026-11-13 21:10",
+            "2026-11-14 19:00"
+          ],
+          "url": "https://www.elmamm.org/producto/47244/"
+        }
       ],
       "imdb": {
         "id": "tt15799564",
@@ -26,20 +73,173 @@
       }
     },
     {
+      "titulo": "Wildwood",
+      "original": "Wildwood",
+      "slug": "wildwood",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/wildwood"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 21:40"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/wildwood"
+        },
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-10",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-10 17:00",
+            "2026-11-15 14:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "funciones": [
+            "2026-11-15 18:30",
+            "2026-11-16 20:10"
+          ],
+          "url": "https://www.elmamm.org/producto/wildwood/"
+        }
+      ],
+      "imdb": {
+        "id": "tt2056785",
+        "nota": 8.6,
+        "votos": 23687
+      }
+    },
+    {
+      "titulo": "El Gran Falsificador",
+      "original": "L’affaire Bojarski.",
+      "slug": "l-affaire-bojarski",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/l-affaire-bojarski"
+        },
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-12 16:30",
+            "2026-11-13 14:00",
+            "2026-11-15 18:45"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-16"
+          ],
+          "funciones": [
+            "2026-11-16 13:30"
+          ],
+          "url": "https://www.elmamm.org/producto/el-gran-falsificador/"
+        }
+      ],
+      "imdb": {
+        "id": "tt35495035",
+        "nota": 7,
+        "votos": 2279,
+        "dudoso": true
+      }
+    },
+    {
       "titulo": "Godzilla Minus Zero",
       "original": "Godzilla Minus Zero",
       "slug": "godzilla-minus-zero",
-      "salas": [
-        "Molinos",
-        "Oviedo",
-        "Viva Envigado",
-        "Vizcaya"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/godzilla-minus-zero"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark Arkadia",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 21:00"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 15:10",
+            "2026-11-09 17:45",
+            "2026-11-09 21:00",
+            "2026-11-09 22:00"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero"
+        }
       ],
       "imdb": {
         "id": "tt34384661",
@@ -51,16 +251,32 @@
       "titulo": "A Cualquier Precio",
       "original": "By Any Means",
       "slug": "by-any-means",
-      "salas": [
-        "Molinos",
-        "Viva Envigado",
-        "Vizcaya"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/by-any-means"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 20:10"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/a-cualquier-precio"
+        }
       ],
       "imdb": {
         "id": "tt34379051",
@@ -69,61 +285,36 @@
       }
     },
     {
-      "titulo": "Pacífico",
-      "original": "Pacífico",
-      "slug": "pacifico",
-      "salas": [
-        "Molinos",
-        "Santafe Medellin",
-        "Viva Envigado"
-      ],
-      "idioma": "Español (original)",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
-      ],
-      "imdb": {
-        "id": "tt4634974",
-        "nota": 5.7,
-        "votos": 61,
-        "dudoso": true
-      }
-    },
-    {
-      "titulo": "Wildwood",
-      "original": "Wildwood",
-      "slug": "wildwood",
-      "salas": [
-        "Molinos",
-        "Oviedo",
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
-      ],
-      "imdb": {
-        "id": "tt2056785",
-        "nota": 8.6,
-        "votos": 23687
-      }
-    },
-    {
       "titulo": "Clayface",
       "original": "Clayface",
       "slug": "clayface",
-      "salas": [
-        "Oviedo",
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Oviedo · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/clayface"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 19:10",
+            "2026-11-09 22:15"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/clayface"
+        }
       ],
       "imdb": {
         "id": "tt34890576",
@@ -132,18 +323,76 @@
       }
     },
     {
+      "titulo": "Digger",
+      "original": "Digger",
+      "slug": "digger",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-11",
+            "2026-11-12"
+          ],
+          "funciones": [
+            "2026-11-11 16:30",
+            "2026-11-12 14:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-14"
+          ],
+          "funciones": [
+            "2026-11-14 21:20"
+          ],
+          "url": "https://www.elmamm.org/producto/digger/"
+        }
+      ],
+      "imdb": {
+        "id": "tt31450459",
+        "nota": 7.5,
+        "votos": 47097
+      }
+    },
+    {
       "titulo": "El Corazón de la Bestia",
       "original": "Heart of the Beast",
       "slug": "heart-of-the-beast",
-      "salas": [
-        "Oviedo",
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Oviedo · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/heart-of-the-beast"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 15:20",
+            "2026-11-09 21:50"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/el-corazon-de-la-bestia"
+        }
       ],
       "imdb": {
         "id": "tt7526136",
@@ -152,39 +401,72 @@
       }
     },
     {
-      "titulo": "El Gato con Sombrero",
-      "original": "The Cat in the Hat",
-      "slug": "the-cat-in-the-hat",
-      "salas": [
-        "Viva Envigado",
-        "Vizcaya"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
-      ],
-      "imdb": {
-        "id": "tt2321555",
-        "nota": 6.6,
-        "votos": 710
-      }
+      "titulo": "KMKZ: Salvaje, Libre y Valiente",
+      "original": "KMKZ: Salvaje, Libre y Valiente",
+      "slug": "kmkz-salvaje-libre-y-valiente",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-11",
+            "2026-11-13"
+          ],
+          "funciones": [
+            "2026-11-11 19:00",
+            "2026-11-13 18:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-13"
+          ],
+          "funciones": [
+            "2026-11-13 14:30"
+          ],
+          "url": "https://www.elmamm.org/producto/kmkz-salvaje-libre-y-valiente/"
+        }
+      ]
     },
     {
       "titulo": "Rapido y Furioso",
       "original": "The Fast and the Furious (25th Anniversary)",
       "slug": "the-fast-and-the-furious-25th-anniversary",
-      "salas": [
-        "Molinos",
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-12",
-        "2026-11-13",
-        "2026-11-14",
-        "2026-11-15"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-fast-and-the-furious-25th-anniversary"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12"
+          ],
+          "funciones": [
+            "2026-11-12 18:40",
+            "2026-11-12 22:10"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/rapido-y-furioso-re"
+        }
       ],
       "imdb": {
         "id": "tt0232500",
@@ -193,31 +475,307 @@
       }
     },
     {
-      "titulo": "Romeo y Julieta",
-      "original": "Roméo et Juliette",
-      "slug": "romeo-et-juliette",
-      "salas": [
-        "Santafe Medellin",
-        "Viva Envigado"
+      "titulo": "Resurrection",
+      "original": "Resurrection",
+      "slug": "resurrection",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-10",
+            "2026-11-12"
+          ],
+          "funciones": [
+            "2026-11-10 14:00",
+            "2026-11-12 19:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-15 13:00"
+          ],
+          "url": "https://www.elmamm.org/producto/resurrection/"
+        }
       ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-14",
-        "2026-11-15"
+      "imdb": {
+        "id": "tt29002950",
+        "nota": 7.2,
+        "votos": 6127
+      }
+    },
+    {
+      "titulo": "Sensatez y Sentimiento",
+      "original": "Sense and Sensibility",
+      "slug": "sense-and-sensibility",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/sense-and-sensibility"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-14 14:00",
+            "2026-11-15 16:00"
+          ],
+          "url": "https://www.elmamm.org/producto/sensatez-y-sentimiento/"
+        }
+      ],
+      "imdb": {
+        "id": "tt13609648",
+        "nota": 7.2,
+        "votos": 10839
+      }
+    },
+    {
+      "titulo": "Tierra de mi padre",
+      "original": "Tierra de mi padre",
+      "slug": "tierra-de-mi-padre",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-10",
+            "2026-11-11",
+            "2026-11-13"
+          ],
+          "funciones": [
+            "2026-11-10 19:15",
+            "2026-11-11 14:30",
+            "2026-11-13 16:30"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-14 12:20",
+            "2026-11-15 21:05"
+          ],
+          "url": "https://www.elmamm.org/producto/tierra-de-mi-padre/"
+        }
+      ],
+      "imdb": {
+        "id": "tt37304295",
+        "nota": 7.3,
+        "votos": 4488,
+        "dudoso": true
+      }
+    },
+    {
+      "titulo": "Verity",
+      "original": "Verity",
+      "slug": "verity",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Oviedo",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/verity"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 17:55",
+            "2026-11-09 21:10"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/verity"
+        }
+      ],
+      "imdb": {
+        "id": "tt32261958",
+        "nota": 6,
+        "votos": 34713
+      }
+    },
+    {
+      "titulo": "Akira",
+      "original": "Akira",
+      "slug": "akira",
+      "donde": [
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12"
+          ],
+          "funciones": [
+            "2026-11-12 18:20"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/akira-re"
+        }
+      ],
+      "imdb": {
+        "id": "tt0094625",
+        "nota": 8,
+        "votos": 233873
+      }
+    },
+    {
+      "titulo": "Babystar",
+      "original": "Babystar",
+      "slug": "babystar",
+      "donde": [
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-13",
+            "2026-11-16"
+          ],
+          "funciones": [
+            "2026-11-13 16:20",
+            "2026-11-16 18:10"
+          ],
+          "url": "https://www.elmamm.org/producto/babystar/"
+        }
+      ],
+      "imdb": {
+        "id": "tt34998116",
+        "nota": 6.1,
+        "votos": 195
+      }
+    },
+    {
+      "titulo": "Bad Lieutenant",
+      "original": "Bad Lieutenant",
+      "slug": "bad-lieutenant",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-14"
+          ],
+          "funciones": [
+            "2026-11-14 19:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        }
+      ],
+      "imdb": {
+        "id": "tt0103759",
+        "nota": 7,
+        "votos": 53659
+      }
+    },
+    {
+      "titulo": "Donde comienza el río",
+      "original": "Donde comienza el río",
+      "slug": "donde-comienza-el-rio",
+      "donde": [
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-11"
+          ],
+          "funciones": [
+            "2026-11-11 16:20"
+          ],
+          "url": "https://www.elmamm.org/producto/donde-comienza-el-rio/"
+        }
+      ],
+      "imdb": {
+        "id": "tt15461438",
+        "nota": 7.7,
+        "votos": 21,
+        "dudoso": true
+      }
+    },
+    {
+      "titulo": "El cielo dividido",
+      "original": "El cielo dividido",
+      "slug": "el-cielo-dividido",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 2",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-10"
+          ],
+          "funciones": [
+            "2026-11-10 15:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        }
       ]
     },
     {
       "titulo": "El Despertar",
       "original": "El Despertar",
       "slug": "el-despertar",
-      "salas": [
-        "Viva Envigado"
-      ],
-      "idioma": "Español (original)",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Viva Envigado",
+          "idioma": "Español (original)",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/el-despertar"
+        }
       ],
       "imdb": {
         "id": "tt39120306",
@@ -227,37 +785,46 @@
       }
     },
     {
-      "titulo": "El Gran Falsificador",
-      "original": "L’affaire Bojarski.",
-      "slug": "l-affaire-bojarski",
-      "salas": [
-        "Vizcaya"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "titulo": "El Gato con Sombrero",
+      "original": "The Cat in the Hat",
+      "slug": "the-cat-in-the-hat",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-cat-in-the-hat"
+        }
       ],
       "imdb": {
-        "id": "tt35495035",
-        "nota": 7,
-        "votos": 2279,
-        "dudoso": true
+        "id": "tt2321555",
+        "nota": 6.6,
+        "votos": 710
       }
     },
     {
       "titulo": "Entrega Al Límite",
       "original": "Runner",
       "slug": "runner",
-      "salas": [
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/runner"
+        }
       ],
       "imdb": {
         "id": "tt31349844",
@@ -266,17 +833,89 @@
       }
     },
     {
+      "titulo": "Kalibre 35",
+      "original": "Kalibre 35",
+      "slug": "kalibre-35",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 2",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-12"
+          ],
+          "funciones": [
+            "2026-11-12 19:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        }
+      ],
+      "imdb": {
+        "id": "tt0244576",
+        "nota": 6.2,
+        "votos": 189
+      }
+    },
+    {
+      "titulo": "La sinfonía de los bichos raros",
+      "original": "La sinfonía de los bichos raros",
+      "slug": "la-sinfonia-de-los-bichos-raros",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-14 16:00",
+            "2026-11-15 17:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        }
+      ]
+    },
+    {
+      "titulo": "Las pesadillas del siervo",
+      "original": "Las pesadillas del siervo",
+      "slug": "las-pesadillas-del-siervo",
+      "donde": [
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-11"
+          ],
+          "funciones": [
+            "2026-11-11 18:30"
+          ],
+          "url": "https://www.elmamm.org/producto/las-pesadillas-del-siervo/"
+        }
+      ]
+    },
+    {
       "titulo": "Los Juegos del Hambre: Sinsajo Part 2",
       "original": "The Hunger Games: Mockingjay - Part 2",
       "slug": "the-hunger-games-mockingjay-part-2",
-      "salas": [
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-hunger-games-mockingjay-part-2"
+        }
       ],
       "imdb": {
         "id": "tt1951266",
@@ -285,87 +924,218 @@
       }
     },
     {
-      "titulo": "Sensatez y Sentimiento",
-      "original": "Sense and Sensibility",
-      "slug": "sense-and-sensibility",
-      "salas": [
-        "Vizcaya"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
+      "titulo": "Madre Siniestra",
+      "original": "Madre Siniestra",
+      "slug": "madre-siniestra",
+      "donde": [
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 17:10"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/madre-siniestra"
+        }
+      ]
+    },
+    {
+      "titulo": "Manual para invocar fantasmas",
+      "original": "Manual para invocar fantasmas",
+      "slug": "manual-para-invocar-fantasmas",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 2",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-11",
+            "2026-11-14"
+          ],
+          "funciones": [
+            "2026-11-11 18:30",
+            "2026-11-14 17:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        }
+      ]
+    },
+    {
+      "titulo": "Maria Antonieta",
+      "original": "Maria Antonieta",
+      "slug": "maria-antonieta",
+      "donde": [
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-13",
+            "2026-11-14"
+          ],
+          "funciones": [
+            "2026-11-13 18:30",
+            "2026-11-14 16:30"
+          ],
+          "url": "https://www.elmamm.org/producto/maria-antonieta/"
+        }
       ],
       "imdb": {
-        "id": "tt13609648",
-        "nota": 7.2,
-        "votos": 10839
+        "id": "tt0422720",
+        "nota": 6.5,
+        "votos": 134499,
+        "dudoso": true
+      }
+    },
+    {
+      "titulo": "Pacífico",
+      "original": "Pacífico",
+      "slug": "pacifico",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Santafe Medellin · Viva Envigado",
+          "idioma": "Español (original)",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/pacifico"
+        }
+      ],
+      "imdb": {
+        "id": "tt4634974",
+        "nota": 5.7,
+        "votos": 61,
+        "dudoso": true
+      }
+    },
+    {
+      "titulo": "Rocky",
+      "original": "Rocky",
+      "slug": "rocky",
+      "donde": [
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09"
+          ],
+          "funciones": [
+            "2026-11-09 18:10"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/rocky"
+        }
+      ],
+      "imdb": {
+        "id": "tt0075148",
+        "nota": 8.1,
+        "votos": 706949
+      }
+    },
+    {
+      "titulo": "Romeo y Julieta",
+      "original": "Roméo et Juliette",
+      "slug": "romeo-et-juliette",
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/romeo-et-juliette"
+        }
+      ]
+    },
+    {
+      "titulo": "Seis meses en el edificio rosa con azul",
+      "original": "Seis meses en el edificio rosa con azul",
+      "slug": "seis-meses-en-el-edificio-rosa-con-azul",
+      "donde": [
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-16"
+          ],
+          "funciones": [
+            "2026-11-16 16:00"
+          ],
+          "url": "https://www.elmamm.org/producto/seis-meses-en-el-edificio-rosa-con-azul/"
+        }
+      ],
+      "imdb": {
+        "id": "tt41742035",
+        "nota": 6.9,
+        "votos": 72,
+        "dudoso": true
       }
     },
     {
       "titulo": "Street Fighter",
       "original": "Street Fighter",
       "slug": "street-fighter",
-      "salas": [
-        "Viva Envigado"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10"
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-09",
+            "2026-11-10"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/street-fighter"
+        }
       ],
       "imdb": {
         "id": "tt27419420",
         "nota": 6.2,
         "votos": 21914
       }
-    },
-    {
-      "titulo": "Verity",
-      "original": "Verity",
-      "slug": "verity",
-      "salas": [
-        "Oviedo"
-      ],
-      "idioma": "Subtitulada",
-      "fechas": [
-        "2026-11-09",
-        "2026-11-10",
-        "2026-11-11"
-      ],
-      "imdb": {
-        "id": "tt32261958",
-        "nota": 6,
-        "votos": 34713
-      }
     }
   ],
   "cadenas": [
     {
       "nombre": "Cine Colombia",
-      "estado": "Leída el 2026-11-09 desde su API, en las 6 sedes de Medellín.",
-      "url": "https://www.cinecolombia.com/cartelera/medellin"
+      "url": "https://www.cinecolombia.com/cartelera/medellin",
+      "estado": "Leída el 2026-11-09 desde su API, en las 6 sedes de Medellín."
     },
     {
       "nombre": "Procinal (Terminal del Sur)",
-      "estado": "Leída el 9 nov: todo en cartelera va doblado, no entra.",
-      "url": "https://www.procinal.com.co/ciudad/medellin"
+      "url": "https://www.procinal.com.co/ciudad/medellin",
+      "estado": "Leída el 2026-11-09: 9 entradas leídas; 0 en idioma original."
     },
     {
       "nombre": "Cinemark",
-      "estado": "No leída: el navegador no pudo abrir su sitio. Revísala tú.",
-      "url": "https://www.cinemark.com.co/"
+      "url": "https://www.cinemark.com.co/cartelera/medellin",
+      "estado": "Leída el 2026-11-09: 20 películas en cartelera; 12 sedes con función en idioma original (solo el primer día que ofrece su web)."
     },
     {
-      "nombre": "Colombo Americano (Sala 1, boleta $13.000)",
-      "estado": "Leída el 9 nov: solo muestra la semana del 3 al 8; la nueva aún no está publicada. No dice el idioma de cada función.",
-      "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+      "nombre": "Colombo Americano",
+      "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+      "estado": "Leída el 2026-11-09: 12 películas con función en los próximos 8 días."
     },
     {
       "nombre": "MAMM (cine)",
-      "estado": "Leída el 9 nov: solo muestra la semana del 4 al 8 (Miradas Medellín, entrada libre, original con subtítulos según la página). La nueva aún no sale.",
-      "url": "https://www.elmamm.org/cine/"
+      "url": "https://www.elmamm.org/cine/",
+      "estado": "Leída el 2026-11-09: 25 fichas leídas; 13 con función en los próximos 8 días."
     }
   ],
   "imdb_leido": "2026-11-09"
