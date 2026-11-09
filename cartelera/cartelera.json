@@ -1,0 +1,207 @@
+{
+  "verificado": "2026-11-09",
+  "ciudad": "Medellín",
+  "nota": "Solo funciones subtitulada o en español original, leídas en cinecolombia.com el 9 nov 2026. Horarios y salas cambian a diario: el botón abre la cartelera en vivo.",
+  "peliculas": [
+    {
+      "titulo": "Caballo Salvaje Nueve",
+      "original": "Wild Horse Nine",
+      "slug": "wild-horse-nine",
+      "salas": [
+        "Molinos",
+        "Oviedo",
+        "Viva Envigado",
+        "Vizcaya"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt15799564",
+        "nota": 8.1,
+        "votos": 9156
+      }
+    },
+    {
+      "titulo": "Godzilla Minus Zero",
+      "original": "Godzilla Minus Zero",
+      "slug": "godzilla-minus-zero",
+      "salas": [
+        "Molinos",
+        "Oviedo",
+        "Viva Envigado",
+        "Vizcaya"
+      ],
+      "idioma": "Subtitulada (original japonés)",
+      "imdb": {
+        "id": "tt34384661",
+        "nota": 8.0,
+        "votos": 14374
+      }
+    },
+    {
+      "titulo": "Wildwood",
+      "original": "Wildwood",
+      "slug": "wildwood",
+      "salas": [
+        "Molinos",
+        "Oviedo",
+        "Viva Envigado"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt2056785",
+        "nota": 8.6,
+        "votos": 24703
+      }
+    },
+    {
+      "titulo": "A Cualquier Precio",
+      "original": "By Any Means",
+      "slug": "by-any-means",
+      "salas": [
+        "Molinos",
+        "Viva Envigado",
+        "Vizcaya"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt34379051",
+        "nota": 6.5,
+        "votos": 8596
+      }
+    },
+    {
+      "titulo": "Clayface",
+      "original": "Clayface",
+      "slug": "clayface",
+      "salas": [
+        "Oviedo",
+        "Viva Envigado"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt34890576",
+        "nota": 7.5,
+        "votos": 48208
+      }
+    },
+    {
+      "titulo": "El Corazón de la Bestia",
+      "original": "Heart of the Beast",
+      "slug": "heart-of-the-beast",
+      "salas": [
+        "Oviedo",
+        "Viva Envigado"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt7526136",
+        "nota": 7.1,
+        "votos": 43903
+      }
+    },
+    {
+      "titulo": "Todos Eran Mis Hijos",
+      "original": "All My Sons",
+      "slug": "all-my-sons",
+      "salas": [
+        "Santafe Medellin",
+        "Viva Envigado"
+      ],
+      "idioma": "Subtitulada",
+      "motivo": "Obra de teatro filmada (Arthur Miller): tu perfil de artes escénicas, no un gusto de cine dicho por ti.",
+      "imdb": {
+        "id": "tt39544163",
+        "nota": 8.0,
+        "votos": 214
+      }
+    },
+    {
+      "titulo": "Pacífico",
+      "original": "Pacífico",
+      "slug": "pacifico",
+      "salas": [
+        "Molinos",
+        "Santafe Medellin",
+        "Viva Envigado"
+      ],
+      "idioma": "Español (original)",
+      "imdb": {
+        "id": "tt4634974",
+        "nota": 5.7,
+        "votos": 61,
+        "dudoso": true
+      }
+    },
+    {
+      "titulo": "Sensatez y Sentimiento",
+      "original": "Sense and Sensibility",
+      "slug": "sense-and-sensibility",
+      "salas": [
+        "Vizcaya"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt13609648",
+        "nota": 7.2,
+        "votos": 11075
+      }
+    },
+    {
+      "titulo": "Los Juegos del Hambre: Sinsajo Parte 2",
+      "original": "The Hunger Games: Mockingjay - Part 2",
+      "slug": "the-hunger-games-mockingjay-part-2",
+      "salas": [
+        "Viva Envigado"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt1951266",
+        "nota": 6.6,
+        "votos": 425141
+      }
+    },
+    {
+      "titulo": "El Gato con Sombrero",
+      "original": "The Cat in the Hat",
+      "slug": "the-cat-in-the-hat",
+      "salas": [
+        "Viva Envigado",
+        "Vizcaya"
+      ],
+      "idioma": "Subtitulada",
+      "imdb": {
+        "id": "tt2321555",
+        "nota": 6.6,
+        "votos": 902
+      }
+    }
+  ],
+  "cadenas": [
+    {
+      "nombre": "Cine Colombia",
+      "estado": "Leída: funciones y enlaces de arriba.",
+      "url": "https://www.cinecolombia.com/cartelera/medellin"
+    },
+    {
+      "nombre": "Procinal (Terminal del Sur)",
+      "estado": "Leída el 9 nov: todo en cartelera va doblado, no entra.",
+      "url": "https://www.procinal.com.co/ciudad/medellin"
+    },
+    {
+      "nombre": "Cinemark",
+      "estado": "No leída: el navegador no pudo abrir su sitio. Revísala tú.",
+      "url": "https://www.cinemark.com.co/"
+    },
+    {
+      "nombre": "Colombo Americano (Sala 1, boleta $13.000)",
+      "estado": "Leída el 9 nov: solo muestra la semana del 3 al 8; la nueva aún no está publicada. No dice el idioma de cada función.",
+      "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+    },
+    {
+      "nombre": "MAMM (cine)",
+      "estado": "Leída el 9 nov: solo muestra la semana del 4 al 8 (Miradas Medellín, entrada libre, original con subtítulos según la página). La nueva aún no sale.",
+      "url": "https://www.elmamm.org/cine/"
+    }
+  ],
+  "imdb_leido": "2026-11-09"
+}

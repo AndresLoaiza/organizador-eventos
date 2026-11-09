@@ -7,6 +7,7 @@ const RUTAS = [
   { href: '/', txt: 'Esta noche' },
   { href: '/agenda', txt: 'Agenda' },
   { href: '/ojear', txt: 'Ojear' },
+  { href: '/cine', txt: 'Cine' },
   { href: '/decidir', txt: 'Decidir' },
   { href: '/boletas', txt: 'Baúl' },
   { href: '/bitacora', txt: 'Bitácora' },
