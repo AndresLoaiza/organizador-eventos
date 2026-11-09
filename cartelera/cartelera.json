@@ -1,12 +1,19 @@
 {
   "verificado": "2026-11-09",
   "ciudad": "Medellín",
-  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana. Cine Colombia leída el 2026-11-09; las otras salas, el 2026-11-09. Cada botón abre la sala en vivo para ver horarios.",
+  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet y teatro filmado: los próximos 60 días). Cine Colombia leída el 2026-11-09; las otras salas, el 2026-11-09. Cada botón abre la sala en vivo para ver horarios.",
   "peliculas": [
     {
       "titulo": "Caballo Salvaje Nueve",
       "original": "Wild Horse Nine",
       "slug": "wild-horse-nine",
+      "generos": [
+        "Crimen",
+        "Suspenso",
+        "Drama"
+      ],
+      "duracion": 118,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -82,6 +89,12 @@
       "titulo": "Wildwood",
       "original": "Wildwood",
       "slug": "wildwood",
+      "generos": [
+        "Animación",
+        "Drama"
+      ],
+      "duracion": 132,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -155,6 +168,11 @@
       "titulo": "El Gran Falsificador",
       "original": "L’affaire Bojarski.",
       "slug": "l-affaire-bojarski",
+      "generos": [
+        "Drama"
+      ],
+      "duracion": 128,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -212,6 +230,13 @@
       "titulo": "Godzilla Minus Zero",
       "original": "Godzilla Minus Zero",
       "slug": "godzilla-minus-zero",
+      "generos": [
+        "Acción",
+        "Aventura",
+        "Drama"
+      ],
+      "duracion": 135,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -267,6 +292,13 @@
       "titulo": "Rapido y Furioso",
       "original": "The Fast and the Furious (25th Anniversary)",
       "slug": "the-fast-and-the-furious-25th-anniversary",
+      "generos": [
+        "Acción",
+        "Crimen",
+        "Suspenso"
+      ],
+      "duracion": 107,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -333,6 +365,12 @@
       "titulo": "A Cualquier Precio",
       "original": "By Any Means",
       "slug": "by-any-means",
+      "generos": [
+        "Crimen",
+        "Suspenso"
+      ],
+      "duracion": 107,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -376,6 +414,12 @@
       "titulo": "Clayface",
       "original": "Clayface",
       "slug": "clayface",
+      "generos": [
+        "Terror",
+        "Suspenso"
+      ],
+      "duracion": 110,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -452,6 +496,8 @@
           "url": "https://www.elmamm.org/producto/digger/"
         }
       ],
+      "duracion": 128,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BN2E0YTg1M2YtOGQyYi00NDFkLTk3NzUtYmEyNTZhYThhZDQ0XkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt31450459",
@@ -464,6 +510,13 @@
       "titulo": "El Corazón de la Bestia",
       "original": "Heart of the Beast",
       "slug": "heart-of-the-beast",
+      "generos": [
+        "Suspenso",
+        "Aventura",
+        "Drama"
+      ],
+      "duracion": 101,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -540,6 +593,8 @@
           "url": "https://www.elmamm.org/producto/kmkz-salvaje-libre-y-valiente/"
         }
       ],
+      "duracion": 87,
+      "alternativo": false,
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/POSTER-2026-CON-laureles-ganadoreslow.jpg"
     },
     {
@@ -576,6 +631,8 @@
           "url": "https://www.elmamm.org/producto/resurrection/"
         }
       ],
+      "duracion": 160,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BZGQ2ODE0M2QtODUzMS00OGIyLTlmZWItZGMwM2E2MDg5YWUxXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt29002950",
@@ -588,6 +645,12 @@
       "titulo": "Sensatez y Sentimiento",
       "original": "Sense and Sensibility",
       "slug": "sense-and-sensibility",
+      "generos": [
+        "Drama",
+        "Romance"
+      ],
+      "duracion": 132,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -663,6 +726,8 @@
           "url": "https://www.elmamm.org/producto/tierra-de-mi-padre/"
         }
       ],
+      "duracion": 82,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt37304295",
@@ -676,6 +741,11 @@
       "titulo": "Verity",
       "original": "Verity",
       "slug": "verity",
+      "generos": [
+        "Suspenso"
+      ],
+      "duracion": 114,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -745,6 +815,11 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/akira-re"
         }
       ],
+      "generos": [
+        "Animación"
+      ],
+      "duracion": 125,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BNzlhZGRmZGEtM2ZjNC00MWRmLTk0MDctYzU1NzAzODIxYzEyXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt0094625",
@@ -774,6 +849,8 @@
           "url": "https://www.elmamm.org/producto/babystar/"
         }
       ],
+      "duracion": 98,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt34998116",
@@ -801,6 +878,8 @@
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
         }
       ],
+      "duracion": 96,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BMzVhMGI1OWUtMTEwNy00MWMyLTgwZjgtMTBjYTk1YmExMDNlXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt0103759",
@@ -808,6 +887,28 @@
         "votos": 53659
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMzVhMGI1OWUtMTEwNy00MWMyLTgwZjgtMTBjYTk1YmExMDNlXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Carmen",
+      "original": "Carmen",
+      "slug": "carmen",
+      "generos": [
+        "Ópera"
+      ],
+      "duracion": 180,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-21"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/carmen"
+        }
+      ]
     },
     {
       "titulo": "Donde comienza el río",
@@ -828,6 +929,8 @@
           "url": "https://www.elmamm.org/producto/donde-comienza-el-rio/"
         }
       ],
+      "duracion": 102,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BMDY3MzVjODYtZmE1NS00NzdiLTg4ODgtNThjODI0NTllZGFhXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt15461438",
@@ -856,12 +959,20 @@
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
         }
       ],
+      "duracion": 113,
+      "alternativo": false,
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/der_geteilte_himmel-752435756-large.jpg"
     },
     {
       "titulo": "El Despertar",
       "original": "El Despertar",
       "slug": "el-despertar",
+      "generos": [
+        "Acción",
+        "Suspenso"
+      ],
+      "duracion": 96,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -889,6 +1000,13 @@
       "titulo": "El Gato con Sombrero",
       "original": "The Cat in the Hat",
       "slug": "the-cat-in-the-hat",
+      "generos": [
+        "Animación",
+        "Aventura",
+        "Comedia"
+      ],
+      "duracion": 91,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -912,9 +1030,39 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
+      "titulo": "El Lago de los Cisnes",
+      "original": "Le Lac des Cygnes",
+      "slug": "le-lac-des-cygnes",
+      "generos": [
+        "Ballet"
+      ],
+      "duracion": 140,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-12",
+            "2026-12-13"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/le-lac-des-cygnes"
+        }
+      ]
+    },
+    {
       "titulo": "Entrega Al Límite",
       "original": "Runner",
       "slug": "runner",
+      "generos": [
+        "Acción",
+        "Suspenso",
+        "Comedia"
+      ],
+      "duracion": 97,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -956,6 +1104,8 @@
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
         }
       ],
+      "duracion": 115,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BMTQ2ODIxMDU4Ml5BMl5BanBnXkFtZTcwODk5NzUyMQ@@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt0244576",
@@ -963,6 +1113,28 @@
         "votos": 189
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMTQ2ODIxMDU4Ml5BMl5BanBnXkFtZTcwODk5NzUyMQ@@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "La Fauta Magica",
+      "original": "The Magic Flute",
+      "slug": "the-magic-flute",
+      "generos": [
+        "Ópera"
+      ],
+      "duracion": 115,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-12"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-magic-flute"
+        }
+      ]
     },
     {
       "titulo": "La sinfonía de los bichos raros",
@@ -985,6 +1157,8 @@
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
         }
       ],
+      "duracion": 91,
+      "alternativo": false,
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/520436_12442__imagen__.jpg"
     },
     {
@@ -1006,12 +1180,21 @@
           "url": "https://www.elmamm.org/producto/las-pesadillas-del-siervo/"
         }
       ],
+      "duracion": 76,
+      "alternativo": false,
       "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma_Laspesadillasdelsiervo.jpg"
     },
     {
       "titulo": "Los Juegos del Hambre: Sinsajo Part 2",
       "original": "The Hunger Games: Mockingjay - Part 2",
       "slug": "the-hunger-games-mockingjay-part-2",
+      "generos": [
+        "Acción",
+        "Suspenso",
+        "Aventura"
+      ],
+      "duracion": 137,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -1057,6 +1240,11 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/madre-siniestra"
         }
       ],
+      "generos": [
+        "Terror"
+      ],
+      "duracion": 95,
+      "alternativo": false,
       "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aa1c0a66ec86f08f0fe7354/common/madre-siniestra-112853-1793221391118"
     },
     {
@@ -1080,6 +1268,8 @@
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
         }
       ],
+      "duracion": 71,
+      "alternativo": false,
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/MPIF_Afiche-scaled.jpg"
     },
     {
@@ -1103,6 +1293,8 @@
           "url": "https://www.elmamm.org/producto/maria-antonieta/"
         }
       ],
+      "duracion": 124,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BMmE4NzQzNGItNTY4My00ZTBhLTk2ZjItZDJkMjRlYTE2MGRiXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt0422720",
@@ -1116,6 +1308,12 @@
       "titulo": "Pacífico",
       "original": "Pacífico",
       "slug": "pacifico",
+      "generos": [
+        "Aventura",
+        "Drama"
+      ],
+      "duracion": 95,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -1160,6 +1358,11 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/rammstein"
         }
       ],
+      "generos": [
+        "Musical"
+      ],
+      "duracion": 110,
+      "alternativo": true,
       "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aac1eea27c81b4b03905238/common/rammstein-113071-1789678652326"
     },
     {
@@ -1185,6 +1388,11 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/rocky"
         }
       ],
+      "generos": [
+        "Drama"
+      ],
+      "duracion": 120,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt0075148",
@@ -1197,6 +1405,11 @@
       "titulo": "Romeo y Julieta",
       "original": "Roméo et Juliette",
       "slug": "romeo-et-juliette",
+      "generos": [
+        "Ballet"
+      ],
+      "duracion": 155,
+      "alternativo": true,
       "donde": [
         {
           "cadena": "Cine Colombia",
@@ -1208,6 +1421,28 @@
             "2026-11-15"
           ],
           "url": "https://www.cinecolombia.com/peliculas/romeo-et-juliette"
+        }
+      ]
+    },
+    {
+      "titulo": "Samson et Dalila",
+      "original": "Samson et Dalila",
+      "slug": "samson-et-dalila",
+      "generos": [
+        "Ópera"
+      ],
+      "duracion": 235,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-05"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/samson-et-dalila"
         }
       ]
     },
@@ -1230,6 +1465,8 @@
           "url": "https://www.elmamm.org/producto/seis-meses-en-el-edificio-rosa-con-azul/"
         }
       ],
+      "duracion": 105,
+      "alternativo": false,
       "poster": "https://m.media-amazon.com/images/M/MV5BOTZjNjE1ODMtNWM5OC00OWU0LWI1NTctYTAxN2I5YWYyMDBmXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt41742035",
@@ -1243,6 +1480,11 @@
       "titulo": "Street Fighter",
       "original": "Street Fighter",
       "slug": "street-fighter",
+      "generos": [
+        "Acción"
+      ],
+      "duracion": 120,
+      "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",

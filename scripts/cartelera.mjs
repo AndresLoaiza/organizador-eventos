@@ -10,7 +10,7 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
-import { API, VENTANA_DIAS, armarCartelera, escogerImdb, posterImdb, unirSalas } from '../lib/cartelera.mjs';
+import { API, VENTANA_DIAS, VENTANA_ALTERNATIVO, armarCartelera, escogerImdb, posterImdb, unirSalas } from '../lib/cartelera.mjs';
 import { hoyMedellin } from '../lib/panorama.mjs';
 
 const RUTA = new URL('../cartelera/cartelera.json', import.meta.url);
@@ -33,11 +33,12 @@ const segmentos = ['section=regular&segment=now_showing', 'section=regular&segme
 const tableros = await Promise.all(segmentos.map(s => json(`${API}/billboard?city=medellin&${s}&per_page=100`)));
 const peliculas = [...new Map(tableros.flatMap(t => t.films).map(f => [f.id, f])).values()];
 const atributos = tableros.flatMap(t => t.related_data?.attributes ?? []);
+const generos = tableros.flatMap(t => t.related_data?.genres ?? []);
 
 const ids = sedes.map(s => s.id).join(',');
 const { film_screening_dates: fechas } = await json(`${API}/films/screening-dates?site_ids=${ids}`);
 
-const deCineColombia = armarCartelera({ sedes, peliculas, atributos, fechas, hoy });
+const deCineColombia = armarCartelera({ sedes, peliculas, atributos, fechas, hoy, generos });
 if (!deCineColombia.length) throw new Error('Cero películas en idioma original: algo cambió en la API. No se toca el JSON.');
 
 const salas = existsSync(RUTA_SALAS) ? JSON.parse(readFileSync(RUTA_SALAS, 'utf8')) : { cadenas: [] };
@@ -55,7 +56,10 @@ for (const p of cartelera) {
   const viejo = antes[p.slug];
   if (viejo?.motivo) p.motivo = viejo.motivo;
   let elegido = viejo?.imdb ? { id: viejo.imdb.id, dudoso: Boolean(viejo.imdb.dudoso) } : null;
-  if (!elegido) {
+  // Ópera, ballet y teatro filmados: el título no identifica la grabación
+  // («Carmen» hay decenas), así que no se les busca nota.
+  if (p.alternativo) elegido = null;
+  else if (!elegido) {
     try {
       const s = await json(`https://v3.sg.media-imdb.com/suggestion/titles/x/${encodeURIComponent(p.original)}.json`);
       elegido = escogerImdb(s.d, p.original, p.anio, id => ratings.get(id)?.votos ?? 0);
@@ -81,7 +85,7 @@ const nuevo = {
   ...previo,
   verificado: hoy,
   imdb_leido: hoy,
-  nota: `Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana. Cine Colombia leída el ${hoy}; las otras salas, el ${salas.leido ?? 'sin leer'}. Cada botón abre la sala en vivo para ver horarios.`,
+  nota: `Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet y teatro filmado: los próximos ${VENTANA_ALTERNATIVO} días). Cine Colombia leída el ${hoy}; las otras salas, el ${salas.leido ?? 'sin leer'}. Cada botón abre la sala en vivo para ver horarios.`,
   peliculas: cartelera,
   cadenas: [
     { nombre: 'Cine Colombia', url: 'https://www.cinecolombia.com/cartelera/medellin',

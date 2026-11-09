@@ -90,9 +90,11 @@ def hora_24(texto):
     return f'{h:02d}:{mi}'
 
 
-def pelicula(titulo, sede, idioma, url, funciones, original=None, confirmado=True, anio=None, poster=None):
+def pelicula(titulo, sede, idioma, url, funciones, original=None, confirmado=True, anio=None, poster=None,
+             generos=None, duracion=None):
     return {
         'titulo': titulo.strip(), 'original': (original or titulo).strip(), 'sede': sede, 'anio': anio,
+        'generos': generos or [], 'duracion': duracion,
         'idioma': idioma, 'idioma_confirmado': confirmado, 'url': url, 'poster': poster,
         'funciones': sorted(funciones),
     }
@@ -125,7 +127,8 @@ def leer_procinal(hoy):
         sede = 'Procinal ' + next(iter(sedes.values()), 'Terminal del Sur')
         out.append(pelicula(m['titulo'].title(), sede, idioma,
                             f"https://www.procinal.com.co/ciudad/medellin/pelicula/{m['slug']}",
-                            funciones, m.get('titulo_original', '').title(), poster=m.get('imagen')))
+                            funciones, m.get('titulo_original', '').title(), poster=m.get('imagen'),
+                            duracion=int(m['duracion']) if str(m.get('duracion', '')).isdigit() else None))
     return out, f'{len(datos["movies"])} entradas leídas; {len(out)} en idioma original'
 
 
@@ -205,7 +208,9 @@ def leer_cinemark(hoy, sesion):
         titulo = titulo_de(f)
         for sede, s in por_sede.items():
             out.append(pelicula(titulo, f'Cinemark {sede}', s['idioma'], url, s['funciones'],
-                                poster=f.get('GraphicUrl') or f.get('CoverImageUrl') or None))
+                                poster=f.get('GraphicUrl') or f.get('CoverImageUrl') or None,
+                                generos=[g.strip().capitalize() for g in (f.get('GenreName') or '').split(',') if g.strip()],
+                                duracion=int(f['RunTime']) if str(f.get('RunTime', '')).isdigit() else None))
     falta = f'; sin leer: {", ".join(sin_leer)}' if sin_leer else ''
     return out, (f'{len(pelis)} películas en cartelera; {len(out)} sedes con función en idioma original '
                  f'(todos los días que publica su web){falta}')
@@ -248,6 +253,8 @@ def leer_colombo(hoy, sesion):
             p_ = out[planos[plano_py(h)]]
             p_['anio'] = int(anio.group(1)) if anio else None
             p_['poster'] = og_image(fp)
+            dur = re.search(r'Duración:\s*(\d+)\s*min', tx)
+            p_['duracion'] = int(dur.group(1)) if dur else None
     return list(out.values()), f'{len(out)} películas con función en los próximos {VENTANA} días'
 
 
@@ -274,10 +281,12 @@ def leer_mamm(hoy, sesion):
                 funciones.append(f'{d.isoformat()} {h}')
         if funciones:
             # «2026 | Estados Unidos» en la ficha
-            anio = re.search(r'\b(19\d\d|20\d\d)\s*\|', f.get_all_text(ignore_tags=('script', 'style')))
+            tx = f.get_all_text(ignore_tags=('script', 'style'))
+            anio = re.search(r'\b(19\d\d|20\d\d)\s*\|', tx)
+            dur = re.search(r'\|\s*(\d{2,3})\s*min', tx)  # «Mayores de 12 años | 132 min.»
             out.append(pelicula(titulo, 'MAMM', 'Subtitulada' if original else 'el MAMM no lo publica',
                                 url, funciones, confirmado=original, anio=int(anio.group(1)) if anio else None,
-                                poster=og_image(f)))
+                                poster=og_image(f), duracion=int(dur.group(1)) if dur else None))
     return out, f'{len(fichas)} fichas leídas; {len(out)} con función en los próximos {VENTANA} días'
 
 

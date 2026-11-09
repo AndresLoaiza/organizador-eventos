@@ -857,6 +857,7 @@ details > summary:hover { color: var(--acento); }
 .cine-cuerpo { min-width: 0; }
 .cine-titulo { font-size: var(--t-lg); font-weight: 800; line-height: 1.15; margin: 0; }
 .cine-original { margin: var(--e1) 0 0; color: var(--tinta-3); font-size: var(--t-sm); }
+.cine-ficha { margin: var(--e1) 0 0; color: var(--tinta-2); font-size: var(--t-sm); }
 
 .cine-imdb {
   display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: var(--e2);

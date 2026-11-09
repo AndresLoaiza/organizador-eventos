@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import datos from '../../cartelera/cartelera.json';
 import { urlSegura } from '../../lib/url.mjs';
-import { filtrarCartelera, diasDe } from '../../lib/cartelera.mjs';
+import { filtrarCartelera, diasDe, sumarDias } from '../../lib/cartelera.mjs';
 import { hoyMedellin } from '../../lib/panorama.mjs';
 import { Cabecera } from '../Margen.js';
 
@@ -14,14 +14,23 @@ import { Cabecera } from '../Margen.js';
 const CORTO = { 'Procinal (Terminal del Sur)': 'Procinal', 'Colombo Americano': 'Colombo', 'MAMM (cine)': 'MAMM' };
 const corto = c => CORTO[c] ?? c;
 
-// '2026-11-09' → 'lun 9'. Mediodía UTC para que el huso no corra el día.
-const dia = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('es-CO', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
+// '2026-11-09' → 'lun 9'; más allá de la semana, con mes: 'sáb 21 nov'.
+// Mediodía UTC para que el huso no corra el día.
+const dia = (iso, conMes) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('es-CO',
+  { weekday: 'short', day: 'numeric', ...(conMes ? { month: 'short' } : {}), timeZone: 'UTC' })
+  .replace(/[.,]/g, '').replace(' de ', ' ');
 
 function etiquetaDia(iso, hoy) {
   if (iso === hoy) return 'hoy';
-  const manana = new Date(`${hoy}T12:00:00Z`);
-  manana.setUTCDate(manana.getUTCDate() + 1);
-  return iso === manana.toISOString().slice(0, 10) ? 'mañana' : dia(iso);
+  if (iso === sumarDias(hoy, 1)) return 'mañana';
+  return dia(iso, iso > sumarDias(hoy, 7));
+}
+
+// 110 → '1 h 50 min'. Si pasa de dos horas lo dice: es un dato para las rodillas.
+function duracion(min) {
+  if (!min) return null;
+  const h = Math.floor(min / 60), m = min % 60;
+  return h ? `${h} h${m ? ` ${m} min` : ''}` : `${m} min`;
 }
 
 function Interruptor({ activo, onClick, children }) {
@@ -60,7 +69,12 @@ function Pelicula({ f, hoy }) {
       <div className="cine-cuerpo">
         <h2 className="cine-titulo">{f.titulo}</h2>
         {f.original && f.original !== f.titulo && <p className="cine-original">{f.original}</p>}
-        <Imdb imdb={f.imdb} />
+        {(f.generos?.length > 0 || f.duracion) && (
+          <p className="cine-ficha">
+            {[...(f.generos ?? []), duracion(f.duracion)].filter(Boolean).join(' · ')}
+          </p>
+        )}
+        {f.alternativo ? <span className="cine-imdb" data-sin="true">Función especial · sin nota de IMDb</span> : <Imdb imdb={f.imdb} />}
         {f.motivo && <p className="cine-motivo">{f.motivo}</p>}
       </div>
       <ul className="cine-salas">
@@ -93,9 +107,10 @@ export default function Cine() {
   // (igual en el servidor y en el navegador) y luego pasa al día de verdad.
   const [hoy, setHoy] = useState(datos.verificado);
   useEffect(() => setHoy(hoyMedellin()), []);
-  const dias = useMemo(() => diasDe(datos.peliculas).filter(d => d >= hoy), [hoy]);
+  // Los botones cubren la semana; el alternativo lejano se ve en «Toda la semana».
+  const dias = useMemo(() => diasDe(datos.peliculas).filter(d => d >= hoy && d <= sumarDias(hoy, 7)), [hoy]);
   const cadenas = useMemo(() => [...new Set(datos.peliculas.flatMap(p => p.donde.map(d => d.cadena)))], []);
-  const [filtro, setFiltro] = useState({ dia: null, cadena: null, soloConfirmado: true, orden: 'nota' });
+  const [filtro, setFiltro] = useState({ dia: null, cadena: null, tipo: null, soloConfirmado: true });
   const poner = cambio => setFiltro(f => ({ ...f, ...cambio }));
   const lista = useMemo(() => filtrarCartelera(datos.peliculas, filtro), [filtro]);
   const ocultas = filtro.soloConfirmado
@@ -104,7 +119,8 @@ export default function Cine() {
   return (
     <section className="seccion">
       <Cabecera mascara="antifaz" titulo="Cine en idioma original">
-        Subtitulada o en su idioma, en Medellín, hasta la próxima semana. Leída el{' '}
+        Subtitulada o en su idioma, en Medellín, hasta la próxima semana; ópera, ballet y teatro
+        filmados, los próximos dos meses. Ordenada por nota de IMDb. Leída el{' '}
         <b className="num">{datos.verificado}</b>.
       </Cabecera>
 
@@ -121,9 +137,10 @@ export default function Cine() {
             <Interruptor key={c} activo={filtro.cadena === c} onClick={() => poner({ cadena: c })}>{corto(c)}</Interruptor>
           ))}
         </div>
-        <div className="vista-toggle" role="group" aria-label="Orden">
-          <Interruptor activo={filtro.orden === 'nota'} onClick={() => poner({ orden: 'nota' })}>Mejor nota</Interruptor>
-          <Interruptor activo={filtro.orden === 'salas'} onClick={() => poner({ orden: 'salas' })}>Más salas</Interruptor>
+        <div className="vista-toggle" role="group" aria-label="Tipo">
+          <Interruptor activo={!filtro.tipo} onClick={() => poner({ tipo: null })}>Todo</Interruptor>
+          <Interruptor activo={filtro.tipo === 'cartelera'} onClick={() => poner({ tipo: 'cartelera' })}>Cartelera</Interruptor>
+          <Interruptor activo={filtro.tipo === 'alternativo'} onClick={() => poner({ tipo: 'alternativo' })}>Ópera, ballet y teatro</Interruptor>
           <Interruptor activo={!filtro.soloConfirmado} onClick={() => poner({ soloConfirmado: !filtro.soloConfirmado })}>
             Incluir idioma sin confirmar
           </Interruptor>
@@ -131,7 +148,10 @@ export default function Cine() {
       </div>
 
       <p className="cine-cuenta" aria-live="polite">
-        <b className="num">{lista.length}</b> {lista.length === 1 ? 'película' : 'películas'}
+        <b className="num">{lista.length}</b>{' '}
+        {filtro.tipo === 'alternativo'
+          ? (lista.length === 1 ? 'función especial' : 'funciones especiales')
+          : (lista.length === 1 ? 'película' : 'películas')}
         {ocultas > 0 && <> · {ocultas} más solo en salas que no publican el idioma</>}
       </p>
 
