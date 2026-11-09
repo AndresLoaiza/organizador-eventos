@@ -301,7 +301,7 @@
       "nombre": "Colombo Americano",
       "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
       "leida": "2026-11-09",
-      "estado": "Leída el 2026-11-09: 12 películas con función en los próximos 8 días.",
+      "estado": "Leída el 2026-11-09: 13 películas con función en los próximos 8 días.",
       "peliculas": [
         {
           "titulo": "Resurrection",
@@ -476,8 +476,7 @@
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
           "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/MPIF_Afiche-scaled.jpg",
           "funciones": [
-            "2026-11-11 18:30",
-            "2026-11-14 17:00"
+            "2026-11-11 18:30"
           ]
         },
         {
@@ -493,6 +492,21 @@
           "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/57150_136__imagen__.jpg",
           "funciones": [
             "2026-11-12 19:00"
+          ]
+        },
+        {
+          "titulo": "Las pesadillas del siervo",
+          "original": "Las pesadillas del siervo",
+          "sede": "Colombo Americano, sala 2",
+          "anio": 2026,
+          "generos": [],
+          "duracion": 70,
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
+          "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/POSTER-lpds-14-10-26-scaled.jpg",
+          "funciones": [
+            "2026-11-14 17:00"
           ]
         }
       ]

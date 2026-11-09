@@ -598,6 +598,42 @@
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/POSTER-2026-CON-laureles-ganadoreslow.jpg"
     },
     {
+      "titulo": "Las pesadillas del siervo",
+      "original": "Las pesadillas del siervo",
+      "slug": "las-pesadillas-del-siervo",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 2",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-14"
+          ],
+          "funciones": [
+            "2026-11-14 17:00"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-11"
+          ],
+          "funciones": [
+            "2026-11-11 18:30"
+          ],
+          "url": "https://www.elmamm.org/producto/las-pesadillas-del-siervo/"
+        }
+      ],
+      "duracion": 70,
+      "alternativo": false,
+      "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/POSTER-lpds-14-10-26-scaled.jpg"
+    },
+    {
       "titulo": "Resurrection",
       "original": "Resurrection",
       "slug": "resurrection",
@@ -1162,29 +1198,6 @@
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/520436_12442__imagen__.jpg"
     },
     {
-      "titulo": "Las pesadillas del siervo",
-      "original": "Las pesadillas del siervo",
-      "slug": "las-pesadillas-del-siervo",
-      "donde": [
-        {
-          "cadena": "MAMM (cine)",
-          "sede": "MAMM",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-11"
-          ],
-          "funciones": [
-            "2026-11-11 18:30"
-          ],
-          "url": "https://www.elmamm.org/producto/las-pesadillas-del-siervo/"
-        }
-      ],
-      "duracion": 76,
-      "alternativo": false,
-      "poster": "https://www.elmamm.org/content/uploads/2026/10/Fotograma_Laspesadillasdelsiervo.jpg"
-    },
-    {
       "titulo": "Los Juegos del Hambre: Sinsajo Part 2",
       "original": "The Hunger Games: Mockingjay - Part 2",
       "slug": "the-hunger-games-mockingjay-part-2",
@@ -1258,12 +1271,10 @@
           "idioma": "el Colombo no lo publica",
           "idioma_confirmado": false,
           "fechas": [
-            "2026-11-11",
-            "2026-11-14"
+            "2026-11-11"
           ],
           "funciones": [
-            "2026-11-11 18:30",
-            "2026-11-14 17:00"
+            "2026-11-11 18:30"
           ],
           "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
         }
@@ -1526,7 +1537,7 @@
     {
       "nombre": "Colombo Americano",
       "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
-      "estado": "Leída el 2026-11-09: 12 películas con función en los próximos 8 días."
+      "estado": "Leída el 2026-11-09: 13 películas con función en los próximos 8 días."
     },
     {
       "nombre": "MAMM (cine)",
