@@ -80,7 +80,7 @@
       "imdb": {
         "id": "tt15799564",
         "nota": 8.1,
-        "votos": 9442
+        "votos": 7844
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOTlkOGFlYWYtN2VlNC00NjNhLWIxYmMtNDVhZTQ4YmQ4ZTdiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -158,7 +158,7 @@
       "imdb": {
         "id": "tt2056785",
         "nota": 8.6,
-        "votos": 24930
+        "votos": 23687
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2JjOGQ1OGMtZmUwYS00YmQ2LTllNzQtZjU2YjY1NzM2NzJjXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -218,7 +218,7 @@
       "imdb": {
         "id": "tt35495035",
         "nota": 7,
-        "votos": 2283,
+        "votos": 2279,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -280,7 +280,7 @@
       "imdb": {
         "id": "tt34384661",
         "nota": 8,
-        "votos": 14878
+        "votos": 12263
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -353,7 +353,7 @@
       "imdb": {
         "id": "tt0232500",
         "nota": 6.8,
-        "votos": 469639
+        "votos": 469580
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -401,7 +401,7 @@
       "imdb": {
         "id": "tt34379051",
         "nota": 6.5,
-        "votos": 8621
+        "votos": 8449
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZTUwODQ5N2QtMGM3Ny00YTk1LWJlZTctMTE5ZTAzNTMwOGQxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -452,7 +452,7 @@
       "imdb": {
         "id": "tt34890576",
         "nota": 7.5,
-        "votos": 48433
+        "votos": 47351
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjNlMjM4NTAtYjE5YS00ZGYyLWEyMTYtNjFlMmIxZDEzYjhhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -496,7 +496,7 @@
       "imdb": {
         "id": "tt31450459",
         "nota": 7.5,
-        "votos": 47249
+        "votos": 47097
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2E0YTg1M2YtOGQyYi00NDFkLTk3NzUtYmEyNTZhYThhZDQ0XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -547,8 +547,8 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt7526136",
-        "nota": 7.1,
-        "votos": 44562
+        "nota": 7.2,
+        "votos": 41732
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -666,7 +666,7 @@
       "imdb": {
         "id": "tt29002950",
         "nota": 7.2,
-        "votos": 6135
+        "votos": 6127
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGQ2ODE0M2QtODUzMS00OGIyLTlmZWItZGMwM2E2MDg5YWUxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -712,7 +712,7 @@
       "imdb": {
         "id": "tt13609648",
         "nota": 7.2,
-        "votos": 11139
+        "votos": 10839
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzNmM2E0OWItZWU2MC00M2I3LWEyZTQtYWIyYmZhOGEyOTY1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -759,8 +759,8 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt37304295",
-        "nota": 7.4,
-        "votos": 4558,
+        "nota": 7.3,
+        "votos": 4488,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg"
@@ -811,7 +811,7 @@
       "imdb": {
         "id": "tt32261958",
         "nota": 6,
-        "votos": 35417
+        "votos": 34713
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmE0OWRiNzktY2MwMy00YzQ5LWFkMzctNjI1ZWQ1NTRiZGM3XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -851,7 +851,7 @@
       "imdb": {
         "id": "tt0094625",
         "nota": 8,
-        "votos": 233909
+        "votos": 233873
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzlhZGRmZGEtM2ZjNC00MWRmLTk0MDctYzU1NzAzODIxYzEyXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -882,7 +882,7 @@
       "imdb": {
         "id": "tt34998116",
         "nota": 6.1,
-        "votos": 197
+        "votos": 195
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -911,7 +911,7 @@
       "imdb": {
         "id": "tt0103759",
         "nota": 7,
-        "votos": 53671
+        "votos": 53659
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMzVhMGI1OWUtMTEwNy00MWMyLTgwZjgtMTBjYTk1YmExMDNlXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -1018,7 +1018,7 @@
       "imdb": {
         "id": "tt39120306",
         "nota": 3.5,
-        "votos": 193,
+        "votos": 184,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzBhYjRkMjQtODAwYS00MzFiLWI5YWMtZjNiYzNlMjQwMDdmXkEyXkFqcGc@._V1_UX192_.jpg",
@@ -1051,7 +1051,7 @@
       "imdb": {
         "id": "tt2321555",
         "nota": 6.6,
-        "votos": 943
+        "votos": 710
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1134,7 +1134,7 @@
       "imdb": {
         "id": "tt31349844",
         "nota": 6.2,
-        "votos": 19884
+        "votos": 19686
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1371,7 +1371,7 @@
       "imdb": {
         "id": "tt1951266",
         "nota": 6.6,
-        "votos": 425188
+        "votos": 425049
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg"
@@ -1456,7 +1456,7 @@
       "imdb": {
         "id": "tt0422720",
         "nota": 6.5,
-        "votos": 134532,
+        "votos": 134499,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMmE4NzQzNGItNTY4My00ZTBhLTk2ZjItZDJkMjRlYTE2MGRiXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1581,7 +1581,7 @@
       "imdb": {
         "id": "tt0075148",
         "nota": 8.1,
-        "votos": 707111
+        "votos": 706949
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -1688,7 +1688,7 @@
       "imdb": {
         "id": "tt27419420",
         "nota": 6.2,
-        "votos": 22083
+        "votos": 21914
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg"
