@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import datos from '../../cartelera/cartelera.json';
 import { urlSegura } from '../../lib/url.mjs';
-import { filtrarCartelera, diasDe, sumarDias } from '../../lib/cartelera.mjs';
+import { filtrarCartelera, diasDe, sumarDias, esPreventa } from '../../lib/cartelera.mjs';
 import { hoyMedellin } from '../../lib/panorama.mjs';
 import { Cabecera } from '../Margen.js';
 
@@ -74,6 +74,9 @@ function Pelicula({ f, hoy }) {
             {[...(f.generos ?? []), duracion(f.duracion)].filter(Boolean).join(' · ')}
           </p>
         )}
+        {esPreventa(f, hoy) && (
+          <p className="cine-ficha"><b>Preventa</b> · primera función el {dia(f.donde.flatMap(d => d.fechas ?? []).sort()[0], true)}</p>
+        )}
         {f.alternativo ? <span className="cine-imdb" data-sin="true">Función especial · sin nota de IMDb</span> : <Imdb imdb={f.imdb} />}
         {f.motivo && <p className="cine-motivo">{f.motivo}</p>}
       </div>
@@ -112,14 +115,14 @@ export default function Cine() {
   const cadenas = useMemo(() => [...new Set(datos.peliculas.flatMap(p => p.donde.map(d => d.cadena)))], []);
   const [filtro, setFiltro] = useState({ dia: null, cadena: null, tipo: null, soloConfirmado: true });
   const poner = cambio => setFiltro(f => ({ ...f, ...cambio }));
-  const lista = useMemo(() => filtrarCartelera(datos.peliculas, filtro), [filtro]);
+  const lista = useMemo(() => filtrarCartelera(datos.peliculas, { ...filtro, hoy }), [filtro, hoy]);
   const ocultas = filtro.soloConfirmado
-    ? filtrarCartelera(datos.peliculas, { ...filtro, soloConfirmado: false }).length - lista.length : 0;
+    ? filtrarCartelera(datos.peliculas, { ...filtro, hoy, soloConfirmado: false }).length - lista.length : 0;
 
   return (
     <section className="seccion">
       <Cabecera mascara="antifaz" titulo="Cine en idioma original">
-        Subtitulada o en su idioma, en Medellín, hasta la próxima semana; ópera, ballet, teatro y
+        Subtitulada o en su idioma, en Medellín, hasta la próxima semana, y las que ya venden boletas para más adelante; ópera, ballet, teatro y
         documentales de arte, los próximos cuatro meses. Ordenada por nota de IMDb. Leída el{' '}
         <b className="num">{datos.verificado}</b>.
       </Cabecera>
@@ -140,6 +143,7 @@ export default function Cine() {
         <div className="vista-toggle" role="group" aria-label="Tipo">
           <Interruptor activo={!filtro.tipo} onClick={() => poner({ tipo: null })}>Todo</Interruptor>
           <Interruptor activo={filtro.tipo === 'cartelera'} onClick={() => poner({ tipo: 'cartelera' })}>Cartelera</Interruptor>
+          <Interruptor activo={filtro.tipo === 'preventa'} onClick={() => poner({ tipo: 'preventa' })}>Preventa</Interruptor>
           <Interruptor activo={filtro.tipo === 'alternativo'} onClick={() => poner({ tipo: 'alternativo' })}>Ópera, teatro y arte</Interruptor>
           <Interruptor activo={!filtro.soloConfirmado} onClick={() => poner({ soloConfirmado: !filtro.soloConfirmado })}>
             Incluir idioma sin confirmar
@@ -152,6 +156,7 @@ export default function Cine() {
         {filtro.tipo === 'alternativo'
           ? (lista.length === 1 ? 'función especial' : 'funciones especiales')
           : (lista.length === 1 ? 'película' : 'películas')}
+        {filtro.tipo === 'preventa' && ' en preventa'}
         {ocultas > 0 && <> · {ocultas} más solo en salas que no publican el idioma</>}
       </p>
 

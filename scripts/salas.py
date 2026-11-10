@@ -52,6 +52,18 @@ def en_ventana(d, hoy):
     return hoy <= d < hoy + timedelta(days=VENTANA)
 
 
+PREVENTA = 60  # días: lo que ya vende boletas sin función esta semana
+
+
+def recortar(funciones, hoy):
+    """Funciones 'YYYY-MM-DD HH:MM' de la semana; si no hay ninguna, es
+    preventa y quedan las de los próximos PREVENTA días."""
+    cerca = [f for f in funciones if en_ventana(date.fromisoformat(f[:10]), hoy)]
+    if cerca:
+        return cerca
+    return [f for f in funciones if hoy <= date.fromisoformat(f[:10]) < hoy + timedelta(days=PREVENTA)]
+
+
 def get_json(url):
     # urllib usa el almacén de certificados del sistema; curl_cffi no.
     req = urllib.request.Request(url, headers=UA)
@@ -120,8 +132,7 @@ def leer_procinal(hoy):
             idioma = 'Español (original)'
         else:
             continue
-        funciones = [f"{s['fecha_funcion']} {s['hora_funcion'][:5]}" for s in m.get('showtimes', [])
-                     if en_ventana(date.fromisoformat(s['fecha_funcion']), hoy)]
+        funciones = recortar([f"{s['fecha_funcion']} {s['hora_funcion'][:5]}" for s in m.get('showtimes', [])], hoy)
         if not funciones:
             continue
         sede = 'Procinal ' + next(iter(sedes.values()), 'Terminal del Sur')
@@ -191,10 +202,10 @@ def leer_cinemark(hoy, sesion):
         else:
             sin_leer.append(titulo_de(f))
         por_sede = {}
-        # La página pide el primer día con funciones, que en preventa puede
-        # caer semanas adelante: cuenta solo lo que esté en la ventana.
+        # La página pide el primer día con funciones, que en preventa cae
+        # semanas adelante: se guarda todo y recortar() decide qué cuenta.
         for dia, r in recibidas:
-            if not dia or not en_ventana(dia, hoy):
+            if not dia:
                 continue
             for t in r.get('Theater', []):
                 for fmt in t.get('Format', []):
@@ -207,7 +218,10 @@ def leer_cinemark(hoy, sesion):
                         s['funciones'].add(f"{dia.isoformat()} {ses['Showtime'][:5]}")
         titulo = titulo_de(f)
         for sede, s in por_sede.items():
-            out.append(pelicula(titulo, f'Cinemark {sede}', s['idioma'], url, s['funciones'],
+            funciones = recortar(sorted(s['funciones']), hoy)
+            if not funciones:
+                continue
+            out.append(pelicula(titulo, f'Cinemark {sede}', s['idioma'], url, funciones,
                                 poster=f.get('GraphicUrl') or f.get('CoverImageUrl') or None,
                                 generos=[g.strip().capitalize() for g in (f.get('GenreName') or '').split(',') if g.strip()],
                                 duracion=int(f['RunTime']) if str(f.get('RunTime', '')).isdigit() else None))

@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from salas import fecha_es, hora_24, en_ventana, plano_py  # noqa: E402
+from salas import fecha_es, hora_24, en_ventana, plano_py, recortar  # noqa: E402
 
 
 class Salas(unittest.TestCase):
@@ -29,6 +29,14 @@ class Salas(unittest.TestCase):
         self.assertFalse(en_ventana(date(2026, 11, 17), hoy))
         self.assertFalse(en_ventana(date(2026, 11, 8), hoy))
         self.assertEqual(plano_py('Resurrección: Bi Gan'), 'resurreccion bi gan')
+
+    def test_recortar_preventa(self):
+        hoy = date(2026, 11, 10)
+        # Con función esta semana, la preventa lejana no cuenta.
+        self.assertEqual(recortar(['2026-11-12 18:00', '2026-12-17 19:00'], hoy), ['2026-11-12 18:00'])
+        # Sin función esta semana es preventa: sus días a la venta, hasta 60.
+        self.assertEqual(recortar(['2026-12-17 19:00', '2027-02-01 19:00'], hoy), ['2026-12-17 19:00'])
+        self.assertEqual(recortar(['2026-11-01 19:00'], hoy), [])
 
 
 if __name__ == '__main__':

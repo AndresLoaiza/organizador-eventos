@@ -1,7 +1,7 @@
 {
-  "verificado": "2026-11-09",
+  "verificado": "2026-11-10",
   "ciudad": "Medellín",
-  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet, teatro y documentales de arte: los próximos 120 días). Cine Colombia leída el 2026-11-09; las otras salas, el 2026-11-09. Cada botón abre la sala en vivo para ver horarios.",
+  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet, teatro y documentales de arte: los próximos 120 días). Cine Colombia leída el 2026-11-10; las otras salas, el 2026-11-10. Cada botón abre la sala en vivo para ver horarios.",
   "peliculas": [
     {
       "titulo": "Caballo Salvaje Nueve",
@@ -32,12 +32,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 14:50",
             "2026-11-10 14:50",
             "2026-11-11 14:50"
           ],
@@ -80,7 +78,7 @@
       "imdb": {
         "id": "tt15799564",
         "nota": 8.1,
-        "votos": 7844
+        "votos": 9442
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOTlkOGFlYWYtN2VlNC00NjNhLWIxYmMtNDVhZTQ4YmQ4ZTdiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -112,12 +110,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 21:40",
             "2026-11-10 21:40",
             "2026-11-11 21:40"
           ],
@@ -158,9 +154,265 @@
       "imdb": {
         "id": "tt2056785",
         "nota": 8.6,
-        "votos": 23687
+        "votos": 24930
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2JjOGQ1OGMtZmUwYS00YmQ2LTllNzQtZjU2YjY1NzM2NzJjXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Avengers: Doomsday",
+      "original": "Avengers: Doomsday",
+      "slug": "avengers-doomsday",
+      "generos": [
+        "Acción",
+        "Fantasía",
+        "Aventura"
+      ],
+      "duracion": 166,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Santafe Medellin · Unicentro Medellin · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-16",
+            "2026-12-17",
+            "2026-12-18",
+            "2026-12-19",
+            "2026-12-20",
+            "2026-12-21",
+            "2026-12-22",
+            "2026-12-23"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/avengers-doomsday"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark Arkadia",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-16",
+            "2026-12-19",
+            "2026-12-20",
+            "2026-12-21",
+            "2026-12-22",
+            "2026-12-23"
+          ],
+          "funciones": [
+            "2026-12-16 00:20",
+            "2026-12-16 20:45",
+            "2026-12-19 20:45",
+            "2026-12-20 20:45",
+            "2026-12-21 20:45",
+            "2026-12-22 20:45",
+            "2026-12-23 20:45"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/avengers-doomsday"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-16",
+            "2026-12-19",
+            "2026-12-20",
+            "2026-12-21",
+            "2026-12-22",
+            "2026-12-23",
+            "2026-12-25",
+            "2026-12-26",
+            "2026-12-27",
+            "2026-12-28",
+            "2026-12-29",
+            "2026-12-30"
+          ],
+          "funciones": [
+            "2026-12-16 00:05",
+            "2026-12-16 00:25",
+            "2026-12-16 00:45",
+            "2026-12-16 12:55",
+            "2026-12-16 15:15",
+            "2026-12-16 18:10",
+            "2026-12-16 18:50",
+            "2026-12-16 20:05",
+            "2026-12-16 20:45",
+            "2026-12-16 21:45",
+            "2026-12-16 22:25",
+            "2026-12-19 10:00",
+            "2026-12-19 12:55",
+            "2026-12-19 13:35",
+            "2026-12-19 15:15",
+            "2026-12-19 17:10",
+            "2026-12-19 18:10",
+            "2026-12-19 18:50",
+            "2026-12-19 20:05",
+            "2026-12-19 20:45",
+            "2026-12-19 21:45",
+            "2026-12-19 22:25",
+            "2026-12-20 10:00",
+            "2026-12-20 12:55",
+            "2026-12-20 13:35",
+            "2026-12-20 15:15",
+            "2026-12-20 17:10",
+            "2026-12-20 18:10",
+            "2026-12-20 18:50",
+            "2026-12-20 20:05",
+            "2026-12-20 20:45",
+            "2026-12-20 21:45",
+            "2026-12-20 22:25",
+            "2026-12-21 10:00",
+            "2026-12-21 12:55",
+            "2026-12-21 13:35",
+            "2026-12-21 15:15",
+            "2026-12-21 17:10",
+            "2026-12-21 18:10",
+            "2026-12-21 18:50",
+            "2026-12-21 20:05",
+            "2026-12-21 20:45",
+            "2026-12-21 21:45",
+            "2026-12-21 22:25",
+            "2026-12-22 10:00",
+            "2026-12-22 12:55",
+            "2026-12-22 13:35",
+            "2026-12-22 15:15",
+            "2026-12-22 17:10",
+            "2026-12-22 18:10",
+            "2026-12-22 18:50",
+            "2026-12-22 20:05",
+            "2026-12-22 20:45",
+            "2026-12-22 21:45",
+            "2026-12-22 22:25",
+            "2026-12-23 10:00",
+            "2026-12-23 12:55",
+            "2026-12-23 13:35",
+            "2026-12-23 15:15",
+            "2026-12-23 17:10",
+            "2026-12-23 18:10",
+            "2026-12-23 18:50",
+            "2026-12-23 20:05",
+            "2026-12-23 20:45",
+            "2026-12-23 21:45",
+            "2026-12-23 22:25",
+            "2026-12-25 18:10",
+            "2026-12-25 21:45",
+            "2026-12-26 18:10",
+            "2026-12-26 21:45",
+            "2026-12-27 18:10",
+            "2026-12-27 21:45",
+            "2026-12-28 18:10",
+            "2026-12-28 21:45",
+            "2026-12-29 18:10",
+            "2026-12-29 21:45",
+            "2026-12-30 18:10",
+            "2026-12-30 21:45"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/avengers-doomsday"
+        }
+      ],
+      "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9c182170f9cf96cc2bfbda/common/avengers-doomsday-109359-1790028565901"
+    },
+    {
+      "titulo": "Dune: Parte 3",
+      "original": "Dune: Part Three",
+      "slug": "dune-part-three",
+      "generos": [
+        "Acción",
+        "Aventura",
+        "Ciencia Ficción"
+      ],
+      "duracion": 166,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-15",
+            "2026-12-16",
+            "2026-12-17",
+            "2026-12-18",
+            "2026-12-19",
+            "2026-12-20",
+            "2026-12-21",
+            "2026-12-22",
+            "2026-12-23"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/dune-part-three"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-18",
+            "2026-12-19",
+            "2026-12-20",
+            "2026-12-21",
+            "2026-12-22",
+            "2026-12-23"
+          ],
+          "funciones": [
+            "2026-12-18 10:40",
+            "2026-12-18 14:15",
+            "2026-12-18 14:55",
+            "2026-12-18 17:50",
+            "2026-12-18 21:25",
+            "2026-12-18 22:05",
+            "2026-12-19 10:40",
+            "2026-12-19 14:15",
+            "2026-12-19 14:55",
+            "2026-12-19 17:50",
+            "2026-12-19 21:25",
+            "2026-12-19 22:05",
+            "2026-12-20 10:40",
+            "2026-12-20 14:15",
+            "2026-12-20 14:55",
+            "2026-12-20 17:50",
+            "2026-12-20 21:25",
+            "2026-12-20 22:05",
+            "2026-12-21 10:40",
+            "2026-12-21 14:15",
+            "2026-12-21 14:55",
+            "2026-12-21 17:50",
+            "2026-12-21 21:25",
+            "2026-12-21 22:05",
+            "2026-12-22 10:40",
+            "2026-12-22 14:15",
+            "2026-12-22 14:55",
+            "2026-12-22 17:50",
+            "2026-12-22 21:25",
+            "2026-12-22 22:05",
+            "2026-12-23 10:40",
+            "2026-12-23 14:15",
+            "2026-12-23 14:55",
+            "2026-12-23 17:50",
+            "2026-12-23 21:25",
+            "2026-12-23 22:05"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/duna-parte-3"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark Arkadia",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-21"
+          ],
+          "funciones": [
+            "2026-12-21 22:15"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/duna-parte-3"
+        }
+      ],
+      "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9b3ab0c01df9896847f5bf/common/duna-parte-3-112803-1788809722931"
     },
     {
       "titulo": "El Gran Falsificador",
@@ -218,71 +470,10 @@
       "imdb": {
         "id": "tt35495035",
         "nota": 7,
-        "votos": 2279,
+        "votos": 2283,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg"
-    },
-    {
-      "titulo": "Godzilla Minus Zero",
-      "original": "Godzilla Minus Zero",
-      "slug": "godzilla-minus-zero",
-      "generos": [
-        "Acción",
-        "Aventura",
-        "Drama"
-      ],
-      "duracion": 135,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/godzilla-minus-zero"
-        },
-        {
-          "cadena": "Cinemark",
-          "sede": "Cinemark Arkadia",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-09"
-          ],
-          "funciones": [
-            "2026-11-09 21:00"
-          ],
-          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero"
-        },
-        {
-          "cadena": "Cinemark",
-          "sede": "Cinemark El Tesoro",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-09"
-          ],
-          "funciones": [
-            "2026-11-09 15:10",
-            "2026-11-09 17:45",
-            "2026-11-09 21:00",
-            "2026-11-09 22:00"
-          ],
-          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero"
-        }
-      ],
-      "poster": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg",
-      "imdb": {
-        "id": "tt34384661",
-        "nota": 8,
-        "votos": 12263
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Rapido y Furioso",
@@ -305,7 +496,8 @@
             "2026-11-12",
             "2026-11-13",
             "2026-11-14",
-            "2026-11-15"
+            "2026-11-15",
+            "2026-11-16"
           ],
           "url": "https://www.cinecolombia.com/peliculas/the-fast-and-the-furious-25th-anniversary"
         },
@@ -319,7 +511,8 @@
             "2026-11-13",
             "2026-11-14",
             "2026-11-15",
-            "2026-11-16"
+            "2026-11-16",
+            "2026-11-17"
           ],
           "funciones": [
             "2026-11-12 18:40",
@@ -331,7 +524,9 @@
             "2026-11-15 18:40",
             "2026-11-15 22:10",
             "2026-11-16 18:40",
-            "2026-11-16 22:10"
+            "2026-11-16 22:10",
+            "2026-11-17 18:40",
+            "2026-11-17 22:10"
           ],
           "url": "https://www.cinemark.com.co/cartelera/medellin/rapido-y-furioso-re"
         },
@@ -353,7 +548,7 @@
       "imdb": {
         "id": "tt0232500",
         "nota": 6.8,
-        "votos": 469580
+        "votos": 469639
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -385,12 +580,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 20:10",
             "2026-11-10 20:10",
             "2026-11-11 20:10"
           ],
@@ -401,7 +594,7 @@
       "imdb": {
         "id": "tt34379051",
         "nota": 6.5,
-        "votos": 8449
+        "votos": 8621
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZTUwODQ5N2QtMGM3Ny00YTk1LWJlZTctMTE5ZTAzNTMwOGQxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -433,13 +626,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 19:10",
-            "2026-11-09 22:15",
             "2026-11-10 19:10",
             "2026-11-10 22:15",
             "2026-11-11 19:10",
@@ -452,7 +642,7 @@
       "imdb": {
         "id": "tt34890576",
         "nota": 7.5,
-        "votos": 47351
+        "votos": 48433
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjNlMjM4NTAtYjE5YS00ZGYyLWEyMTYtNjFlMmIxZDEzYjhhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -496,7 +686,7 @@
       "imdb": {
         "id": "tt31450459",
         "nota": 7.5,
-        "votos": 47097
+        "votos": 47249
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2E0YTg1M2YtOGQyYi00NDFkLTk3NzUtYmEyNTZhYThhZDQ0XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -529,13 +719,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 15:20",
-            "2026-11-09 21:50",
             "2026-11-10 15:20",
             "2026-11-10 21:50",
             "2026-11-11 15:20",
@@ -547,10 +734,58 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt7526136",
-        "nota": 7.2,
-        "votos": 41732
+        "nota": 7.1,
+        "votos": 44562
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Godzilla Minus Zero",
+      "original": "Godzilla Minus Zero",
+      "slug": "godzilla-minus-zero",
+      "generos": [
+        "Acción",
+        "Aventura",
+        "Drama"
+      ],
+      "duracion": 135,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/godzilla-minus-zero"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-10"
+          ],
+          "funciones": [
+            "2026-11-10 15:10",
+            "2026-11-10 17:45",
+            "2026-11-10 21:00",
+            "2026-11-10 22:00"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero"
+        }
+      ],
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg",
+      "imdb": {
+        "id": "tt34384661",
+        "nota": 8,
+        "votos": 14878
+      },
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "KMKZ: Salvaje, Libre y Valiente",
@@ -627,6 +862,93 @@
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/POSTER-lpds-14-10-26-scaled.jpg"
     },
     {
+      "titulo": "Los Juegos del Hambre: Amanecer en la Cosecha",
+      "original": "The Hunger Games: Sunrise on the Reaping",
+      "slug": "the-hunger-games-sunrise-on-the-reaping",
+      "generos": [
+        "Acción",
+        "Fantasía",
+        "Aventura"
+      ],
+      "duracion": 158,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Unicentro Medellin · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21",
+            "2026-11-22",
+            "2026-11-23",
+            "2026-11-24",
+            "2026-11-25"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-hunger-games-sunrise-on-the-reaping"
+        },
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-21",
+            "2026-11-22",
+            "2026-11-23",
+            "2026-11-24",
+            "2026-11-25"
+          ],
+          "funciones": [
+            "2026-11-18 14:30",
+            "2026-11-18 17:20",
+            "2026-11-18 18:00",
+            "2026-11-18 20:50",
+            "2026-11-18 21:30",
+            "2026-11-19 14:30",
+            "2026-11-19 17:20",
+            "2026-11-19 18:00",
+            "2026-11-19 20:50",
+            "2026-11-19 21:30",
+            "2026-11-21 11:00",
+            "2026-11-21 14:30",
+            "2026-11-21 17:00",
+            "2026-11-21 18:00",
+            "2026-11-21 20:30",
+            "2026-11-21 21:30",
+            "2026-11-22 11:00",
+            "2026-11-22 14:30",
+            "2026-11-22 17:00",
+            "2026-11-22 18:00",
+            "2026-11-22 20:30",
+            "2026-11-22 21:30",
+            "2026-11-23 14:30",
+            "2026-11-23 17:20",
+            "2026-11-23 18:00",
+            "2026-11-23 20:50",
+            "2026-11-23 21:30",
+            "2026-11-24 14:30",
+            "2026-11-24 17:20",
+            "2026-11-24 18:00",
+            "2026-11-24 20:50",
+            "2026-11-24 21:30",
+            "2026-11-25 14:30",
+            "2026-11-25 17:20",
+            "2026-11-25 18:00",
+            "2026-11-25 20:50",
+            "2026-11-25 21:30"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/juegos-del-hambre-amanecer"
+        }
+      ],
+      "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ace6268a1f5b47c5a23125c/common/juegos-del-hambre-amanecer-113722-1791995530790"
+    },
+    {
       "titulo": "Resurrection",
       "original": "Resurrection",
       "slug": "resurrection",
@@ -666,7 +988,7 @@
       "imdb": {
         "id": "tt29002950",
         "nota": 7.2,
-        "votos": 6127
+        "votos": 6135
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGQ2ODE0M2QtODUzMS00OGIyLTlmZWItZGMwM2E2MDg5YWUxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -712,7 +1034,7 @@
       "imdb": {
         "id": "tt13609648",
         "nota": 7.2,
-        "votos": 10839
+        "votos": 11139
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzNmM2E0OWItZWU2MC00M2I3LWEyZTQtYWIyYmZhOGEyOTY1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -759,8 +1081,8 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt37304295",
-        "nota": 7.3,
-        "votos": 4488,
+        "nota": 7.4,
+        "votos": 4558,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg"
@@ -792,13 +1114,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 17:55",
-            "2026-11-09 21:10",
             "2026-11-10 17:55",
             "2026-11-10 21:10",
             "2026-11-11 17:55",
@@ -811,7 +1130,7 @@
       "imdb": {
         "id": "tt32261958",
         "nota": 6,
-        "votos": 34713
+        "votos": 35417
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmE0OWRiNzktY2MwMy00YzQ5LWFkMzctNjI1ZWQ1NTRiZGM3XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -830,14 +1149,16 @@
             "2026-11-13",
             "2026-11-14",
             "2026-11-15",
-            "2026-11-16"
+            "2026-11-16",
+            "2026-11-17"
           ],
           "funciones": [
             "2026-11-12 18:20",
             "2026-11-13 18:20",
             "2026-11-14 18:20",
             "2026-11-15 18:20",
-            "2026-11-16 18:20"
+            "2026-11-16 18:20",
+            "2026-11-17 18:20"
           ],
           "url": "https://www.cinemark.com.co/cartelera/medellin/akira-re"
         }
@@ -851,7 +1172,7 @@
       "imdb": {
         "id": "tt0094625",
         "nota": 8,
-        "votos": 233873
+        "votos": 233909
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzlhZGRmZGEtM2ZjNC00MWRmLTk0MDctYzU1NzAzODIxYzEyXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -882,7 +1203,7 @@
       "imdb": {
         "id": "tt34998116",
         "nota": 6.1,
-        "votos": 195
+        "votos": 197
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -911,9 +1232,53 @@
       "imdb": {
         "id": "tt0103759",
         "nota": 7,
-        "votos": 53659
+        "votos": 53671
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMzVhMGI1OWUtMTEwNy00MWMyLTgwZjgtMTBjYTk1YmExMDNlXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "BTS WORLD TOUR 'ARIRANG' IN JAKARTA: LIVE",
+      "original": "BTS WORLD TOUR 'ARIRANG' IN JAKARTA: LIVE",
+      "slug": "bts-world-tour-arirang-in-jakarta-live",
+      "generos": [
+        "Concierto"
+      ],
+      "duracion": 195,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-12-29"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/bts-world-tour-arirang-in-jakarta-live"
+        }
+      ]
+    },
+    {
+      "titulo": "BTS WORLD TOUR 'ARIRANG' IN KAOHSIUNG: LIVE",
+      "original": "BTS WORLD TOUR 'ARIRANG' IN KAOHSIUNG: LIVE",
+      "slug": "bts-world-tour-arirang-in-kaohsiung-live",
+      "generos": [
+        "Concierto"
+      ],
+      "duracion": 195,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-21"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/bts-world-tour-arirang-in-kaohsiung-live"
+        }
+      ]
     },
     {
       "titulo": "Carmen",
@@ -1018,7 +1383,7 @@
       "imdb": {
         "id": "tt39120306",
         "nota": 3.5,
-        "votos": 184,
+        "votos": 193,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzBhYjRkMjQtODAwYS00MzFiLWI5YWMtZjNiYzNlMjQwMDdmXkEyXkFqcGc@._V1_UX192_.jpg",
@@ -1051,7 +1416,7 @@
       "imdb": {
         "id": "tt2321555",
         "nota": 6.6,
-        "votos": 710
+        "votos": 943
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1134,7 +1499,7 @@
       "imdb": {
         "id": "tt31349844",
         "nota": 6.2,
-        "votos": 19686
+        "votos": 19884
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1371,7 +1736,7 @@
       "imdb": {
         "id": "tt1951266",
         "nota": 6.6,
-        "votos": 425049
+        "votos": 425188
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg"
@@ -1387,12 +1752,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 17:10",
             "2026-11-10 17:10",
             "2026-11-11 17:10"
           ],
@@ -1430,8 +1793,8 @@
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/MPIF_Afiche-scaled.jpg"
     },
     {
-      "titulo": "Maria Antonieta",
-      "original": "Maria Antonieta",
+      "titulo": "María Antonieta",
+      "original": "María Antonieta",
       "slug": "maria-antonieta",
       "donde": [
         {
@@ -1456,7 +1819,7 @@
       "imdb": {
         "id": "tt0422720",
         "nota": 6.5,
-        "votos": 134499,
+        "votos": 134532,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMmE4NzQzNGItNTY4My00ZTBhLTk2ZjItZDJkMjRlYTE2MGRiXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1560,12 +1923,10 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
           "funciones": [
-            "2026-11-09 18:10",
             "2026-11-10 18:10",
             "2026-11-11 18:10"
           ],
@@ -1581,7 +1942,7 @@
       "imdb": {
         "id": "tt0075148",
         "nota": 8.1,
-        "votos": 706949
+        "votos": 707111
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -1688,7 +2049,7 @@
       "imdb": {
         "id": "tt27419420",
         "nota": 6.2,
-        "votos": 21914
+        "votos": 22083
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1724,28 +2085,28 @@
     {
       "nombre": "Cine Colombia",
       "url": "https://www.cinecolombia.com/cartelera/medellin",
-      "estado": "Leída el 2026-11-09 desde su API, en las 6 sedes de Medellín."
+      "estado": "Leída el 2026-11-10 desde su API, en las 6 sedes de Medellín."
     },
     {
       "nombre": "Procinal (Terminal del Sur)",
       "url": "https://www.procinal.com.co/ciudad/medellin",
-      "estado": "Leída el 2026-11-09: 9 entradas leídas; 0 en idioma original."
+      "estado": "Leída el 2026-11-10: 9 entradas leídas; 0 en idioma original."
     },
     {
       "nombre": "Cinemark",
       "url": "https://www.cinemark.com.co/cartelera/medellin",
-      "estado": "Leída el 2026-11-09: 21 películas en cartelera; 14 sedes con función en idioma original (todos los días que publica su web)."
+      "estado": "Leída el 2026-11-10: 21 películas en cartelera; 18 sedes con función en idioma original (todos los días que publica su web)."
     },
     {
       "nombre": "Colombo Americano",
       "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
-      "estado": "Leída el 2026-11-09: 13 películas con función en los próximos 8 días."
+      "estado": "Leída el 2026-11-10: 13 películas con función en los próximos 8 días."
     },
     {
       "nombre": "MAMM (cine)",
       "url": "https://www.elmamm.org/cine/",
-      "estado": "Leída el 2026-11-09: 25 fichas leídas; 13 con función en los próximos 8 días."
+      "estado": "Leída el 2026-11-10: 25 fichas leídas; 13 con función en los próximos 8 días."
     }
   ],
-  "imdb_leido": "2026-11-09"
+  "imdb_leido": "2026-11-10"
 }

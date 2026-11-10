@@ -1,19 +1,19 @@
 {
-  "leido": "2026-11-09",
+  "leido": "2026-11-10",
   "ventana_dias": 8,
   "cadenas": [
     {
       "nombre": "Procinal (Terminal del Sur)",
       "url": "https://www.procinal.com.co/ciudad/medellin",
-      "leida": "2026-11-09",
-      "estado": "Leída el 2026-11-09: 9 entradas leídas; 0 en idioma original.",
+      "leida": "2026-11-10",
+      "estado": "Leída el 2026-11-10: 9 entradas leídas; 0 en idioma original.",
       "peliculas": []
     },
     {
       "nombre": "Cinemark",
       "url": "https://www.cinemark.com.co/cartelera/medellin",
-      "leida": "2026-11-09",
-      "estado": "Leída el 2026-11-09: 21 películas en cartelera; 14 sedes con función en idioma original (todos los días que publica su web).",
+      "leida": "2026-11-10",
+      "estado": "Leída el 2026-11-10: 21 películas en cartelera; 18 sedes con función en idioma original (todos los días que publica su web).",
       "peliculas": [
         {
           "titulo": "Clayface",
@@ -29,29 +29,10 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/clayface",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6abee847c67224dbb6de2a73/common/clayface-113296-1792532929767",
           "funciones": [
-            "2026-11-09 19:10",
-            "2026-11-09 22:15",
             "2026-11-10 19:10",
             "2026-11-10 22:15",
             "2026-11-11 19:10",
             "2026-11-11 22:15"
-          ]
-        },
-        {
-          "titulo": "Godzilla Minus Zero",
-          "original": "Godzilla Minus Zero",
-          "sede": "Cinemark Arkadia",
-          "anio": null,
-          "generos": [
-            "Acción"
-          ],
-          "duracion": 135,
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero",
-          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ac00fa0fb327e365ceab7a4/common/godzilla-minus-zero-113416-1790974517203",
-          "funciones": [
-            "2026-11-09 21:00"
           ]
         },
         {
@@ -68,10 +49,10 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/godzilla-minus-zero",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ac00fa0fb327e365ceab7a4/common/godzilla-minus-zero-113416-1790974517203",
           "funciones": [
-            "2026-11-09 15:10",
-            "2026-11-09 17:45",
-            "2026-11-09 21:00",
-            "2026-11-09 22:00"
+            "2026-11-10 15:10",
+            "2026-11-10 17:45",
+            "2026-11-10 21:00",
+            "2026-11-10 22:00"
           ]
         },
         {
@@ -88,7 +69,6 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/madre-siniestra",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aa1c0a66ec86f08f0fe7354/common/madre-siniestra-112853-1793221391118",
           "funciones": [
-            "2026-11-09 17:10",
             "2026-11-10 17:10",
             "2026-11-11 17:10"
           ]
@@ -107,8 +87,6 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/el-corazon-de-la-bestia",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9595bf0e75d9870e67b412/common/el-corazon-de-la-bestia-112683-1788203374252",
           "funciones": [
-            "2026-11-09 15:20",
-            "2026-11-09 21:50",
             "2026-11-10 15:20",
             "2026-11-10 21:50",
             "2026-11-11 15:20",
@@ -129,7 +107,6 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/rocky",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ad64b682ee212a36f71b0c8/common/rocky-113513-1792428994338",
           "funciones": [
-            "2026-11-09 18:10",
             "2026-11-10 18:10",
             "2026-11-11 18:10"
           ]
@@ -166,8 +143,6 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/verity",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aa1dcb18c1145ee764a4255/common/verity-111111-1790775055108",
           "funciones": [
-            "2026-11-09 17:55",
-            "2026-11-09 21:10",
             "2026-11-10 17:55",
             "2026-11-10 21:10",
             "2026-11-11 17:55",
@@ -188,7 +163,6 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/wildwood",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6acfb3ebd1a620d42024d1a5/common/wildwood-113745-1792010139629",
           "funciones": [
-            "2026-11-09 21:40",
             "2026-11-10 21:40",
             "2026-11-11 21:40"
           ]
@@ -207,7 +181,6 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/a-cualquier-precio",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ae11a3e324b4c65989b9cbe/common/a-cualquier-precio-113957-1793807236657",
           "funciones": [
-            "2026-11-09 20:10",
             "2026-11-10 20:10",
             "2026-11-11 20:10"
           ]
@@ -226,9 +199,247 @@
           "url": "https://www.cinemark.com.co/cartelera/medellin/caballo-salvaje-nueve",
           "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ae10c2dbb11bb36a262a457/common/caballo-salvaje-nueve-113958-1793140074115",
           "funciones": [
-            "2026-11-09 14:50",
             "2026-11-10 14:50",
             "2026-11-11 14:50"
+          ]
+        },
+        {
+          "titulo": "Avengers: Doomsday",
+          "original": "Avengers: Doomsday",
+          "sede": "Cinemark Arkadia",
+          "anio": null,
+          "generos": [
+            "Acción"
+          ],
+          "duracion": 165,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/avengers-doomsday",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9c182170f9cf96cc2bfbda/common/avengers-doomsday-109359-1790028565901",
+          "funciones": [
+            "2026-12-16 00:20",
+            "2026-12-16 20:45",
+            "2026-12-19 20:45",
+            "2026-12-20 20:45",
+            "2026-12-21 20:45",
+            "2026-12-22 20:45",
+            "2026-12-23 20:45"
+          ]
+        },
+        {
+          "titulo": "Avengers: Doomsday",
+          "original": "Avengers: Doomsday",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "generos": [
+            "Acción"
+          ],
+          "duracion": 165,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/avengers-doomsday",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9c182170f9cf96cc2bfbda/common/avengers-doomsday-109359-1790028565901",
+          "funciones": [
+            "2026-12-16 00:05",
+            "2026-12-16 00:25",
+            "2026-12-16 00:45",
+            "2026-12-16 12:55",
+            "2026-12-16 15:15",
+            "2026-12-16 18:10",
+            "2026-12-16 18:50",
+            "2026-12-16 20:05",
+            "2026-12-16 20:45",
+            "2026-12-16 21:45",
+            "2026-12-16 22:25",
+            "2026-12-19 10:00",
+            "2026-12-19 12:55",
+            "2026-12-19 13:35",
+            "2026-12-19 15:15",
+            "2026-12-19 17:10",
+            "2026-12-19 18:10",
+            "2026-12-19 18:50",
+            "2026-12-19 20:05",
+            "2026-12-19 20:45",
+            "2026-12-19 21:45",
+            "2026-12-19 22:25",
+            "2026-12-20 10:00",
+            "2026-12-20 12:55",
+            "2026-12-20 13:35",
+            "2026-12-20 15:15",
+            "2026-12-20 17:10",
+            "2026-12-20 18:10",
+            "2026-12-20 18:50",
+            "2026-12-20 20:05",
+            "2026-12-20 20:45",
+            "2026-12-20 21:45",
+            "2026-12-20 22:25",
+            "2026-12-21 10:00",
+            "2026-12-21 12:55",
+            "2026-12-21 13:35",
+            "2026-12-21 15:15",
+            "2026-12-21 17:10",
+            "2026-12-21 18:10",
+            "2026-12-21 18:50",
+            "2026-12-21 20:05",
+            "2026-12-21 20:45",
+            "2026-12-21 21:45",
+            "2026-12-21 22:25",
+            "2026-12-22 10:00",
+            "2026-12-22 12:55",
+            "2026-12-22 13:35",
+            "2026-12-22 15:15",
+            "2026-12-22 17:10",
+            "2026-12-22 18:10",
+            "2026-12-22 18:50",
+            "2026-12-22 20:05",
+            "2026-12-22 20:45",
+            "2026-12-22 21:45",
+            "2026-12-22 22:25",
+            "2026-12-23 10:00",
+            "2026-12-23 12:55",
+            "2026-12-23 13:35",
+            "2026-12-23 15:15",
+            "2026-12-23 17:10",
+            "2026-12-23 18:10",
+            "2026-12-23 18:50",
+            "2026-12-23 20:05",
+            "2026-12-23 20:45",
+            "2026-12-23 21:45",
+            "2026-12-23 22:25",
+            "2026-12-25 18:10",
+            "2026-12-25 21:45",
+            "2026-12-26 18:10",
+            "2026-12-26 21:45",
+            "2026-12-27 18:10",
+            "2026-12-27 21:45",
+            "2026-12-28 18:10",
+            "2026-12-28 21:45",
+            "2026-12-29 18:10",
+            "2026-12-29 21:45",
+            "2026-12-30 18:10",
+            "2026-12-30 21:45"
+          ]
+        },
+        {
+          "titulo": "Duna Parte 3",
+          "original": "Duna Parte 3",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "generos": [
+            "Ciencia ficción"
+          ],
+          "duracion": 165,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/duna-parte-3",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9b3ab0c01df9896847f5bf/common/duna-parte-3-112803-1788809722931",
+          "funciones": [
+            "2026-12-18 10:40",
+            "2026-12-18 14:15",
+            "2026-12-18 14:55",
+            "2026-12-18 17:50",
+            "2026-12-18 21:25",
+            "2026-12-18 22:05",
+            "2026-12-19 10:40",
+            "2026-12-19 14:15",
+            "2026-12-19 14:55",
+            "2026-12-19 17:50",
+            "2026-12-19 21:25",
+            "2026-12-19 22:05",
+            "2026-12-20 10:40",
+            "2026-12-20 14:15",
+            "2026-12-20 14:55",
+            "2026-12-20 17:50",
+            "2026-12-20 21:25",
+            "2026-12-20 22:05",
+            "2026-12-21 10:40",
+            "2026-12-21 14:15",
+            "2026-12-21 14:55",
+            "2026-12-21 17:50",
+            "2026-12-21 21:25",
+            "2026-12-21 22:05",
+            "2026-12-22 10:40",
+            "2026-12-22 14:15",
+            "2026-12-22 14:55",
+            "2026-12-22 17:50",
+            "2026-12-22 21:25",
+            "2026-12-22 22:05",
+            "2026-12-23 10:40",
+            "2026-12-23 14:15",
+            "2026-12-23 14:55",
+            "2026-12-23 17:50",
+            "2026-12-23 21:25",
+            "2026-12-23 22:05"
+          ]
+        },
+        {
+          "titulo": "Duna Parte 3",
+          "original": "Duna Parte 3",
+          "sede": "Cinemark Arkadia",
+          "anio": null,
+          "generos": [
+            "Ciencia ficción"
+          ],
+          "duracion": 165,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/duna-parte-3",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9b3ab0c01df9896847f5bf/common/duna-parte-3-112803-1788809722931",
+          "funciones": [
+            "2026-12-21 22:15"
+          ]
+        },
+        {
+          "titulo": "Juegos del hambre: Amanecer",
+          "original": "Juegos del hambre: Amanecer",
+          "sede": "Cinemark El Tesoro",
+          "anio": null,
+          "generos": [
+            "Acción"
+          ],
+          "duracion": 160,
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "url": "https://www.cinemark.com.co/cartelera/medellin/juegos-del-hambre-amanecer",
+          "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ace6268a1f5b47c5a23125c/common/juegos-del-hambre-amanecer-113722-1791995530790",
+          "funciones": [
+            "2026-11-18 14:30",
+            "2026-11-18 17:20",
+            "2026-11-18 18:00",
+            "2026-11-18 20:50",
+            "2026-11-18 21:30",
+            "2026-11-19 14:30",
+            "2026-11-19 17:20",
+            "2026-11-19 18:00",
+            "2026-11-19 20:50",
+            "2026-11-19 21:30",
+            "2026-11-21 11:00",
+            "2026-11-21 14:30",
+            "2026-11-21 17:00",
+            "2026-11-21 18:00",
+            "2026-11-21 20:30",
+            "2026-11-21 21:30",
+            "2026-11-22 11:00",
+            "2026-11-22 14:30",
+            "2026-11-22 17:00",
+            "2026-11-22 18:00",
+            "2026-11-22 20:30",
+            "2026-11-22 21:30",
+            "2026-11-23 14:30",
+            "2026-11-23 17:20",
+            "2026-11-23 18:00",
+            "2026-11-23 20:50",
+            "2026-11-23 21:30",
+            "2026-11-24 14:30",
+            "2026-11-24 17:20",
+            "2026-11-24 18:00",
+            "2026-11-24 20:50",
+            "2026-11-24 21:30",
+            "2026-11-25 14:30",
+            "2026-11-25 17:20",
+            "2026-11-25 18:00",
+            "2026-11-25 20:50",
+            "2026-11-25 21:30"
           ]
         },
         {
@@ -249,7 +460,8 @@
             "2026-11-13 18:20",
             "2026-11-14 18:20",
             "2026-11-15 18:20",
-            "2026-11-16 18:20"
+            "2026-11-16 18:20",
+            "2026-11-17 18:20"
           ]
         },
         {
@@ -275,7 +487,9 @@
             "2026-11-15 18:40",
             "2026-11-15 22:10",
             "2026-11-16 18:40",
-            "2026-11-16 22:10"
+            "2026-11-16 22:10",
+            "2026-11-17 18:40",
+            "2026-11-17 22:10"
           ]
         },
         {
@@ -300,8 +514,8 @@
     {
       "nombre": "Colombo Americano",
       "url": "https://www.colombomedellin.edu.co/programacion-por-salas/",
-      "leida": "2026-11-09",
-      "estado": "Leída el 2026-11-09: 13 películas con función en los próximos 8 días.",
+      "leida": "2026-11-10",
+      "estado": "Leída el 2026-11-10: 13 películas con función en los próximos 8 días.",
       "peliculas": [
         {
           "titulo": "Resurrection",
@@ -514,8 +728,8 @@
     {
       "nombre": "MAMM (cine)",
       "url": "https://www.elmamm.org/cine/",
-      "leida": "2026-11-09",
-      "estado": "Leída el 2026-11-09: 25 fichas leídas; 13 con función en los próximos 8 días.",
+      "leida": "2026-11-10",
+      "estado": "Leída el 2026-11-10: 25 fichas leídas; 13 con función en los próximos 8 días.",
       "peliculas": [
         {
           "titulo": "Caballo salvaje nueve",
@@ -625,8 +839,8 @@
           ]
         },
         {
-          "titulo": "Maria Antonieta",
-          "original": "Maria Antonieta",
+          "titulo": "María Antonieta",
+          "original": "María Antonieta",
           "sede": "MAMM",
           "anio": 2006,
           "generos": [],
