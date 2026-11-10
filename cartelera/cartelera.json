@@ -1,7 +1,7 @@
 {
   "verificado": "2026-11-09",
   "ciudad": "Medellín",
-  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet y teatro filmado: los próximos 60 días). Cine Colombia leída el 2026-11-09; las otras salas, el 2026-11-09. Cada botón abre la sala en vivo para ver horarios.",
+  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet, teatro y documentales de arte: los próximos 120 días). Cine Colombia leída el 2026-11-09; las otras salas, el 2026-11-09. Cada botón abre la sala en vivo para ver horarios.",
   "peliculas": [
     {
       "titulo": "Caballo Salvaje Nueve",
@@ -21,7 +21,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -81,7 +80,7 @@
       "imdb": {
         "id": "tt15799564",
         "nota": 8.1,
-        "votos": 7844
+        "votos": 9442
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOTlkOGFlYWYtN2VlNC00NjNhLWIxYmMtNDVhZTQ4YmQ4ZTdiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -102,7 +101,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -160,7 +158,7 @@
       "imdb": {
         "id": "tt2056785",
         "nota": 8.6,
-        "votos": 23687
+        "votos": 24930
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2JjOGQ1OGMtZmUwYS00YmQ2LTllNzQtZjU2YjY1NzM2NzJjXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -180,7 +178,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -221,7 +218,7 @@
       "imdb": {
         "id": "tt35495035",
         "nota": 7,
-        "votos": 2279,
+        "votos": 2283,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -244,7 +241,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -284,7 +280,7 @@
       "imdb": {
         "id": "tt34384661",
         "nota": 8,
-        "votos": 12263
+        "votos": 14878
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -357,7 +353,7 @@
       "imdb": {
         "id": "tt0232500",
         "nota": 6.8,
-        "votos": 469580
+        "votos": 469639
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -378,7 +374,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -406,7 +401,7 @@
       "imdb": {
         "id": "tt34379051",
         "nota": 6.5,
-        "votos": 8449
+        "votos": 8621
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZTUwODQ5N2QtMGM3Ny00YTk1LWJlZTctMTE5ZTAzNTMwOGQxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -427,7 +422,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -458,7 +452,7 @@
       "imdb": {
         "id": "tt34890576",
         "nota": 7.5,
-        "votos": 47351
+        "votos": 48433
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjNlMjM4NTAtYjE5YS00ZGYyLWEyMTYtNjFlMmIxZDEzYjhhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -502,7 +496,7 @@
       "imdb": {
         "id": "tt31450459",
         "nota": 7.5,
-        "votos": 47097
+        "votos": 47249
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2E0YTg1M2YtOGQyYi00NDFkLTk3NzUtYmEyNTZhYThhZDQ0XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -524,7 +518,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -554,8 +547,8 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt7526136",
-        "nota": 7.2,
-        "votos": 41732
+        "nota": 7.1,
+        "votos": 44562
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -673,7 +666,7 @@
       "imdb": {
         "id": "tt29002950",
         "nota": 7.2,
-        "votos": 6127
+        "votos": 6135
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGQ2ODE0M2QtODUzMS00OGIyLTlmZWItZGMwM2E2MDg5YWUxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -694,7 +687,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -720,7 +712,7 @@
       "imdb": {
         "id": "tt13609648",
         "nota": 7.2,
-        "votos": 10839
+        "votos": 11139
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzNmM2E0OWItZWU2MC00M2I3LWEyZTQtYWIyYmZhOGEyOTY1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -767,8 +759,8 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt37304295",
-        "nota": 7.3,
-        "votos": 4488,
+        "nota": 7.4,
+        "votos": 4558,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg"
@@ -789,7 +781,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -820,7 +811,7 @@
       "imdb": {
         "id": "tt32261958",
         "nota": 6,
-        "votos": 34713
+        "votos": 35417
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmE0OWRiNzktY2MwMy00YzQ5LWFkMzctNjI1ZWQ1NTRiZGM3XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -860,7 +851,7 @@
       "imdb": {
         "id": "tt0094625",
         "nota": 8,
-        "votos": 233873
+        "votos": 233909
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzlhZGRmZGEtM2ZjNC00MWRmLTk0MDctYzU1NzAzODIxYzEyXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -891,7 +882,7 @@
       "imdb": {
         "id": "tt34998116",
         "nota": 6.1,
-        "votos": 195
+        "votos": 197
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -920,7 +911,7 @@
       "imdb": {
         "id": "tt0103759",
         "nota": 7,
-        "votos": 53659
+        "votos": 53671
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMzVhMGI1OWUtMTEwNy00MWMyLTgwZjgtMTBjYTk1YmExMDNlXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -944,7 +935,9 @@
           ],
           "url": "https://www.cinecolombia.com/peliculas/carmen"
         }
-      ]
+      ],
+      "poster_imdb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg/330px-Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg/330px-Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "titulo": "Donde comienza el río",
@@ -1016,7 +1009,6 @@
           "idioma": "Español (original)",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -1026,7 +1018,7 @@
       "imdb": {
         "id": "tt39120306",
         "nota": 3.5,
-        "votos": 184,
+        "votos": 193,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzBhYjRkMjQtODAwYS00MzFiLWI5YWMtZjNiYzNlMjQwMDdmXkEyXkFqcGc@._V1_UX192_.jpg",
@@ -1050,7 +1042,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -1060,7 +1051,7 @@
       "imdb": {
         "id": "tt2321555",
         "nota": 6.6,
-        "votos": 710
+        "votos": 943
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1086,7 +1077,35 @@
           ],
           "url": "https://www.cinecolombia.com/peliculas/le-lac-des-cygnes"
         }
-      ]
+      ],
+      "poster_imdb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tschaikowsky_EBieber_1888.jpg/330px-Tschaikowsky_EBieber_1888.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tschaikowsky_EBieber_1888.jpg/330px-Tschaikowsky_EBieber_1888.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "titulo": "El Playboy Del Mundo Occidental",
+      "original": "The Playboy of the Western World",
+      "slug": "the-playboy-of-the-western-world",
+      "generos": [
+        "Teatro"
+      ],
+      "duracion": 150,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-02-26",
+            "2027-02-27",
+            "2027-02-28"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-playboy-of-the-western-world"
+        }
+      ],
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNDEyYjRiYmQtZGNjZS00ZWEwLTg5NDUtMTczMTJlYWVmNzFlXkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNDEyYjRiYmQtZGNjZS00ZWEwLTg5NDUtMTczMTJlYWVmNzFlXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Entrega Al Límite",
@@ -1106,7 +1125,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -1116,10 +1134,38 @@
       "imdb": {
         "id": "tt31349844",
         "nota": 6.2,
-        "votos": 19686
+        "votos": 19884
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "James McNeill Whistler",
+      "original": "James McNeill Whistler",
+      "slug": "james-mcneill-whistler",
+      "generos": [
+        "Documental"
+      ],
+      "duracion": 90,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-02-04",
+            "2027-02-05",
+            "2027-02-06",
+            "2027-02-07",
+            "2027-02-08"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/james-mcneill-whistler"
+        }
+      ],
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BODI0N2I1MmEtNThlNi00OGM5LWFmYWMtNGZiOTk0MDg1OTEwXkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BODI0N2I1MmEtNThlNi00OGM5LWFmYWMtNGZiOTk0MDg1OTEwXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Kalibre 35",
@@ -1151,6 +1197,79 @@
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMTQ2ODIxMDU4Ml5BMl5BanBnXkFtZTcwODk5NzUyMQ@@._V1_UX192_.jpg"
     },
     {
+      "titulo": "La Audiencia",
+      "original": "The Audience",
+      "slug": "the-audience",
+      "generos": [
+        "Drama"
+      ],
+      "duracion": 180,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-02-12",
+            "2027-02-13",
+            "2027-02-14"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/the-audience"
+        }
+      ]
+    },
+    {
+      "titulo": "La Bayadère",
+      "original": "La Bayadère",
+      "slug": "la-bayadere",
+      "generos": [
+        "Ballet"
+      ],
+      "duracion": 125,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-01-23",
+            "2027-01-24"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/la-bayadere"
+        }
+      ],
+      "poster_imdb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/La-bayadere-kingdom-of-the-shades-1900.jpg/330px-La-bayadere-kingdom-of-the-shades-1900.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/La-bayadere-kingdom-of-the-shades-1900.jpg/330px-La-bayadere-kingdom-of-the-shades-1900.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "titulo": "La Fanciulla del West",
+      "original": "La Fanciulla del West",
+      "slug": "la-fanciulla-del-west",
+      "generos": [
+        "Ópera"
+      ],
+      "duracion": 195,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-01-23"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/la-fanciulla-del-west"
+        }
+      ],
+      "poster_imdb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Emmy_Destinn_as_Minnie.jpg/330px-Emmy_Destinn_as_Minnie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Emmy_Destinn_as_Minnie.jpg/330px-Emmy_Destinn_as_Minnie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
       "titulo": "La Fauta Magica",
       "original": "The Magic Flute",
       "slug": "the-magic-flute",
@@ -1170,7 +1289,9 @@
           ],
           "url": "https://www.cinecolombia.com/peliculas/the-magic-flute"
         }
-      ]
+      ],
+      "poster_imdb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Mozart_magic_flute.jpg/330px-Mozart_magic_flute.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Mozart_magic_flute.jpg/330px-Mozart_magic_flute.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "titulo": "La sinfonía de los bichos raros",
@@ -1198,6 +1319,32 @@
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/520436_12442__imagen__.jpg"
     },
     {
+      "titulo": "Las Amistades Peligrosas",
+      "original": "Les Liaisons Dangereuses",
+      "slug": "les-liaisons-dangereuses",
+      "generos": [
+        "Teatro"
+      ],
+      "duracion": 180,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-03-05",
+            "2027-03-06",
+            "2027-03-07"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/les-liaisons-dangereuses"
+        }
+      ],
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZWJkNjg2N2YtYjMzMS00MTQ2LWE1ZjEtOWE1MjkzYmRkZDNmXkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZWJkNjg2N2YtYjMzMS00MTQ2LWE1ZjEtOWE1MjkzYmRkZDNmXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
       "titulo": "Los Juegos del Hambre: Sinsajo Part 2",
       "original": "The Hunger Games: Mockingjay - Part 2",
       "slug": "the-hunger-games-mockingjay-part-2",
@@ -1215,7 +1362,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -1225,7 +1371,7 @@
       "imdb": {
         "id": "tt1951266",
         "nota": 6.6,
-        "votos": 425049
+        "votos": 425188
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg"
@@ -1310,7 +1456,7 @@
       "imdb": {
         "id": "tt0422720",
         "nota": 6.5,
-        "votos": 134499,
+        "votos": 134532,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMmE4NzQzNGItNTY4My00ZTBhLTk2ZjItZDJkMjRlYTE2MGRiXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1332,7 +1478,6 @@
           "idioma": "Español (original)",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10",
             "2026-11-11"
           ],
@@ -1377,6 +1522,34 @@
       "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6aac1eea27c81b4b03905238/common/rammstein-113071-1789678652326"
     },
     {
+      "titulo": "Renoir & Love",
+      "original": "Renoir & Love",
+      "slug": "renoir-love",
+      "generos": [
+        "Documental"
+      ],
+      "duracion": 90,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-02-18",
+            "2027-02-19",
+            "2027-02-20",
+            "2027-02-21",
+            "2027-02-22"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/renoir-love"
+        }
+      ],
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMThmMzhjMjgtMGQxOC00MmE5LWI4MGYtMDExZDhjZWU0YTVmXkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMThmMzhjMjgtMGQxOC00MmE5LWI4MGYtMDExZDhjZWU0YTVmXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
       "titulo": "Rocky",
       "original": "Rocky",
       "slug": "rocky",
@@ -1408,7 +1581,7 @@
       "imdb": {
         "id": "tt0075148",
         "nota": 8.1,
-        "votos": 706949
+        "votos": 707111
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -1433,7 +1606,9 @@
           ],
           "url": "https://www.cinecolombia.com/peliculas/romeo-et-juliette"
         }
-      ]
+      ],
+      "poster_imdb": "https://upload.wikimedia.org/wikipedia/commons/4/48/RR5115-0025R_225-%D0%BB%D0%B5%D1%82%D0%B8%D0%B5_%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/4/48/RR5115-0025R_225-%D0%BB%D0%B5%D1%82%D0%B8%D0%B5_%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0.gif?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     },
     {
       "titulo": "Samson et Dalila",
@@ -1455,7 +1630,9 @@
           ],
           "url": "https://www.cinecolombia.com/peliculas/samson-et-dalila"
         }
-      ]
+      ],
+      "poster_imdb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Samson_and_Delilah_Gustav_Dore_ca._1860.jpg/330px-Samson_and_Delilah_Gustav_Dore_ca._1860.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Samson_and_Delilah_Gustav_Dore_ca._1860.jpg/330px-Samson_and_Delilah_Gustav_Dore_ca._1860.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "titulo": "Seis meses en el edificio rosa con azul",
@@ -1503,7 +1680,6 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-09",
             "2026-11-10"
           ],
           "url": "https://www.cinecolombia.com/peliculas/street-fighter"
@@ -1512,10 +1688,36 @@
       "imdb": {
         "id": "tt27419420",
         "nota": 6.2,
-        "votos": 21914
+        "votos": 22083
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Todos Eran Mis Hijos",
+      "original": "All My Sons",
+      "slug": "all-my-sons",
+      "generos": [
+        "Teatro"
+      ],
+      "duracion": 135,
+      "alternativo": true,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Santafe Medellin · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2027-01-29",
+            "2027-01-30",
+            "2027-01-31"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/all-my-sons"
+        }
+      ],
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BY2M5NzM3NWEtMDgyOC00ODQyLWI5MTctZGRiNWRmNjRmNjk4XkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BY2M5NzM3NWEtMDgyOC00ODQyLWI5MTctZGRiNWRmNjRmNjk4XkEyXkFqcGc@._V1_UX192_.jpg"
     }
   ],
   "cadenas": [

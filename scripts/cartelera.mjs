@@ -10,16 +10,18 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
-import { API, VENTANA_DIAS, VENTANA_ALTERNATIVO, armarCartelera, escogerImdb, posterImdb, unirSalas } from '../lib/cartelera.mjs';
+import { API, VENTANA_DIAS, VENTANA_ALTERNATIVO, armarCartelera, escogerImdb, escogerPosterAlternativo, busquedaObra, escogerImagenObra, posterImdb, unirSalas } from '../lib/cartelera.mjs';
 import { hoyMedellin } from '../lib/panorama.mjs';
 
 const RUTA = new URL('../cartelera/cartelera.json', import.meta.url);
 const RUTA_SALAS = new URL('../cartelera/salas.json', import.meta.url);
 const UA = { 'user-agent': 'Mozilla/5.0 (organizador-eventos; uso personal)' };
+// Wikimedia exige nombre y contacto en el agente: el repo hace de contacto.
+const UA_WIKI = { 'user-agent': 'OrganizadorEventos/1.0 (https://github.com/AndresLoaiza/organizador-eventos)' };
 const seco = process.argv.includes('--seco');
 
 async function json(url) {
-  const r = await fetch(url, { headers: UA });
+  const r = await fetch(url, { headers: url.includes('wikipedia.org') ? UA_WIKI : UA });
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
   return r.json();
 }
@@ -70,7 +72,22 @@ for (const p of cartelera) {
   // Póster: el de IMDb (vertical y servible desde aquí) gana; se guarda para no
   // pedirlo cada semana. Si no hay, queda el de la sala (Cinemark, Colombo, MAMM).
   let img = viejo?.imdb?.id === p.imdb?.id ? viejo?.poster_imdb : null;
-  if (p.imdb && !img) {
+  if (p.alternativo && !img) {
+    // Sin nota, pero la grabación sí suele estar en IMDb con su póster.
+    try {
+      const s = await json(`https://v3.sg.media-imdb.com/suggestion/x/${encodeURIComponent(p.original)}.json`);
+      img = escogerPosterAlternativo(s.d, p.original, p.anio);
+    } catch { img = null; }
+    const b = !img && !p.poster && busquedaObra(p.original, p.generos);
+    if (b) {
+      try {
+        // Wikimedia pide un agente con contacto y sin ráfagas.
+        await new Promise(r => setTimeout(r, 1000));
+        const w = await json(`https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrlimit=5&prop=pageimages|description&piprop=thumbnail&pithumbsize=300&gsrsearch=${encodeURIComponent(b.q)}`);
+        img = escogerImagenObra(Object.values(w.query?.pages ?? {}), b.g);
+      } catch { img = null; }
+    }
+  } else if (p.imdb && !img) {
     try {
       const s = await json(`https://v3.sg.media-imdb.com/suggestion/x/${p.imdb.id}.json`);
       img = posterImdb(s.d?.find(x => x.id === p.imdb.id)?.i?.imageUrl);
@@ -85,7 +102,7 @@ const nuevo = {
   ...previo,
   verificado: hoy,
   imdb_leido: hoy,
-  nota: `Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet y teatro filmado: los próximos ${VENTANA_ALTERNATIVO} días). Cine Colombia leída el ${hoy}; las otras salas, el ${salas.leido ?? 'sin leer'}. Cada botón abre la sala en vivo para ver horarios.`,
+  nota: `Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet, teatro y documentales de arte: los próximos ${VENTANA_ALTERNATIVO} días). Cine Colombia leída el ${hoy}; las otras salas, el ${salas.leido ?? 'sin leer'}. Cada botón abre la sala en vivo para ver horarios.`,
   peliculas: cartelera,
   cadenas: [
     { nombre: 'Cine Colombia', url: 'https://www.cinecolombia.com/cartelera/medellin',

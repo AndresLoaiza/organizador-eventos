@@ -119,8 +119,8 @@ export default function Cine() {
   return (
     <section className="seccion">
       <Cabecera mascara="antifaz" titulo="Cine en idioma original">
-        Subtitulada o en su idioma, en Medellín, hasta la próxima semana; ópera, ballet y teatro
-        filmados, los próximos dos meses. Ordenada por nota de IMDb. Leída el{' '}
+        Subtitulada o en su idioma, en Medellín, hasta la próxima semana; ópera, ballet, teatro y
+        documentales de arte, los próximos cuatro meses. Ordenada por nota de IMDb. Leída el{' '}
         <b className="num">{datos.verificado}</b>.
       </Cabecera>
 
@@ -140,7 +140,7 @@ export default function Cine() {
         <div className="vista-toggle" role="group" aria-label="Tipo">
           <Interruptor activo={!filtro.tipo} onClick={() => poner({ tipo: null })}>Todo</Interruptor>
           <Interruptor activo={filtro.tipo === 'cartelera'} onClick={() => poner({ tipo: 'cartelera' })}>Cartelera</Interruptor>
-          <Interruptor activo={filtro.tipo === 'alternativo'} onClick={() => poner({ tipo: 'alternativo' })}>Ópera, ballet y teatro</Interruptor>
+          <Interruptor activo={filtro.tipo === 'alternativo'} onClick={() => poner({ tipo: 'alternativo' })}>Ópera, teatro y arte</Interruptor>
           <Interruptor activo={!filtro.soloConfirmado} onClick={() => poner({ soloConfirmado: !filtro.soloConfirmado })}>
             Incluir idioma sin confirmar
           </Interruptor>
