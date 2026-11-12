@@ -1,7 +1,7 @@
 {
-  "verificado": "2026-11-10",
+  "verificado": "2026-11-12",
   "ciudad": "Medellín",
-  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet, teatro y documentales de arte: los próximos 120 días). Cine Colombia leída el 2026-11-10; las otras salas, el 2026-11-10. Cada botón abre la sala en vivo para ver horarios.",
+  "nota": "Películas con función subtitulada o en idioma original en Medellín entre hoy y la próxima semana (ópera, ballet, teatro y documentales de arte: los próximos 120 días). Cine Colombia leída el 2026-11-12; las otras salas, el 2026-11-10. Cada botón abre la sala en vivo para ver horarios.",
   "peliculas": [
     {
       "titulo": "Caballo Salvaje Nueve",
@@ -17,12 +17,17 @@
       "donde": [
         {
           "cadena": "Cine Colombia",
-          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
+          "sede": "Oviedo · Vizcaya",
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/wild-horse-nine"
         },
@@ -78,7 +83,7 @@
       "imdb": {
         "id": "tt15799564",
         "nota": 8.1,
-        "votos": 9442
+        "votos": 12117
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOTlkOGFlYWYtN2VlNC00NjNhLWIxYmMtNDVhZTQ4YmQ4ZTdiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -99,8 +104,13 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/wildwood"
         },
@@ -154,7 +164,7 @@
       "imdb": {
         "id": "tt2056785",
         "nota": 8.6,
-        "votos": 24930
+        "votos": 26494
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2JjOGQ1OGMtZmUwYS00YmQ2LTllNzQtZjU2YjY1NzM2NzJjXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -183,7 +193,13 @@
             "2026-12-20",
             "2026-12-21",
             "2026-12-22",
-            "2026-12-23"
+            "2026-12-23",
+            "2026-12-25",
+            "2026-12-26",
+            "2026-12-27",
+            "2026-12-28",
+            "2026-12-29",
+            "2026-12-30"
           ],
           "url": "https://www.cinecolombia.com/peliculas/avengers-doomsday"
         },
@@ -415,67 +431,6 @@
       "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6a9b3ab0c01df9896847f5bf/common/duna-parte-3-112803-1788809722931"
     },
     {
-      "titulo": "El Gran Falsificador",
-      "original": "L’affaire Bojarski.",
-      "slug": "l-affaire-bojarski",
-      "generos": [
-        "Drama"
-      ],
-      "duracion": 128,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Vizcaya",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/l-affaire-bojarski"
-        },
-        {
-          "cadena": "Colombo Americano",
-          "sede": "Colombo Americano, sala 1",
-          "idioma": "el Colombo no lo publica",
-          "idioma_confirmado": false,
-          "fechas": [
-            "2026-11-12",
-            "2026-11-13",
-            "2026-11-15"
-          ],
-          "funciones": [
-            "2026-11-12 16:30",
-            "2026-11-13 14:00",
-            "2026-11-15 18:45"
-          ],
-          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
-        },
-        {
-          "cadena": "MAMM (cine)",
-          "sede": "MAMM",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-16"
-          ],
-          "funciones": [
-            "2026-11-16 13:30"
-          ],
-          "url": "https://www.elmamm.org/producto/el-gran-falsificador/"
-        }
-      ],
-      "poster": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg",
-      "imdb": {
-        "id": "tt35495035",
-        "nota": 7,
-        "votos": 2283,
-        "dudoso": true
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg"
-    },
-    {
       "titulo": "Rapido y Furioso",
       "original": "The Fast and the Furious (25th Anniversary)",
       "slug": "the-fast-and-the-furious-25th-anniversary",
@@ -497,7 +452,9 @@
             "2026-11-13",
             "2026-11-14",
             "2026-11-15",
-            "2026-11-16"
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/the-fast-and-the-furious-25th-anniversary"
         },
@@ -548,55 +505,59 @@
       "imdb": {
         "id": "tt0232500",
         "nota": 6.8,
-        "votos": 469639
+        "votos": 469712
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
-      "titulo": "A Cualquier Precio",
-      "original": "By Any Means",
-      "slug": "by-any-means",
+      "titulo": "Babystar",
+      "original": "Babystar",
+      "slug": "babystar",
       "generos": [
-        "Crimen",
-        "Suspenso"
+        "Drama"
       ],
-      "duracion": 107,
+      "duracion": 98,
       "alternativo": false,
       "donde": [
         {
           "cadena": "Cine Colombia",
-          "sede": "Molinos · Viva Envigado · Vizcaya",
+          "sede": "Viva Envigado · Vizcaya",
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
-          "url": "https://www.cinecolombia.com/peliculas/by-any-means"
+          "url": "https://www.cinecolombia.com/peliculas/babystar"
         },
         {
-          "cadena": "Cinemark",
-          "sede": "Cinemark El Tesoro",
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-13",
+            "2026-11-16"
           ],
           "funciones": [
-            "2026-11-10 20:10",
-            "2026-11-11 20:10"
+            "2026-11-13 16:20",
+            "2026-11-16 18:10"
           ],
-          "url": "https://www.cinemark.com.co/cartelera/medellin/a-cualquier-precio"
+          "url": "https://www.elmamm.org/producto/babystar/"
         }
       ],
-      "poster": "https://m.media-amazon.com/images/M/MV5BZTUwODQ5N2QtMGM3Ny00YTk1LWJlZTctMTE5ZTAzNTMwOGQxXkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
-        "id": "tt34379051",
-        "nota": 6.5,
-        "votos": 8621
+        "id": "tt34998116",
+        "nota": 6.1,
+        "votos": 205
       },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZTUwODQ5N2QtMGM3Ny00YTk1LWJlZTctMTE5ZTAzNTMwOGQxXkEyXkFqcGc@._V1_UX192_.jpg"
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Clayface",
@@ -611,12 +572,17 @@
       "donde": [
         {
           "cadena": "Cine Colombia",
-          "sede": "Oviedo · Viva Envigado",
+          "sede": "Viva Envigado",
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/clayface"
         },
@@ -642,7 +608,7 @@
       "imdb": {
         "id": "tt34890576",
         "nota": 7.5,
-        "votos": 48433
+        "votos": 49985
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjNlMjM4NTAtYjE5YS00ZGYyLWEyMTYtNjFlMmIxZDEzYjhhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -686,7 +652,7 @@
       "imdb": {
         "id": "tt31450459",
         "nota": 7.5,
-        "votos": 47249
+        "votos": 47555
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BN2E0YTg1M2YtOGQyYi00NDFkLTk3NzUtYmEyNTZhYThhZDQ0XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -708,8 +674,13 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/heart-of-the-beast"
         },
@@ -735,9 +706,56 @@
       "imdb": {
         "id": "tt7526136",
         "nota": 7.1,
-        "votos": 44562
+        "votos": 48663
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "El gran falsificador",
+      "original": "El gran falsificador",
+      "slug": "el-gran-falsificador",
+      "donde": [
+        {
+          "cadena": "Colombo Americano",
+          "sede": "Colombo Americano, sala 1",
+          "idioma": "el Colombo no lo publica",
+          "idioma_confirmado": false,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-15"
+          ],
+          "funciones": [
+            "2026-11-12 16:30",
+            "2026-11-13 14:00",
+            "2026-11-15 18:45"
+          ],
+          "url": "https://www.colombomedellin.edu.co/programacion-por-salas/"
+        },
+        {
+          "cadena": "MAMM (cine)",
+          "sede": "MAMM",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-16"
+          ],
+          "funciones": [
+            "2026-11-16 13:30"
+          ],
+          "url": "https://www.elmamm.org/producto/el-gran-falsificador/"
+        }
+      ],
+      "duracion": 128,
+      "alternativo": false,
+      "poster": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg",
+      "imdb": {
+        "id": "tt35495035",
+        "nota": 7,
+        "votos": 2291,
+        "dudoso": true
+      },
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BODJiNzA2MjAtYmJkYi00M2M3LWJlYTctYTc0ZWQ1ZDIxOTdiXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Godzilla Minus Zero",
@@ -753,12 +771,16 @@
       "donde": [
         {
           "cadena": "Cine Colombia",
-          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
+          "sede": "Viva Envigado",
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17"
           ],
           "url": "https://www.cinecolombia.com/peliculas/godzilla-minus-zero"
         },
@@ -783,7 +805,7 @@
       "imdb": {
         "id": "tt34384661",
         "nota": 8,
-        "votos": 14878
+        "votos": 19208
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -879,14 +901,7 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-18",
-            "2026-11-19",
-            "2026-11-20",
-            "2026-11-21",
-            "2026-11-22",
-            "2026-11-23",
-            "2026-11-24",
-            "2026-11-25"
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/the-hunger-games-sunrise-on-the-reaping"
         },
@@ -988,7 +1003,7 @@
       "imdb": {
         "id": "tt29002950",
         "nota": 7.2,
-        "votos": 6135
+        "votos": 6143
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGQ2ODE0M2QtODUzMS00OGIyLTlmZWItZGMwM2E2MDg5YWUxXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -1009,8 +1024,13 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/sense-and-sensibility"
         },
@@ -1034,7 +1054,7 @@
       "imdb": {
         "id": "tt13609648",
         "nota": 7.2,
-        "votos": 11139
+        "votos": 11558
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzNmM2E0OWItZWU2MC00M2I3LWEyZTQtYWIyYmZhOGEyOTY1XkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -1082,7 +1102,7 @@
       "imdb": {
         "id": "tt37304295",
         "nota": 7.4,
-        "votos": 4558,
+        "votos": 4648,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BY2M5ZmVkMWMtOTNjZS00MjM3LTg3ODYtYjJmMDJjMjU0ODU5XkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1103,8 +1123,13 @@
           "idioma": "Subtitulada",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/verity"
         },
@@ -1130,9 +1155,37 @@
       "imdb": {
         "id": "tt32261958",
         "nota": 6,
-        "votos": 35417
+        "votos": 36299
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmE0OWRiNzktY2MwMy00YzQ5LWFkMzctNjI1ZWQ1NTRiZGM3XkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "A Cualquier Precio",
+      "original": "A Cualquier Precio",
+      "slug": "a-cualquier-precio",
+      "donde": [
+        {
+          "cadena": "Cinemark",
+          "sede": "Cinemark El Tesoro",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "funciones": [
+            "2026-11-10 20:10",
+            "2026-11-11 20:10"
+          ],
+          "url": "https://www.cinemark.com.co/cartelera/medellin/a-cualquier-precio"
+        }
+      ],
+      "generos": [
+        "Acción"
+      ],
+      "duracion": 105,
+      "alternativo": false,
+      "poster": "https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/6ae11a3e324b4c65989b9cbe/common/a-cualquier-precio-113957-1793807236657"
     },
     {
       "titulo": "Akira",
@@ -1172,40 +1225,45 @@
       "imdb": {
         "id": "tt0094625",
         "nota": 8,
-        "votos": 233909
+        "votos": 233967
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzlhZGRmZGEtM2ZjNC00MWRmLTk0MDctYzU1NzAzODIxYzEyXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
-      "titulo": "Babystar",
-      "original": "Babystar",
-      "slug": "babystar",
+      "titulo": "Alix",
+      "original": "Alix",
+      "slug": "alix",
+      "generos": [
+        "Fantasía",
+        "Drama"
+      ],
+      "duracion": 123,
+      "alternativo": false,
       "donde": [
         {
-          "cadena": "MAMM (cine)",
-          "sede": "MAMM",
-          "idioma": "Subtitulada",
+          "cadena": "Cine Colombia",
+          "sede": "Vizcaya",
+          "idioma": "Español (original)",
           "idioma_confirmado": true,
           "fechas": [
+            "2026-11-12",
             "2026-11-13",
-            "2026-11-16"
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
-          "funciones": [
-            "2026-11-13 16:20",
-            "2026-11-16 18:10"
-          ],
-          "url": "https://www.elmamm.org/producto/babystar/"
+          "url": "https://www.cinecolombia.com/peliculas/alix"
         }
       ],
-      "duracion": 98,
-      "alternativo": false,
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
-        "id": "tt34998116",
-        "nota": 6.1,
-        "votos": 197
+        "id": "tt27046281",
+        "nota": 7.4,
+        "votos": 26
       },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMjQ0YjAzZGEtYjgyOC00ZTdhLWE1YTQtZWZhOGRjZjk4N2ZiXkEyXkFqcGc@._V1_UX192_.jpg"
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYjgyOTM3YTgtNDU4Ny00MTcwLTg0NzYtOTQyN2Q4MGYxOTkyXkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjgyOTM3YTgtNDU4Ny00MTcwLTg0NzYtOTQyN2Q4MGYxOTkyXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Bad Lieutenant",
@@ -1232,9 +1290,46 @@
       "imdb": {
         "id": "tt0103759",
         "nota": 7,
-        "votos": 53671
+        "votos": 53693
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMzVhMGI1OWUtMTEwNy00MWMyLTgwZjgtMTBjYTk1YmExMDNlXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Blue Lock",
+      "original": "Blue Lock",
+      "slug": "blue-lock",
+      "generos": [
+        "Acción",
+        "Drama",
+        "Deporte"
+      ],
+      "duracion": 128,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/blue-lock"
+        }
+      ],
+      "imdb": {
+        "id": "tt39400168",
+        "nota": 6.5,
+        "votos": 240
+      },
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMzFkYTU0MjYtMDAxZi00ODRmLWI3ZmUtZmMyMjJiOWE0ZmY5XkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMzFkYTU0MjYtMDAxZi00ODRmLWI3ZmUtZmMyMjJiOWE0ZmY5XkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "BTS WORLD TOUR 'ARIRANG' IN JAKARTA: LIVE",
@@ -1305,6 +1400,36 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg/330px-Prudent-Louis_Leray_-_Poster_for_the_premi%C3%A8re_of_Georges_Bizet%27s_Carmen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
+      "titulo": "Cómo Robar un Banco",
+      "original": "How to Rob a Bank",
+      "slug": "how-to-rob-a-bank",
+      "generos": [
+        "Acción",
+        "Crimen",
+        "Suspenso"
+      ],
+      "duracion": 122,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/how-to-rob-a-bank"
+        }
+      ]
+    },
+    {
       "titulo": "Donde comienza el río",
       "original": "Donde comienza el río",
       "slug": "donde-comienza-el-rio",
@@ -1328,11 +1453,39 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BMDY3MzVjODYtZmE1NS00NzdiLTg4ODgtNThjODI0NTllZGFhXkEyXkFqcGc@._V1_UX192_.jpg",
       "imdb": {
         "id": "tt15461438",
-        "nota": 7.7,
-        "votos": 21,
+        "nota": 7.8,
+        "votos": 23,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMDY3MzVjODYtZmE1NS00NzdiLTg4ODgtNThjODI0NTllZGFhXkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Ebenezer",
+      "original": "Ebenezer",
+      "slug": "ebenezer",
+      "generos": [
+        "Fantasía"
+      ],
+      "duracion": 115,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/ebenezer"
+        }
+      ]
     },
     {
       "titulo": "El cielo dividido",
@@ -1356,70 +1509,6 @@
       "duracion": 113,
       "alternativo": false,
       "poster": "https://www.colombomedellin.edu.co/wp-content/uploads/der_geteilte_himmel-752435756-large.jpg"
-    },
-    {
-      "titulo": "El Despertar",
-      "original": "El Despertar",
-      "slug": "el-despertar",
-      "generos": [
-        "Acción",
-        "Suspenso"
-      ],
-      "duracion": 96,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Viva Envigado",
-          "idioma": "Español (original)",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/el-despertar"
-        }
-      ],
-      "imdb": {
-        "id": "tt39120306",
-        "nota": 3.5,
-        "votos": 193,
-        "dudoso": true
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNzBhYjRkMjQtODAwYS00MzFiLWI5YWMtZjNiYzNlMjQwMDdmXkEyXkFqcGc@._V1_UX192_.jpg",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzBhYjRkMjQtODAwYS00MzFiLWI5YWMtZjNiYzNlMjQwMDdmXkEyXkFqcGc@._V1_UX192_.jpg"
-    },
-    {
-      "titulo": "El Gato con Sombrero",
-      "original": "The Cat in the Hat",
-      "slug": "the-cat-in-the-hat",
-      "generos": [
-        "Animación",
-        "Aventura",
-        "Comedia"
-      ],
-      "duracion": 91,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Viva Envigado · Vizcaya",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/the-cat-in-the-hat"
-        }
-      ],
-      "imdb": {
-        "id": "tt2321555",
-        "nota": 6.6,
-        "votos": 943
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZmJhNzk4OGMtOTlmNC00ODAxLWFkYjYtY2RhYWVmNDg5YmViXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "El Lago de los Cisnes",
@@ -1471,38 +1560,6 @@
       ],
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNDEyYjRiYmQtZGNjZS00ZWEwLTg5NDUtMTczMTJlYWVmNzFlXkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BNDEyYjRiYmQtZGNjZS00ZWEwLTg5NDUtMTczMTJlYWVmNzFlXkEyXkFqcGc@._V1_UX192_.jpg"
-    },
-    {
-      "titulo": "Entrega Al Límite",
-      "original": "Runner",
-      "slug": "runner",
-      "generos": [
-        "Acción",
-        "Suspenso",
-        "Comedia"
-      ],
-      "duracion": 97,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Viva Envigado",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/runner"
-        }
-      ],
-      "imdb": {
-        "id": "tt31349844",
-        "nota": 6.2,
-        "votos": 19884
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOThmN2YyMzMtN2Y2Zi00MjViLTg2NzQtNGM0ZDU3ZDAyYThhXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "James McNeill Whistler",
@@ -1710,38 +1767,6 @@
       "poster": "https://m.media-amazon.com/images/M/MV5BZWJkNjg2N2YtYjMzMS00MTQ2LWE1ZjEtOWE1MjkzYmRkZDNmXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
-      "titulo": "Los Juegos del Hambre: Sinsajo Part 2",
-      "original": "The Hunger Games: Mockingjay - Part 2",
-      "slug": "the-hunger-games-mockingjay-part-2",
-      "generos": [
-        "Acción",
-        "Suspenso",
-        "Aventura"
-      ],
-      "duracion": 137,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Viva Envigado",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/the-hunger-games-mockingjay-part-2"
-        }
-      ],
-      "imdb": {
-        "id": "tt1951266",
-        "nota": 6.6,
-        "votos": 425188
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjQzNDI2NTU1Ml5BMl5BanBnXkFtZTgwNTAyMDQ5NjE@._V1_UX192_.jpg"
-    },
-    {
       "titulo": "Madre Siniestra",
       "original": "Madre Siniestra",
       "slug": "madre-siniestra",
@@ -1819,7 +1844,7 @@
       "imdb": {
         "id": "tt0422720",
         "nota": 6.5,
-        "votos": 134532,
+        "votos": 134574,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMmE4NzQzNGItNTY4My00ZTBhLTk2ZjItZDJkMjRlYTE2MGRiXkEyXkFqcGc@._V1_UX192_.jpg"
@@ -1837,20 +1862,25 @@
       "donde": [
         {
           "cadena": "Cine Colombia",
-          "sede": "Molinos · Santafe Medellin · Viva Envigado",
+          "sede": "Santafe Medellin",
           "idioma": "Español (original)",
           "idioma_confirmado": true,
           "fechas": [
-            "2026-11-10",
-            "2026-11-11"
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
           ],
           "url": "https://www.cinecolombia.com/peliculas/pacifico"
         }
       ],
       "imdb": {
         "id": "tt4634974",
-        "nota": 5.7,
-        "votos": 61,
+        "nota": 5.6,
+        "votos": 62,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZGI4NWM2YWQtZjJkZi00NDdmLWJjZTEtMzJiMWVlNTQ0OGE4XkEyXkFqcGc@._V1_UX192_.jpg",
@@ -1942,7 +1972,7 @@
       "imdb": {
         "id": "tt0075148",
         "nota": 8.1,
-        "votos": 707111
+        "votos": 707376
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_UX192_.jpg"
     },
@@ -2020,39 +2050,10 @@
       "imdb": {
         "id": "tt41742035",
         "nota": 6.9,
-        "votos": 72,
+        "votos": 73,
         "dudoso": true
       },
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BOTZjNjE1ODMtNWM5OC00OWU0LWI1NTctYTAxN2I5YWYyMDBmXkEyXkFqcGc@._V1_UX192_.jpg"
-    },
-    {
-      "titulo": "Street Fighter",
-      "original": "Street Fighter",
-      "slug": "street-fighter",
-      "generos": [
-        "Acción"
-      ],
-      "duracion": 120,
-      "alternativo": false,
-      "donde": [
-        {
-          "cadena": "Cine Colombia",
-          "sede": "Viva Envigado",
-          "idioma": "Subtitulada",
-          "idioma_confirmado": true,
-          "fechas": [
-            "2026-11-10"
-          ],
-          "url": "https://www.cinecolombia.com/peliculas/street-fighter"
-        }
-      ],
-      "imdb": {
-        "id": "tt27419420",
-        "nota": 6.2,
-        "votos": 22083
-      },
-      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjhlN2EyNGUtY2U4YS00ZTQ3LTg0NTgtNGIxZmVhMDlmMjIyXkEyXkFqcGc@._V1_UX192_.jpg"
     },
     {
       "titulo": "Todos Eran Mis Hijos",
@@ -2079,13 +2080,48 @@
       ],
       "poster_imdb": "https://m.media-amazon.com/images/M/MV5BY2M5NzM3NWEtMDgyOC00ODQyLWI5MTctZGRiNWRmNjRmNjk4XkEyXkFqcGc@._V1_UX192_.jpg",
       "poster": "https://m.media-amazon.com/images/M/MV5BY2M5NzM3NWEtMDgyOC00ODQyLWI5MTctZGRiNWRmNjRmNjk4XkEyXkFqcGc@._V1_UX192_.jpg"
+    },
+    {
+      "titulo": "Yo Soy Rocky",
+      "original": "I Play Rocky",
+      "slug": "i-play-rocky",
+      "generos": [
+        "Drama"
+      ],
+      "duracion": 128,
+      "alternativo": false,
+      "donde": [
+        {
+          "cadena": "Cine Colombia",
+          "sede": "Molinos · Oviedo · Santafe Medellin · Unicentro Medellin · Viva Envigado · Vizcaya",
+          "idioma": "Subtitulada",
+          "idioma_confirmado": true,
+          "fechas": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18"
+          ],
+          "url": "https://www.cinecolombia.com/peliculas/i-play-rocky"
+        }
+      ],
+      "imdb": {
+        "id": "tt11995650",
+        "nota": 8,
+        "votos": 2430
+      },
+      "poster_imdb": "https://m.media-amazon.com/images/M/MV5BMTY0MWFkODAtNDdhNS00MzIwLThhMjItMzczMDQ3OWUxMGI0XkEyXkFqcGc@._V1_UX192_.jpg",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTY0MWFkODAtNDdhNS00MzIwLThhMjItMzczMDQ3OWUxMGI0XkEyXkFqcGc@._V1_UX192_.jpg"
     }
   ],
   "cadenas": [
     {
       "nombre": "Cine Colombia",
       "url": "https://www.cinecolombia.com/cartelera/medellin",
-      "estado": "Leída el 2026-11-10 desde su API, en las 6 sedes de Medellín."
+      "estado": "Leída el 2026-11-12 desde su API, en las 6 sedes de Medellín."
     },
     {
       "nombre": "Procinal (Terminal del Sur)",
@@ -2108,5 +2144,5 @@
       "estado": "Leída el 2026-11-10: 25 fichas leídas; 13 con función en los próximos 8 días."
     }
   ],
-  "imdb_leido": "2026-11-10"
+  "imdb_leido": "2026-11-12"
 }
